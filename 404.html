@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>404 — FEFELOV</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Onest', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-stone-50 text-stone-900 antialiased">
+    <div class="min-h-screen flex items-center justify-center px-6">
+        <div class="text-center">
+            <p class="text-8xl font-bold text-stone-200 mb-4">404</p>
+            <h1 class="text-2xl font-semibold mb-2">Страница не найдена</h1>
+            <p class="text-stone-500 mb-8">Возможно, она была удалена или вы ошиблись адресом</p>
+            <a href="/" class="inline-flex items-center gap-2 bg-stone-900 text-stone-50 px-6 py-3 rounded-full font-medium hover:bg-stone-800 transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+                </svg>
+                На главную
+            </a>
+        </div>
+    </div>
+</body>
+</html>

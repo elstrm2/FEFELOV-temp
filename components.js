@@ -16,6 +16,7 @@ const commonStyles = `
         background-size: 300% 100%;
         -webkit-background-clip: text;
         background-clip: text;
+        -webkit-text-fill-color: transparent;
         color: transparent;
         animation: gradient-shift 4s ease infinite;
         transition: all 0.3s ease;
@@ -29,14 +30,17 @@ const commonStyles = `
         background-size: 300% 100%;
         -webkit-background-clip: text;
         background-clip: text;
+        -webkit-text-fill-color: transparent;
         color: transparent;
         animation: gradient-shift 3s ease infinite;
+        padding-right: 2px;
     }
     .logo-container:hover .logo-dot {
         background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe, #667eea);
         background-size: 300% 100%;
         -webkit-background-clip: text;
         background-clip: text;
+        -webkit-text-fill-color: transparent;
         color: transparent;
         animation: gradient-shift 3s ease infinite;
     }

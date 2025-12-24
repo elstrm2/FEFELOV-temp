@@ -205,6 +205,17 @@
                             </div>
                             <div><h3 class="font-medium text-stone-900 mb-3">4.5. Рассрочка</h3><p>В исключительных случаях возможно предоставление рассрочки. Условия (сроки, график платежей) фиксируются в переписке и являются обязательными.</p></div>
                             <div><h3 class="font-medium text-stone-900 mb-3">4.6. Способы оплаты</h3><p>Оплата производится способами, согласованными с менеджером: банковский перевод, СБП, электронные платёжные системы.</p></div>
+                            <div class="bg-red-50 border border-red-200 rounded-xl p-4">
+                                <h3 class="font-medium text-red-900 mb-2">4.7. Задолженность без предварительной оплаты</h3>
+                                <p class="text-red-800 mb-3">Если услуги были оказаны без какой-либо предварительной оплаты (ни 100%, ни 50%), образовавшаяся задолженность подлежит оплате в полном объёме:</p>
+                                <ul class="space-y-2 text-red-800">
+                                    <li class="flex items-start gap-2"><span class="font-medium">4.7.1.</span> Заказчик обязан оплатить 100% стоимости в течение <strong>24 часов</strong> с момента получения результата</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium">4.7.2.</span> При неоплате — применяются меры раздела 8 (пени 0,5% в день с 8-го дня)</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium">4.7.3.</span> Исполнитель вправе взыскать долг в судебном порядке согласно ст. 309, 310, 395 ГК РФ</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium">4.7.4.</span> Факт оказания услуг подтверждается перепиской, передачей файлов, логами систем</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium">4.7.5.</span> Отсутствие письменного договора не освобождает от обязанности оплаты (п. 1 ст. 434, ст. 438 ГК РФ)</li>
+                                </ul>
+                            </div>
                         </div>
                     </section>
 
@@ -250,15 +261,35 @@
                     <section id="section-7" class="bg-white rounded-2xl border border-stone-200 p-8">
                         <h2 class="text-xl font-semibold mb-6">7. Срочность выполнения</h2>
                         <div class="space-y-6 text-sm text-stone-700">
-                            <div><h3 class="font-medium text-stone-900 mb-3">7.1. Доплата за срочность</h3><p>При необходимости срочного выполнения услуг (в сокращённые сроки) взимается дополнительная плата.</p></div>
-                            <div><h3 class="font-medium text-stone-900 mb-3">7.2. Размер доплаты</h3><p class="mb-3">Размер доплаты <strong>не является фиксированным</strong> и определяется индивидуально с учётом:</p><ul class="grid sm:grid-cols-2 gap-2"><li class="flex items-start gap-2"><span class="text-stone-400">•</span> Сложности задачи</li><li class="flex items-start gap-2"><span class="text-stone-400">•</span> Требуемых сроков</li><li class="flex items-start gap-2"><span class="text-stone-400">•</span> Текущей загруженности</li><li class="flex items-start gap-2"><span class="text-stone-400">•</span> Необходимости работы в нерабочее время</li></ul></div>
-                            <div><h3 class="font-medium text-stone-900 mb-3">7.3. Согласование</h3><p>Доплата согласовывается до начала срочного заказа и оплачивается в порядке, установленном разделом 4.</p></div>
+                            <div><h3 class="font-medium text-stone-900 mb-3">7.1. Доплата за срочность</h3><p>При необходимости срочного выполнения услуг (в сокращённые сроки) взимается дополнительная плата. Рабочее время — согласно <a href="#section-5" class="underline hover:text-stone-900">разделу 5</a> (Пн–Пт, 10:00–20:00 МСК).</p></div>
+                            <div>
+                                <h3 class="font-medium text-stone-900 mb-3">7.2. Ориентировочные коэффициенты срочности</h3>
+                                <p class="mb-4 text-stone-600">Указанные коэффициенты являются ориентировочными. Итоговая доплата определяется индивидуально.</p>
+                                <div class="overflow-hidden rounded-xl border border-stone-200">
+                                    <table class="w-full text-sm">
+                                        <thead class="bg-stone-50"><tr><th class="px-4 py-3 text-left font-medium">Срок выполнения</th><th class="px-4 py-3 text-left font-medium">Коэффициент</th><th class="px-4 py-3 text-left font-medium">Примечание</th></tr></thead>
+                                        <tbody>
+                                            <tr class="border-t border-stone-200"><td class="px-4 py-3">3+ рабочих дней</td><td class="px-4 py-3 font-medium">×1.0</td><td class="px-4 py-3 text-stone-500">Стандартный срок</td></tr>
+                                            <tr class="border-t border-stone-200"><td class="px-4 py-3">1–2 рабочих дня</td><td class="px-4 py-3 font-medium">×1.3 – ×1.5</td><td class="px-4 py-3 text-stone-500">Ускоренное выполнение</td></tr>
+                                            <tr class="border-t border-stone-200 bg-amber-50"><td class="px-4 py-3">В тот же день (рабочий)</td><td class="px-4 py-3 font-medium text-amber-900">×1.5 – ×2.0</td><td class="px-4 py-3 text-amber-800">До 20:00 МСК</td></tr>
+                                            <tr class="border-t border-stone-200 bg-amber-50"><td class="px-4 py-3">За несколько часов</td><td class="px-4 py-3 font-medium text-amber-900">×2.0 – ×2.5</td><td class="px-4 py-3 text-amber-800">Экстренная работа</td></tr>
+                                            <tr class="border-t border-stone-200 bg-red-50"><td class="px-4 py-3">В нерабочее время</td><td class="px-4 py-3 font-medium text-red-900">×2.0 – ×3.0</td><td class="px-4 py-3 text-red-800">После 20:00, выходные, праздники</td></tr>
+                                            <tr class="border-t border-stone-200 bg-red-50"><td class="px-4 py-3">Ночью (00:00–08:00)</td><td class="px-4 py-3 font-medium text-red-900">×2.5 – ×3.5</td><td class="px-4 py-3 text-red-800">По согласованию</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div><h3 class="font-medium text-stone-900 mb-3">7.3. Факторы влияющие на коэффициент</h3><ul class="grid sm:grid-cols-2 gap-2"><li class="flex items-start gap-2"><span class="text-stone-400">•</span> Сложность задачи (диплом, курсовая, IT-проект)</li><li class="flex items-start gap-2"><span class="text-stone-400">•</span> Объём работы</li><li class="flex items-start gap-2"><span class="text-stone-400">•</span> Текущая загруженность Исполнителя</li><li class="flex items-start gap-2"><span class="text-stone-400">•</span> День недели и время суток</li></ul></div>
+                            <div class="bg-stone-50 rounded-xl p-4"><h3 class="font-medium text-stone-900 mb-2">7.4. Согласование</h3><p>Итоговая доплата согласовывается до начала срочного заказа и оплачивается в порядке, установленном <a href="#section-4" class="underline hover:text-stone-900">разделом 4</a>. Исполнитель вправе отказать в срочном выполнении без объяснения причин.</p></div>
                         </div>
                     </section>
 
                     <section id="section-8" class="bg-white rounded-2xl border border-stone-200 p-8">
                         <h2 class="text-xl font-semibold mb-6">8. Просрочка оплаты и пени</h2>
                         <div class="space-y-6 text-sm text-stone-700">
+                            <div class="bg-stone-50 rounded-xl p-4 text-stone-600">
+                                <strong>Примечание:</strong> все сроки в настоящем разделе исчисляются в <strong>календарных днях</strong>. Рабочие дни и часы определяются согласно <a href="#section-5" class="underline hover:text-stone-900">разделу 5</a> (Пн–Пт, 10:00–20:00 МСК, выходные и праздники РФ — нерабочие).
+                            </div>
                             <div>
                                 <h3 class="font-medium text-stone-900 mb-3">8.1. Этапы работы с просрочкой</h3>
                                 <div class="overflow-hidden rounded-xl border border-stone-200">
@@ -301,6 +332,9 @@
                     <section id="section-9" class="bg-white rounded-2xl border border-stone-200 p-8">
                         <h2 class="text-xl font-semibold mb-6">9. Спорные ситуации</h2>
                         <div class="space-y-6 text-sm text-stone-700">
+                            <div class="bg-stone-50 rounded-xl p-4 text-stone-600">
+                                <strong>Примечание:</strong> сроки рассмотрения претензий исчисляются в <strong>рабочих днях</strong> согласно <a href="#section-5" class="underline hover:text-stone-900">разделу 5</a> (Пн–Пт, 10:00–20:00 МСК). Сроки просрочки — в календарных днях.
+                            </div>
                             <div>
                                 <h3 class="font-medium text-stone-900 mb-3">9.1. Заказчик игнорирует сообщения</h3>
                                 <ul class="space-y-2">
@@ -371,6 +405,9 @@
                     <section id="section-10" class="bg-white rounded-2xl border border-stone-200 p-8">
                         <h2 class="text-xl font-semibold mb-6">10. Правила поведения сторон</h2>
                         <div class="space-y-6 text-sm text-stone-700">
+                            <div class="bg-stone-50 rounded-xl p-4 text-stone-600">
+                                <strong>Примечание:</strong> «Нерабочее время» означает время за пределами графика, указанного в <a href="#section-5" class="underline hover:text-stone-900">разделе 5</a>: до 10:00 и после 20:00 МСК в будни, а также полностью выходные и праздничные дни РФ.
+                            </div>
                             <div>
                                 <h3 class="font-medium text-stone-900 mb-3">10.1. Обязанности Заказчика</h3>
                                 <ul class="space-y-2">

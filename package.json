@@ -1,0 +1,26 @@
+{
+  "name": "fefelov-temp",
+  "version": "1.0.0",
+  "description": "This is a proprietary project published as a GitHub Pages site for viewing purposes only. No license is granted for copying, modification, or distribution. See LICENSE.txt for complete terms.",
+  "main": "components.js",
+  "scripts": {
+    "build": "tailwindcss -i ./src/input.css -o ./styles.css --minify",
+    "watch": "tailwindcss -i ./src/input.css -o ./styles.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elstrm2/FEFELOV-temp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/elstrm2/FEFELOV-temp/issues"
+  },
+  "homepage": "https://github.com/elstrm2/FEFELOV-temp#readme",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.18",
+    "tailwindcss": "^4.1.18"
+  }
+}

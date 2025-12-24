@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Публичная оферта — FEFELOV</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Onest', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { font-family: 'Onest', system-ui, sans-serif; }
+        .nav-link { position: relative; }
+        .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px; background: #0a0a0a; transition: width 0.3s ease; }
+        .nav-link:hover::after { width: 100%; }
+        .toc-link { transition: all 0.2s ease; }
+        .toc-link:hover { padding-left: 8px; color: #0a0a0a; }
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-900 antialiased">
+    
+    <header class="fixed top-0 left-0 right-0 z-50 bg-stone-50/80 backdrop-blur-md border-b border-stone-200/50">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="text-xl font-semibold tracking-tight">FEFELOV</a>
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="index.html" class="nav-link text-sm text-stone-600 hover:text-stone-900">Главная</a>
+                    <a href="index.html#services" class="nav-link text-sm text-stone-600 hover:text-stone-900">Услуги</a>
+                    <a href="contacts.html" class="nav-link text-sm text-stone-600 hover:text-stone-900">Контакты</a>
+                </nav>
+                <a href="contacts.html" class="bg-stone-900 text-stone-50 px-5 py-2.5 text-sm font-medium rounded-full hover:bg-stone-800 transition-colors">
+                    Связаться
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-28 pb-20">
+        <div class="max-w-6xl mx-auto px-6">
+            
+            <div class="mb-12">
+                <p class="text-sm font-medium text-stone-500 mb-3 tracking-wide uppercase">Юридическая информация</p>
+                <h1 class="text-4xl md:text-5xl font-semibold tracking-tight mb-4">Публичная оферта</h1>
+                <p class="text-stone-600">на оказание информационно-консультационных, образовательных и IT-услуг</p>
+            </div>
+
+            <div class="grid lg:grid-cols-[280px_1fr] gap-12">
+                
+                <aside class="hidden lg:block">
+                    <div class="sticky top-28 bg-white rounded-2xl border border-stone-200 p-6">
+                        <h3 class="font-semibold mb-4 text-sm">Содержание</h3>
+                        <nav class="space-y-2 text-sm">
+                            <a href="#requisites" class="toc-link block text-stone-600 hover:text-stone-900">Реквизиты</a>
+                            <a href="#section-1" class="toc-link block text-stone-600 hover:text-stone-900">1. Термины</a>
+                            <a href="#section-2" class="toc-link block text-stone-600 hover:text-stone-900">2. Услуги</a>
+                            <a href="#section-3" class="toc-link block text-stone-600 hover:text-stone-900">3. Акцепт оферты</a>
+                            <a href="#section-4" class="toc-link block text-stone-600 hover:text-stone-900">4. Порядок оплаты</a>
+                            <a href="#section-5" class="toc-link block text-stone-600 hover:text-stone-900">5. Режим работы</a>
+                            <a href="#section-6" class="toc-link block text-stone-600 hover:text-stone-900">6. Коммуникация</a>
+                            <a href="#section-7" class="toc-link block text-stone-600 hover:text-stone-900">7. Срочность</a>
+                            <a href="#section-8" class="toc-link block text-stone-600 hover:text-stone-900">8. Просрочка и пени</a>
+                            <a href="#section-9" class="toc-link block text-stone-600 hover:text-stone-900">9. Спорные ситуации</a>
+                            <a href="#section-10" class="toc-link block text-stone-600 hover:text-stone-900">10. Поведение сторон</a>
+                            <a href="#section-11" class="toc-link block text-stone-600 hover:text-stone-900">11. Ответственность</a>
+                            <a href="#section-12" class="toc-link block text-stone-600 hover:text-stone-900">12. Споры</a>
+                            <a href="#section-13" class="toc-link block text-stone-600 hover:text-stone-900">13. Заключительные</a>
+                        </nav>
+                    </div>
+                </aside>
+
+                <div class="space-y-12">
+                    
+                    <div class="bg-amber-50 border border-amber-200 rounded-2xl p-6">
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-amber-900 mb-1">Важно</h3>
+                                <p class="text-amber-800 text-sm">Обращаясь к Исполнителю любым способом (мессенджеры, социальные сети, телефон, email), вы подтверждаете, что ознакомились с настоящей офертой и полностью принимаете её условия.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <section id="requisites" class="bg-white rounded-2xl border border-stone-200 p-8">
+                        <h2 class="text-xl font-semibold mb-6">Реквизиты Исполнителя</h2>
+                        <div class="grid sm:grid-cols-2 gap-4 text-sm">
+                            <div class="flex justify-between py-3 border-b border-stone-100"><span class="text-stone-500">Наименование</span><span class="font-medium">ИП Басенко Илья Константинович</span></div>
+                            <div class="flex justify-between py-3 border-b border-stone-100"><span class="text-stone-500">ОГРНИП</span><span class="font-medium">325774600531587</span></div>
+                            <div class="flex justify-between py-3 border-b border-stone-100"><span class="text-stone-500">ИНН</span><span class="font-medium">772370980295</span></div>
+                            <div class="flex justify-between py-3 border-b border-stone-100"><span class="text-stone-500">ОКПО</span><span class="font-medium">2044454351</span></div>
+                            <div class="flex justify-between py-3 border-b border-stone-100"><span class="text-stone-500">Регион</span><span class="font-medium">г. Москва</span></div>
+                            <div class="flex justify-between py-3 border-b border-stone-100"><span class="text-stone-500">Email</span><span class="font-medium">182003bkmz@gmail.com</span></div>
+                        </div>
+                    </section>
+
+                    <section id="section-1" class="bg-white rounded-2xl border border-stone-200 p-8">
+                        <h2 class="text-xl font-semibold mb-6">1. Термины и определения</h2>
+                        <div class="space-y-4 text-sm text-stone-700">
+                            <div class="grid grid-cols-[140px_1fr] gap-4 py-3 border-b border-stone-100"><span class="font-semibold text-stone-900">1.1. Исполнитель</span><span>ИП Басенко Илья Константинович (ОГРНИП 325774600531587, ИНН 772370980295), а также уполномоченные представители, действующие от его имени.</span></div>
+                            <div class="grid grid-cols-[140px_1fr] gap-4 py-3 border-b border-stone-100"><span class="font-semibold text-stone-900">1.2. Заказчик</span><span>Физическое или юридическое лицо, обратившееся к Исполнителю за оказанием услуг и принявшее условия настоящей оферты.</span></div>
+                            <div class="grid grid-cols-[140px_1fr] gap-4 py-3 border-b border-stone-100"><span class="font-semibold text-stone-900">1.3. Менеджер</span><span>Уполномоченный представитель Исполнителя, осуществляющий коммуникацию с Заказчиком через официальные каналы связи. Менеджер вправе согласовывать условия от имени Исполнителя.</span></div>
+                            <div class="grid grid-cols-[140px_1fr] gap-4 py-3 border-b border-stone-100"><span class="font-semibold text-stone-900">1.4. Услуги</span><span>Информационно-консультационные, образовательные, IT-услуги и иные услуги, оказываемые Исполнителем в соответствии с перечнем, указанным в разделе 2.</span></div>
+                            <div class="grid grid-cols-[140px_1fr] gap-4 py-3 border-b border-stone-100"><span class="font-semibold text-stone-900">1.5. Результат</span><span>Материалы, документы, файлы, программный код, консультации и иные результаты оказания услуг, передаваемые Заказчику.</span></div>
+                            <div class="grid grid-cols-[140px_1fr] gap-4 py-3"><span class="font-semibold text-stone-900">1.6. Коммуникация</span><span>Процесс взаимодействия Исполнителя с третьими лицами (преподавателями, экспертами, организациями) в интересах Заказчика. Коммуникация не предполагает немедленного результата.</span></div>
+                        </div>
+                    </section>
+
+                    <section id="section-2" class="bg-white rounded-2xl border border-stone-200 p-8">
+                        <h2 class="text-xl font-semibold mb-6">2. Перечень услуг</h2>
+                        <div class="mb-6">
+                            <h3 class="font-medium text-stone-900 mb-3">2.1. Подразделение FEFELOV.Study</h3>
+                            <p class="text-sm text-stone-600 mb-4">Информационно-консультационные и образовательные услуги (ОКВЭД 85.41.9):</p>
+                            <ul class="grid sm:grid-cols-2 gap-2 text-sm text-stone-700">
+                                <li class="flex items-start gap-2"><span class="text-stone-400">•</span>Консультации по учебным работам</li>
+                                <li class="flex items-start gap-2"><span class="text-stone-400">•</span>Помощь с курсовыми и дипломными</li>
+                                <li class="flex items-start gap-2"><span class="text-stone-400">•</span>Рефераты, эссе, доклады</li>
+                                <li class="flex items-start gap-2"><span class="text-stone-400">•</span>Репетиторство и подготовка к экзаменам</li>
+                                <li class="flex items-start gap-2"><span class="text-stone-400">•</span>Научные исследования (ОКВЭД 72.20)</li>
+                                <li class="flex items-start gap-2"><span class="text-stone-400">•</span>Подготовка документов (ОКВЭД 82.19)</li>
+                            </ul>
+                        </div>
+                        <div class="mb-6">
+                            <h3 class="font-medium text-stone-900 mb-3">2.2. Подразделение FEFELOV.Tech</h3>
+                            <p class="text-sm text-stone-600 mb-4">IT-услуги и разработка программного обеспечения (ОКВЭД 62.01, 63.11):</p>
+                            <ul class="grid sm:grid-cols-2 gap-2 text-sm text-stone-700">
+                                <li class="flex items-start gap-2"><span class="text-stone-400">•</span>Разработка веб-сайтов</li>
+                                <li class="flex items-start gap-2"><span class="text-stone-400">•</span>Мобильные приложения</li>
+                                <li class="flex items-start gap-2"><span class="text-stone-400">•</span>Автоматизация процессов</li>
+                                <li class="flex items-start gap-2"><span class="text-stone-400">•</span>Обработка и анализ данных</li>
+                                <li class="flex items-start gap-2"><span class="text-stone-400">•</span>Интеграции и API</li>
+                                <li class="flex items-start gap-2"><span class="text-stone-400">•</span>Техническое сопровождение</li>
+                            </ul>
+                        </div>
+                        <div class="bg-stone-50 rounded-xl p-4 text-sm text-stone-600"><strong>2.3.</strong> Конкретный перечень услуг, сроки и стоимость согласовываются индивидуально с каждым Заказчиком и фиксируются в переписке.</div>
+                    </section>
+
+                    <section id="section-3" class="bg-white rounded-2xl border border-stone-200 p-8">
+                        <h2 class="text-xl font-semibold mb-6">3. Акцепт оферты</h2>
+                        <div class="space-y-6 text-sm text-stone-700">
+                            <div>
+                                <h3 class="font-medium text-stone-900 mb-3">3.1. Способы акцепта</h3>
+                                <p class="mb-3">Акцептом (принятием) настоящей оферты является любое из следующих действий:</p>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">3.1.1.</span> Направление сообщения Исполнителю или его представителям через любые каналы связи</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">3.1.2.</span> Телефонный звонок Исполнителю</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">3.1.3.</span> Оплата услуг (полная или частичная)</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">3.1.4.</span> Получение результата услуг</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">3.1.5.</span> Фактическое пользование услугами</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="font-medium text-stone-900 mb-3">3.2. Момент заключения договора</h3>
+                                <p>Договор считается заключённым с момента первого обращения Заказчика к Исполнителю. Переписка в мессенджерах и социальных сетях имеет юридическую силу и является надлежащим подтверждением согласованных условий.</p>
+                            </div>
+                            <div class="bg-amber-50 border border-amber-200 rounded-xl p-4">
+                                <h3 class="font-medium text-amber-900 mb-2">3.3. Ранее оказанные услуги</h3>
+                                <p class="text-amber-800">Если между Заказчиком и Исполнителем ранее существовали договорные отношения без оформления письменного договора, условия настоящей оферты распространяются на такие отношения с момента её публикации. Продолжение взаимодействия подтверждает согласие с условиями.</p>
+                            </div>
+                            <div>
+                                <h3 class="font-medium text-stone-900 mb-3">3.4. Отсутствие упоминания оферты</h3>
+                                <p>Даже если в процессе работы условия настоящей оферты не упоминались прямо, факт обращения к Исполнителю означает полное принятие всех её условий. Незнание условий оферты не освобождает от их соблюдения.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="section-4" class="bg-white rounded-2xl border border-stone-200 p-8">
+                        <h2 class="text-xl font-semibold mb-6">4. Порядок оплаты</h2>
+                        <div class="space-y-6 text-sm text-stone-700">
+                            <div class="bg-stone-900 text-stone-50 rounded-xl p-5">
+                                <h3 class="font-semibold mb-2">4.1. Базовые условия</h3>
+                                <p>Стандартный порядок оплаты — <strong>100% предоплата</strong> до начала оказания услуг.</p>
+                            </div>
+                            <div>
+                                <h3 class="font-medium text-stone-900 mb-3">4.2. Альтернативные условия (50/50)</h3>
+                                <p class="mb-4">По согласованию с менеджером возможна оплата в два этапа:</p>
+                                <div class="overflow-hidden rounded-xl border border-stone-200">
+                                    <table class="w-full text-sm">
+                                        <thead class="bg-stone-50"><tr><th class="px-4 py-3 text-left font-medium">Этап</th><th class="px-4 py-3 text-left font-medium">Размер</th><th class="px-4 py-3 text-left font-medium">Момент оплаты</th></tr></thead>
+                                        <tbody>
+                                            <tr class="border-t border-stone-200"><td class="px-4 py-3">Предоплата</td><td class="px-4 py-3 font-medium">50%</td><td class="px-4 py-3">До начала работ</td></tr>
+                                            <tr class="border-t border-stone-200"><td class="px-4 py-3">Остаток</td><td class="px-4 py-3 font-medium">50%</td><td class="px-4 py-3">До передачи результата или в течение 24 часов после</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="font-medium text-stone-900 mb-3">4.3. Передача результата при оплате 50/50</h3>
+                                <p class="mb-3">Исполнитель вправе выбрать один из вариантов:</p>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">4.3.1.</span> Дождаться полной оплаты (100%) и после этого передать результат</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">4.3.2.</span> Передать результат для проверки с обязательством оплаты остатка в течение 24 часов</li>
+                                </ul>
+                                <p class="mt-3 text-stone-600">Выбор варианта остаётся за Исполнителем или согласовывается с менеджером.</p>
+                            </div>
+                            <div class="bg-red-50 border border-red-200 rounded-xl p-4">
+                                <h3 class="font-medium text-red-900 mb-2">4.4. Обязательство оплаты в 24 часа</h3>
+                                <p class="text-red-800">Если результат передан до получения полной оплаты, Заказчик обязан произвести оплату остатка в течение <strong>24 часов</strong> с момента получения. Неоплата в указанный срок является нарушением и влечёт последствия, указанные в разделе 8.</p>
+                            </div>
+                            <div><h3 class="font-medium text-stone-900 mb-3">4.5. Рассрочка</h3><p>В исключительных случаях возможно предоставление рассрочки. Условия (сроки, график платежей) фиксируются в переписке и являются обязательными.</p></div>
+                            <div><h3 class="font-medium text-stone-900 mb-3">4.6. Способы оплаты</h3><p>Оплата производится способами, согласованными с менеджером: банковский перевод, СБП, электронные платёжные системы.</p></div>
+                        </div>
+                    </section>
+
+                    <section id="section-5" class="bg-white rounded-2xl border border-stone-200 p-8">
+                        <h2 class="text-xl font-semibold mb-6">5. Режим работы</h2>
+                        <div class="space-y-6 text-sm text-stone-700">
+                            <div>
+                                <h3 class="font-medium text-stone-900 mb-3">5.1. Рабочее время</h3>
+                                <div class="grid sm:grid-cols-3 gap-4">
+                                    <div class="bg-stone-50 rounded-xl p-4 text-center"><p class="text-stone-500 text-xs mb-1">Дни</p><p class="font-semibold">Пн — Пт</p></div>
+                                    <div class="bg-stone-50 rounded-xl p-4 text-center"><p class="text-stone-500 text-xs mb-1">Время</p><p class="font-semibold">10:00 — 20:00</p></div>
+                                    <div class="bg-stone-50 rounded-xl p-4 text-center"><p class="text-stone-500 text-xs mb-1">Часовой пояс</p><p class="font-semibold">МСК</p></div>
+                                </div>
+                            </div>
+                            <div><h3 class="font-medium text-stone-900 mb-3">5.2. Выходные и праздники</h3><p>Суббота, воскресенье и праздничные дни согласно производственному календарю РФ являются нерабочими днями.</p></div>
+                            <div>
+                                <h3 class="font-medium text-stone-900 mb-3">5.3. Обращения в нерабочее время</h3>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">5.3.1.</span> Сообщения, поступившие после 20:00, в выходные и праздники, обрабатываются в ближайший рабочий день</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">5.3.2.</span> Исполнитель и менеджеры <strong>не обязаны</strong> читать и отвечать на сообщения в нерабочее время</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">5.3.3.</span> Отсутствие ответа в нерабочее время не является нарушением обязательств</li>
+                                </ul>
+                            </div>
+                            <div class="bg-stone-50 rounded-xl p-4"><h3 class="font-medium text-stone-900 mb-2">5.4. Право на отказ</h3><p>Исполнитель вправе отказать в обработке обращений, поступающих систематически в нерабочее время с требованием немедленной реакции.</p></div>
+                            <div><h3 class="font-medium text-stone-900 mb-3">5.5. Работа в нерабочее время (по усмотрению)</h3><p>По усмотрению Исполнителя услуги могут оказываться в нерабочее время. Это является правом, а не обязанностью. Заказчик не вправе требовать работы за пределами установленного графика.</p></div>
+                        </div>
+                    </section>
+
+                    <section id="section-6" class="bg-white rounded-2xl border border-stone-200 p-8">
+                        <h2 class="text-xl font-semibold mb-6">6. Коммуникация</h2>
+                        <div class="space-y-6 text-sm text-stone-700">
+                            <div><h3 class="font-medium text-stone-900 mb-3">6.1. Определение коммуникации</h3><p>Под коммуникацией понимается взаимодействие Исполнителя с третьими лицами в интересах Заказчика: общение с преподавателями, экспертами, представителями организаций и иными субъектами.</p></div>
+                            <div class="bg-amber-50 border border-amber-200 rounded-xl p-4">
+                                <h3 class="font-medium text-amber-900 mb-2">6.2. Сроки коммуникации</h3>
+                                <p class="text-amber-800 mb-2"><strong>Коммуникация не предполагает немедленного результата.</strong></p>
+                                <p class="text-amber-800">Сроки определяются Исполнителем и зависят от доступности третьих лиц, сложности вопроса, загруженности и иных объективных обстоятельств.</p>
+                            </div>
+                            <div><h3 class="font-medium text-stone-900 mb-3">6.3. Оплата услуг коммуникации</h3><p>Оплата услуг по коммуникации не означает, что результат будет получен немедленно или в течение определённого часа/дня. Заказчик принимает, что коммуникация — это процесс с неопределённым сроком завершения, который устанавливается Исполнителем.</p></div>
+                            <div><h3 class="font-medium text-stone-900 mb-3">6.4. Официальные каналы связи</h3><p class="mb-3">Коммуникация с Заказчиком осуществляется через:</p><ul class="space-y-2"><li class="flex items-start gap-2"><span class="text-stone-400">•</span> Мессенджеры и социальные сети, указанные Исполнителем</li><li class="flex items-start gap-2"><span class="text-stone-400">•</span> Email: 182003bkmz@gmail.com</li></ul></div>
+                        </div>
+                    </section>
+
+                    <section id="section-7" class="bg-white rounded-2xl border border-stone-200 p-8">
+                        <h2 class="text-xl font-semibold mb-6">7. Срочность выполнения</h2>
+                        <div class="space-y-6 text-sm text-stone-700">
+                            <div><h3 class="font-medium text-stone-900 mb-3">7.1. Доплата за срочность</h3><p>При необходимости срочного выполнения услуг (в сокращённые сроки) взимается дополнительная плата.</p></div>
+                            <div><h3 class="font-medium text-stone-900 mb-3">7.2. Размер доплаты</h3><p class="mb-3">Размер доплаты <strong>не является фиксированным</strong> и определяется индивидуально с учётом:</p><ul class="grid sm:grid-cols-2 gap-2"><li class="flex items-start gap-2"><span class="text-stone-400">•</span> Сложности задачи</li><li class="flex items-start gap-2"><span class="text-stone-400">•</span> Требуемых сроков</li><li class="flex items-start gap-2"><span class="text-stone-400">•</span> Текущей загруженности</li><li class="flex items-start gap-2"><span class="text-stone-400">•</span> Необходимости работы в нерабочее время</li></ul></div>
+                            <div><h3 class="font-medium text-stone-900 mb-3">7.3. Согласование</h3><p>Доплата согласовывается до начала срочного заказа и оплачивается в порядке, установленном разделом 4.</p></div>
+                        </div>
+                    </section>
+
+                    <section id="section-8" class="bg-white rounded-2xl border border-stone-200 p-8">
+                        <h2 class="text-xl font-semibold mb-6">8. Просрочка оплаты и пени</h2>
+                        <div class="space-y-6 text-sm text-stone-700">
+                            <div>
+                                <h3 class="font-medium text-stone-900 mb-3">8.1. Этапы работы с просрочкой</h3>
+                                <div class="overflow-hidden rounded-xl border border-stone-200">
+                                    <table class="w-full text-sm">
+                                        <thead class="bg-stone-50"><tr><th class="px-4 py-3 text-left font-medium">Срок</th><th class="px-4 py-3 text-left font-medium">Действия Исполнителя</th></tr></thead>
+                                        <tbody>
+                                            <tr class="border-t border-stone-200"><td class="px-4 py-3 font-medium">1–3 дня</td><td class="px-4 py-3">Напоминание об оплате</td></tr>
+                                            <tr class="border-t border-stone-200"><td class="px-4 py-3 font-medium">4–7 дней</td><td class="px-4 py-3">Повторное напоминание, предупреждение о начислении пени</td></tr>
+                                            <tr class="border-t border-stone-200"><td class="px-4 py-3 font-medium">8–14 дней</td><td class="px-4 py-3">Начисление пени 0,5% от суммы долга за каждый день</td></tr>
+                                            <tr class="border-t border-stone-200"><td class="px-4 py-3 font-medium">15–30 дней</td><td class="px-4 py-3">Направление досудебной претензии</td></tr>
+                                            <tr class="border-t border-stone-200 bg-red-50"><td class="px-4 py-3 font-medium text-red-900">Более 30 дней</td><td class="px-4 py-3 text-red-800">Обращение в суд, передача долга для взыскания</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="font-medium text-stone-900 mb-3">8.2. Размер пени</h3>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">8.2.1.</span> Пени начисляются в размере 0,5% от суммы задолженности за каждый день просрочки</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">8.2.2.</span> Начисление пени начинается с 8-го дня просрочки</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">8.2.3.</span> Максимальный размер пени не ограничен</li>
+                                </ul>
+                            </div>
+                            <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-4">
+                                <h3 class="font-medium text-emerald-900 mb-2">8.3. Право на освобождение от пени</h3>
+                                <p class="text-emerald-800 mb-2">Исполнитель вправе по своему усмотрению:</p>
+                                <ul class="space-y-1 text-emerald-800">
+                                    <li class="flex items-start gap-2"><span class="font-medium">8.3.1.</span> Не начислять пени при наличии уважительных причин у Заказчика</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium">8.3.2.</span> Уменьшить размер начисленных пени</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium">8.3.3.</span> Полностью списать начисленные пени</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium">8.3.4.</span> Предоставить дополнительную отсрочку платежа без начисления пени</li>
+                                </ul>
+                                <p class="mt-3 text-emerald-700 text-xs">Решение о применении указанных мер принимается Исполнителем индивидуально и доводится до сведения Заказчика. Данное право не создаёт у Заказчика обоснованных ожиданий освобождения от пени.</p>
+                            </div>
+                            <div><h3 class="font-medium text-stone-900 mb-3">8.4. Судебные расходы</h3><p>В случае обращения в суд все судебные расходы (госпошлина, юридические услуги, расходы на представителя) возлагаются на Заказчика.</p></div>
+                            <div><h3 class="font-medium text-stone-900 mb-3">8.5. Передача долга</h3><p>Исполнитель вправе передать информацию о задолженности третьим лицам для взыскания.</p></div>
+                        </div>
+                    </section>
+
+                    <section id="section-9" class="bg-white rounded-2xl border border-stone-200 p-8">
+                        <h2 class="text-xl font-semibold mb-6">9. Спорные ситуации</h2>
+                        <div class="space-y-6 text-sm text-stone-700">
+                            <div>
+                                <h3 class="font-medium text-stone-900 mb-3">9.1. Заказчик игнорирует сообщения</h3>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">9.1.1.</span> При отсутствии ответа в течение 3 дней — повторное уведомление</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">9.1.2.</span> При отсутствии ответа в течение 7 дней — предупреждение о начислении пени и возможном обращении в суд</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">9.1.3.</span> При отсутствии ответа более 14 дней — досудебная претензия направляется без дополнительных уведомлений</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">9.1.4.</span> Игнорирование не освобождает от обязанности оплаты</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="font-medium text-stone-900 mb-3">9.2. Заказчик уклоняется от ответа</h3>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">9.2.1.</span> Если Заказчик отвечает, но уклоняется от решения вопроса об оплате — это приравнивается к просрочке</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">9.2.2.</span> Исполнитель фиксирует факт уклонения в переписке</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">9.2.3.</span> После 3 попыток получить конкретный ответ — переход к стандартной процедуре взыскания</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="font-medium text-stone-900 mb-3">9.3. Менеджер передал результат до полной оплаты</h3>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">9.3.1.</span> Передача результата не освобождает Заказчика от обязанности оплаты</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">9.3.2.</span> Заказчик обязан оплатить остаток в течение 24 часов</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">9.3.3.</span> При неоплате в срок — применяются меры раздела 8</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">9.3.4.</span> Ошибка менеджера не является основанием для неоплаты</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="font-medium text-stone-900 mb-3">9.4. Заказчик ссылается на финансовые трудности</h3>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">9.4.1.</span> Заказчик обязан незамедлительно сообщить о трудностях</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">9.4.2.</span> Исполнитель вправе предоставить отсрочку (см. п. 8.3)</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">9.4.3.</span> Условия отсрочки фиксируются в переписке и являются обязательными</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">9.4.4.</span> Нарушение условий отсрочки — немедленное применение мер раздела 8</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="font-medium text-stone-900 mb-3">9.5. Заказчик недоволен качеством</h3>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">9.5.1.</span> Претензии по качеству принимаются в течение 3 дней после получения результата</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">9.5.2.</span> Претензия должна быть обоснована и содержать конкретные замечания</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">9.5.3.</span> Исполнитель рассматривает претензию в течение 5 рабочих дней</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">9.5.4.</span> Необоснованные претензии не являются основанием для неоплаты</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">9.5.5.</span> Использование результата Заказчиком означает его принятие</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="font-medium text-stone-900 mb-3">9.6. Требование срочной работы в нерабочее время</h3>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">9.6.1.</span> Исполнитель вправе отказать без объяснения причин</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">9.6.2.</span> При согласии — доплата за срочность (раздел 7)</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">9.6.3.</span> Требование немедленной реакции в нерабочее время не создаёт обязательств у Исполнителя</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="font-medium text-stone-900 mb-3">9.7. Менеджер согласовал нестандартные условия</h3>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">9.7.1.</span> Условия, согласованные менеджером в переписке, являются обязательными для обеих сторон</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">9.7.2.</span> При противоречии с офертой — приоритет имеет согласованное в переписке</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">9.7.3.</span> Устные договорённости должны быть подтверждены в переписке</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="section-10" class="bg-white rounded-2xl border border-stone-200 p-8">
+                        <h2 class="text-xl font-semibold mb-6">10. Правила поведения сторон</h2>
+                        <div class="space-y-6 text-sm text-stone-700">
+                            <div>
+                                <h3 class="font-medium text-stone-900 mb-3">10.1. Обязанности Заказчика</h3>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">10.1.1.</span> Своевременно отвечать на сообщения Исполнителя</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">10.1.2.</span> Предоставлять полную и достоверную информацию для оказания услуг</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">10.1.3.</span> Соблюдать согласованные сроки оплаты</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">10.1.4.</span> Вести коммуникацию в уважительной форме</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">10.1.5.</span> Уведомлять о возникших трудностях заблаговременно</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="font-medium text-stone-900 mb-3">10.2. Недопустимое поведение</h3>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">10.2.1.</span> Игнорирование сообщений при наличии задолженности</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">10.2.2.</span> Уклонение от ответов и затягивание решения вопросов</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">10.2.3.</span> Угрозы, оскорбления, агрессивное поведение</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">10.2.4.</span> Требование немедленной реакции в нерабочее время</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">10.2.5.</span> Распространение ложной информации об Исполнителе</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">10.2.6.</span> Попытки давления или шантажа</li>
+                                </ul>
+                            </div>
+                            <div class="bg-red-50 border border-red-200 rounded-xl p-4">
+                                <h3 class="font-medium text-red-900 mb-2">10.3. Угрозы и давление</h3>
+                                <p class="text-red-800 mb-2">В случае угроз, давления или шантажа:</p>
+                                <ul class="space-y-1 text-red-800">
+                                    <li class="flex items-start gap-2"><span class="font-medium">10.3.1.</span> Вся переписка фиксируется и сохраняется</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium">10.3.2.</span> Исполнитель вправе обратиться в правоохранительные органы</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium">10.3.3.</span> Договорённости об отсрочке аннулируются</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium">10.3.4.</span> Задолженность подлежит немедленному взысканию</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="font-medium text-stone-900 mb-3">10.4. Последствия недобросовестного поведения</h3>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">10.4.1.</span> Приостановление оказания услуг</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">10.4.2.</span> Отказ в дальнейшем сотрудничестве</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">10.4.3.</span> Требование 100% предоплаты для продолжения работы</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">10.4.4.</span> Немедленный переход к процедуре взыскания</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="section-11" class="bg-white rounded-2xl border border-stone-200 p-8">
+                        <h2 class="text-xl font-semibold mb-6">11. Ответственность сторон</h2>
+                        <div class="space-y-6 text-sm text-stone-700">
+                            <div><h3 class="font-medium text-stone-900 mb-3">11.1. Характер услуг</h3><p>Исполнитель оказывает информационно-консультационные и образовательные услуги. Результаты носят рекомендательный и справочный характер.</p></div>
+                            <div>
+                                <h3 class="font-medium text-stone-900 mb-3">11.2. Использование результатов</h3>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">11.2.1.</span> Ответственность за способ использования материалов несёт Заказчик</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">11.2.2.</span> Исполнитель не несёт ответственности за последствия использования результатов</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">11.2.3.</span> Заказчик самостоятельно оценивает применимость материалов</li>
+                                </ul>
+                            </div>
+                            <div><h3 class="font-medium text-stone-900 mb-3">11.3. Конфиденциальность</h3><p>Исполнитель не разглашает персональные данные Заказчика, за исключением случаев, предусмотренных законодательством РФ или необходимых для защиты прав Исполнителя.</p></div>
+                            <div><h3 class="font-medium text-stone-900 mb-3">11.4. Форс-мажор</h3><p>Стороны освобождаются от ответственности за неисполнение обязательств при наступлении обстоятельств непреодолимой силы.</p></div>
+                        </div>
+                    </section>
+
+                    <section id="section-12" class="bg-white rounded-2xl border border-stone-200 p-8">
+                        <h2 class="text-xl font-semibold mb-6">12. Разрешение споров</h2>
+                        <div class="space-y-6 text-sm text-stone-700">
+                            <div>
+                                <h3 class="font-medium text-stone-900 mb-3">12.1. Претензионный порядок</h3>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">12.1.1.</span> До обращения в суд обязательно направление письменной претензии</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">12.1.2.</span> Срок рассмотрения претензии — 10 рабочих дней</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">12.1.3.</span> Претензия направляется в переписке или на email</li>
+                                </ul>
+                            </div>
+                            <div><h3 class="font-medium text-stone-900 mb-3">12.2. Судебный порядок</h3><p>При невозможности разрешения спора путём переговоров он передаётся в суд по месту нахождения Исполнителя.</p></div>
+                            <div><h3 class="font-medium text-stone-900 mb-3">12.3. Применимое право</h3><p>Настоящая оферта регулируется законодательством Российской Федерации.</p></div>
+                        </div>
+                    </section>
+
+                    <section id="section-13" class="bg-white rounded-2xl border border-stone-200 p-8">
+                        <h2 class="text-xl font-semibold mb-6">13. Заключительные положения</h2>
+                        <div class="space-y-6 text-sm text-stone-700">
+                            <div><h3 class="font-medium text-stone-900 mb-3">13.1. Изменение оферты</h3><p>Исполнитель вправе изменять условия оферты в одностороннем порядке. Изменения вступают в силу с момента публикации.</p></div>
+                            <div><h3 class="font-medium text-stone-900 mb-3">13.2. Действие оферты</h3><p>Оферта действует бессрочно до момента её отзыва Исполнителем.</p></div>
+                            <div><h3 class="font-medium text-stone-900 mb-3">13.3. Недействительность отдельных положений</h3><p>Признание недействительным отдельного положения оферты не влечёт недействительности остальных положений.</p></div>
+                            <div class="bg-stone-50 rounded-xl p-4"><p class="text-stone-600"><strong>Дата публикации:</strong> 24 декабря 2025 года</p></div>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-12 border-t border-stone-200">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-stone-500">
+                <p>© 2025 ИП Басенко И.К. ОГРНИП 325774600531587</p>
+                <div class="flex gap-6"><a href="index.html" class="hover:text-stone-900">Главная</a><a href="contacts.html" class="hover:text-stone-900">Контакты</a></div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -218,11 +218,91 @@
                             <p><strong>7.4.3.</strong> Бесплатные доработки распространяются исключительно на объективные правки. Субъективные правки выполняются по усмотрению Исполнителя и могут потребовать дополнительной оплаты.</p>
                         </div>
                         
-                        <div class="bg-blue-50 border border-blue-200 rounded-xl p-4 my-4">
-                            <p class="font-medium text-blue-900 mb-2">7.5. Особенности доработок для различных типов услуг:</p>
-                            <p class="text-sm text-blue-800 mb-2"><strong>Образовательные услуги:</strong> требования преподавателей, экспертов или проверяющих, выходящие за рамки первоначального ТЗ, рассматриваются как субъективные правки. Замечания типа «переписать», «переделать» без конкретных указаний не являются основанием для бесплатной доработки.</p>
-                            <p class="text-sm text-blue-800 mb-2"><strong>IT-услуги:</strong> изменение дизайна, функционала или структуры проекта по личным предпочтениям Заказчика после утверждения макетов/ТЗ рассматривается как субъективные правки. Технические баги и несоответствия ТЗ — объективные правки.</p>
-                            <p class="text-sm text-blue-800"><strong>Консультационные услуги:</strong> повторные консультации по ранее рассмотренным вопросам или расширение объёма консультации сверх согласованного — субъективные правки.</p>
+                        <div class="bg-blue-50 border border-blue-200 rounded-xl p-5 my-4">
+                            <p class="font-medium text-blue-900 mb-4">7.5. Примеры доработок и возвратов по видам услуг</p>
+
+                            <p class="text-sm text-blue-800 font-medium mb-3">Образовательные услуги (ОКВЭД 85.41.9):</p>
+                            <div class="overflow-x-auto mb-5">
+                                <table class="w-full text-xs">
+                                    <thead class="bg-blue-100"><tr><th class="px-3 py-2 text-left">Ситуация</th><th class="px-3 py-2 text-left">Тип</th><th class="px-3 py-2 text-left">Решение</th></tr></thead>
+                                    <tbody class="text-blue-900">
+                                        <tr class="border-t border-blue-200"><td class="px-3 py-2">Преподаватель сказал «переделать» без конкретики</td><td class="px-3 py-2 text-amber-700">Субъективная</td><td class="px-3 py-2">Доп. оплата или уточнение замечаний</td></tr>
+                                        <tr class="border-t border-blue-200"><td class="px-3 py-2">Ошибка в расчётах / формулах</td><td class="px-3 py-2 text-green-700">Объективная</td><td class="px-3 py-2">Бесплатная правка</td></tr>
+                                        <tr class="border-t border-blue-200"><td class="px-3 py-2">Добавить главу, которой не было в ТЗ</td><td class="px-3 py-2 text-amber-700">Субъективная</td><td class="px-3 py-2">Доп. оплата</td></tr>
+                                        <tr class="border-t border-blue-200"><td class="px-3 py-2">Низкая уникальность (не указана в ТЗ)</td><td class="px-3 py-2 text-amber-700">Субъективная</td><td class="px-3 py-2">Доп. оплата за повышение</td></tr>
+                                        <tr class="border-t border-blue-200"><td class="px-3 py-2">Не соответствует методичке (не предоставлена)</td><td class="px-3 py-2 text-red-700">Отказ в возврате</td><td class="px-3 py-2">Заказчик не предоставил требования</td></tr>
+                                        <tr class="border-t border-blue-200"><td class="px-3 py-2">Работа соответствует ТЗ, но преподу не нравится стиль</td><td class="px-3 py-2 text-red-700">Отказ в возврате</td><td class="px-3 py-2">Субъективная оценка 3-го лица</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <p class="text-sm text-blue-800 font-medium mb-3">IT-услуги (ОКВЭД 62.01):</p>
+                            <div class="overflow-x-auto mb-5">
+                                <table class="w-full text-xs">
+                                    <thead class="bg-blue-100"><tr><th class="px-3 py-2 text-left">Ситуация</th><th class="px-3 py-2 text-left">Тип</th><th class="px-3 py-2 text-left">Решение</th></tr></thead>
+                                    <tbody class="text-blue-900">
+                                        <tr class="border-t border-blue-200"><td class="px-3 py-2">Баг: кнопка не работает</td><td class="px-3 py-2 text-green-700">Объективная</td><td class="px-3 py-2">Бесплатный фикс</td></tr>
+                                        <tr class="border-t border-blue-200"><td class="px-3 py-2">«Хочу другой цвет фона» (макет утверждён)</td><td class="px-3 py-2 text-amber-700">Субъективная</td><td class="px-3 py-2">Доп. оплата</td></tr>
+                                        <tr class="border-t border-blue-200"><td class="px-3 py-2">API стороннего сервиса изменился</td><td class="px-3 py-2 text-red-700">Отказ в возврате</td><td class="px-3 py-2">Внешние обстоятельства</td></tr>
+                                        <tr class="border-t border-blue-200"><td class="px-3 py-2">Сайт не работает на хостинге клиента</td><td class="px-3 py-2 text-red-700">Отказ в возврате</td><td class="px-3 py-2">Проблема инфраструктуры заказчика</td></tr>
+                                        <tr class="border-t border-blue-200"><td class="px-3 py-2">Добавить функцию, которой не было в ТЗ</td><td class="px-3 py-2 text-amber-700">Субъективная</td><td class="px-3 py-2">Доп. оплата</td></tr>
+                                        <tr class="border-t border-blue-200"><td class="px-3 py-2">Клиент сломал код, просит починить</td><td class="px-3 py-2 text-red-700">Отказ в бесплатн.</td><td class="px-3 py-2">Модификация после передачи</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <p class="text-sm text-blue-800 font-medium mb-3">Обработка данных и аналитика (ОКВЭД 63.11):</p>
+                            <div class="overflow-x-auto mb-5">
+                                <table class="w-full text-xs">
+                                    <thead class="bg-blue-100"><tr><th class="px-3 py-2 text-left">Ситуация</th><th class="px-3 py-2 text-left">Тип</th><th class="px-3 py-2 text-left">Решение</th></tr></thead>
+                                    <tbody class="text-blue-900">
+                                        <tr class="border-t border-blue-200"><td class="px-3 py-2">Ошибка в формуле расчёта</td><td class="px-3 py-2 text-green-700">Объективная</td><td class="px-3 py-2">Бесплатная правка</td></tr>
+                                        <tr class="border-t border-blue-200"><td class="px-3 py-2">Результат анализа не подтвердил гипотезу</td><td class="px-3 py-2 text-red-700">Отказ в возврате</td><td class="px-3 py-2">Корректная методология</td></tr>
+                                        <tr class="border-t border-blue-200"><td class="px-3 py-2">Заказчик хочет другой тип графика</td><td class="px-3 py-2 text-amber-700">Субъективная</td><td class="px-3 py-2">Доп. оплата</td></tr>
+                                        <tr class="border-t border-blue-200"><td class="px-3 py-2">Данные оказались некорректными</td><td class="px-3 py-2 text-red-700">Отказ в возврате</td><td class="px-3 py-2">Заказчик предоставил данные</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <p class="text-sm text-blue-800 font-medium mb-3">Подготовка документов (ОКВЭД 82.19):</p>
+                            <div class="overflow-x-auto mb-5">
+                                <table class="w-full text-xs">
+                                    <thead class="bg-blue-100"><tr><th class="px-3 py-2 text-left">Ситуация</th><th class="px-3 py-2 text-left">Тип</th><th class="px-3 py-2 text-left">Решение</th></tr></thead>
+                                    <tbody class="text-blue-900">
+                                        <tr class="border-t border-blue-200"><td class="px-3 py-2">Опечатка в тексте</td><td class="px-3 py-2 text-green-700">Объективная</td><td class="px-3 py-2">Бесплатная правка</td></tr>
+                                        <tr class="border-t border-blue-200"><td class="px-3 py-2">«Переделайте всё в другом стиле»</td><td class="px-3 py-2 text-amber-700">Субъективная</td><td class="px-3 py-2">Доп. оплата</td></tr>
+                                        <tr class="border-t border-blue-200"><td class="px-3 py-2">Гос. орган отказал (причина не в документе)</td><td class="px-3 py-2 text-red-700">Отказ в возврате</td><td class="px-3 py-2">Внешние обстоятельства</td></tr>
+                                        <tr class="border-t border-blue-200"><td class="px-3 py-2">Заказчик дал неверные данные для документа</td><td class="px-3 py-2 text-red-700">Отказ в возврате</td><td class="px-3 py-2">Вина заказчика</td></tr>
+                                        <tr class="border-t border-blue-200"><td class="px-3 py-2">Добавить раздел, не указанный в ТЗ</td><td class="px-3 py-2 text-amber-700">Субъективная</td><td class="px-3 py-2">Доп. оплата</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <p class="text-sm text-blue-800 font-medium mb-3">Научные исследования (ОКВЭД 72.20):</p>
+                            <div class="overflow-x-auto mb-5">
+                                <table class="w-full text-xs">
+                                    <thead class="bg-blue-100"><tr><th class="px-3 py-2 text-left">Ситуация</th><th class="px-3 py-2 text-left">Тип</th><th class="px-3 py-2 text-left">Решение</th></tr></thead>
+                                    <tbody class="text-blue-900">
+                                        <tr class="border-t border-blue-200"><td class="px-3 py-2">Ошибка в ссылках на источники</td><td class="px-3 py-2 text-green-700">Объективная</td><td class="px-3 py-2">Бесплатная правка</td></tr>
+                                        <tr class="border-t border-blue-200"><td class="px-3 py-2">Результат исследования опроверг гипотезу</td><td class="px-3 py-2 text-red-700">Отказ в возврате</td><td class="px-3 py-2">Научный результат корректен</td></tr>
+                                        <tr class="border-t border-blue-200"><td class="px-3 py-2">Журнал отклонил статью (причина — тематика)</td><td class="px-3 py-2 text-red-700">Отказ в возврате</td><td class="px-3 py-2">Решение редакции</td></tr>
+                                        <tr class="border-t border-blue-200"><td class="px-3 py-2">Научрук попросил изменить методологию</td><td class="px-3 py-2 text-amber-700">Субъективная</td><td class="px-3 py-2">Доп. оплата</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <p class="text-sm text-blue-800 font-medium mb-3">Консультационные услуги (общие):</p>
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-xs">
+                                    <thead class="bg-blue-100"><tr><th class="px-3 py-2 text-left">Ситуация</th><th class="px-3 py-2 text-left">Тип</th><th class="px-3 py-2 text-left">Решение</th></tr></thead>
+                                    <tbody class="text-blue-900">
+                                        <tr class="border-t border-blue-200"><td class="px-3 py-2">Повторный вопрос по теме консультации</td><td class="px-3 py-2 text-amber-700">Субъективная</td><td class="px-3 py-2">Доп. оплата</td></tr>
+                                        <tr class="border-t border-blue-200"><td class="px-3 py-2">Совет не помог (заказчик не применил)</td><td class="px-3 py-2 text-red-700">Отказ в возврате</td><td class="px-3 py-2">Вина заказчика</td></tr>
+                                        <tr class="border-t border-blue-200"><td class="px-3 py-2">Расширить объём консультации</td><td class="px-3 py-2 text-amber-700">Субъективная</td><td class="px-3 py-2">Доп. оплата</td></tr>
+                                        <tr class="border-t border-blue-200"><td class="px-3 py-2">Ошибка в предоставленной информации</td><td class="px-3 py-2 text-green-700">Объективная</td><td class="px-3 py-2">Бесплатное уточнение</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         
                         <p><strong>7.6.</strong> Требования третьих лиц (преподавателей, экспертов, проверяющих, заказчиков клиента), выходящие за рамки первоначального ТЗ, рассматриваются как субъективные правки и подлежат предварительному согласованию с Исполнителем.</p>

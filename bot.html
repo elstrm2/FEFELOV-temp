@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
-    <title>Bot Panel</title>
+    <title data-i18n="bot.title">FEFELOV — Бот.</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,16 +29,16 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
                     </svg>
                 </div>
-                <h1 class="text-2xl font-semibold">Bot Panel</h1>
-                <p class="text-stone-500 text-sm mt-2">Enter password to continue</p>
+                <h1 class="text-2xl font-semibold" data-i18n="bot.login.heading">Панель бота</h1>
+                <p class="text-stone-500 text-sm mt-2" data-i18n="bot.login.subtitle">Введите пароль для продолжения</p>
             </div>
             <form id="login-form" class="space-y-4">
-                <input type="password" id="password" placeholder="Password" autocomplete="current-password"
+                <input type="password" id="password" data-i18n="[placeholder]bot.login.password_placeholder" placeholder="Пароль" autocomplete="current-password"
                     class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 placeholder-stone-500 focus:outline-none focus:border-stone-500 transition-colors">
-                <button type="submit" class="w-full bg-stone-100 text-stone-900 rounded-xl px-4 py-3 font-medium hover:bg-stone-200 transition-colors">
-                    Login
+                <button type="submit" class="w-full bg-stone-100 text-stone-900 rounded-xl px-4 py-3 font-medium hover:bg-stone-200 transition-colors" data-i18n="bot.login.btn">
+                    Войти
                 </button>
-                <p id="login-error" class="text-red-400 text-sm text-center hidden">Invalid password</p>
+                <p id="login-error" class="text-red-400 text-sm text-center hidden" data-i18n="bot.login.error">Неверный пароль</p>
             </form>
         </div>
     </div>
@@ -52,21 +52,21 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
                         </svg>
                     </div>
-                    <span class="font-semibold">VK Bot</span>
+                    <span class="font-semibold" data-i18n="bot.header.name">VK Бот</span>
                 </div>
-                <button id="logout-btn" class="text-stone-500 hover:text-stone-300 text-sm transition-colors">Logout</button>
+                <button id="logout-btn" class="text-stone-500 hover:text-stone-300 text-sm transition-colors" data-i18n="bot.header.logout">Выйти</button>
             </div>
         </header>
 
         <div class="max-w-4xl mx-auto px-4 sm:px-6 pt-6">
             <div class="flex gap-2 mb-6">
                 <button class="tab-btn active flex-1 sm:flex-none px-4 py-2 rounded-xl border border-transparent text-sm font-medium transition-colors" data-tab="autoresponder">
-                    <span class="hidden sm:inline">Autoresponder</span>
-                    <span class="sm:hidden">Auto</span>
+                    <span class="hidden sm:inline" data-i18n="bot.tabs.autoresponder">Автоответчик</span>
+                    <span class="sm:hidden" data-i18n="bot.tabs.auto_short">Авто</span>
                 </button>
                 <button class="tab-btn flex-1 sm:flex-none px-4 py-2 rounded-xl border border-transparent text-sm font-medium transition-colors" data-tab="retriever">
-                    <span class="hidden sm:inline">Retriever</span>
-                    <span class="sm:hidden">Export</span>
+                    <span class="hidden sm:inline" data-i18n="bot.tabs.retriever">Экспорт</span>
+                    <span class="sm:hidden" data-i18n="bot.tabs.export_short">Экспорт</span>
                 </button>
             </div>
         </div>
@@ -77,72 +77,72 @@
                     <div class="flex items-center justify-between mb-6">
                         <div class="flex items-center gap-3">
                             <div id="status-indicator" class="w-3 h-3 rounded-full bg-stone-500 status-dot"></div>
-                            <span class="font-medium">Bot Status</span>
+                            <span class="font-medium" data-i18n="bot.status.label">Статус бота</span>
                         </div>
-                        <button id="toggle-btn" class="bg-stone-700 hover:bg-stone-600 px-4 py-2 rounded-lg text-sm font-medium transition-colors">Loading...</button>
+                        <button id="toggle-btn" class="bg-stone-700 hover:bg-stone-600 px-4 py-2 rounded-lg text-sm font-medium transition-colors" data-i18n="bot.status.loading">Загрузка...</button>
                     </div>
                     <div class="grid grid-cols-2 gap-4">
                         <div class="bg-stone-800/50 rounded-xl p-4">
-                            <p class="text-stone-500 text-xs uppercase tracking-wide mb-1">Total Messages</p>
+                            <p class="text-stone-500 text-xs uppercase tracking-wide mb-1" data-i18n="bot.stats.messages">Всего сообщений</p>
                             <p id="stat-messages" class="text-2xl font-semibold">-</p>
                         </div>
                         <div class="bg-stone-800/50 rounded-xl p-4">
-                            <p class="text-stone-500 text-xs uppercase tracking-wide mb-1">Unique Users</p>
+                            <p class="text-stone-500 text-xs uppercase tracking-wide mb-1" data-i18n="bot.stats.users">Уникальных пользователей</p>
                             <p id="stat-users" class="text-2xl font-semibold">-</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="bg-stone-800/30 border border-stone-800 rounded-2xl p-4 sm:p-6">
-                    <h2 class="font-medium mb-4">Auto Reply Messages</h2>
+                    <h2 class="font-medium mb-4" data-i18n="bot.replies.title">Автоответы</h2>
                     <div class="space-y-4">
                         <div>
-                            <label class="text-stone-400 text-sm mb-2 block">Standard Reply (working hours)</label>
-                            <textarea id="auto-reply" rows="2" placeholder="Message during work hours..."
+                            <label class="text-stone-400 text-sm mb-2 block" data-i18n="bot.replies.standard_label">Стандартный ответ (рабочее время)</label>
+                            <textarea id="auto-reply" rows="2" data-i18n="[placeholder]bot.replies.standard_placeholder" placeholder="Сообщение в рабочее время..."
                                 class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 placeholder-stone-500 focus:outline-none focus:border-stone-500 transition-colors resize-none text-sm"></textarea>
                         </div>
                         <div>
                             <label class="text-stone-400 text-sm mb-2 block flex items-center gap-2">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                                Weekend / Off-hours Reply
+                                <span data-i18n="bot.replies.weekend_label">Ответ в нерабочее время</span>
                             </label>
-                            <textarea id="weekend-reply" rows="2" placeholder="Message on weekends..."
+                            <textarea id="weekend-reply" rows="2" data-i18n="[placeholder]bot.replies.weekend_placeholder" placeholder="Сообщение в выходные..."
                                 class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 placeholder-stone-500 focus:outline-none focus:border-stone-500 transition-colors resize-none text-sm"></textarea>
                         </div>
                         <div>
                             <label class="text-stone-400 text-sm mb-2 block flex items-center gap-2">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
-                                Spam Warning Reply
+                                <span data-i18n="bot.replies.spam_label">Предупреждение о спаме</span>
                             </label>
-                            <textarea id="spam-reply" rows="2" placeholder="Message for spammers..."
+                            <textarea id="spam-reply" rows="2" data-i18n="[placeholder]bot.replies.spam_placeholder" placeholder="Сообщение для спамеров..."
                                 class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 placeholder-stone-500 focus:outline-none focus:border-stone-500 transition-colors resize-none text-sm"></textarea>
                         </div>
                     </div>
-                    <button id="save-btn" class="mt-4 bg-stone-100 text-stone-900 rounded-xl px-6 py-2 text-sm font-medium hover:bg-stone-200 transition-colors">Save Messages</button>
+                    <button id="save-btn" class="mt-4 bg-stone-100 text-stone-900 rounded-xl px-6 py-2 text-sm font-medium hover:bg-stone-200 transition-colors" data-i18n="bot.replies.save_btn">Сохранить</button>
                 </div>
 
                 <div class="bg-stone-800/30 border border-stone-800 rounded-2xl p-4 sm:p-6">
-                    <h2 class="font-medium mb-4">Spam Protection</h2>
+                    <h2 class="font-medium mb-4" data-i18n="bot.spam.title">Защита от спама</h2>
                     <div class="grid grid-cols-2 gap-4">
                         <div>
-                            <label class="text-stone-400 text-sm mb-2 block">Threshold (messages)</label>
+                            <label class="text-stone-400 text-sm mb-2 block" data-i18n="bot.spam.threshold_label">Порог (сообщений)</label>
                             <input type="number" id="spam-threshold" min="2" max="20" value="3"
                                 class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 focus:outline-none focus:border-stone-500 transition-colors text-sm">
                         </div>
                         <div>
-                            <label class="text-stone-400 text-sm mb-2 block">Window (seconds)</label>
+                            <label class="text-stone-400 text-sm mb-2 block" data-i18n="bot.spam.window_label">Окно (секунд)</label>
                             <input type="number" id="spam-window" min="10" max="300" value="60"
                                 class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 focus:outline-none focus:border-stone-500 transition-colors text-sm">
                         </div>
                     </div>
-                    <p class="text-stone-500 text-xs mt-3">Spam warning sent if user sends more than threshold messages within window.</p>
-                    <button id="save-spam-btn" class="mt-4 bg-stone-700 hover:bg-stone-600 rounded-xl px-6 py-2 text-sm font-medium transition-colors">Save Settings</button>
+                    <p class="text-stone-500 text-xs mt-3" data-i18n="bot.spam.hint">Предупреждение отправляется, если пользователь отправит больше сообщений, чем порог, за указанное время.</p>
+                    <button id="save-spam-btn" class="mt-4 bg-stone-700 hover:bg-stone-600 rounded-xl px-6 py-2 text-sm font-medium transition-colors" data-i18n="bot.spam.save_btn">Сохранить настройки</button>
                 </div>
 
                 <div class="bg-stone-800/30 border border-stone-800 rounded-2xl p-4 sm:p-6">
-                    <h2 class="font-medium mb-4">Recent Messages</h2>
+                    <h2 class="font-medium mb-4" data-i18n="bot.recent.title">Последние сообщения</h2>
                     <div id="recent-messages" class="space-y-2 text-sm max-h-64 overflow-y-auto">
-                        <p class="text-stone-500">Loading...</p>
+                        <p class="text-stone-500" data-i18n="bot.recent.loading">Загрузка...</p>
                     </div>
                 </div>
             </div>
@@ -151,64 +151,64 @@
         <main id="tab-retriever" class="hidden max-w-4xl mx-auto px-4 sm:px-6 pb-8">
             <div class="grid gap-6">
                 <div class="bg-stone-800/30 border border-stone-800 rounded-2xl p-4 sm:p-6">
-                    <h2 class="font-medium mb-4">Export Chat History</h2>
+                    <h2 class="font-medium mb-4" data-i18n="bot.export.title">Экспорт истории чата</h2>
                     <div class="space-y-4">
                         <div>
-                            <label class="text-stone-400 text-sm mb-2 block">User ID or Link</label>
-                            <input type="text" id="retriever-user" placeholder="id123456, vk.com/username, or screen name"
+                            <label class="text-stone-400 text-sm mb-2 block" data-i18n="bot.export.user_label">ID или ссылка</label>
+                            <input type="text" id="retriever-user" data-i18n="[placeholder]bot.export.user_placeholder" placeholder="id123456, vk.com/username или ник"
                                 class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 placeholder-stone-500 focus:outline-none focus:border-stone-500 transition-colors text-sm">
                         </div>
                         <div>
-                            <label class="text-stone-400 text-sm mb-2 block">Period</label>
+                            <label class="text-stone-400 text-sm mb-2 block" data-i18n="bot.export.period_label">Период</label>
                             <div class="flex flex-wrap gap-2">
-                                <button class="period-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-700 hover:bg-stone-600 transition-colors" data-period="2h">2 hours</button>
-                                <button class="period-btn active px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-700 hover:bg-stone-600 transition-colors" data-period="1d">1 day</button>
-                                <button class="period-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-700 hover:bg-stone-600 transition-colors" data-period="1w">1 week</button>
-                                <button class="period-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-700 hover:bg-stone-600 transition-colors" data-period="2w">2 weeks</button>
-                                <button class="period-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-700 hover:bg-stone-600 transition-colors" data-period="1m">1 month</button>
-                                <button class="period-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-700 hover:bg-stone-600 transition-colors" data-period="all">All time</button>
-                                <button class="period-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-700 hover:bg-stone-600 transition-colors" data-period="custom">Custom</button>
+                                <button class="period-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-700 hover:bg-stone-600 transition-colors" data-period="2h" data-i18n="bot.export.period_2h">2 часа</button>
+                                <button class="period-btn active px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-700 hover:bg-stone-600 transition-colors" data-period="1d" data-i18n="bot.export.period_1d">1 день</button>
+                                <button class="period-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-700 hover:bg-stone-600 transition-colors" data-period="1w" data-i18n="bot.export.period_1w">1 неделя</button>
+                                <button class="period-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-700 hover:bg-stone-600 transition-colors" data-period="2w" data-i18n="bot.export.period_2w">2 недели</button>
+                                <button class="period-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-700 hover:bg-stone-600 transition-colors" data-period="1m" data-i18n="bot.export.period_1m">1 месяц</button>
+                                <button class="period-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-700 hover:bg-stone-600 transition-colors" data-period="all" data-i18n="bot.export.period_all">Всё время</button>
+                                <button class="period-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-700 hover:bg-stone-600 transition-colors" data-period="custom" data-i18n="bot.export.period_custom">Другой</button>
                             </div>
                         </div>
                         <div id="custom-dates" class="hidden grid grid-cols-2 gap-4">
                             <div>
-                                <label class="text-stone-400 text-sm mb-2 block">Start Date</label>
+                                <label class="text-stone-400 text-sm mb-2 block" data-i18n="bot.export.start_date">Начало</label>
                                 <input type="datetime-local" id="retriever-start"
                                     class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 focus:outline-none focus:border-stone-500 transition-colors text-sm">
                             </div>
                             <div>
-                                <label class="text-stone-400 text-sm mb-2 block">End Date</label>
+                                <label class="text-stone-400 text-sm mb-2 block" data-i18n="bot.export.end_date">Конец</label>
                                 <input type="datetime-local" id="retriever-end"
                                     class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 focus:outline-none focus:border-stone-500 transition-colors text-sm">
                             </div>
                         </div>
-                        <button id="start-retrieval-btn" class="w-full bg-stone-100 text-stone-900 rounded-xl px-6 py-3 text-sm font-medium hover:bg-stone-200 transition-colors">
-                            Start Export
+                        <button id="start-retrieval-btn" class="w-full bg-stone-100 text-stone-900 rounded-xl px-6 py-3 text-sm font-medium hover:bg-stone-200 transition-colors" data-i18n="bot.export.start_btn">
+                            Начать экспорт
                         </button>
                     </div>
                 </div>
 
                 <div id="current-job" class="hidden bg-stone-800/30 border border-stone-800 rounded-2xl p-4 sm:p-6">
                     <div class="flex items-center justify-between mb-4">
-                        <h2 class="font-medium">Current Job</h2>
-                        <button id="cancel-job-btn" class="text-red-400 hover:text-red-300 text-sm transition-colors">Cancel</button>
+                        <h2 class="font-medium" data-i18n="bot.job.title">Текущая задача</h2>
+                        <button id="cancel-job-btn" class="text-red-400 hover:text-red-300 text-sm transition-colors" data-i18n="bot.job.cancel">Отмена</button>
                     </div>
                     <div class="space-y-3">
                         <div class="flex justify-between text-sm gap-2">
-                            <span class="text-stone-400 flex-shrink-0">User:</span>
+                            <span class="text-stone-400 flex-shrink-0" data-i18n="bot.job.user">Пользователь:</span>
                             <span id="job-user" class="font-medium truncate">-</span>
                         </div>
                         <div class="flex justify-between text-sm">
-                            <span class="text-stone-400">Status:</span>
+                            <span class="text-stone-400" data-i18n="bot.job.status">Статус:</span>
                             <span id="job-status" class="font-medium">-</span>
                         </div>
                         <div class="flex justify-between text-sm">
-                            <span class="text-stone-400">Messages:</span>
+                            <span class="text-stone-400" data-i18n="bot.job.messages">Сообщений:</span>
                             <span id="job-messages" class="font-medium">-</span>
                         </div>
                         <div>
                             <div class="flex justify-between text-sm mb-1">
-                                <span class="text-stone-400">Progress:</span>
+                                <span class="text-stone-400" data-i18n="bot.job.progress">Прогресс:</span>
                                 <span id="job-progress-text" class="font-medium">0%</span>
                             </div>
                             <div class="w-full bg-stone-700 rounded-full h-2">
@@ -219,9 +219,9 @@
                 </div>
 
                 <div class="bg-stone-800/30 border border-stone-800 rounded-2xl p-4 sm:p-6">
-                    <h2 class="font-medium mb-4">Export History</h2>
+                    <h2 class="font-medium mb-4" data-i18n="bot.history.title">История экспорта</h2>
                     <div id="job-history" class="space-y-2 text-sm">
-                        <p class="text-stone-500">No exports yet</p>
+                        <p class="text-stone-500" data-i18n="bot.history.empty">Экспортов пока нет</p>
                     </div>
                 </div>
             </div>
@@ -475,5 +475,6 @@
             if (!data.error) showPanel();
         }).catch(() => {});
     </script>
+    <script src="i18n.js"></script>
 </body>
 </html>

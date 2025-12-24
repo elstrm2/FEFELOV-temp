@@ -1,13 +1,5 @@
-# robots.txt for fefelov.net
-
 User-agent: *
 Allow: /
-
-# Sitemap
-Sitemap: https://fefelov.net/sitemap.xml
-
-# Disallow admin/hidden pages
 Disallow: /bot.html
-
-# Crawl-delay for respectful crawling
 Crawl-delay: 1
+Sitemap: https://fefelov.net/sitemap.xml

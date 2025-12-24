@@ -1,0 +1,344 @@
+{
+  "meta": {
+    "lang": "en",
+    "name": "English"
+  },
+  "common": {
+    "brand": "FEFELOV",
+    "nav": {
+      "home": "Home",
+      "services": "Services",
+      "divisions": "Divisions",
+      "contacts": "Contacts",
+      "contact_btn": "Contact Us"
+    },
+    "footer": {
+      "tagline": "Educational Services<br>& IT Solutions",
+      "divisions_title": "Divisions",
+      "docs_title": "Legal",
+      "terms": "Terms of Service",
+      "privacy": "Privacy Policy",
+      "refund": "Refund Policy",
+      "contacts_title": "Contacts",
+      "all_contacts": "All contacts →",
+      "copyright": "© 2025 IE Basenko I.K. OGRNIP 325774600531587",
+      "location": "Moscow, Russia"
+    }
+  },
+  "index": {
+    "title": "FEFELOV — Educational Services & IT Solutions in Moscow",
+    "description": "FEFELOV — help with coursework, theses, essays, research papers. Website development, apps, Telegram bots, parsers.",
+    "hero": {
+      "subtitle": "IE Basenko I.K.",
+      "title_line1": "Educational Services",
+      "title_line2": "& IT Solutions",
+      "text": "We help with academic projects, develop software, and provide consulting on complex issues. We work officially, under contract.",
+      "cta_primary": "Discuss Project",
+      "cta_secondary": "Terms of Work"
+    },
+    "services": {
+      "label": "Services",
+      "title": "What We Do",
+      "education": {
+        "title": "Educational Services",
+        "text": "Academic work consulting, help with coursework, theses, essays. Tutoring and exam preparation."
+      },
+      "development": {
+        "title": "Software Development",
+        "text": "Website creation, mobile apps, process automation. From simple landing pages to complex systems."
+      },
+      "documents": {
+        "title": "Document Preparation",
+        "text": "Formatting, editing, typesetting documents. Presentations, reports, technical documentation."
+      },
+      "research": {
+        "title": "Research",
+        "text": "Scientific research in humanities and social sciences. Data analysis, statistics, analytics."
+      },
+      "data": {
+        "title": "Data Processing",
+        "text": "Collection, processing and analysis of information. Parsing, data structuring, integrations."
+      },
+      "consulting": {
+        "title": "Consulting",
+        "text": "Individual consultations on any issues. Communication with third parties on your behalf."
+      }
+    },
+    "divisions": {
+      "label": "Structure",
+      "title": "Divisions",
+      "study": {
+        "label": "Education",
+        "title": "FEFELOV.Study",
+        "text": "Information, consulting and educational services. Helping students with academic projects, tutoring, exam preparation.",
+        "item1": "Coursework and theses",
+        "item2": "Essays and papers",
+        "item3": "Tutoring",
+        "item4": "Exam preparation (USE, OGE)",
+        "item5": "Tests and labs",
+        "item6": "Presentations and reports",
+        "item7": "Scientific articles",
+        "more": "And more..."
+      },
+      "tech": {
+        "label": "Technology",
+        "title": "FEFELOV.Tech",
+        "text": "IT division: software development, websites, mobile applications. Automation, integrations, technical support.",
+        "item1": "Web development",
+        "item2": "Mobile apps",
+        "item3": "Automation",
+        "item4": "Telegram bots",
+        "item5": "Data parsing",
+        "item6": "Integrations & API",
+        "item7": "Technical support",
+        "more": "And more..."
+      },
+      "note": "Each division has a team of specialists. We plan to expand and launch new areas in 2026."
+    },
+    "about": {
+      "label": "About",
+      "title": "We Work Officially",
+      "text1": "IE Basenko Ilya Konstantinovich is an officially registered individual entrepreneur in Moscow. We work under oral or written contract, providing all necessary documents. In any case, by contacting us, a person accepts the terms of the public offer.",
+      "text2": "We provide services in education and IT in compliance with Russian Federation legislation. Each order is recorded, all conditions are transparent.",
+      "text3": "Our goal is quality results and long-term cooperation. We value our clients' time and our own.",
+      "requisites_title": "Details",
+      "ip": "IE",
+      "ip_value": "Basenko Ilya Konstantinovich",
+      "ogrnip": "OGRNIP",
+      "inn": "INN",
+      "okpo": "OKPO",
+      "region": "Region",
+      "region_value": "Moscow"
+    },
+    "cta": {
+      "title": "Ready to Discuss a Project?",
+      "text": "Write to us — we'll discuss the task, deadlines and cost. We respond during business hours: Mon-Fri, 10:00-20:00 MSK.",
+      "btn": "Write to Us"
+    }
+  },
+  "contacts": {
+    "title": "Contacts — FEFELOV | Get in Touch",
+    "description": "FEFELOV contacts: email, VKontakte, IE Basenko I.K. details. Working hours: Mon-Fri 10:00-20:00 MSK.",
+    "header": {
+      "label": "Get in Touch",
+      "title": "Contacts",
+      "text": "Choose a convenient way to contact us. We respond during business hours."
+    },
+    "email": {
+      "title": "Email",
+      "text": "For official inquiries and documents"
+    },
+    "vk": {
+      "title": "VKontakte",
+      "text": "Quick responses and consultations"
+    },
+    "schedule": {
+      "title": "Working Hours",
+      "text": "Response time for messages",
+      "value": "Mon-Fri: 10:00-20:00 MSK"
+    },
+    "requisites": {
+      "title": "Details",
+      "ip": "IE",
+      "ogrnip": "OGRNIP",
+      "inn": "INN",
+      "okpo": "OKPO",
+      "region": "Region",
+      "region_value": "Moscow",
+      "tax": "Tax Authority",
+      "tax_value": "IFNS №23 Moscow"
+    },
+    "notice": {
+      "title": "Before Contacting",
+      "text": "By contacting us, you automatically accept the terms of service, privacy policy and refund policy. We work under oral or written contract — in any case, all documents are accepted upon contact.",
+      "terms_link": "Terms of Service →",
+      "privacy_link": "Privacy Policy →",
+      "refund_link": "Refund Policy →"
+    }
+  },
+  "404": {
+    "title": "404 — FEFELOV",
+    "code": "404",
+    "heading": "Page Not Found",
+    "text": "It may have been deleted or you entered the wrong address",
+    "btn": "Go Home"
+  },
+  "terms": {
+    "title": "Terms of Service — FEFELOV",
+    "description": "FEFELOV Terms of Service: conditions for educational and IT services, payment procedures, deadlines, responsibilities.",
+    "header": {
+      "label": "Legal Information",
+      "title": "Terms of Service",
+      "subtitle": "for information, consulting, educational and IT services",
+      "revision": "Revision 1.0 dated 24.12.2025"
+    },
+    "toc": {
+      "title": "Contents",
+      "requisites": "Details",
+      "s1": "1. Definitions",
+      "s2": "2. Services",
+      "s3": "3. Acceptance",
+      "s4": "4. Payment",
+      "s5": "5. Working Hours",
+      "s6": "6. Communication",
+      "s7": "7. Urgency",
+      "s8": "8. Late Payment",
+      "s9": "9. Disputes",
+      "s10": "10. Conduct",
+      "s11": "11. Liability",
+      "s12": "12. Dispute Resolution",
+      "s13": "13. Final Provisions"
+    },
+    "important": {
+      "title": "Important",
+      "text": "By contacting the Contractor in any way (messengers, social networks, phone, email), you confirm that you have read these terms and fully accept them."
+    },
+    "requisites": {
+      "title": "Contractor Details",
+      "name_label": "Name",
+      "name_value": "IE Basenko Ilya Konstantinovich",
+      "ogrnip": "OGRNIP",
+      "inn": "INN",
+      "okpo": "OKPO",
+      "region": "Region",
+      "region_value": "Moscow",
+      "email": "Email"
+    },
+    "s1": {
+      "title": "1. Terms and Definitions",
+      "p1_1_title": "1.1. Contractor",
+      "p1_1_text": "IE Basenko Ilya Konstantinovich (OGRNIP 325774600531587, INN 772370980295), as well as authorized representatives acting on his behalf.",
+      "p1_2_title": "1.2. Customer",
+      "p1_2_text": "An individual or legal entity who has applied to the Contractor for services and accepted the terms of this offer.",
+      "p1_3_title": "1.3. Manager",
+      "p1_3_text": "An authorized representative of the Contractor who communicates with the Customer through official channels. The Manager is authorized to agree on terms on behalf of the Contractor.",
+      "p1_4_title": "1.4. Services",
+      "p1_4_text": "Information, consulting, educational, IT services and other services provided by the Contractor in accordance with the list specified in Section 2.",
+      "p1_5_title": "1.5. Result",
+      "p1_5_text": "Materials, documents, files, software code, consultations and other results of services provided to the Customer.",
+      "p1_6_title": "1.6. Communication",
+      "p1_6_text": "The process of the Contractor's interaction with third parties (teachers, experts, organizations) in the Customer's interests. Communication does not imply immediate results."
+    },
+    "published": "Publication date: December 24, 2025"
+  },
+  "privacy": {
+    "title": "Privacy Policy — FEFELOV",
+    "description": "FEFELOV Privacy Policy: personal data processing, data subject rights, information protection.",
+    "header": {
+      "label": "Legal Information",
+      "title": "Privacy Policy",
+      "subtitle": "Personal data processing and protection",
+      "revision": "Revision 1.0 dated 24.12.2025"
+    },
+    "operator": {
+      "label": "Operator:",
+      "value": "IE Basenko Ilya Konstantinovich",
+      "inn_label": "INN:"
+    },
+    "s1": {
+      "title": "1. General Provisions",
+      "p1_1": "This Privacy Policy defines the procedure for processing and protecting personal data of individuals who have applied for services from IE Basenko I.K. (hereinafter — the Operator).",
+      "p1_2": "The Policy is developed in accordance with Federal Law No. 152-FZ dated 27.07.2006 'On Personal Data'.",
+      "p1_3": "By contacting the Operator in any way, the user agrees to the terms of this Policy."
+    },
+    "s2": {
+      "title": "2. Personal Data",
+      "p2_1": "The Operator may process the following personal data:",
+      "item1": "Full name",
+      "item2": "Contact phone number",
+      "item3": "Email address",
+      "item4": "Messenger and social network identifiers",
+      "item5": "Payment details",
+      "item6": "Other data voluntarily provided by the user",
+      "p2_2": "The Operator does not collect or process special categories of personal data (race, nationality, political views, religion, health, etc.)."
+    },
+    "s3": {
+      "title": "3. Processing Purposes",
+      "p3_1": "Personal data is processed for:",
+      "item1": "User identification when providing services",
+      "item2": "Communication with the user (notifications, responses)",
+      "item3": "Fulfillment of contractual obligations",
+      "item4": "Invoicing and payment processing",
+      "item5": "Dispute resolution and protection of the Operator's rights",
+      "item6": "Service quality improvement"
+    },
+    "s4": {
+      "title": "4. Legal Basis",
+      "p4_1": "Personal data processing is carried out on the basis of:",
+      "item1": "Personal data subject's consent",
+      "item2": "Contract execution (public offer)",
+      "item3": "Legitimate interests of the Operator (rights protection, debt collection)",
+      "item4": "Requirements of Russian Federation legislation"
+    },
+    "s5": {
+      "title": "5. Data Storage",
+      "p5_1": "Personal data is stored for the period necessary to achieve processing purposes, but not less than the statute of limitations (3 years).",
+      "p5_2": "Data is stored on secure servers and cloud services in compliance with security requirements.",
+      "p5_3": "After the storage period expires, data is destroyed or anonymized."
+    },
+    "s6": {
+      "title": "6. Transfer to Third Parties",
+      "p6_1": "The Operator does not transfer personal data to third parties, except in cases:",
+      "item1": "With the data subject's consent",
+      "item2": "At the request of authorized government bodies",
+      "item3": "To protect the Operator's rights (including debt collection)",
+      "item4": "When engaging contractors to provide services",
+      "p6_2": "When transferring data to contractors, the Operator ensures their compliance with confidentiality requirements."
+    },
+    "s7": {
+      "title": "7. Data Subject Rights",
+      "p7_1": "The personal data subject has the right to:",
+      "item1": "Obtain information about the processing of their data",
+      "item2": "Request clarification, blocking or destruction of data",
+      "item3": "Withdraw consent to data processing",
+      "item4": "Appeal the Operator's actions to Roskomnadzor or court",
+      "p7_2": "To exercise rights, it is necessary to send a request through official communication channels."
+    },
+    "s8": {
+      "title": "8. Data Protection",
+      "p8_1": "The Operator takes necessary organizational and technical measures to protect personal data from unauthorized access, destruction, modification, blocking, copying and distribution.",
+      "p8_2": "Protection measures include: access restriction, use of secure communication channels, backup."
+    },
+    "s9": {
+      "title": "9. Policy Changes",
+      "p9_1": "The Operator has the right to make changes to this Policy without prior notice to users.",
+      "p9_2": "The current version of the Policy is posted on the website.",
+      "p9_3": "Continued use of services after Policy changes means consent to the new version."
+    },
+    "s10": {
+      "title": "10. Contacts",
+      "p10_1": "For questions related to personal data processing, please contact through official communication channels (email or messengers)."
+    },
+    "published": "Publication date: December 24, 2025"
+  },
+  "refund": {
+    "title": "Refund Policy — FEFELOV",
+    "description": "FEFELOV Refund Policy: refund conditions, deadlines, application procedure, revisions and corrections.",
+    "header": {
+      "label": "Legal Information",
+      "title": "Refund Policy",
+      "subtitle": "Refund conditions for information, consulting, educational and IT services",
+      "revision": "Revision 1.0 dated 24.12.2025"
+    },
+    "notice1": {
+      "text": "Please note: this policy is part of the public offer and applies to all types of services provided by IE Basenko I.K. (FEFELOV.Study, FEFELOV.Tech and other directions). By requesting services, you confirm your agreement with the refund conditions."
+    },
+    "notice2": {
+      "text": "Note on deadlines: all deadlines in this document indicated in 'business days' are calculated in accordance with the working hours established in Section 5 of the public offer: Mon-Fri, 10:00-20:00 MSK. Weekends (Sat, Sun) and Russian Federation holidays are not counted."
+    },
+    "s1": {
+      "title": "1. General Provisions",
+      "p1_1": "This policy defines the conditions and procedure for refunding funds paid for services of IE Basenko Ilya Konstantinovich (OGRNIP 325774600531587, INN 772370980295).",
+      "p1_2": "The policy applies to all types of services provided by the Contractor, including:",
+      "item1": "Information, consulting and educational services (OKVED 85.41.9)",
+      "item2": "Scientific research and development (OKVED 72.20)",
+      "item3": "Document preparation and business mediation (OKVED 82.19)",
+      "item4": "Software development (OKVED 62.01)",
+      "item5": "Data processing and information services (OKVED 63.11)",
+      "item6": "Other services in accordance with the list specified in the public offer",
+      "p1_3": "Refunds are made in accordance with the Russian Federation Law 'On Consumer Rights Protection' and the Civil Code of the Russian Federation.",
+      "p1_4": "Refund conditions may differ depending on the nature and specifics of the services provided, which is agreed upon individually with the Customer."
+    },
+    "published": "Publication date: December 24, 2025"
+  }
+}

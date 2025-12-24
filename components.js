@@ -10,7 +10,7 @@ const commonStyles = `
     html { scroll-behavior: smooth; }
     .contact-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
     .contact-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.1); }
-    
+
     .logo-gradient {
         background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe, #667eea);
         background-size: 300% 100%;
@@ -50,6 +50,9 @@ const commonStyles = `
         50% { background-position: 100% 50%; }
         100% { background-position: 0% 50%; }
     }
+
+    .lang-menu { display: none; }
+    .lang-menu.active { display: block; }
 `;
 
 const headerHTML = `
@@ -58,13 +61,26 @@ const headerHTML = `
         <div class="flex items-center justify-between">
             <a href="index.html" class="logo-container text-xl font-semibold tracking-tight"><span class="logo-text">FEFELOV</span><span class="logo-dot logo-gradient">.</span></a>
             <nav class="hidden md:flex items-center gap-8">
-                <a href="index.html" class="nav-link text-sm text-stone-600 hover:text-stone-900">Главная</a>
-                <a href="index.html#services" class="nav-link text-sm text-stone-600 hover:text-stone-900">Услуги</a>
-                <a href="index.html#divisions" class="nav-link text-sm text-stone-600 hover:text-stone-900">Подразделения</a>
-                <a href="contacts.html" class="nav-link text-sm text-stone-600 hover:text-stone-900">Контакты</a>
+                <a href="index.html" class="nav-link text-sm text-stone-600 hover:text-stone-900" data-i18n="common.nav.home">Главная</a>
+                <a href="index.html#services" class="nav-link text-sm text-stone-600 hover:text-stone-900" data-i18n="common.nav.services">Услуги</a>
+                <a href="index.html#divisions" class="nav-link text-sm text-stone-600 hover:text-stone-900" data-i18n="common.nav.divisions">Подразделения</a>
+                <a href="contacts.html" class="nav-link text-sm text-stone-600 hover:text-stone-900" data-i18n="common.nav.contacts">Контакты</a>
             </nav>
             <div class="flex items-center gap-3">
-                <a href="contacts.html" class="hidden md:inline-flex bg-stone-900 text-stone-50 px-5 py-2.5 text-sm font-medium rounded-full hover:bg-stone-800 transition-colors">
+                <div class="relative">
+                    <button id="lang-btn" class="flex items-center gap-1 px-3 py-2 text-sm text-stone-600 hover:text-stone-900 rounded-full hover:bg-stone-100 transition-colors">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+                        <span id="current-lang">RU</span>
+                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div id="lang-menu" class="lang-menu absolute right-0 top-full mt-1 bg-white border border-stone-200 rounded-xl shadow-lg py-1 min-w-[140px] z-50">
+                        <button data-lang="ru" class="w-full px-4 py-2 text-left text-sm hover:bg-stone-50 transition-colors">Русский</button>
+                        <button data-lang="uk" class="w-full px-4 py-2 text-left text-sm hover:bg-stone-50 transition-colors">Українська</button>
+                        <button data-lang="en" class="w-full px-4 py-2 text-left text-sm hover:bg-stone-50 transition-colors">English</button>
+                        <button data-lang="zh" class="w-full px-4 py-2 text-left text-sm hover:bg-stone-50 transition-colors">中文</button>
+                    </div>
+                </div>
+                <a href="contacts.html" class="hidden md:inline-flex bg-stone-900 text-stone-50 px-5 py-2.5 text-sm font-medium rounded-full hover:bg-stone-800 transition-colors" data-i18n="common.nav.contact_btn">
                     Связаться
                 </a>
                 <button id="mobile-menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center rounded-full hover:bg-stone-200/50 transition-colors">
@@ -75,11 +91,11 @@ const headerHTML = `
     </div>
     <div id="mobile-menu" class="hidden md:hidden bg-stone-50 border-t border-stone-200/50">
         <nav class="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-1">
-            <a href="index.html" class="px-4 py-3 text-sm text-stone-600 hover:text-stone-900 hover:bg-stone-100 rounded-xl transition-colors">Главная</a>
-            <a href="index.html#services" class="px-4 py-3 text-sm text-stone-600 hover:text-stone-900 hover:bg-stone-100 rounded-xl transition-colors">Услуги</a>
-            <a href="index.html#divisions" class="px-4 py-3 text-sm text-stone-600 hover:text-stone-900 hover:bg-stone-100 rounded-xl transition-colors">Подразделения</a>
-            <a href="contacts.html" class="px-4 py-3 text-sm text-stone-600 hover:text-stone-900 hover:bg-stone-100 rounded-xl transition-colors">Контакты</a>
-            <a href="contacts.html" class="mt-2 bg-stone-900 text-stone-50 px-4 py-3 text-sm font-medium rounded-xl hover:bg-stone-800 transition-colors text-center">Связаться</a>
+            <a href="index.html" class="px-4 py-3 text-sm text-stone-600 hover:text-stone-900 hover:bg-stone-100 rounded-xl transition-colors" data-i18n="common.nav.home">Главная</a>
+            <a href="index.html#services" class="px-4 py-3 text-sm text-stone-600 hover:text-stone-900 hover:bg-stone-100 rounded-xl transition-colors" data-i18n="common.nav.services">Услуги</a>
+            <a href="index.html#divisions" class="px-4 py-3 text-sm text-stone-600 hover:text-stone-900 hover:bg-stone-100 rounded-xl transition-colors" data-i18n="common.nav.divisions">Подразделения</a>
+            <a href="contacts.html" class="px-4 py-3 text-sm text-stone-600 hover:text-stone-900 hover:bg-stone-100 rounded-xl transition-colors" data-i18n="common.nav.contacts">Контакты</a>
+            <a href="contacts.html" class="mt-2 bg-stone-900 text-stone-50 px-4 py-3 text-sm font-medium rounded-xl hover:bg-stone-800 transition-colors text-center" data-i18n="common.nav.contact_btn">Связаться</a>
         </nav>
     </div>
 </header>
@@ -91,32 +107,32 @@ const footerHTML = `
         <div class="grid md:grid-cols-4 gap-8 mb-12">
             <div>
                 <h4 class="font-semibold mb-4">FEFELOV<span class="logo-gradient">.</span></h4>
-                <p class="text-sm text-stone-600">Образовательные услуги<br>и IT-решения</p>
+                <p class="text-sm text-stone-600" data-i18n-html="common.footer.tagline">Образовательные услуги<br>и IT-решения</p>
             </div>
             <div>
-                <h4 class="font-semibold mb-4">Подразделения</h4>
+                <h4 class="font-semibold mb-4" data-i18n="common.footer.divisions_title">Подразделения</h4>
                 <ul class="space-y-2 text-sm text-stone-600"><li>FEFELOV.Study</li><li>FEFELOV.Tech</li></ul>
             </div>
             <div>
-                <h4 class="font-semibold mb-4">Документы</h4>
+                <h4 class="font-semibold mb-4" data-i18n="common.footer.docs_title">Документы</h4>
                 <ul class="space-y-2 text-sm">
-                    <li><a href="terms.html" class="text-stone-600 hover:text-stone-900">Публичная оферта</a></li>
-                    <li><a href="privacy.html" class="text-stone-600 hover:text-stone-900">Политика конфиденциальности</a></li>
-                    <li><a href="refund.html" class="text-stone-600 hover:text-stone-900">Возврат средств</a></li>
+                    <li><a href="terms.html" class="text-stone-600 hover:text-stone-900" data-i18n="common.footer.terms">Публичная оферта</a></li>
+                    <li><a href="privacy.html" class="text-stone-600 hover:text-stone-900" data-i18n="common.footer.privacy">Политика конфиденциальности</a></li>
+                    <li><a href="refund.html" class="text-stone-600 hover:text-stone-900" data-i18n="common.footer.refund">Возврат средств</a></li>
                 </ul>
             </div>
             <div>
-                <h4 class="font-semibold mb-4">Контакты</h4>
+                <h4 class="font-semibold mb-4" data-i18n="common.footer.contacts_title">Контакты</h4>
                 <ul class="space-y-2 text-sm text-stone-600">
                     <li><a href="mailto:182003Bkmz@gmail.com" class="hover:text-stone-900">182003Bkmz@gmail.com</a></li>
                     <li><a href="https://vk.com/fefelov_net" target="_blank" class="hover:text-stone-900">vk.com/fefelov_net →</a></li>
-                    <li><a href="contacts.html" class="hover:text-stone-900">Все контакты →</a></li>
+                    <li><a href="contacts.html" class="hover:text-stone-900" data-i18n="common.footer.all_contacts">Все контакты →</a></li>
                 </ul>
             </div>
         </div>
         <div class="pt-8 border-t border-stone-200 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-stone-500">
-            <p>© 2025 ИП Басенко И.К. ОГРНИП 325774600531587</p>
-            <p>Москва, Россия</p>
+            <p data-i18n="common.footer.copyright">© 2025 ИП Басенко И.К. ОГРНИП 325774600531587</p>
+            <p data-i18n="common.footer.location">Москва, Россия</p>
         </div>
     </div>
 </footer>
@@ -149,6 +165,35 @@ document.addEventListener('DOMContentLoaded', function() {
                     mobileMenuBtn.innerHTML = '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>';
                 });
             });
+        }
+
+        const langBtn = document.getElementById('lang-btn');
+        const langMenu = document.getElementById('lang-menu');
+        const currentLang = document.getElementById('current-lang');
+
+        if (langBtn && langMenu) {
+            langBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                langMenu.classList.toggle('active');
+            });
+
+            document.addEventListener('click', function() {
+                langMenu.classList.remove('active');
+            });
+
+            langMenu.querySelectorAll('[data-lang]').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const lang = this.dataset.lang;
+                    if (typeof I18N !== 'undefined') {
+                        I18N.setLanguage(lang);
+                    }
+                    currentLang.textContent = lang.toUpperCase();
+                    langMenu.classList.remove('active');
+                });
+            });
+
+            const storedLang = localStorage.getItem('lang') || 'ru';
+            currentLang.textContent = storedLang.toUpperCase();
         }
     }
 

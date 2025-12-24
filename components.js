@@ -89,7 +89,7 @@ const footerHTML = `
             <div>
                 <h4 class="font-semibold mb-4">Контакты</h4>
                 <ul class="space-y-2 text-sm text-stone-600">
-                    <li><a href="mailto:102003Bkmz@gmail.com" class="hover:text-stone-900">102003Bkmz@gmail.com</a></li>
+                    <li><a href="mailto:182003Bkmz@gmail.com" class="hover:text-stone-900">182003Bkmz@gmail.com</a></li>
                     <li><a href="https://vk.com/fefelov_net" target="_blank" class="hover:text-stone-900">vk.com/fefelov_net →</a></li>
                     <li><a href="contacts.html" class="hover:text-stone-900">Все контакты →</a></li>
                 </ul>

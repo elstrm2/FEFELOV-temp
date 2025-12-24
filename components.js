@@ -62,7 +62,7 @@ const headerHTML = `
                 <a href="contacts.html" class="nav-link text-sm text-stone-600 hover:text-stone-900">Контакты</a>
             </nav>
             <div class="flex items-center gap-3">
-                <a href="contacts.html" class="hidden sm:inline-flex bg-stone-900 text-stone-50 px-5 py-2.5 text-sm font-medium rounded-full hover:bg-stone-800 transition-colors">
+                <a href="contacts.html" class="hidden md:inline-flex bg-stone-900 text-stone-50 px-5 py-2.5 text-sm font-medium rounded-full hover:bg-stone-800 transition-colors">
                     Связаться
                 </a>
                 <button id="mobile-menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center rounded-full hover:bg-stone-200/50 transition-colors">

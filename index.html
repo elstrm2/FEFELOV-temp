@@ -89,6 +89,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>(function(){var l=localStorage.getItem('lang')||navigator.language.slice(0,2)||'ru';if(!['ru','uk','en','zh'].includes(l))l='ru';document.documentElement.lang=l;})();</script>
     <script src="components.js"></script>
 </head>
 <body class="bg-stone-50 text-stone-900 antialiased max-w-full overflow-x-hidden">
@@ -98,20 +99,20 @@
     <section class="pt-32 pb-20 md:pt-44 md:pb-32">
         <div class="max-w-6xl mx-auto px-4 sm:px-6">
             <div class="max-w-3xl">
-                <p class="text-sm font-medium text-stone-500 mb-4 tracking-wide uppercase">ИП Басенко И.К.</p>
+                <p class="text-sm font-medium text-stone-500 mb-4 tracking-wide uppercase" data-i18n="index.hero.subtitle">ИП Басенко И.К.</p>
                 <h1 class="text-4xl md:text-6xl font-semibold leading-tight tracking-tight mb-6">
-                    Образовательные услуги<br>и IT-решения
+                    <span data-i18n="index.hero.title_line1">Образовательные услуги</span><br><span data-i18n="index.hero.title_line2">и IT-решения</span>
                 </h1>
-                <p class="text-lg md:text-xl text-stone-600 leading-relaxed mb-10 max-w-2xl">
-                    Помогаем с учебными проектами, разрабатываем программное обеспечение, 
+                <p class="text-lg md:text-xl text-stone-600 leading-relaxed mb-10 max-w-2xl" data-i18n="index.hero.text">
+                    Помогаем с учебными проектами, разрабатываем программное обеспечение,
                     консультируем по сложным вопросам. Работаем официально, по договору.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
                     <a href="contacts.html" class="inline-flex items-center justify-center bg-stone-900 text-stone-50 px-8 py-4 text-sm font-medium rounded-full hover:bg-stone-800 transition-colors">
-                        Обсудить проект
+                        <span data-i18n="index.hero.cta_primary">Обсудить проект</span>
                         <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                     </a>
-                    <a href="terms.html" class="inline-flex items-center justify-center border border-stone-300 px-8 py-4 text-sm font-medium rounded-full hover:border-stone-400 transition-colors">
+                    <a href="terms.html" class="inline-flex items-center justify-center border border-stone-300 px-8 py-4 text-sm font-medium rounded-full hover:border-stone-400 transition-colors" data-i18n="index.hero.cta_secondary">
                         Условия работы
                     </a>
                 </div>
@@ -122,8 +123,8 @@
     <section id="services" class="py-20 bg-white">
         <div class="max-w-6xl mx-auto px-4 sm:px-6">
             <div class="mb-16">
-                <p class="text-sm font-medium text-stone-500 mb-3 tracking-wide uppercase">Услуги</p>
-                <h2 class="text-3xl md:text-4xl font-semibold tracking-tight">Чем занимаемся</h2>
+                <p class="text-sm font-medium text-stone-500 mb-3 tracking-wide uppercase" data-i18n="index.services.label">Услуги</p>
+                <h2 class="text-3xl md:text-4xl font-semibold tracking-tight" data-i18n="index.services.title">Чем занимаемся</h2>
             </div>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -260,10 +261,10 @@
     <section class="py-20">
         <div class="max-w-6xl mx-auto px-4 sm:px-6">
             <div class="bg-stone-900 text-stone-50 rounded-3xl p-6 sm:p-12 md:p-16 text-center">
-                <h2 class="text-3xl md:text-4xl font-semibold mb-4">Готовы обсудить проект?</h2>
-                <p class="text-stone-400 mb-8 max-w-xl mx-auto">Напишите нам — обсудим задачу, сроки и стоимость. Ответим в рабочее время: пн-пт, 10:00–20:00 МСК.</p>
+                <h2 class="text-3xl md:text-4xl font-semibold mb-4" data-i18n="index.cta.title">Готовы обсудить проект?</h2>
+                <p class="text-stone-400 mb-8 max-w-xl mx-auto" data-i18n="index.cta.text">Напишите нам — обсудим задачу, сроки и стоимость. Ответим в рабочее время: пн-пт, 10:00–20:00 МСК.</p>
                 <a href="contacts.html" class="inline-flex items-center justify-center bg-stone-50 text-stone-900 px-8 py-4 text-sm font-medium rounded-full hover:bg-stone-100 transition-colors">
-                    Написать
+                    <span data-i18n="index.cta.btn">Написать</span>
                     <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                 </a>
             </div>
@@ -271,5 +272,6 @@
     </section>
 
     <div id="footer-placeholder"></div>
+    <script src="i18n.js"></script>
 </body>
 </html>

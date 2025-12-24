@@ -41,6 +41,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>(function(){var l=localStorage.getItem('lang')||navigator.language.slice(0,2)||'ru';if(!['ru','uk','en','zh'].includes(l))l='ru';document.documentElement.lang=l;})();</script>
     <script src="components.js"></script>
 </head>
 <body class="bg-stone-50 text-stone-900 antialiased max-w-full overflow-x-hidden">
@@ -51,9 +52,9 @@
         <div class="max-w-4xl mx-auto px-4 sm:px-6">
             
             <div class="mb-12">
-                <p class="text-sm font-medium text-stone-500 mb-3 tracking-wide uppercase">Связаться с нами</p>
-                <h1 class="text-3xl md:text-4xl font-semibold tracking-tight mb-4">Контакты</h1>
-                <p class="text-stone-600">Выберите удобный способ связи. Ответим в рабочее время.</p>
+                <p class="text-sm font-medium text-stone-500 mb-3 tracking-wide uppercase" data-i18n="contacts.header.label">Связаться с нами</p>
+                <h1 class="text-3xl md:text-4xl font-semibold tracking-tight mb-4" data-i18n="contacts.header.title">Контакты</h1>
+                <p class="text-stone-600" data-i18n="contacts.header.text">Выберите удобный способ связи. Ответим в рабочее время.</p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-6 mb-12">
@@ -140,5 +141,6 @@
     </main>
 
     <div id="footer-placeholder"></div>
+    <script src="i18n.js"></script>
 </body>
 </html>

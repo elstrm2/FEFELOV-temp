@@ -14,6 +14,9 @@
         .gradient-bg { background: linear-gradient(135deg, #1c1917 0%, #292524 100%); }
         .status-dot { animation: pulse 2s infinite; }
         @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        .tab-btn.active { background: rgba(168, 162, 158, 0.2); border-color: rgba(168, 162, 158, 0.3); }
+        .period-btn.active { background: #fafaf9; color: #1c1917; }
+        .progress-bar { transition: width 0.3s ease; }
     </style>
 </head>
 <body class="gradient-bg min-h-screen text-stone-100 antialiased">
@@ -51,23 +54,32 @@
                     </div>
                     <span class="font-semibold">VK Bot</span>
                 </div>
-                <button id="logout-btn" class="text-stone-500 hover:text-stone-300 text-sm transition-colors">
-                    Logout
-                </button>
+                <button id="logout-btn" class="text-stone-500 hover:text-stone-300 text-sm transition-colors">Logout</button>
             </div>
         </header>
 
-        <main class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 pt-6">
+            <div class="flex gap-2 mb-6">
+                <button class="tab-btn active flex-1 sm:flex-none px-4 py-2 rounded-xl border border-transparent text-sm font-medium transition-colors" data-tab="autoresponder">
+                    <span class="hidden sm:inline">Autoresponder</span>
+                    <span class="sm:hidden">Auto</span>
+                </button>
+                <button class="tab-btn flex-1 sm:flex-none px-4 py-2 rounded-xl border border-transparent text-sm font-medium transition-colors" data-tab="retriever">
+                    <span class="hidden sm:inline">Retriever</span>
+                    <span class="sm:hidden">Export</span>
+                </button>
+            </div>
+        </div>
+
+        <main id="tab-autoresponder" class="max-w-4xl mx-auto px-4 sm:px-6 pb-8">
             <div class="grid gap-6">
-                <div class="bg-stone-800/30 border border-stone-800 rounded-2xl p-6">
+                <div class="bg-stone-800/30 border border-stone-800 rounded-2xl p-4 sm:p-6">
                     <div class="flex items-center justify-between mb-6">
                         <div class="flex items-center gap-3">
                             <div id="status-indicator" class="w-3 h-3 rounded-full bg-stone-500 status-dot"></div>
                             <span class="font-medium">Bot Status</span>
                         </div>
-                        <button id="toggle-btn" class="bg-stone-700 hover:bg-stone-600 px-4 py-2 rounded-lg text-sm font-medium transition-colors">
-                            Loading...
-                        </button>
+                        <button id="toggle-btn" class="bg-stone-700 hover:bg-stone-600 px-4 py-2 rounded-lg text-sm font-medium transition-colors">Loading...</button>
                     </div>
                     <div class="grid grid-cols-2 gap-4">
                         <div class="bg-stone-800/50 rounded-xl p-4">
@@ -81,16 +93,14 @@
                     </div>
                 </div>
 
-                <div class="bg-stone-800/30 border border-stone-800 rounded-2xl p-6">
+                <div class="bg-stone-800/30 border border-stone-800 rounded-2xl p-4 sm:p-6">
                     <h2 class="font-medium mb-4">Auto Reply Messages</h2>
-
                     <div class="space-y-4">
                         <div>
                             <label class="text-stone-400 text-sm mb-2 block">Standard Reply (working hours)</label>
                             <textarea id="auto-reply" rows="2" placeholder="Message during work hours..."
                                 class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 placeholder-stone-500 focus:outline-none focus:border-stone-500 transition-colors resize-none text-sm"></textarea>
                         </div>
-
                         <div>
                             <label class="text-stone-400 text-sm mb-2 block flex items-center gap-2">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
@@ -99,7 +109,6 @@
                             <textarea id="weekend-reply" rows="2" placeholder="Message on weekends..."
                                 class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 placeholder-stone-500 focus:outline-none focus:border-stone-500 transition-colors resize-none text-sm"></textarea>
                         </div>
-
                         <div>
                             <label class="text-stone-400 text-sm mb-2 block flex items-center gap-2">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
@@ -109,13 +118,10 @@
                                 class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 placeholder-stone-500 focus:outline-none focus:border-stone-500 transition-colors resize-none text-sm"></textarea>
                         </div>
                     </div>
-
-                    <button id="save-btn" class="mt-4 bg-stone-100 text-stone-900 rounded-xl px-6 py-2 text-sm font-medium hover:bg-stone-200 transition-colors">
-                        Save Messages
-                    </button>
+                    <button id="save-btn" class="mt-4 bg-stone-100 text-stone-900 rounded-xl px-6 py-2 text-sm font-medium hover:bg-stone-200 transition-colors">Save Messages</button>
                 </div>
 
-                <div class="bg-stone-800/30 border border-stone-800 rounded-2xl p-6">
+                <div class="bg-stone-800/30 border border-stone-800 rounded-2xl p-4 sm:p-6">
                     <h2 class="font-medium mb-4">Spam Protection</h2>
                     <div class="grid grid-cols-2 gap-4">
                         <div>
@@ -130,15 +136,92 @@
                         </div>
                     </div>
                     <p class="text-stone-500 text-xs mt-3">Spam warning sent if user sends more than threshold messages within window.</p>
-                    <button id="save-spam-btn" class="mt-4 bg-stone-700 hover:bg-stone-600 rounded-xl px-6 py-2 text-sm font-medium transition-colors">
-                        Save Settings
-                    </button>
+                    <button id="save-spam-btn" class="mt-4 bg-stone-700 hover:bg-stone-600 rounded-xl px-6 py-2 text-sm font-medium transition-colors">Save Settings</button>
                 </div>
 
-                <div class="bg-stone-800/30 border border-stone-800 rounded-2xl p-6">
+                <div class="bg-stone-800/30 border border-stone-800 rounded-2xl p-4 sm:p-6">
                     <h2 class="font-medium mb-4">Recent Messages</h2>
                     <div id="recent-messages" class="space-y-2 text-sm max-h-64 overflow-y-auto">
                         <p class="text-stone-500">Loading...</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <main id="tab-retriever" class="hidden max-w-4xl mx-auto px-4 sm:px-6 pb-8">
+            <div class="grid gap-6">
+                <div class="bg-stone-800/30 border border-stone-800 rounded-2xl p-4 sm:p-6">
+                    <h2 class="font-medium mb-4">Export Chat History</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="text-stone-400 text-sm mb-2 block">User ID or Link</label>
+                            <input type="text" id="retriever-user" placeholder="id123456, vk.com/username, or screen name"
+                                class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 placeholder-stone-500 focus:outline-none focus:border-stone-500 transition-colors text-sm">
+                        </div>
+                        <div>
+                            <label class="text-stone-400 text-sm mb-2 block">Period</label>
+                            <div class="flex flex-wrap gap-2">
+                                <button class="period-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-700 hover:bg-stone-600 transition-colors" data-period="2h">2 hours</button>
+                                <button class="period-btn active px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-700 hover:bg-stone-600 transition-colors" data-period="1d">1 day</button>
+                                <button class="period-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-700 hover:bg-stone-600 transition-colors" data-period="1w">1 week</button>
+                                <button class="period-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-700 hover:bg-stone-600 transition-colors" data-period="2w">2 weeks</button>
+                                <button class="period-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-700 hover:bg-stone-600 transition-colors" data-period="1m">1 month</button>
+                                <button class="period-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-700 hover:bg-stone-600 transition-colors" data-period="all">All time</button>
+                                <button class="period-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-700 hover:bg-stone-600 transition-colors" data-period="custom">Custom</button>
+                            </div>
+                        </div>
+                        <div id="custom-dates" class="hidden grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="text-stone-400 text-sm mb-2 block">Start Date</label>
+                                <input type="datetime-local" id="retriever-start"
+                                    class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 focus:outline-none focus:border-stone-500 transition-colors text-sm">
+                            </div>
+                            <div>
+                                <label class="text-stone-400 text-sm mb-2 block">End Date</label>
+                                <input type="datetime-local" id="retriever-end"
+                                    class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 focus:outline-none focus:border-stone-500 transition-colors text-sm">
+                            </div>
+                        </div>
+                        <button id="start-retrieval-btn" class="w-full bg-stone-100 text-stone-900 rounded-xl px-6 py-3 text-sm font-medium hover:bg-stone-200 transition-colors">
+                            Start Export
+                        </button>
+                    </div>
+                </div>
+
+                <div id="current-job" class="hidden bg-stone-800/30 border border-stone-800 rounded-2xl p-4 sm:p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="font-medium">Current Job</h2>
+                        <button id="cancel-job-btn" class="text-red-400 hover:text-red-300 text-sm transition-colors">Cancel</button>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-stone-400">User:</span>
+                            <span id="job-user" class="font-medium">-</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-stone-400">Status:</span>
+                            <span id="job-status" class="font-medium">-</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-stone-400">Messages:</span>
+                            <span id="job-messages" class="font-medium">-</span>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-stone-400">Progress:</span>
+                                <span id="job-progress-text" class="font-medium">0%</span>
+                            </div>
+                            <div class="w-full bg-stone-700 rounded-full h-2">
+                                <div id="job-progress-bar" class="progress-bar bg-green-500 h-2 rounded-full" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-stone-800/30 border border-stone-800 rounded-2xl p-4 sm:p-6">
+                    <h2 class="font-medium mb-4">Export History</h2>
+                    <div id="job-history" class="space-y-2 text-sm">
+                        <p class="text-stone-500">No exports yet</p>
                     </div>
                 </div>
             </div>
@@ -167,7 +250,27 @@
         const spamWindow = document.getElementById('spam-window');
         const recentMessages = document.getElementById('recent-messages');
 
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabAutoresponder = document.getElementById('tab-autoresponder');
+        const tabRetriever = document.getElementById('tab-retriever');
+        const periodBtns = document.querySelectorAll('.period-btn');
+        const customDates = document.getElementById('custom-dates');
+        const retrieverUser = document.getElementById('retriever-user');
+        const retrieverStart = document.getElementById('retriever-start');
+        const retrieverEnd = document.getElementById('retriever-end');
+        const startRetrievalBtn = document.getElementById('start-retrieval-btn');
+        const currentJobDiv = document.getElementById('current-job');
+        const cancelJobBtn = document.getElementById('cancel-job-btn');
+        const jobUser = document.getElementById('job-user');
+        const jobStatus = document.getElementById('job-status');
+        const jobMessages = document.getElementById('job-messages');
+        const jobProgressText = document.getElementById('job-progress-text');
+        const jobProgressBar = document.getElementById('job-progress-bar');
+        const jobHistory = document.getElementById('job-history');
+
         let isEnabled = false;
+        let selectedPeriod = '1d';
+        let retrieverInterval = null;
 
         async function api(endpoint, method = 'GET', body = null) {
             const opts = {
@@ -179,6 +282,26 @@
             const res = await fetch(API + endpoint, opts);
             return res.json();
         }
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                tabBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const tab = btn.dataset.tab;
+                tabAutoresponder.classList.toggle('hidden', tab !== 'autoresponder');
+                tabRetriever.classList.toggle('hidden', tab !== 'retriever');
+                if (tab === 'retriever') loadRetrieverStatus();
+            });
+        });
+
+        periodBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                periodBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                selectedPeriod = btn.dataset.period;
+                customDates.classList.toggle('hidden', selectedPeriod !== 'custom');
+            });
+        });
 
         loginForm.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -196,6 +319,7 @@
             loginScreen.classList.remove('hidden');
             panelScreen.classList.add('hidden');
             passwordInput.value = '';
+            if (retrieverInterval) clearInterval(retrieverInterval);
         });
 
         toggleBtn.addEventListener('click', async () => {
@@ -223,6 +347,34 @@
             setTimeout(() => saveSpamBtn.textContent = 'Save Settings', 2000);
         });
 
+        startRetrievalBtn.addEventListener('click', async () => {
+            const user = retrieverUser.value.trim();
+            if (!user) {
+                alert('Please enter a user ID or link');
+                return;
+            }
+            const body = { user, period: selectedPeriod };
+            if (selectedPeriod === 'custom') {
+                body.start_date = retrieverStart.value;
+                body.end_date = retrieverEnd.value;
+            }
+            startRetrievalBtn.disabled = true;
+            startRetrievalBtn.textContent = 'Starting...';
+            const data = await api('/retriever/start', 'POST', body);
+            if (data.error) {
+                alert(data.error);
+                startRetrievalBtn.disabled = false;
+                startRetrievalBtn.textContent = 'Start Export';
+            } else {
+                loadRetrieverStatus();
+            }
+        });
+
+        cancelJobBtn.addEventListener('click', async () => {
+            await api('/retriever/cancel', 'POST');
+            loadRetrieverStatus();
+        });
+
         function updateStatus() {
             statusIndicator.className = 'w-3 h-3 rounded-full status-dot ' + (isEnabled ? 'bg-green-500' : 'bg-red-500');
             toggleBtn.textContent = isEnabled ? 'Disable' : 'Enable';
@@ -244,7 +396,7 @@
                 if (data.stats.recent && data.stats.recent.length > 0) {
                     recentMessages.innerHTML = data.stats.recent.map(m =>
                         `<div class="bg-stone-800/50 rounded-lg px-3 py-2">
-                            <span class="text-stone-500">User ${m.user_id}:</span> ${m.message || '(empty)'}
+                            <span class="text-stone-500">User ${m.user_id}:</span> ${escapeHtml(m.message) || '(empty)'}
                         </div>`
                     ).join('');
                 } else {
@@ -253,6 +405,63 @@
             } catch (e) {
                 logoutBtn.click();
             }
+        }
+
+        async function loadRetrieverStatus() {
+            try {
+                const data = await api('/retriever/status');
+                const job = data.current_job;
+
+                if (job && (job.status === 'pending' || job.status === 'processing')) {
+                    currentJobDiv.classList.remove('hidden');
+                    startRetrievalBtn.disabled = true;
+                    startRetrievalBtn.textContent = 'Job in progress...';
+                    jobUser.textContent = job.user_name || `ID: ${job.user_id}`;
+                    jobStatus.textContent = job.status;
+                    jobMessages.textContent = `${job.fetched_messages || 0} / ${job.total_messages || '?'}`;
+                    jobProgressText.textContent = `${job.progress || 0}%`;
+                    jobProgressBar.style.width = `${job.progress || 0}%`;
+
+                    if (!retrieverInterval) {
+                        retrieverInterval = setInterval(loadRetrieverStatus, 2000);
+                    }
+                } else {
+                    currentJobDiv.classList.add('hidden');
+                    startRetrievalBtn.disabled = false;
+                    startRetrievalBtn.textContent = 'Start Export';
+                    if (retrieverInterval) {
+                        clearInterval(retrieverInterval);
+                        retrieverInterval = null;
+                    }
+                }
+
+                if (data.history && data.history.length > 0) {
+                    jobHistory.innerHTML = data.history.map(j => {
+                        const statusColor = j.status === 'completed' ? 'text-green-400' :
+                                           j.status === 'failed' ? 'text-red-400' : 'text-stone-400';
+                        const downloadBtn = j.status === 'completed' && j.pdf_path
+                            ? `<a href="${API}/retriever/download/${j.id}" class="text-blue-400 hover:text-blue-300 ml-2">Download</a>`
+                            : '';
+                        return `<div class="bg-stone-800/50 rounded-lg px-3 py-2 flex justify-between items-center">
+                            <div>
+                                <span class="font-medium">${escapeHtml(j.user_name || 'ID: ' + j.user_id)}</span>
+                                <span class="${statusColor} ml-2">${j.status}</span>
+                                <span class="text-stone-500 ml-2">${j.total_messages || 0} msgs</span>
+                            </div>
+                            <div>${downloadBtn}</div>
+                        </div>`;
+                    }).join('');
+                } else {
+                    jobHistory.innerHTML = '<p class="text-stone-500">No exports yet</p>';
+                }
+            } catch (e) {
+                console.error('Error loading retriever status:', e);
+            }
+        }
+
+        function escapeHtml(text) {
+            if (!text) return '';
+            return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
         }
 
         function showPanel() {

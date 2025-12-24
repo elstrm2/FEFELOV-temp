@@ -19,33 +19,11 @@
             }
         }
     </script>
-    <style>
-        * { font-family: 'Onest', system-ui, sans-serif; }
-        .card-hover { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.1); }
-        .nav-link { position: relative; }
-        .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px; background: #0a0a0a; transition: width 0.3s ease; }
-        .nav-link:hover::after { width: 100%; }
-    </style>
+    <script src="components.js"></script>
 </head>
 <body class="bg-stone-50 text-stone-900 antialiased">
     
-    <header class="fixed top-0 left-0 right-0 z-50 bg-stone-50/80 backdrop-blur-md border-b border-stone-200/50">
-        <div class="max-w-6xl mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <a href="index.html" class="text-xl font-semibold tracking-tight">FEFELOV</a>
-                <nav class="hidden md:flex items-center gap-8">
-                    <a href="#services" class="nav-link text-sm text-stone-600 hover:text-stone-900">Услуги</a>
-                    <a href="#divisions" class="nav-link text-sm text-stone-600 hover:text-stone-900">Подразделения</a>
-                    <a href="#about" class="nav-link text-sm text-stone-600 hover:text-stone-900">О нас</a>
-                    <a href="contacts.html" class="nav-link text-sm text-stone-600 hover:text-stone-900">Контакты</a>
-                </nav>
-                <a href="contacts.html" class="bg-stone-900 text-stone-50 px-5 py-2.5 text-sm font-medium rounded-full hover:bg-stone-800 transition-colors">
-                    Связаться
-                </a>
-            </div>
-        </div>
-    </header>
+    <div id="header-placeholder"></div>
 
     <section class="pt-32 pb-20 md:pt-44 md:pb-32">
         <div class="max-w-6xl mx-auto px-6">
@@ -149,6 +127,11 @@
                         <li class="flex items-center gap-2"><svg class="w-4 h-4 text-stone-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Курсовые и дипломные работы</li>
                         <li class="flex items-center gap-2"><svg class="w-4 h-4 text-stone-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Рефераты и эссе</li>
                         <li class="flex items-center gap-2"><svg class="w-4 h-4 text-stone-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Репетиторство</li>
+                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-stone-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Подготовка к экзаменам (ЕГЭ, ОГЭ)</li>
+                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-stone-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Контрольные и лабораторные</li>
+                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-stone-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Презентации и доклады</li>
+                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-stone-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Научные статьи</li>
+                        <li class="flex items-center gap-2 text-stone-500 italic"><svg class="w-4 h-4 text-stone-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v3.586L7.707 11.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 10.586V7z" clip-rule="evenodd"/></svg>И другое...</li>
                     </ul>
                 </div>
 
@@ -163,6 +146,11 @@
                         <li class="flex items-center gap-2"><svg class="w-4 h-4 text-stone-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Веб-разработка</li>
                         <li class="flex items-center gap-2"><svg class="w-4 h-4 text-stone-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Мобильные приложения</li>
                         <li class="flex items-center gap-2"><svg class="w-4 h-4 text-stone-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Автоматизация</li>
+                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-stone-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Телеграм-боты</li>
+                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-stone-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Парсинг данных</li>
+                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-stone-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Интеграции и API</li>
+                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-stone-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Техническое сопровождение</li>
+                        <li class="flex items-center gap-2 text-stone-500 italic"><svg class="w-4 h-4 text-stone-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v3.586L7.707 11.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 10.586V7z" clip-rule="evenodd"/></svg>И другое...</li>
                     </ul>
                 </div>
             </div>
@@ -180,7 +168,7 @@
                     <p class="text-sm font-medium text-stone-500 mb-3 tracking-wide uppercase">О компании</p>
                     <h2 class="text-3xl md:text-4xl font-semibold tracking-tight mb-6">Работаем официально</h2>
                     <div class="space-y-4 text-stone-600">
-                        <p>ИП Басенко Илья Константинович — официально зарегистрированный индивидуальный предприниматель в Москве. Работаем по договору, предоставляем все необходимые документы.</p>
+                        <p>ИП Басенко Илья Константинович — официально зарегистрированный индивидуальный предприниматель в Москве. Работаем по устному или письменному договору, предоставляем все необходимые документы. В любом случае, обращаясь к нам, человек принимает условия публичной оферты.</p>
                         <p>Оказываем услуги в сфере образования и IT с соблюдением законодательства РФ. Каждый заказ фиксируется, все условия прозрачны.</p>
                         <p>Наша цель — качественный результат и долгосрочное сотрудничество. Ценим время клиентов и своё.</p>
                     </div>
@@ -212,38 +200,6 @@
         </div>
     </section>
 
-    <footer class="py-12 border-t border-stone-200">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-8 mb-12">
-                <div>
-                    <h4 class="font-semibold mb-4">FEFELOV</h4>
-                    <p class="text-sm text-stone-600">Образовательные услуги<br>и IT-решения</p>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-4">Подразделения</h4>
-                    <ul class="space-y-2 text-sm text-stone-600"><li>FEFELOV.Study</li><li>FEFELOV.Tech</li></ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-4">Документы</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="terms.html" class="text-stone-600 hover:text-stone-900">Публичная оферта</a></li>
-                        <li><a href="privacy.html" class="text-stone-600 hover:text-stone-900">Политика конфиденциальности</a></li>
-                        <li><a href="refund.html" class="text-stone-600 hover:text-stone-900">Возврат средств</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-4">Контакты</h4>
-                    <ul class="space-y-2 text-sm text-stone-600">
-                        <li><a href="mailto:182003bkmz@gmail.com" class="hover:text-stone-900">182003bkmz@gmail.com</a></li>
-                        <li><a href="contacts.html" class="hover:text-stone-900">Все контакты →</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="pt-8 border-t border-stone-200 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-stone-500">
-                <p>© 2025 ИП Басенко И.К. ОГРНИП 325774600531587</p>
-                <p>Москва, Россия</p>
-            </div>
-        </div>
-    </footer>
+    <div id="footer-placeholder"></div>
 </body>
 </html>

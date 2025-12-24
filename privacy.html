@@ -9,21 +9,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>tailwind.config = { theme: { extend: { fontFamily: { 'sans': ['Onest', 'system-ui', 'sans-serif'] } } } }</script>
-    <style>* { font-family: 'Onest', system-ui, sans-serif; }</style>
+    <script src="components.js"></script>
 </head>
 <body class="bg-stone-50 text-stone-900 antialiased">
     
-    <header class="fixed top-0 left-0 right-0 z-50 bg-stone-50/80 backdrop-blur-md border-b border-stone-200/50">
-        <div class="max-w-4xl mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <a href="index.html" class="text-xl font-semibold tracking-tight">FEFELOV</a>
-                <nav class="flex items-center gap-6">
-                    <a href="index.html" class="text-sm text-stone-600 hover:text-stone-900">Главная</a>
-                    <a href="terms.html" class="text-sm text-stone-600 hover:text-stone-900">Оферта</a>
-                </nav>
-            </div>
-        </div>
-    </header>
+    <div id="header-placeholder"></div>
 
     <main class="pt-28 pb-20">
         <div class="max-w-4xl mx-auto px-6">
@@ -32,6 +22,7 @@
                 <p class="text-sm font-medium text-stone-500 mb-3 tracking-wide uppercase">Юридическая информация</p>
                 <h1 class="text-3xl md:text-4xl font-semibold tracking-tight mb-4">Политика конфиденциальности</h1>
                 <p class="text-stone-600">Обработка и защита персональных данных</p>
+                <p class="text-sm text-stone-500 mt-3">Редакция 1.0 от 24.12.2024</p>
             </div>
 
             <div class="bg-white border border-stone-200 rounded-2xl p-6 mb-12">
@@ -129,7 +120,7 @@
                             <li>Отозвать согласие на обработку данных</li>
                             <li>Обжаловать действия Оператора в Роскомнадзор или суд</li>
                         </ul>
-                        <p><strong>7.2.</strong> Для реализации прав необходимо направить запрос на email: 182003bkmz@gmail.com</p>
+                        <p><strong>7.2.</strong> Для реализации прав необходимо направить запрос на email: 102003Bkmz@gmail.com</p>
                     </div>
                 </section>
 
@@ -154,7 +145,7 @@
                     <h2 class="text-xl font-semibold mb-6 pb-3 border-b border-stone-200">10. Контакты</h2>
                     <div class="space-y-4 text-sm">
                         <p><strong>10.1.</strong> По вопросам, связанным с обработкой персональных данных, обращайтесь:</p>
-                        <p>Email: <a href="mailto:182003bkmz@gmail.com" class="text-stone-900 underline">182003bkmz@gmail.com</a></p>
+                        <p>Email: <a href="mailto:102003Bkmz@gmail.com" class="text-stone-900 underline">102003Bkmz@gmail.com</a></p>
                     </div>
                 </section>
 
@@ -162,19 +153,12 @@
 
             <div class="mt-12 pt-8 border-t border-stone-200 text-sm text-stone-500">
                 <p>Дата публикации: 24 декабря 2025 года</p>
+                <p class="text-xs mt-1">Редакция 1.0 от 24.12.2024</p>
             </div>
 
         </div>
     </main>
 
-    <footer class="py-8 border-t border-stone-200">
-        <div class="max-w-4xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-stone-500">
-            <p>© 2025 ИП Басенко И.К.</p>
-            <div class="flex gap-6">
-                <a href="terms.html" class="hover:text-stone-900">Оферта</a>
-                <a href="refund.html" class="hover:text-stone-900">Возврат</a>
-            </div>
-        </div>
-    </footer>
+    <div id="footer-placeholder"></div>
 </body>
 </html>

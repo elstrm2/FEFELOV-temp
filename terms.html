@@ -20,32 +20,15 @@
         }
     </script>
     <style>
-        * { font-family: 'Onest', system-ui, sans-serif; }
-        .nav-link { position: relative; }
-        .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px; background: #0a0a0a; transition: width 0.3s ease; }
-        .nav-link:hover::after { width: 100%; }
         .toc-link { transition: all 0.2s ease; }
         .toc-link:hover { padding-left: 8px; color: #0a0a0a; }
         html { scroll-behavior: smooth; }
     </style>
+    <script src="components.js"></script>
 </head>
 <body class="bg-stone-50 text-stone-900 antialiased">
     
-    <header class="fixed top-0 left-0 right-0 z-50 bg-stone-50/80 backdrop-blur-md border-b border-stone-200/50">
-        <div class="max-w-6xl mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <a href="index.html" class="text-xl font-semibold tracking-tight">FEFELOV</a>
-                <nav class="hidden md:flex items-center gap-8">
-                    <a href="index.html" class="nav-link text-sm text-stone-600 hover:text-stone-900">Главная</a>
-                    <a href="index.html#services" class="nav-link text-sm text-stone-600 hover:text-stone-900">Услуги</a>
-                    <a href="contacts.html" class="nav-link text-sm text-stone-600 hover:text-stone-900">Контакты</a>
-                </nav>
-                <a href="contacts.html" class="bg-stone-900 text-stone-50 px-5 py-2.5 text-sm font-medium rounded-full hover:bg-stone-800 transition-colors">
-                    Связаться
-                </a>
-            </div>
-        </div>
-    </header>
+    <div id="header-placeholder"></div>
 
     <main class="pt-28 pb-20">
         <div class="max-w-6xl mx-auto px-6">
@@ -54,6 +37,7 @@
                 <p class="text-sm font-medium text-stone-500 mb-3 tracking-wide uppercase">Юридическая информация</p>
                 <h1 class="text-4xl md:text-5xl font-semibold tracking-tight mb-4">Публичная оферта</h1>
                 <p class="text-stone-600">на оказание информационно-консультационных, образовательных и IT-услуг</p>
+                <p class="text-sm text-stone-500 mt-3">Редакция 1.0 от 24.12.2024</p>
             </div>
 
             <div class="grid lg:grid-cols-[280px_1fr] gap-12">
@@ -102,7 +86,7 @@
                             <div class="flex justify-between py-3 border-b border-stone-100"><span class="text-stone-500">ИНН</span><span class="font-medium">772370980295</span></div>
                             <div class="flex justify-between py-3 border-b border-stone-100"><span class="text-stone-500">ОКПО</span><span class="font-medium">2044454351</span></div>
                             <div class="flex justify-between py-3 border-b border-stone-100"><span class="text-stone-500">Регион</span><span class="font-medium">г. Москва</span></div>
-                            <div class="flex justify-between py-3 border-b border-stone-100"><span class="text-stone-500">Email</span><span class="font-medium">182003bkmz@gmail.com</span></div>
+                            <div class="flex justify-between py-3 border-b border-stone-100"><span class="text-stone-500">Email</span><span class="font-medium">102003Bkmz@gmail.com</span></div>
                         </div>
                     </section>
 
@@ -128,23 +112,33 @@
                                 <li class="flex items-start gap-2"><span class="text-stone-400">•</span>Помощь с курсовыми и дипломными</li>
                                 <li class="flex items-start gap-2"><span class="text-stone-400">•</span>Рефераты, эссе, доклады</li>
                                 <li class="flex items-start gap-2"><span class="text-stone-400">•</span>Репетиторство и подготовка к экзаменам</li>
-                                <li class="flex items-start gap-2"><span class="text-stone-400">•</span>Научные исследования (ОКВЭД 72.20)</li>
+                                <li class="flex items-start gap-2"><span class="text-stone-400">•</span>Подготовка к ЕГЭ и ОГЭ</li>
+                                <li class="flex items-start gap-2"><span class="text-stone-400">•</span>Контрольные и лабораторные работы</li>
+                                <li class="flex items-start gap-2"><span class="text-stone-400">•</span>Презентации и отчёты</li>
+                                <li class="flex items-start gap-2"><span class="text-stone-400">•</span>Научные статьи и исследования (ОКВЭД 72.20)</li>
                                 <li class="flex items-start gap-2"><span class="text-stone-400">•</span>Подготовка документов (ОКВЭД 82.19)</li>
+                                <li class="flex items-start gap-2"><span class="text-stone-400">•</span>Редактирование и корректура текстов</li>
+                                <li class="flex items-start gap-2 text-stone-500 italic"><span class="text-stone-300">•</span>И другие образовательные услуги...</li>
                             </ul>
                         </div>
                         <div class="mb-6">
                             <h3 class="font-medium text-stone-900 mb-3">2.2. Подразделение FEFELOV.Tech</h3>
                             <p class="text-sm text-stone-600 mb-4">IT-услуги и разработка программного обеспечения (ОКВЭД 62.01, 63.11):</p>
                             <ul class="grid sm:grid-cols-2 gap-2 text-sm text-stone-700">
-                                <li class="flex items-start gap-2"><span class="text-stone-400">•</span>Разработка веб-сайтов</li>
-                                <li class="flex items-start gap-2"><span class="text-stone-400">•</span>Мобильные приложения</li>
+                                <li class="flex items-start gap-2"><span class="text-stone-400">•</span>Разработка веб-сайтов и лендингов</li>
+                                <li class="flex items-start gap-2"><span class="text-stone-400">•</span>Мобильные приложения (iOS, Android)</li>
                                 <li class="flex items-start gap-2"><span class="text-stone-400">•</span>Автоматизация процессов</li>
+                                <li class="flex items-start gap-2"><span class="text-stone-400">•</span>Телеграм-боты и чат-боты</li>
+                                <li class="flex items-start gap-2"><span class="text-stone-400">•</span>Парсинг и сбор данных</li>
                                 <li class="flex items-start gap-2"><span class="text-stone-400">•</span>Обработка и анализ данных</li>
                                 <li class="flex items-start gap-2"><span class="text-stone-400">•</span>Интеграции и API</li>
+                                <li class="flex items-start gap-2"><span class="text-stone-400">•</span>CRM и админ-панели</li>
                                 <li class="flex items-start gap-2"><span class="text-stone-400">•</span>Техническое сопровождение</li>
+                                <li class="flex items-start gap-2"><span class="text-stone-400">•</span>Верстка и дизайн интерфейсов</li>
+                                <li class="flex items-start gap-2 text-stone-500 italic"><span class="text-stone-300">•</span>И другие IT-услуги...</li>
                             </ul>
                         </div>
-                        <div class="bg-stone-50 rounded-xl p-4 text-sm text-stone-600"><strong>2.3.</strong> Конкретный перечень услуг, сроки и стоимость согласовываются индивидуально с каждым Заказчиком и фиксируются в переписке.</div>
+                        <div class="bg-stone-50 rounded-xl p-4 text-sm text-stone-600"><strong>2.3.</strong> Перечень услуг не является исчерпывающим. Конкретный перечень, сроки и стоимость согласовываются индивидуально с каждым Заказчиком и фиксируются в переписке.</div>
                     </section>
 
                     <section id="section-3" class="bg-white rounded-2xl border border-stone-200 p-8">
@@ -249,7 +243,7 @@
                                 <p class="text-amber-800">Сроки определяются Исполнителем и зависят от доступности третьих лиц, сложности вопроса, загруженности и иных объективных обстоятельств.</p>
                             </div>
                             <div><h3 class="font-medium text-stone-900 mb-3">6.3. Оплата услуг коммуникации</h3><p>Оплата услуг по коммуникации не означает, что результат будет получен немедленно или в течение определённого часа/дня. Заказчик принимает, что коммуникация — это процесс с неопределённым сроком завершения, который устанавливается Исполнителем.</p></div>
-                            <div><h3 class="font-medium text-stone-900 mb-3">6.4. Официальные каналы связи</h3><p class="mb-3">Коммуникация с Заказчиком осуществляется через:</p><ul class="space-y-2"><li class="flex items-start gap-2"><span class="text-stone-400">•</span> Мессенджеры и социальные сети, указанные Исполнителем</li><li class="flex items-start gap-2"><span class="text-stone-400">•</span> Email: 182003bkmz@gmail.com</li></ul></div>
+                            <div><h3 class="font-medium text-stone-900 mb-3">6.4. Официальные каналы связи</h3><p class="mb-3">Коммуникация с Заказчиком осуществляется через:</p><ul class="space-y-2"><li class="flex items-start gap-2"><span class="text-stone-400">•</span> Мессенджеры и социальные сети, указанные Исполнителем</li><li class="flex items-start gap-2"><span class="text-stone-400">•</span> Email: 102003Bkmz@gmail.com</li></ul></div>
                         </div>
                     </section>
 
@@ -350,6 +344,9 @@
                                     <li class="flex items-start gap-2"><span class="font-medium text-stone-900">9.5.3.</span> Исполнитель рассматривает претензию в течение 5 рабочих дней</li>
                                     <li class="flex items-start gap-2"><span class="font-medium text-stone-900">9.5.4.</span> Необоснованные претензии не являются основанием для неоплаты</li>
                                     <li class="flex items-start gap-2"><span class="font-medium text-stone-900">9.5.5.</span> Использование результата Заказчиком означает его принятие</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">9.5.6.</span> Количество бесплатных доработок — не более 2 итераций по объективным замечаниям (несоответствие ТЗ)</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">9.5.7.</span> Субъективные правки (пожелания третьих лиц вне ТЗ) выполняются по усмотрению Исполнителя</li>
+                                    <li class="flex items-start gap-2"><span class="font-medium text-stone-900">9.5.8.</span> Подробные условия доработок и возврата — см. <a href="refund.html" class="underline hover:text-stone-900">Политику возврата</a></li>
                                 </ul>
                             </div>
                             <div>
@@ -456,7 +453,10 @@
                             <div><h3 class="font-medium text-stone-900 mb-3">13.1. Изменение оферты</h3><p>Исполнитель вправе изменять условия оферты в одностороннем порядке. Изменения вступают в силу с момента публикации.</p></div>
                             <div><h3 class="font-medium text-stone-900 mb-3">13.2. Действие оферты</h3><p>Оферта действует бессрочно до момента её отзыва Исполнителем.</p></div>
                             <div><h3 class="font-medium text-stone-900 mb-3">13.3. Недействительность отдельных положений</h3><p>Признание недействительным отдельного положения оферты не влечёт недействительности остальных положений.</p></div>
-                            <div class="bg-stone-50 rounded-xl p-4"><p class="text-stone-600"><strong>Дата публикации:</strong> 24 декабря 2025 года</p></div>
+                            <div class="bg-stone-50 rounded-xl p-4">
+                                <p class="text-stone-600"><strong>Дата публикации:</strong> 24 декабря 2025 года</p>
+                                <p class="text-stone-500 text-xs mt-1">Редакция 1.0 от 24.12.2024</p>
+                            </div>
                         </div>
                     </section>
 
@@ -465,13 +465,6 @@
         </div>
     </main>
 
-    <footer class="py-12 border-t border-stone-200">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-stone-500">
-                <p>© 2025 ИП Басенко И.К. ОГРНИП 325774600531587</p>
-                <div class="flex gap-6"><a href="index.html" class="hover:text-stone-900">Главная</a><a href="contacts.html" class="hover:text-stone-900">Контакты</a></div>
-            </div>
-        </div>
-    </footer>
+    <div id="footer-placeholder"></div>
 </body>
 </html>

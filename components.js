@@ -24,6 +24,8 @@ const commonStyles = `
     .logo-text {
         color: #0a0a0a;
         transition: all 0.3s ease;
+        padding-right: 1px;
+        margin-right: -1px;
     }
     .logo-container:hover .logo-text {
         background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe, #667eea);

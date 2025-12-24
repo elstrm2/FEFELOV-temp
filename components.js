@@ -33,7 +33,6 @@ const commonStyles = `
         -webkit-text-fill-color: transparent;
         color: transparent;
         animation: gradient-shift 3s ease infinite;
-        padding-right: 2px;
     }
     .logo-container:hover .logo-dot {
         background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe, #667eea);

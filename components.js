@@ -49,7 +49,7 @@ const commonStyles = `
 
 const headerHTML = `
 <header class="fixed top-0 left-0 right-0 z-50 bg-stone-50/80 backdrop-blur-md border-b border-stone-200/50">
-    <div class="max-w-6xl mx-auto px-6 py-4">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4">
         <div class="flex items-center justify-between">
             <a href="index.html" class="logo-container text-xl font-semibold tracking-tight"><span class="logo-text">FEFELOV</span><span class="logo-dot logo-gradient">.</span></a>
             <nav class="hidden md:flex items-center gap-8">
@@ -58,17 +58,31 @@ const headerHTML = `
                 <a href="index.html#divisions" class="nav-link text-sm text-stone-600 hover:text-stone-900">Подразделения</a>
                 <a href="contacts.html" class="nav-link text-sm text-stone-600 hover:text-stone-900">Контакты</a>
             </nav>
-            <a href="contacts.html" class="bg-stone-900 text-stone-50 px-5 py-2.5 text-sm font-medium rounded-full hover:bg-stone-800 transition-colors">
-                Связаться
-            </a>
+            <div class="flex items-center gap-3">
+                <a href="contacts.html" class="hidden sm:inline-flex bg-stone-900 text-stone-50 px-5 py-2.5 text-sm font-medium rounded-full hover:bg-stone-800 transition-colors">
+                    Связаться
+                </a>
+                <button id="mobile-menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center rounded-full hover:bg-stone-200/50 transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
         </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-stone-50 border-t border-stone-200/50">
+        <nav class="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-1">
+            <a href="index.html" class="px-4 py-3 text-sm text-stone-600 hover:text-stone-900 hover:bg-stone-100 rounded-xl transition-colors">Главная</a>
+            <a href="index.html#services" class="px-4 py-3 text-sm text-stone-600 hover:text-stone-900 hover:bg-stone-100 rounded-xl transition-colors">Услуги</a>
+            <a href="index.html#divisions" class="px-4 py-3 text-sm text-stone-600 hover:text-stone-900 hover:bg-stone-100 rounded-xl transition-colors">Подразделения</a>
+            <a href="contacts.html" class="px-4 py-3 text-sm text-stone-600 hover:text-stone-900 hover:bg-stone-100 rounded-xl transition-colors">Контакты</a>
+            <a href="contacts.html" class="mt-2 bg-stone-900 text-stone-50 px-4 py-3 text-sm font-medium rounded-xl hover:bg-stone-800 transition-colors text-center">Связаться</a>
+        </nav>
     </div>
 </header>
 `;
 
 const footerHTML = `
 <footer class="py-12 border-t border-stone-200">
-    <div class="max-w-6xl mx-auto px-6">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
         <div class="grid md:grid-cols-4 gap-8 mb-12">
             <div>
                 <h4 class="font-semibold mb-4">FEFELOV<span class="logo-gradient">.</span></h4>
@@ -107,12 +121,32 @@ document.addEventListener('DOMContentLoaded', function() {
     const styleElement = document.createElement('style');
     styleElement.textContent = commonStyles;
     document.head.appendChild(styleElement);
-    
+
     const headerPlaceholder = document.getElementById('header-placeholder');
     if (headerPlaceholder) {
         headerPlaceholder.innerHTML = headerHTML;
+
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+                const isOpen = !mobileMenu.classList.contains('hidden');
+                mobileMenuBtn.innerHTML = isOpen
+                    ? '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>'
+                    : '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>';
+            });
+
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuBtn.innerHTML = '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>';
+                });
+            });
+        }
     }
-    
+
     const footerPlaceholder = document.getElementById('footer-placeholder');
     if (footerPlaceholder) {
         footerPlaceholder.innerHTML = footerHTML;

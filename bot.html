@@ -92,17 +92,62 @@
                 </div>
 
                 <div class="bg-stone-800/30 border border-stone-800 rounded-2xl p-6">
-                    <h2 class="font-medium mb-4">Auto Reply Message</h2>
-                    <textarea id="auto-reply" rows="3" placeholder="Enter auto reply message..."
-                        class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 placeholder-stone-500 focus:outline-none focus:border-stone-500 transition-colors resize-none"></textarea>
+                    <h2 class="font-medium mb-4">Auto Reply Messages</h2>
+
+                    <div class="space-y-4">
+                        <div>
+                            <label class="text-stone-400 text-sm mb-2 block">Standard Reply (working hours)</label>
+                            <textarea id="auto-reply" rows="2" placeholder="Message during work hours..."
+                                class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 placeholder-stone-500 focus:outline-none focus:border-stone-500 transition-colors resize-none text-sm"></textarea>
+                        </div>
+
+                        <div>
+                            <label class="text-stone-400 text-sm mb-2 block flex items-center gap-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                Weekend / Off-hours Reply
+                            </label>
+                            <textarea id="weekend-reply" rows="2" placeholder="Message on weekends..."
+                                class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 placeholder-stone-500 focus:outline-none focus:border-stone-500 transition-colors resize-none text-sm"></textarea>
+                        </div>
+
+                        <div>
+                            <label class="text-stone-400 text-sm mb-2 block flex items-center gap-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                                Spam Warning Reply
+                            </label>
+                            <textarea id="spam-reply" rows="2" placeholder="Message for spammers..."
+                                class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 placeholder-stone-500 focus:outline-none focus:border-stone-500 transition-colors resize-none text-sm"></textarea>
+                        </div>
+                    </div>
+
                     <button id="save-btn" class="mt-4 bg-stone-100 text-stone-900 rounded-xl px-6 py-2 text-sm font-medium hover:bg-stone-200 transition-colors">
-                        Save
+                        Save Messages
+                    </button>
+                </div>
+
+                <div class="bg-stone-800/30 border border-stone-800 rounded-2xl p-6">
+                    <h2 class="font-medium mb-4">Spam Protection</h2>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="text-stone-400 text-sm mb-2 block">Threshold (messages)</label>
+                            <input type="number" id="spam-threshold" min="2" max="20" value="3"
+                                class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 focus:outline-none focus:border-stone-500 transition-colors text-sm">
+                        </div>
+                        <div>
+                            <label class="text-stone-400 text-sm mb-2 block">Window (seconds)</label>
+                            <input type="number" id="spam-window" min="10" max="300" value="60"
+                                class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 focus:outline-none focus:border-stone-500 transition-colors text-sm">
+                        </div>
+                    </div>
+                    <p class="text-stone-500 text-xs mt-3">Spam warning sent if user sends more than threshold messages within window.</p>
+                    <button id="save-spam-btn" class="mt-4 bg-stone-700 hover:bg-stone-600 rounded-xl px-6 py-2 text-sm font-medium transition-colors">
+                        Save Settings
                     </button>
                 </div>
 
                 <div class="bg-stone-800/30 border border-stone-800 rounded-2xl p-6">
                     <h2 class="font-medium mb-4">Recent Messages</h2>
-                    <div id="recent-messages" class="space-y-2 text-sm">
+                    <div id="recent-messages" class="space-y-2 text-sm max-h-64 overflow-y-auto">
                         <p class="text-stone-500">Loading...</p>
                     </div>
                 </div>
@@ -121,10 +166,15 @@
         const logoutBtn = document.getElementById('logout-btn');
         const toggleBtn = document.getElementById('toggle-btn');
         const saveBtn = document.getElementById('save-btn');
+        const saveSpamBtn = document.getElementById('save-spam-btn');
         const statusIndicator = document.getElementById('status-indicator');
         const statMessages = document.getElementById('stat-messages');
         const statUsers = document.getElementById('stat-users');
         const autoReply = document.getElementById('auto-reply');
+        const weekendReply = document.getElementById('weekend-reply');
+        const spamReply = document.getElementById('spam-reply');
+        const spamThreshold = document.getElementById('spam-threshold');
+        const spamWindow = document.getElementById('spam-window');
         const recentMessages = document.getElementById('recent-messages');
 
         let isEnabled = false;
@@ -165,9 +215,22 @@
         });
 
         saveBtn.addEventListener('click', async () => {
-            await api('/settings', 'POST', { auto_reply: autoReply.value });
+            await api('/settings', 'POST', {
+                auto_reply: autoReply.value,
+                weekend_reply: weekendReply.value,
+                spam_reply: spamReply.value
+            });
             saveBtn.textContent = 'Saved!';
-            setTimeout(() => saveBtn.textContent = 'Save', 2000);
+            setTimeout(() => saveBtn.textContent = 'Save Messages', 2000);
+        });
+
+        saveSpamBtn.addEventListener('click', async () => {
+            await api('/settings', 'POST', {
+                spam_threshold: spamThreshold.value,
+                spam_window: spamWindow.value
+            });
+            saveSpamBtn.textContent = 'Saved!';
+            setTimeout(() => saveSpamBtn.textContent = 'Save Settings', 2000);
         });
 
         function updateStatus() {
@@ -180,6 +243,10 @@
                 const data = await api('/status');
                 isEnabled = data.enabled;
                 autoReply.value = data.auto_reply || '';
+                weekendReply.value = data.weekend_reply || '';
+                spamReply.value = data.spam_reply || '';
+                spamThreshold.value = data.spam_threshold || '3';
+                spamWindow.value = data.spam_window || '60';
                 statMessages.textContent = data.stats.total_messages;
                 statUsers.textContent = data.stats.unique_users;
                 updateStatus();

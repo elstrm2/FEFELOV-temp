@@ -111,7 +111,7 @@
     </div>
 
     <script>
-        const API = 'https://api.fefelov.net';
+        const API = 'https://api.fefelov.net:8443';
 
         const loginScreen = document.getElementById('login-screen');
         const panelScreen = document.getElementById('panel-screen');
@@ -143,7 +143,7 @@
         loginForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             loginError.classList.add('hidden');
-            const data = await api('/api/auth', 'POST', { password: passwordInput.value });
+            const data = await api('/auth', 'POST', { password: passwordInput.value });
             if (data.success) {
                 showPanel();
             } else {
@@ -152,20 +152,20 @@
         });
 
         logoutBtn.addEventListener('click', async () => {
-            await api('/api/logout', 'POST');
+            await api('/logout', 'POST');
             loginScreen.classList.remove('hidden');
             panelScreen.classList.add('hidden');
             passwordInput.value = '';
         });
 
         toggleBtn.addEventListener('click', async () => {
-            const data = await api('/api/toggle', 'POST');
+            const data = await api('/toggle', 'POST');
             isEnabled = data.enabled;
             updateStatus();
         });
 
         saveBtn.addEventListener('click', async () => {
-            await api('/api/settings', 'POST', { auto_reply: autoReply.value });
+            await api('/settings', 'POST', { auto_reply: autoReply.value });
             saveBtn.textContent = 'Saved!';
             setTimeout(() => saveBtn.textContent = 'Save', 2000);
         });
@@ -177,7 +177,7 @@
 
         async function loadStatus() {
             try {
-                const data = await api('/api/status');
+                const data = await api('/status');
                 isEnabled = data.enabled;
                 autoReply.value = data.auto_reply || '';
                 statMessages.textContent = data.stats.total_messages;
@@ -205,7 +205,7 @@
             setInterval(loadStatus, 30000);
         }
 
-        api('/api/status').then(data => {
+        api('/status').then(data => {
             if (!data.error) showPanel();
         }).catch(() => {});
     </script>

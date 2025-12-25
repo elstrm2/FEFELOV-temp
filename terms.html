@@ -75,10 +75,10 @@
                 </details>
             </div>
 
-            <div class="grid lg:grid-cols-[280px_1fr] gap-y-12 lg:gap-12">
-
-                <aside class="hidden lg:block min-w-0">
-                    <div class="sticky top-28 bg-white rounded-2xl border border-stone-200 p-6">
+            <div class="relative">
+                <!-- Desktop TOC - fixed sidebar -->
+                <aside class="hidden xl:block fixed left-8 top-28 w-64 z-40">
+                    <div class="bg-white rounded-2xl border border-stone-200 p-6 shadow-sm">
                         <h3 class="font-semibold mb-4 text-sm" data-i18n="terms.toc.title">Содержание</h3>
                         <nav class="space-y-2 text-sm">
                             <a href="#requisites" class="toc-link block text-stone-600 hover:text-stone-900" data-i18n="terms.toc.requisites">Реквизиты</a>
@@ -99,7 +99,7 @@
                     </div>
                 </aside>
 
-                <div class="space-y-12 min-w-0">
+                <div class="space-y-12">
 
                     <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4 sm:p-6">
                         <div class="flex gap-4">

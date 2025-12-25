@@ -11,6 +11,25 @@ const commonStyles = `
     .contact-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
     .contact-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.1); }
 
+    .mobile-nav-link {
+        position: relative;
+        display: block;
+        border-bottom: 1px solid rgba(214, 211, 209, 0.5);
+    }
+    .mobile-nav-link::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -1px;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #667eea, #764ba2);
+        transition: width 0.3s ease;
+    }
+    .mobile-nav-link:hover::before {
+        width: 100%;
+    }
+
     .schedule-bg {
         background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #4facfe, #667eea);
         background-size: 400% 400%;
@@ -283,10 +302,10 @@ const headerHTML = `
         </div>
     </div>
     <div id="mobile-menu" class="hidden lg:hidden bg-stone-50 border-t border-stone-200/50">
-        <nav class="max-w-7xl mx-auto px-6 py-6 flex flex-col gap-2">
-            <a href="index.html#services" class="px-5 py-4 text-base text-stone-600 hover:text-stone-900 hover:bg-stone-100 rounded-xl transition-colors" data-i18n="common.nav.services">Услуги</a>
-            <a href="index.html#divisions" class="px-5 py-4 text-base text-stone-600 hover:text-stone-900 hover:bg-stone-100 rounded-xl transition-colors" data-i18n="common.nav.divisions">Подразделения</a>
-            <a href="contacts.html" class="mt-3 self-start btn-gradient-border bg-stone-900 text-stone-50 px-8 py-4 text-base font-medium rounded-full text-center" data-i18n="common.nav.contact_btn">Связаться</a>
+        <nav class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-6 flex flex-col gap-2">
+            <a href="index.html#services" class="mobile-nav-link py-3 text-base text-stone-600 hover:text-stone-900 transition-colors" data-i18n="common.nav.services">Услуги</a>
+            <a href="index.html#divisions" class="mobile-nav-link py-3 text-base text-stone-600 hover:text-stone-900 transition-colors" data-i18n="common.nav.divisions">Подразделения</a>
+            <a href="contacts.html" class="mt-4 btn-gradient-border bg-stone-900 text-stone-50 py-4 text-base font-medium rounded-full text-center" data-i18n="common.nav.contact_btn">Связаться</a>
         </nav>
     </div>
 </header>

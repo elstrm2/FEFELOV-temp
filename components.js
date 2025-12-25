@@ -280,8 +280,8 @@ const commonStyles = `
 
     .section-highlight {
         position: relative;
-        padding-left: 1.5rem;
-        padding-bottom: 0.75rem;
+        padding-left: 0;
+        animation: textSlideRight 0.8s ease forwards;
     }
     .section-highlight::before {
         content: '';
@@ -293,32 +293,11 @@ const commonStyles = `
         background: linear-gradient(180deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe, #667eea);
         background-size: 100% 300%;
         border-radius: 2px;
-        animation: leftLineGrow 0.8s ease 1.8s forwards, sectionGradientShift 4s ease infinite 2.6s;
+        animation: leftLineGrow 0.8s ease forwards, sectionGradientShift 4s ease infinite 0.8s;
     }
-    .section-highlight::after {
-        content: '';
-        position: absolute;
-        left: 1.5rem;
-        bottom: 0;
-        width: 0;
-        height: 3px;
-        background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe, #667eea);
-        background-size: 300% 100%;
-        border-radius: 2px;
-        animation: bottomLineDraw 1s ease forwards, bottomLineGradient 4s ease infinite, bottomLineFade 0.5s ease 1.5s forwards;
-    }
-    @keyframes bottomLineDraw {
-        0% { width: 0; opacity: 0; }
-        20% { opacity: 1; }
-        100% { width: calc(100% - 1.5rem); opacity: 1; }
-    }
-    @keyframes bottomLineFade {
-        to { opacity: 0; }
-    }
-    @keyframes bottomLineGradient {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
+    @keyframes textSlideRight {
+        0% { padding-left: 0; }
+        100% { padding-left: 1.5rem; }
     }
     @keyframes leftLineGrow {
         0% { height: 0; opacity: 0; }

@@ -39,7 +39,7 @@
     
     <div id="header-placeholder"></div>
 
-    <main class="pt-28 pb-20 overflow-x-hidden">
+    <main class="pt-32 pb-20 overflow-x-hidden">
         <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
 
             <div class="lg:hidden mb-8">
@@ -49,7 +49,7 @@
                         <svg class="w-5 h-5 text-stone-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </summary>
                     <nav class="px-4 pb-4 space-y-2 text-sm border-t border-stone-100 pt-3">
-                        <a href="#requisites" class="toc-link block text-stone-600 hover:text-stone-900 py-1" data-i18n="terms.toc.requisites">Реквизиты</a>
+                        <a href="#requisites-mobile" class="toc-link block text-stone-600 hover:text-stone-900 py-1" data-i18n="terms.toc.requisites">Реквизиты</a>
                         <a href="#section-1" class="toc-link block text-stone-600 hover:text-stone-900 py-1" data-i18n="terms.toc.s1">1. Термины</a>
                         <a href="#section-2" class="toc-link block text-stone-600 hover:text-stone-900 py-1" data-i18n="terms.toc.s2">2. Услуги</a>
                         <a href="#section-3" class="toc-link block text-stone-600 hover:text-stone-900 py-1" data-i18n="terms.toc.s3">3. Акцепт оферты</a>
@@ -67,9 +67,9 @@
                 </details>
             </div>
 
-            <div class="hidden lg:flex items-start gap-12 mb-12">
-                <aside class="w-56 flex-shrink-0">
-                    <div class="sticky top-28 bg-white rounded-2xl border border-stone-200 p-5 shadow-sm">
+            <div class="hidden lg:flex items-stretch gap-8 mb-12">
+                <aside class="w-64 flex-shrink-0">
+                    <div class="h-full bg-white rounded-2xl border border-stone-200 p-5">
                         <h3 class="font-semibold mb-4 text-sm" data-i18n="terms.toc.title">Содержание</h3>
                         <nav class="space-y-2 text-sm">
                             <a href="#requisites" class="toc-link block text-stone-600 hover:text-stone-900" data-i18n="terms.toc.requisites">Реквизиты</a>
@@ -110,15 +110,15 @@
                         </div>
                     </div>
 
-                    <section id="requisites" class="bg-white rounded-2xl border border-stone-200 p-4 sm:p-5">
+                    <section id="requisites" class="bg-white rounded-2xl border border-stone-200 p-4 sm:p-5 scroll-mt-32">
                         <h2 class="text-lg font-semibold mb-3" data-i18n="terms.requisites.title">Реквизиты Исполнителя</h2>
-                        <div class="grid sm:grid-cols-2 gap-x-4 gap-y-1 text-sm">
-                            <div class="flex flex-col sm:flex-row sm:justify-between py-1.5 border-b border-stone-100 gap-0.5"><span class="text-stone-500" data-i18n="terms.requisites.name_label">Наименование</span><span class="font-medium" data-i18n="terms.requisites.name_value">ИП Басенко Илья Константинович</span></div>
-                            <div class="flex flex-col sm:flex-row sm:justify-between py-1.5 border-b border-stone-100 gap-0.5"><span class="text-stone-500" data-i18n="terms.requisites.ogrnip">ОГРНИП</span><span class="font-medium">325774600531587</span></div>
-                            <div class="flex flex-col sm:flex-row sm:justify-between py-1.5 border-b border-stone-100 gap-0.5"><span class="text-stone-500" data-i18n="terms.requisites.inn">ИНН</span><span class="font-medium">772370980295</span></div>
-                            <div class="flex flex-col sm:flex-row sm:justify-between py-1.5 border-b border-stone-100 gap-0.5"><span class="text-stone-500" data-i18n="terms.requisites.okpo">ОКПО</span><span class="font-medium">2044454351</span></div>
-                            <div class="flex flex-col sm:flex-row sm:justify-between py-1.5 border-b border-stone-100 gap-0.5"><span class="text-stone-500" data-i18n="terms.requisites.region">Регион</span><span class="font-medium" data-i18n="terms.requisites.region_value">г. Москва</span></div>
-                            <div class="flex flex-col sm:flex-row sm:justify-between py-1.5 border-b border-stone-100 gap-0.5"><span class="text-stone-500" data-i18n="terms.requisites.email">Email</span><span class="font-medium break-all" data-i18n="terms.requisites.email_value">182003Bkmz@gmail.com</span></div>
+                        <div class="grid sm:grid-cols-2 gap-x-8 gap-y-1 text-sm">
+                            <div class="flex flex-col sm:flex-row sm:justify-between py-1.5 border-b border-stone-100 gap-1 sm:gap-3"><span class="text-stone-500 flex-shrink-0" data-i18n="terms.requisites.name_label">Наименование</span><span class="font-medium text-right" data-i18n="terms.requisites.name_value">ИП Басенко Илья Константинович</span></div>
+                            <div class="flex flex-col sm:flex-row sm:justify-between py-1.5 border-b border-stone-100 gap-1 sm:gap-3"><span class="text-stone-500 flex-shrink-0" data-i18n="terms.requisites.ogrnip">ОГРНИП</span><span class="font-medium text-right">325774600531587</span></div>
+                            <div class="flex flex-col sm:flex-row sm:justify-between py-1.5 border-b border-stone-100 gap-1 sm:gap-3"><span class="text-stone-500 flex-shrink-0" data-i18n="terms.requisites.inn">ИНН</span><span class="font-medium text-right">772370980295</span></div>
+                            <div class="flex flex-col sm:flex-row sm:justify-between py-1.5 border-b border-stone-100 gap-1 sm:gap-3"><span class="text-stone-500 flex-shrink-0" data-i18n="terms.requisites.okpo">ОКПО</span><span class="font-medium text-right">2044454351</span></div>
+                            <div class="flex flex-col sm:flex-row sm:justify-between py-1.5 border-b border-stone-100 gap-1 sm:gap-3"><span class="text-stone-500 flex-shrink-0" data-i18n="terms.requisites.region">Регион</span><span class="font-medium text-right" data-i18n="terms.requisites.region_value">г. Москва</span></div>
+                            <div class="flex flex-col sm:flex-row sm:justify-between py-1.5 border-b border-stone-100 gap-1 sm:gap-3"><span class="text-stone-500 flex-shrink-0" data-i18n="terms.requisites.email">Email</span><span class="font-medium text-right break-all" data-i18n="terms.requisites.email_value">182003Bkmz@gmail.com</span></div>
                         </div>
                     </section>
                 </div>
@@ -144,21 +144,21 @@
                     </div>
                 </div>
 
-                <section id="requisites-mobile" class="bg-white rounded-2xl border border-stone-200 p-4 sm:p-5">
+                <section id="requisites-mobile" class="bg-white rounded-2xl border border-stone-200 p-4 sm:p-5 scroll-mt-32">
                     <h2 class="text-lg font-semibold mb-3" data-i18n="terms.requisites.title">Реквизиты Исполнителя</h2>
-                    <div class="grid sm:grid-cols-2 gap-x-4 gap-y-1 text-sm">
-                        <div class="flex flex-col sm:flex-row sm:justify-between py-1.5 border-b border-stone-100 gap-0.5"><span class="text-stone-500" data-i18n="terms.requisites.name_label">Наименование</span><span class="font-medium" data-i18n="terms.requisites.name_value">ИП Басенко Илья Константинович</span></div>
-                        <div class="flex flex-col sm:flex-row sm:justify-between py-1.5 border-b border-stone-100 gap-0.5"><span class="text-stone-500" data-i18n="terms.requisites.ogrnip">ОГРНИП</span><span class="font-medium">325774600531587</span></div>
-                        <div class="flex flex-col sm:flex-row sm:justify-between py-1.5 border-b border-stone-100 gap-0.5"><span class="text-stone-500" data-i18n="terms.requisites.inn">ИНН</span><span class="font-medium">772370980295</span></div>
-                        <div class="flex flex-col sm:flex-row sm:justify-between py-1.5 border-b border-stone-100 gap-0.5"><span class="text-stone-500" data-i18n="terms.requisites.okpo">ОКПО</span><span class="font-medium">2044454351</span></div>
-                        <div class="flex flex-col sm:flex-row sm:justify-between py-1.5 border-b border-stone-100 gap-0.5"><span class="text-stone-500" data-i18n="terms.requisites.region">Регион</span><span class="font-medium" data-i18n="terms.requisites.region_value">г. Москва</span></div>
-                        <div class="flex flex-col sm:flex-row sm:justify-between py-1.5 border-b border-stone-100 gap-0.5"><span class="text-stone-500" data-i18n="terms.requisites.email">Email</span><span class="font-medium break-all" data-i18n="terms.requisites.email_value">182003Bkmz@gmail.com</span></div>
+                    <div class="grid sm:grid-cols-2 gap-x-8 gap-y-1 text-sm">
+                        <div class="flex flex-col sm:flex-row sm:justify-between py-1.5 border-b border-stone-100 gap-1 sm:gap-3"><span class="text-stone-500 flex-shrink-0" data-i18n="terms.requisites.name_label">Наименование</span><span class="font-medium text-right" data-i18n="terms.requisites.name_value">ИП Басенко Илья Константинович</span></div>
+                        <div class="flex flex-col sm:flex-row sm:justify-between py-1.5 border-b border-stone-100 gap-1 sm:gap-3"><span class="text-stone-500 flex-shrink-0" data-i18n="terms.requisites.ogrnip">ОГРНИП</span><span class="font-medium text-right">325774600531587</span></div>
+                        <div class="flex flex-col sm:flex-row sm:justify-between py-1.5 border-b border-stone-100 gap-1 sm:gap-3"><span class="text-stone-500 flex-shrink-0" data-i18n="terms.requisites.inn">ИНН</span><span class="font-medium text-right">772370980295</span></div>
+                        <div class="flex flex-col sm:flex-row sm:justify-between py-1.5 border-b border-stone-100 gap-1 sm:gap-3"><span class="text-stone-500 flex-shrink-0" data-i18n="terms.requisites.okpo">ОКПО</span><span class="font-medium text-right">2044454351</span></div>
+                        <div class="flex flex-col sm:flex-row sm:justify-between py-1.5 border-b border-stone-100 gap-1 sm:gap-3"><span class="text-stone-500 flex-shrink-0" data-i18n="terms.requisites.region">Регион</span><span class="font-medium text-right" data-i18n="terms.requisites.region_value">г. Москва</span></div>
+                        <div class="flex flex-col sm:flex-row sm:justify-between py-1.5 border-b border-stone-100 gap-1 sm:gap-3"><span class="text-stone-500 flex-shrink-0" data-i18n="terms.requisites.email">Email</span><span class="font-medium text-right break-all" data-i18n="terms.requisites.email_value">182003Bkmz@gmail.com</span></div>
                     </div>
                 </section>
             </div>
 
             <div class="space-y-12">
-                <section id="section-1" class="bg-white rounded-2xl border border-stone-200 p-4 sm:p-8">
+                <section id="section-1" class="scroll-mt-32 bg-white rounded-2xl border border-stone-200 p-4 sm:p-8">
                         <h2 class="text-xl font-semibold mb-6" data-i18n="terms.s1.title">1. Термины и определения</h2>
                         <div class="space-y-4 text-sm text-stone-700">
                             <div class="py-3 border-b border-stone-100"><span class="font-semibold text-stone-900 block mb-1" data-i18n="terms.s1.p1_1_title">1.1. Исполнитель</span><span data-i18n="terms.s1.p1_1_text">ИП Басенко Илья Константинович (ОГРНИП 325774600531587, ИНН 772370980295), а также уполномоченные представители, действующие от его имени.</span></div>
@@ -170,7 +170,7 @@
                         </div>
                     </section>
 
-                    <section id="section-2" class="bg-white rounded-2xl border border-stone-200 p-4 sm:p-8">
+                    <section id="section-2" class="scroll-mt-32 bg-white rounded-2xl border border-stone-200 p-4 sm:p-8">
                         <h2 class="text-xl font-semibold mb-6" data-i18n="terms.s2.title">2. Перечень услуг</h2>
                         <div class="mb-6">
                             <h3 class="font-semibold text-stone-900 mb-3" data-i18n="terms.s2.p2_1_title">2.1. Подразделение FEFELOV.Study</h3>
@@ -209,7 +209,7 @@
                         <div class="bg-stone-50 rounded-xl p-4 text-sm text-stone-600" data-i18n-html="terms.s2.p2_3"><strong>2.3.</strong> Перечень услуг не является исчерпывающим. Конкретный перечень, сроки и стоимость согласовываются индивидуально с каждым Заказчиком и фиксируются в переписке.</div>
                     </section>
 
-                    <section id="section-3" class="bg-white rounded-2xl border border-stone-200 p-4 sm:p-8">
+                    <section id="section-3" class="scroll-mt-32 bg-white rounded-2xl border border-stone-200 p-4 sm:p-8">
                         <h2 class="text-xl font-semibold mb-6" data-i18n="terms.s3.title">3. Акцепт оферты</h2>
                         <div class="space-y-6 text-sm text-stone-700">
                             <div>
@@ -238,7 +238,7 @@
                         </div>
                     </section>
 
-                    <section id="section-4" class="bg-white rounded-2xl border border-stone-200 p-4 sm:p-8">
+                    <section id="section-4" class="scroll-mt-32 bg-white rounded-2xl border border-stone-200 p-4 sm:p-8">
                         <h2 class="text-xl font-semibold mb-6" data-i18n="terms.s4.title">4. Порядок оплаты</h2>
                         <div class="space-y-6 text-sm text-stone-700">
                             <div class="bg-stone-900 text-stone-50 rounded-xl p-5">
@@ -287,7 +287,7 @@
                         </div>
                     </section>
 
-                    <section id="section-5" class="bg-white rounded-2xl border border-stone-200 p-4 sm:p-8">
+                    <section id="section-5" class="scroll-mt-32 bg-white rounded-2xl border border-stone-200 p-4 sm:p-8">
                         <h2 class="text-xl font-semibold mb-6" data-i18n="terms.s5.title">5. Режим работы</h2>
                         <div class="space-y-6 text-sm text-stone-700">
                             <div>
@@ -312,7 +312,7 @@
                         </div>
                     </section>
 
-                    <section id="section-6" class="bg-white rounded-2xl border border-stone-200 p-4 sm:p-8">
+                    <section id="section-6" class="scroll-mt-32 bg-white rounded-2xl border border-stone-200 p-4 sm:p-8">
                         <h2 class="text-xl font-semibold mb-6" data-i18n="terms.s6.title">6. Коммуникация</h2>
                         <div class="space-y-6 text-sm text-stone-700">
                             <div><h3 class="font-semibold text-stone-900 mb-3" data-i18n="terms.s6.h61_title">6.1. Определение коммуникации</h3><p data-i18n="terms.s6.p61">Под коммуникацией понимается взаимодействие Исполнителя с третьими лицами в интересах Заказчика: общение с преподавателями, экспертами, представителями организаций и иными субъектами.</p></div>
@@ -326,7 +326,7 @@
                         </div>
                     </section>
 
-                    <section id="section-7" class="bg-white rounded-2xl border border-stone-200 p-4 sm:p-8">
+                    <section id="section-7" class="scroll-mt-32 bg-white rounded-2xl border border-stone-200 p-4 sm:p-8">
                         <h2 class="text-xl font-semibold mb-6" data-i18n="terms.s7.title">7. Срочность выполнения</h2>
                         <div class="space-y-6 text-sm text-stone-700">
                             <div><h3 class="font-semibold text-stone-900 mb-3" data-i18n="terms.s7.h71_title">7.1. Доплата за срочность</h3><p data-i18n-html="terms.s7.p71">При необходимости срочного выполнения услуг (в сокращённые сроки) взимается дополнительная плата. Рабочее время — согласно <a href="#section-5" class="underline hover:text-stone-900">разделу 5</a> (Пн–Пт, 10:00–20:00 МСК).</p></div>
@@ -454,7 +454,7 @@
                         </div>
                     </section>
 
-                    <section id="section-8" class="bg-white rounded-2xl border border-stone-200 p-4 sm:p-8">
+                    <section id="section-8" class="scroll-mt-32 bg-white rounded-2xl border border-stone-200 p-4 sm:p-8">
                         <h2 class="text-xl font-semibold mb-6" data-i18n="terms.s8.title">8. Просрочка оплаты и пени</h2>
                         <div class="space-y-6 text-sm text-stone-700">
                             <div class="bg-stone-50 rounded-xl p-4 text-stone-600" data-i18n-html="terms.s8.note">
@@ -499,7 +499,7 @@
                         </div>
                     </section>
 
-                    <section id="section-9" class="bg-white rounded-2xl border border-stone-200 p-4 sm:p-8">
+                    <section id="section-9" class="scroll-mt-32 bg-white rounded-2xl border border-stone-200 p-4 sm:p-8">
                         <h2 class="text-xl font-semibold mb-6" data-i18n="terms.s9.title">9. Спорные ситуации</h2>
                         <div class="space-y-6 text-sm text-stone-700">
                             <div class="bg-stone-50 rounded-xl p-4 text-stone-600" data-i18n-html="terms.s9.note">
@@ -572,7 +572,7 @@
                         </div>
                     </section>
 
-                    <section id="section-10" class="bg-white rounded-2xl border border-stone-200 p-4 sm:p-8">
+                    <section id="section-10" class="scroll-mt-32 bg-white rounded-2xl border border-stone-200 p-4 sm:p-8">
                         <h2 class="text-xl font-semibold mb-6" data-i18n="terms.s10.title">10. Правила поведения сторон</h2>
                         <div class="space-y-6 text-sm text-stone-700">
                             <div class="bg-stone-50 rounded-xl p-4 text-stone-600" data-i18n-html="terms.s10.note">
@@ -621,7 +621,7 @@
                         </div>
                     </section>
 
-                    <section id="section-11" class="bg-white rounded-2xl border border-stone-200 p-4 sm:p-8">
+                    <section id="section-11" class="scroll-mt-32 bg-white rounded-2xl border border-stone-200 p-4 sm:p-8">
                         <h2 class="text-xl font-semibold mb-6" data-i18n="terms.s11.title">11. Ответственность сторон</h2>
                         <div class="space-y-6 text-sm text-stone-700">
                             <div><h3 class="font-semibold text-stone-900 mb-3" data-i18n="terms.s11.h11_1">11.1. Характер услуг</h3><p data-i18n="terms.s11.p11_1">Исполнитель оказывает информационно-консультационные и образовательные услуги. Результаты носят рекомендательный и справочный характер.</p></div>
@@ -638,7 +638,7 @@
                         </div>
                     </section>
 
-                    <section id="section-12" class="bg-white rounded-2xl border border-stone-200 p-4 sm:p-8">
+                    <section id="section-12" class="scroll-mt-32 bg-white rounded-2xl border border-stone-200 p-4 sm:p-8">
                         <h2 class="text-xl font-semibold mb-6" data-i18n="terms.s12.title">12. Разрешение споров</h2>
                         <div class="space-y-6 text-sm text-stone-700">
                             <div>
@@ -654,7 +654,7 @@
                         </div>
                     </section>
 
-                    <section id="section-13" class="bg-white rounded-2xl border border-stone-200 p-4 sm:p-8">
+                    <section id="section-13" class="scroll-mt-32 bg-white rounded-2xl border border-stone-200 p-4 sm:p-8">
                         <h2 class="text-xl font-semibold mb-6" data-i18n="terms.s13.title">13. Заключительные положения</h2>
                         <div class="space-y-6 text-sm text-stone-700">
                             <div><h3 class="font-semibold text-stone-900 mb-3" data-i18n="terms.s13.h13_1">13.1. Изменение оферты</h3><p data-i18n="terms.s13.p13_1">Исполнитель вправе изменять условия оферты в одностороннем порядке. Изменения вступают в силу с момента публикации.</p></div>

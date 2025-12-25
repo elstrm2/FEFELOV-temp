@@ -417,29 +417,29 @@ const commonStyles = `
     .svg-bg-blur {
         filter: blur(4px);
         opacity: 0.2;
-        animation: svgFloat1 18s ease-in-out infinite, svgFloat2 23s ease-in-out infinite;
+        animation: svgFloat1 8s ease-in-out infinite, svgFloat2 11s ease-in-out infinite;
     }
     @keyframes svgFloat1 {
         0%, 100% { transform: translateX(0); }
-        33% { transform: translateX(8px); }
-        66% { transform: translateX(-6px); }
+        33% { transform: translateX(12px); }
+        66% { transform: translateX(-10px); }
     }
     @keyframes svgFloat2 {
         0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-8px); }
+        50% { transform: translateY(-12px); }
     }
     @keyframes svgFloat3 {
         0%, 100% { transform: translate(0, 0) rotate(0deg); }
-        25% { transform: translate(5px, -7px) rotate(0.5deg); }
-        50% { transform: translate(-4px, 3px) rotate(-0.3deg); }
-        75% { transform: translate(-6px, -4px) rotate(0.2deg); }
+        25% { transform: translate(8px, -10px) rotate(0.8deg); }
+        50% { transform: translate(-6px, 5px) rotate(-0.5deg); }
+        75% { transform: translate(-9px, -6px) rotate(0.3deg); }
     }
     @keyframes svgFloat4 {
         0%, 100% { transform: translate(0, 0); }
-        20% { transform: translate(-5px, -5px); }
-        40% { transform: translate(6px, -3px); }
-        60% { transform: translate(4px, 6px); }
-        80% { transform: translate(-7px, 4px); }
+        20% { transform: translate(-8px, -8px); }
+        40% { transform: translate(10px, -5px); }
+        60% { transform: translate(6px, 9px); }
+        80% { transform: translate(-10px, 6px); }
     }
 
     .service-card .svg-bg-full {
@@ -453,10 +453,10 @@ const commonStyles = `
         height: 100%;
         opacity: 0.15;
         filter: blur(4px);
-        animation: svgFloat3 20s ease-in-out infinite;
+        animation: svgFloat3 9s ease-in-out infinite;
     }
-    .service-card:nth-child(2n) .svg-bg-full svg { animation: svgFloat4 22s ease-in-out infinite; }
-    .service-card:nth-child(3n) .svg-bg-full svg { animation: svgFloat1 19s ease-in-out infinite, svgFloat2 25s ease-in-out infinite; }
+    .service-card:nth-child(2n) .svg-bg-full svg { animation: svgFloat4 10s ease-in-out infinite; }
+    .service-card:nth-child(3n) .svg-bg-full svg { animation: svgFloat1 8s ease-in-out infinite, svgFloat2 12s ease-in-out infinite; }
     .service-card:hover .svg-bg-full svg {
         opacity: 0.18;
     }
@@ -474,9 +474,9 @@ const headerHTML = `
             <div class="flex items-center gap-3">
                 <div class="relative z-10">
                     <button id="lang-btn" class="flex items-center gap-2 px-4 sm:px-5 py-2.5 text-base font-medium text-stone-600 hover:text-stone-900 bg-white/60 border border-stone-200 rounded-full hover:bg-white transition-all" aria-label="Выбор языка" aria-expanded="false" aria-haspopup="true" aria-controls="lang-menu">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
                         <span id="current-lang">Ру</span>
-                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" d="M19 9l-7 7-7-7"/></svg>
                     </button>
                     <div id="lang-menu" class="lang-menu absolute right-0 top-full mt-2 bg-white border border-stone-200 rounded-xl shadow-lg py-2 min-w-[160px] z-50" role="menu">
                         <button data-lang="ru" class="w-full px-5 py-2.5 text-left text-base hover:bg-stone-50 transition-colors" role="menuitem">Русский</button>
@@ -487,10 +487,10 @@ const headerHTML = `
                 </div>
                 <a href="contacts.html" class="hidden lg:inline-flex items-center btn-gradient-border bg-stone-900 text-stone-50 px-6 py-2.5 text-base font-medium rounded-full">
                     <span data-i18n="common.nav.contact_btn">Связаться</span>
-                    <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                 </a>
                 <button id="mobile-menu-btn" class="lg:hidden w-12 h-12 flex items-center justify-center rounded-full bg-white/60 border border-stone-200 hover:bg-white transition-all" aria-label="Меню" aria-expanded="false" aria-controls="mobile-menu">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
                 </button>
             </div>
         </div>
@@ -501,7 +501,7 @@ const headerHTML = `
             <a href="index.html#divisions" class="mobile-nav-link py-3 text-base text-stone-600 hover:text-stone-900 transition-colors" data-i18n="common.nav.divisions">Подразделения</a>
             <a href="contacts.html" class="mt-4 inline-flex items-center justify-center btn-gradient-border bg-stone-900 text-stone-50 py-4 text-base font-medium rounded-full">
                 <span data-i18n="common.nav.contact_btn">Связаться</span>
-                <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
             </a>
         </nav>
     </div>
@@ -543,15 +543,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 const isOpen = mobileMenu.classList.contains('open');
                 mobileMenuBtn.setAttribute('aria-expanded', isOpen);
                 mobileMenuBtn.innerHTML = isOpen
-                    ? '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/></svg>'
-                    : '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"/></svg>';
+                    ? '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" d="M6 18L18 6M6 6l12 12"/></svg>'
+                    : '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" d="M4 6h16M4 12h16M4 18h16"/></svg>';
             });
 
             mobileMenu.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
                     mobileMenu.classList.remove('open');
                     mobileMenuBtn.setAttribute('aria-expanded', 'false');
-                    mobileMenuBtn.innerHTML = '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"/></svg>';
+                    mobileMenuBtn.innerHTML = '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" d="M4 6h16M4 12h16M4 18h16"/></svg>';
                 });
             });
         }

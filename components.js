@@ -253,26 +253,21 @@ const commonStyles = `
         pointer-events: none;
     }
 
-    .pen-highlight {
-        cursor: default;
-        transition: transform 0.15s ease;
+    .section-highlight {
+        padding: 0.5rem 0.75rem;
+        border: 2px solid;
+        border-radius: 0.5rem;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-    .pen-highlight:hover {
+    .section-highlight:hover {
         transform: scale(1.02);
     }
-    .pen-stroke .stroke-line {
-        stroke-dasharray: 800;
-        stroke-dashoffset: 800;
-        animation: penDraw 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-        animation-delay: 0.2s;
-        transition: stroke 0.15s ease, stroke-width 0.15s ease;
-    }
-    @keyframes penDraw {
-        to { stroke-dashoffset: 0; }
-    }
-    .pen-highlight:hover .stroke-line {
-        stroke-width: 2.5;
-    }
+    .section-highlight-amber { border-color: #f59e0b; }
+    .section-highlight-amber:hover { box-shadow: 0 4px 12px -2px rgba(245, 158, 11, 0.3); }
+    .section-highlight-blue { border-color: #3b82f6; }
+    .section-highlight-blue:hover { box-shadow: 0 4px 12px -2px rgba(59, 130, 246, 0.3); }
+    .section-highlight-emerald { border-color: #34d399; }
+    .section-highlight-emerald:hover { box-shadow: 0 4px 12px -2px rgba(52, 211, 153, 0.3); }
 `;
 
 const headerHTML = `

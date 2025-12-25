@@ -435,7 +435,7 @@ const commonStyles = `
     }
 
     .svg-bg-blur {
-        filter: blur(0.5px);
+        filter: blur(2px);
         opacity: 0.15;
     }
 
@@ -449,7 +449,7 @@ const commonStyles = `
         width: 100%;
         height: 100%;
         opacity: 0.12;
-        filter: blur(0.3px);
+        filter: blur(2px);
     }
     .service-card:hover .svg-bg-full svg {
         opacity: 0.18;

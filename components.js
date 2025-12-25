@@ -297,7 +297,7 @@ const headerHTML = `
                 <div class="relative z-10">
                     <button id="lang-btn" class="flex items-center gap-2 px-4 sm:px-5 py-2.5 text-base font-medium text-stone-600 hover:text-stone-900 border border-stone-200 rounded-full hover:bg-stone-100 transition-colors">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
-                        <span id="current-lang">RU</span>
+                        <span id="current-lang">Ру</span>
                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </button>
                     <div id="lang-menu" class="lang-menu absolute right-0 top-full mt-2 bg-white border border-stone-200 rounded-xl shadow-lg py-2 min-w-[160px] z-50">
@@ -386,21 +386,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 langMenu.classList.remove('active');
             });
 
-            const langLabels = { ru: 'Ру', en: 'En', uk: 'Укр', zh: '中文' };
-
             langMenu.querySelectorAll('[data-lang]').forEach(btn => {
                 btn.addEventListener('click', function() {
                     const lang = this.dataset.lang;
                     if (typeof I18N !== 'undefined') {
                         I18N.setLanguage(lang);
                     }
-                    currentLang.textContent = langLabels[lang] || lang.toUpperCase();
                     langMenu.classList.remove('active');
                 });
             });
-
-            const storedLang = localStorage.getItem('lang') || 'ru';
-            currentLang.textContent = langLabels[storedLang] || storedLang.toUpperCase();
         }
     }
 

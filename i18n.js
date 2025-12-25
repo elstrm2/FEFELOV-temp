@@ -92,10 +92,12 @@ const I18N = {
         this.loadTranslations(lang);
     },
 
+    langLabels: { ru: 'Ру', en: 'En', uk: 'Укр', zh: '中文' },
+
     updateLangSwitcher() {
         const currentLangEl = document.getElementById('current-lang');
         if (currentLangEl) {
-            currentLangEl.textContent = this.currentLang.toUpperCase();
+            currentLangEl.textContent = this.langLabels[this.currentLang] || this.currentLang;
         }
         document.querySelectorAll('[data-lang]').forEach(btn => {
             btn.classList.toggle('font-bold', btn.dataset.lang === this.currentLang);

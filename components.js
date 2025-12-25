@@ -438,6 +438,13 @@ const commonStyles = `
     .svg-bg-blur {
         filter: blur(2px);
         opacity: 0.15;
+        animation: svgFloat 20s ease-in-out infinite;
+    }
+    @keyframes svgFloat {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        25% { transform: translate(10px, -10px) scale(1.02); }
+        50% { transform: translate(-5px, 5px) scale(0.98); }
+        75% { transform: translate(-10px, -5px) scale(1.01); }
     }
 
     .service-card .svg-bg-full {
@@ -451,6 +458,7 @@ const commonStyles = `
         height: 100%;
         opacity: 0.12;
         filter: blur(2px);
+        animation: svgFloat 25s ease-in-out infinite;
     }
     .service-card:hover .svg-bg-full svg {
         opacity: 0.18;
@@ -480,8 +488,8 @@ const headerHTML = `
                         <button data-lang="zh" class="w-full px-5 py-2.5 text-left text-base hover:bg-stone-50 transition-colors" role="menuitem">中文</button>
                     </div>
                 </div>
-                <a href="contacts.html" class="hidden lg:inline-flex items-center btn-gradient-border bg-stone-900 text-stone-50 px-6 py-2.5 text-base font-medium rounded-full" data-i18n="common.nav.contact_btn">
-                    <span>Связаться</span>
+                <a href="contacts.html" class="hidden lg:inline-flex items-center btn-gradient-border bg-stone-900 text-stone-50 px-6 py-2.5 text-base font-medium rounded-full">
+                    <span data-i18n="common.nav.contact_btn">Связаться</span>
                     <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                 </a>
                 <button id="mobile-menu-btn" class="lg:hidden w-12 h-12 flex items-center justify-center rounded-full bg-white/60 border border-stone-200 hover:bg-white transition-all" aria-label="Меню" aria-expanded="false" aria-controls="mobile-menu">
@@ -494,8 +502,8 @@ const headerHTML = `
         <nav class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-6 flex flex-col gap-2">
             <a href="index.html#services" class="mobile-nav-link py-3 text-base text-stone-600 hover:text-stone-900 transition-colors" data-i18n="common.nav.services">Услуги</a>
             <a href="index.html#divisions" class="mobile-nav-link py-3 text-base text-stone-600 hover:text-stone-900 transition-colors" data-i18n="common.nav.divisions">Подразделения</a>
-            <a href="contacts.html" class="mt-4 inline-flex items-center justify-center btn-gradient-border bg-stone-900 text-stone-50 py-4 text-base font-medium rounded-full" data-i18n="common.nav.contact_btn">
-                <span>Связаться</span>
+            <a href="contacts.html" class="mt-4 inline-flex items-center justify-center btn-gradient-border bg-stone-900 text-stone-50 py-4 text-base font-medium rounded-full">
+                <span data-i18n="common.nav.contact_btn">Связаться</span>
                 <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
             </a>
         </nav>

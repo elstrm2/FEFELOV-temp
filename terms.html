@@ -28,6 +28,9 @@
         html { scroll-behavior: smooth; }
         .toc-link { transition: all 0.2s ease; }
         .toc-link:hover { padding-left: 8px; color: #0a0a0a; }
+        details[open] summary svg { transform: rotate(180deg); }
+        details summary::-webkit-details-marker { display: none; }
+        details summary { list-style: none; }
     </style>
     <script>(function(){var l=localStorage.getItem('lang')||navigator.language.slice(0,2)||'ru';if(!['ru','uk','en','zh'].includes(l))l='ru';document.documentElement.lang=l;})();</script>
     <script src="components.js"></script>
@@ -44,6 +47,32 @@
                 <h1 class="text-4xl md:text-5xl font-semibold tracking-tight mb-4" data-i18n="terms.header.title">Публичная оферта</h1>
                 <p class="text-stone-600" data-i18n="terms.header.subtitle">на оказание информационно-консультационных, образовательных и IT-услуг</p>
                 <p class="text-sm text-stone-500 mt-3" data-i18n="terms.header.revision">Редакция 1.0 от 24.12.2025</p>
+            </div>
+
+            <!-- Mobile TOC -->
+            <div class="lg:hidden mb-8">
+                <details class="bg-white rounded-2xl border border-stone-200">
+                    <summary class="p-4 font-semibold text-sm cursor-pointer flex items-center justify-between">
+                        <span data-i18n="terms.toc.title">Содержание</span>
+                        <svg class="w-5 h-5 text-stone-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </summary>
+                    <nav class="px-4 pb-4 space-y-2 text-sm border-t border-stone-100 pt-3">
+                        <a href="#requisites" class="toc-link block text-stone-600 hover:text-stone-900 py-1" data-i18n="terms.toc.requisites">Реквизиты</a>
+                        <a href="#section-1" class="toc-link block text-stone-600 hover:text-stone-900 py-1" data-i18n="terms.toc.s1">1. Термины</a>
+                        <a href="#section-2" class="toc-link block text-stone-600 hover:text-stone-900 py-1" data-i18n="terms.toc.s2">2. Услуги</a>
+                        <a href="#section-3" class="toc-link block text-stone-600 hover:text-stone-900 py-1" data-i18n="terms.toc.s3">3. Акцепт оферты</a>
+                        <a href="#section-4" class="toc-link block text-stone-600 hover:text-stone-900 py-1" data-i18n="terms.toc.s4">4. Порядок оплаты</a>
+                        <a href="#section-5" class="toc-link block text-stone-600 hover:text-stone-900 py-1" data-i18n="terms.toc.s5">5. Режим работы</a>
+                        <a href="#section-6" class="toc-link block text-stone-600 hover:text-stone-900 py-1" data-i18n="terms.toc.s6">6. Коммуникация</a>
+                        <a href="#section-7" class="toc-link block text-stone-600 hover:text-stone-900 py-1" data-i18n="terms.toc.s7">7. Срочность</a>
+                        <a href="#section-8" class="toc-link block text-stone-600 hover:text-stone-900 py-1" data-i18n="terms.toc.s8">8. Просрочка и пени</a>
+                        <a href="#section-9" class="toc-link block text-stone-600 hover:text-stone-900 py-1" data-i18n="terms.toc.s9">9. Спорные ситуации</a>
+                        <a href="#section-10" class="toc-link block text-stone-600 hover:text-stone-900 py-1" data-i18n="terms.toc.s10">10. Поведение сторон</a>
+                        <a href="#section-11" class="toc-link block text-stone-600 hover:text-stone-900 py-1" data-i18n="terms.toc.s11">11. Ответственность</a>
+                        <a href="#section-12" class="toc-link block text-stone-600 hover:text-stone-900 py-1" data-i18n="terms.toc.s12">12. Споры</a>
+                        <a href="#section-13" class="toc-link block text-stone-600 hover:text-stone-900 py-1" data-i18n="terms.toc.s13">13. Заключительные</a>
+                    </nav>
+                </details>
             </div>
 
             <div class="grid lg:grid-cols-[280px_1fr] gap-y-12 lg:gap-12">

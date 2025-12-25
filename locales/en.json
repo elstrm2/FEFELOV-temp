@@ -69,20 +69,24 @@
       "study": {
         "label": "Education",
         "title": "FEFELOV.Study",
-        "text": "Information, consulting and educational services. Helping students with academic projects, tutoring, exam preparation.",
+        "text": "Information, consulting and educational services. Helping students with academic projects of any complexity: from essays to theses. Tutoring in school and university subjects, preparation for exams and entrance tests.",
         "tag1": "Coursework",
         "tag2": "Theses",
         "tag3": "Tutoring",
-        "tag4": "Exams"
+        "tag4": "Exams",
+        "tag5": "Essays",
+        "tag6": "Presentations"
       },
       "tech": {
         "label": "Technology",
         "title": "FEFELOV.Tech",
-        "text": "IT division: software development, websites, mobile applications. Automation, integrations, technical support.",
+        "text": "IT division: full development cycle — from idea to launch. We create websites, mobile apps, Telegram bots, CRM systems. Data parsing, API integrations, business process automation. Technical support and maintenance.",
         "tag1": "Web",
         "tag2": "Bots",
         "tag3": "Parsing",
-        "tag4": "API"
+        "tag4": "API",
+        "tag5": "CRM",
+        "tag6": "Automation"
       }
     },
     "about": {

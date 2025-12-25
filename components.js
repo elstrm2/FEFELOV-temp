@@ -254,20 +254,35 @@ const commonStyles = `
     }
 
     .section-highlight {
-        padding: 0.5rem 0.75rem;
-        border: 2px solid;
-        border-radius: 0.5rem;
-        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        position: relative;
+        padding: 1.25rem 1.75rem;
+        border-radius: 1.5rem;
+        overflow: hidden;
     }
-    .section-highlight:hover {
-        transform: scale(1.02);
+    .section-highlight::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 1.5rem;
+        padding: 2px;
+        background: linear-gradient(90deg, var(--highlight-color) 0%, transparent 50%, var(--highlight-color) 100%);
+        background-size: 200% 100%;
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        animation: borderDraw 1.5s ease forwards, borderFade 0.8s ease 2s forwards;
     }
-    .section-highlight-amber { border-color: rgba(245, 158, 11, 0.4); }
-    .section-highlight-amber:hover { border-color: rgba(245, 158, 11, 0.7); box-shadow: 0 4px 12px -2px rgba(245, 158, 11, 0.2); }
-    .section-highlight-blue { border-color: rgba(59, 130, 246, 0.4); }
-    .section-highlight-blue:hover { border-color: rgba(59, 130, 246, 0.7); box-shadow: 0 4px 12px -2px rgba(59, 130, 246, 0.2); }
-    .section-highlight-emerald { border-color: rgba(52, 211, 153, 0.5); }
-    .section-highlight-emerald:hover { border-color: rgba(52, 211, 153, 0.8); box-shadow: 0 4px 12px -2px rgba(52, 211, 153, 0.2); }
+    @keyframes borderDraw {
+        0% { background-position: 100% 0; opacity: 0; }
+        20% { opacity: 1; }
+        100% { background-position: 0% 0; opacity: 1; }
+    }
+    @keyframes borderFade {
+        to { opacity: 0; }
+    }
+    .section-highlight-amber { --highlight-color: rgba(245, 158, 11, 0.6); }
+    .section-highlight-blue { --highlight-color: rgba(59, 130, 246, 0.6); }
+    .section-highlight-emerald { --highlight-color: rgba(52, 211, 153, 0.7); }
 
     .typewriter {
         display: inline-block;
@@ -282,6 +297,41 @@ const commonStyles = `
     }
     @keyframes blink {
         50% { border-color: transparent; }
+    }
+
+    .division-card-study {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #6366f1 100%);
+    }
+    .division-card-tech {
+        background: linear-gradient(135deg, #10b981 0%, #14b8a6 50%, #06b6d4 100%);
+    }
+
+    .svg-draw path, .svg-draw rect, .svg-draw circle, .svg-draw line, .svg-draw ellipse, .svg-draw text {
+        stroke-dasharray: 200;
+        stroke-dashoffset: 200;
+        animation: svgDraw 1.5s ease forwards;
+        fill: none;
+    }
+    .svg-draw .draw-1 { animation-delay: 0s; }
+    .svg-draw .draw-2 { animation-delay: 0.2s; }
+    .svg-draw .draw-3 { animation-delay: 0.4s; }
+    .svg-draw .draw-4 { animation-delay: 0.6s; }
+    .svg-draw .draw-5 { animation-delay: 0.8s; }
+    .svg-draw .draw-6 { animation-delay: 1s; }
+    .svg-draw .draw-7 { animation-delay: 1.2s; }
+    .svg-draw .draw-8 { animation-delay: 1.4s; }
+
+    @keyframes svgDraw {
+        to { stroke-dashoffset: 0; }
+    }
+
+    .svg-draw .fill-after {
+        fill: currentColor;
+        fill-opacity: 0;
+        animation: svgDraw 1.5s ease forwards, svgFillIn 0.5s ease forwards 1.5s;
+    }
+    @keyframes svgFillIn {
+        to { fill-opacity: 0.15; }
     }
 `;
 

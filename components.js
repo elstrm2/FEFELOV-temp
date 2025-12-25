@@ -280,39 +280,46 @@ const commonStyles = `
 
     .section-highlight {
         position: relative;
-        padding: 1.25rem 1.75rem;
-        border-radius: 1.5rem;
-        overflow: hidden;
-        animation: slideToLeft 1.2s cubic-bezier(0.4, 0, 0.2, 1) 2.5s forwards;
+        padding-left: 1rem;
     }
-    @keyframes slideToLeft {
-        to { padding-left: 0; padding-right: 0; }
+    .section-highlight::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 3px;
+        height: 0;
+        background: var(--highlight-color);
+        border-radius: 2px;
+        animation: leftLineGrow 0.8s ease 1.8s forwards;
     }
     .section-highlight::after {
         content: '';
         position: absolute;
-        inset: 0;
-        border-radius: 1.5rem;
-        padding: 2px;
-        background: linear-gradient(90deg, var(--highlight-color) 0%, transparent 50%, var(--highlight-color) 100%);
-        background-size: 200% 100%;
-        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-        -webkit-mask-composite: xor;
-        mask-composite: exclude;
-        animation: borderDraw 1.5s ease forwards, borderFade 0.8s ease 2s forwards;
-        opacity: 0;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 3px;
+        background: var(--highlight-color);
+        border-radius: 2px;
+        animation: bottomLineDraw 1s ease forwards, bottomLineFade 0.5s ease 1.5s forwards;
     }
-    @keyframes borderDraw {
-        0% { background-position: 100% 0; opacity: 0; }
-        30% { opacity: 1; }
-        100% { background-position: 0% 0; opacity: 1; }
+    @keyframes bottomLineDraw {
+        0% { width: 0; opacity: 0; }
+        20% { opacity: 1; }
+        100% { width: 100%; opacity: 1; }
     }
-    @keyframes borderFade {
+    @keyframes bottomLineFade {
         to { opacity: 0; }
     }
-    .section-highlight-amber { --highlight-color: rgba(245, 158, 11, 0.5); }
-    .section-highlight-blue { --highlight-color: rgba(124, 58, 237, 0.5); }
-    .section-highlight-emerald { --highlight-color: rgba(52, 211, 153, 0.6); }
+    @keyframes leftLineGrow {
+        0% { height: 0; opacity: 0; }
+        20% { opacity: 1; }
+        100% { height: 100%; opacity: 1; }
+    }
+    .section-highlight-amber { --highlight-color: rgba(245, 158, 11, 0.6); }
+    .section-highlight-blue { --highlight-color: rgba(124, 58, 237, 0.6); }
+    .section-highlight-emerald { --highlight-color: rgba(52, 211, 153, 0.7); }
 
     .typewriter {
         display: inline-block;

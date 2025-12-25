@@ -314,14 +314,19 @@ const commonStyles = `
         overflow: hidden;
         white-space: nowrap;
         border-right: 2px solid rgba(52, 211, 153, 0.7);
-        animation: typing 2s steps(20) infinite, blink 0.5s step-end infinite alternate;
+        animation: typewriterText 20s steps(12) infinite, typewriterCursor 20s step-end infinite;
     }
-    @keyframes typing {
-        0%, 90%, 100% { width: 100%; }
-        45% { width: 0; }
+    @keyframes typewriterText {
+        0% { width: 0; }
+        5% { width: 100%; }
+        90% { width: 100%; }
+        95% { width: 0; }
+        100% { width: 0; }
     }
-    @keyframes blink {
-        50% { border-color: transparent; }
+    @keyframes typewriterCursor {
+        0%, 5% { border-color: rgba(52, 211, 153, 0.7); }
+        6%, 89% { border-color: transparent; }
+        90%, 100% { border-color: rgba(52, 211, 153, 0.7); }
     }
 
     .division-card-study {

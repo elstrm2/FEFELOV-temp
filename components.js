@@ -258,30 +258,10 @@ const commonStyles = `
         padding: 1.25rem 1.75rem;
         border-radius: 1.5rem;
         overflow: hidden;
-        animation: slideInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        transform: translateX(60px);
-        opacity: 0;
+        animation: slideToLeft 1.2s cubic-bezier(0.4, 0, 0.2, 1) 2.5s forwards;
     }
-    @keyframes slideInLeft {
-        to { transform: translateX(0); opacity: 1; }
-    }
-    .section-highlight::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        border-radius: 1.5rem;
-        background: linear-gradient(90deg, transparent 0%, var(--highlight-color) 50%, transparent 100%);
-        background-size: 300% 100%;
-        background-position: 100% 0;
-        animation: brushStroke 1.2s ease 0.3s forwards, brushFade 0.6s ease 2s forwards;
-    }
-    @keyframes brushStroke {
-        0% { background-position: 100% 0; opacity: 0; }
-        30% { opacity: 0.5; }
-        100% { background-position: -100% 0; opacity: 0.3; }
-    }
-    @keyframes brushFade {
-        to { opacity: 0; }
+    @keyframes slideToLeft {
+        to { padding-left: 0; padding-right: 0; }
     }
     .section-highlight::after {
         content: '';
@@ -294,7 +274,7 @@ const commonStyles = `
         -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
         -webkit-mask-composite: xor;
         mask-composite: exclude;
-        animation: borderDraw 1s ease 0.5s forwards, borderFade 0.6s ease 2.2s forwards;
+        animation: borderDraw 1.5s ease forwards, borderFade 0.8s ease 2s forwards;
         opacity: 0;
     }
     @keyframes borderDraw {

@@ -75,7 +75,13 @@
         "tag3": "Tutoring",
         "tag4": "Exams",
         "tag5": "Essays",
-        "tag6": "Presentations"
+        "tag6": "Presentations",
+        "tag7": "Tests",
+        "tag8": "Lab Work",
+        "tag9": "Papers",
+        "tag10": "Reports",
+        "tag11": "Articles",
+        "tag12": "Consulting"
       },
       "tech": {
         "label": "Technology",
@@ -86,7 +92,13 @@
         "tag3": "Parsing",
         "tag4": "API",
         "tag5": "CRM",
-        "tag6": "Automation"
+        "tag6": "Automation",
+        "tag7": "Mobile",
+        "tag8": "Integrations",
+        "tag9": "Analytics",
+        "tag10": "Support",
+        "tag11": "Databases",
+        "tag12": "Scripts"
       }
     },
     "about": {

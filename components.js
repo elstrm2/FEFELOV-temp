@@ -417,29 +417,57 @@ const commonStyles = `
     .svg-bg-blur {
         filter: blur(4px);
         opacity: 0.2;
-        animation: svgFloat1 8s ease-in-out infinite, svgFloat2 11s ease-in-out infinite;
     }
-    @keyframes svgFloat1 {
-        0%, 100% { transform: translateX(0); }
-        33% { transform: translateX(12px); }
-        66% { transform: translateX(-10px); }
-    }
-    @keyframes svgFloat2 {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-12px); }
-    }
-    @keyframes svgFloat3 {
+
+    @keyframes svgRandomFloat1 {
         0%, 100% { transform: translate(0, 0) rotate(0deg); }
-        25% { transform: translate(8px, -10px) rotate(0.8deg); }
-        50% { transform: translate(-6px, 5px) rotate(-0.5deg); }
-        75% { transform: translate(-9px, -6px) rotate(0.3deg); }
+        17% { transform: translate(12px, -8px) rotate(1.2deg); }
+        33% { transform: translate(-5px, -15px) rotate(-0.8deg); }
+        50% { transform: translate(-14px, 3px) rotate(0.5deg); }
+        67% { transform: translate(8px, 10px) rotate(-1deg); }
+        83% { transform: translate(15px, -4px) rotate(0.7deg); }
     }
-    @keyframes svgFloat4 {
-        0%, 100% { transform: translate(0, 0); }
-        20% { transform: translate(-8px, -8px); }
-        40% { transform: translate(10px, -5px); }
-        60% { transform: translate(6px, 9px); }
-        80% { transform: translate(-10px, 6px); }
+    @keyframes svgRandomFloat2 {
+        0%, 100% { transform: translate(0, 0) rotate(0deg); }
+        14% { transform: translate(-10px, 12px) rotate(-0.9deg); }
+        28% { transform: translate(8px, 8px) rotate(1.1deg); }
+        42% { transform: translate(14px, -6px) rotate(-0.4deg); }
+        57% { transform: translate(-3px, -14px) rotate(0.8deg); }
+        71% { transform: translate(-12px, -2px) rotate(-1.2deg); }
+        85% { transform: translate(5px, 10px) rotate(0.6deg); }
+    }
+    @keyframes svgRandomFloat3 {
+        0%, 100% { transform: translate(0, 0) rotate(0deg); }
+        20% { transform: translate(-8px, -10px) rotate(0.7deg); }
+        40% { transform: translate(10px, -12px) rotate(-1.1deg); }
+        60% { transform: translate(6px, 14px) rotate(0.9deg); }
+        80% { transform: translate(-12px, 5px) rotate(-0.6deg); }
+    }
+    @keyframes svgRandomFloat4 {
+        0%, 100% { transform: translate(0, 0) rotate(0deg); }
+        12% { transform: translate(15px, 5px) rotate(-0.5deg); }
+        25% { transform: translate(10px, -12px) rotate(1deg); }
+        37% { transform: translate(-8px, -10px) rotate(-0.8deg); }
+        50% { transform: translate(-15px, 2px) rotate(0.4deg); }
+        62% { transform: translate(-10px, 12px) rotate(1.2deg); }
+        75% { transform: translate(5px, 15px) rotate(-0.7deg); }
+        87% { transform: translate(12px, 8px) rotate(0.9deg); }
+    }
+    @keyframes svgRandomFloat5 {
+        0%, 100% { transform: translate(0, 0) rotate(0deg); }
+        16% { transform: translate(-14px, -5px) rotate(0.8deg); }
+        33% { transform: translate(-6px, 12px) rotate(-1deg); }
+        50% { transform: translate(12px, 10px) rotate(0.5deg); }
+        66% { transform: translate(14px, -8px) rotate(-0.6deg); }
+        83% { transform: translate(3px, -14px) rotate(1.1deg); }
+    }
+    @keyframes svgRandomFloat6 {
+        0%, 100% { transform: translate(0, 0) rotate(0deg); }
+        10% { transform: translate(8px, -14px) rotate(-0.7deg); }
+        30% { transform: translate(-12px, -8px) rotate(0.9deg); }
+        50% { transform: translate(-10px, 10px) rotate(-0.5deg); }
+        70% { transform: translate(6px, 14px) rotate(1.2deg); }
+        90% { transform: translate(14px, 2px) rotate(-0.9deg); }
     }
 
     .service-card .svg-bg-full {
@@ -453,10 +481,9 @@ const commonStyles = `
         height: 100%;
         opacity: 0.15;
         filter: blur(4px);
-        animation: svgFloat3 9s ease-in-out infinite;
+        animation: svgRandomFloat1 12s ease-in-out infinite;
+        animation-delay: var(--svg-delay, 0s);
     }
-    .service-card:nth-child(2n) .svg-bg-full svg { animation: svgFloat4 10s ease-in-out infinite; }
-    .service-card:nth-child(3n) .svg-bg-full svg { animation: svgFloat1 8s ease-in-out infinite, svgFloat2 12s ease-in-out infinite; }
     .service-card:hover .svg-bg-full svg {
         opacity: 0.18;
     }
@@ -515,7 +542,7 @@ const commonStyles = `
     }
 
     #lang-btn:hover {
-        transform: translateY(-3px) scale(1.05);
+        transform: translateY(-3px);
         border-color: var(--lang-color-1, rgba(255,255,255,0.3));
         box-shadow:
             0 15px 40px -10px var(--lang-glow-color, rgba(102, 126, 234, 0.4)),
@@ -526,6 +553,7 @@ const commonStyles = `
     #lang-btn:hover::before {
         opacity: 0.8;
         animation-play-state: running;
+        transform: scale(1.1);
     }
 
     #lang-btn:hover::after {
@@ -724,7 +752,7 @@ const commonStyles = `
     @keyframes langMenuFloat { 0%, 100% { transform: translateY(-50%) scale(1); } 50% { transform: translateY(-60%) scale(1.1); } }
 
     @media (max-width: 640px) {
-        #lang-btn:hover { transform: scale(1.02); }
+        #lang-btn:hover { transform: translateY(-2px); }
         #lang-btn::before { filter: blur(20px); }
     }
 
@@ -870,4 +898,35 @@ document.addEventListener('DOMContentLoaded', function() {
         const yearEl = document.getElementById('footer-year');
         if (yearEl) yearEl.textContent = new Date().getFullYear();
     }
+
+    function initRandomSvgFloating() {
+        const animations = [
+            'svgRandomFloat1', 'svgRandomFloat2', 'svgRandomFloat3',
+            'svgRandomFloat4', 'svgRandomFloat5', 'svgRandomFloat6'
+        ];
+        const durations = [10, 11, 12, 13, 14, 15, 16];
+        const directions = ['normal', 'reverse', 'alternate', 'alternate-reverse'];
+
+        document.querySelectorAll('.service-card .svg-bg-full svg').forEach((svg, index) => {
+            const anim = animations[Math.floor(Math.random() * animations.length)];
+            const duration = durations[Math.floor(Math.random() * durations.length)];
+            const delay = (Math.random() * 5).toFixed(2);
+            const direction = directions[Math.floor(Math.random() * directions.length)];
+
+            svg.style.animation = `${anim} ${duration}s ease-in-out infinite ${direction}`;
+            svg.style.animationDelay = `${delay}s`;
+        });
+
+        document.querySelectorAll('.svg-bg-blur svg').forEach((svg, index) => {
+            const anim = animations[Math.floor(Math.random() * animations.length)];
+            const duration = durations[Math.floor(Math.random() * durations.length)] + 2;
+            const delay = (Math.random() * 4).toFixed(2);
+            const direction = directions[Math.floor(Math.random() * directions.length)];
+
+            svg.style.animation = `${anim} ${duration}s ease-in-out infinite ${direction}`;
+            svg.style.animationDelay = `${delay}s`;
+        });
+    }
+
+    setTimeout(initRandomSvgFloating, 100);
 });

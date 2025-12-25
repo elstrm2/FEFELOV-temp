@@ -257,17 +257,32 @@ const commonStyles = `
         padding: 0.5rem 0.75rem;
         border: 2px solid;
         border-radius: 0.5rem;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
     }
     .section-highlight:hover {
         transform: scale(1.02);
     }
-    .section-highlight-amber { border-color: #f59e0b; }
-    .section-highlight-amber:hover { box-shadow: 0 4px 12px -2px rgba(245, 158, 11, 0.3); }
-    .section-highlight-blue { border-color: #3b82f6; }
-    .section-highlight-blue:hover { box-shadow: 0 4px 12px -2px rgba(59, 130, 246, 0.3); }
-    .section-highlight-emerald { border-color: #34d399; }
-    .section-highlight-emerald:hover { box-shadow: 0 4px 12px -2px rgba(52, 211, 153, 0.3); }
+    .section-highlight-amber { border-color: rgba(245, 158, 11, 0.4); }
+    .section-highlight-amber:hover { border-color: rgba(245, 158, 11, 0.7); box-shadow: 0 4px 12px -2px rgba(245, 158, 11, 0.2); }
+    .section-highlight-blue { border-color: rgba(59, 130, 246, 0.4); }
+    .section-highlight-blue:hover { border-color: rgba(59, 130, 246, 0.7); box-shadow: 0 4px 12px -2px rgba(59, 130, 246, 0.2); }
+    .section-highlight-emerald { border-color: rgba(52, 211, 153, 0.5); }
+    .section-highlight-emerald:hover { border-color: rgba(52, 211, 153, 0.8); box-shadow: 0 4px 12px -2px rgba(52, 211, 153, 0.2); }
+
+    .typewriter {
+        display: inline-block;
+        overflow: hidden;
+        white-space: nowrap;
+        border-right: 2px solid rgba(52, 211, 153, 0.7);
+        animation: typing 2s steps(20) infinite, blink 0.5s step-end infinite alternate;
+    }
+    @keyframes typing {
+        0%, 90%, 100% { width: 100%; }
+        45% { width: 0; }
+    }
+    @keyframes blink {
+        50% { border-color: transparent; }
+    }
 `;
 
 const headerHTML = `

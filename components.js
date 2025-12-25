@@ -280,7 +280,7 @@ const commonStyles = `
 
     .section-highlight {
         position: relative;
-        padding-left: 1rem;
+        padding-left: 1.5rem;
     }
     .section-highlight::before {
         content: '';

@@ -297,7 +297,11 @@
         }
 
         if (botLangBtn && botLangMenu) {
-            const currentLang = localStorage.getItem('lang') || 'ru';
+            let currentLang = localStorage.getItem('lang');
+            if (!currentLang || !['ru','uk','en','zh'].includes(currentLang)) {
+                currentLang = navigator.language.slice(0,2);
+                if (!['ru','uk','en','zh'].includes(currentLang)) currentLang = 'ru';
+            }
             botCurrentLang.textContent = langLabels[currentLang] || currentLang;
 
             botLangBtn.addEventListener('click', (e) => {

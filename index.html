@@ -86,6 +86,7 @@
     </script>
 
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="liquid-glass.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -119,23 +120,12 @@
     <section id="services" class="py-24 sm:py-32 bg-white">
         <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
             <div class="mb-14 sm:mb-16 relative">
-                <div class="section-note-wrapper inline-block relative">
-                    <svg class="section-note absolute -left-4 sm:-left-6 -top-4 sm:-top-6 w-[calc(100%+2rem)] sm:w-[calc(100%+3rem)] h-[calc(100%+2.5rem)] sm:h-[calc(100%+3.5rem)] pointer-events-none" viewBox="0 0 320 140" fill="none" preserveAspectRatio="none">
-                        <path class="note-outline" d="M20 10 L280 10 Q300 10 300 30 L300 110 Q300 130 280 130 L40 130 Q20 130 20 110 L20 30 Q20 10 40 10 Z"
-                              stroke="#fbbf24" stroke-width="2" fill="none"
-                              stroke-dasharray="900" stroke-dashoffset="900"/>
-                        <path class="note-fill" d="M20 10 L280 10 Q300 10 300 30 L300 110 Q300 130 280 130 L40 130 Q20 130 20 110 L20 30 Q20 10 40 10 Z"
-                              fill="#fef3c7" opacity="0"/>
-                        <path class="note-corner" d="M280 10 L280 35 Q280 40 275 40 L250 40" stroke="#f59e0b" stroke-width="1.5" fill="none" opacity="0"/>
-                        <path class="note-corner-fill" d="M280 10 L280 35 Q280 40 275 40 L250 40 L280 10 Z" fill="#fde68a" opacity="0"/>
-                    </svg>
-                    <svg class="pencil-icon absolute -right-8 sm:-right-12 -top-6 sm:-top-8 w-10 h-10 sm:w-14 sm:h-14 pointer-events-none" viewBox="0 0 48 48" fill="none">
-                        <g class="pencil-draw">
-                            <path d="M36 6L42 12L14 40L6 42L8 34L36 6Z" fill="#fbbf24" stroke="#f59e0b" stroke-width="1.5"/>
-                            <path d="M30 12L36 18" stroke="#f59e0b" stroke-width="1.5"/>
-                            <path d="M6 42L8 34L14 40L6 42Z" fill="#fca5a5"/>
-                            <path d="M8 34L6 42L14 40" stroke="#f87171" stroke-width="1"/>
-                        </g>
+                <div class="section-note-wrapper inline-block relative cursor-default">
+                    <svg class="section-note absolute -left-4 sm:-left-5 -top-3 sm:-top-4 w-[calc(100%+2rem)] sm:w-[calc(100%+2.5rem)] h-[calc(100%+1.5rem)] sm:h-[calc(100%+2rem)] pointer-events-none" viewBox="0 0 320 120" fill="none" preserveAspectRatio="none">
+                        <path class="note-fill" d="M8 8 L290 8 Q304 8 304 22 L304 90 Q304 104 290 104 L22 104 Q8 104 8 90 L8 22 Q8 8 22 8 Z" fill="#fef3c7"/>
+                        <path class="note-outline" d="M8 8 L290 8 Q304 8 304 22 L304 90 Q304 104 290 104 L22 104 Q8 104 8 90 L8 22 Q8 8 22 8 Z" stroke="#fcd34d" stroke-width="2" fill="none"/>
+                        <path class="note-corner-fill" d="M266 8 L290 8 Q304 8 304 22 L304 46 Q290 46 278 34 Q266 22 266 8 Z" fill="#fde68a"/>
+                        <path class="note-corner" d="M266 8 Q266 22 278 34 Q290 46 304 46" stroke="#fbbf24" stroke-width="1.5" fill="none"/>
                     </svg>
                     <div class="section-text-content relative z-10">
                         <p class="text-label text-sm sm:text-base font-medium text-stone-500 mb-3 tracking-wide uppercase" data-i18n="index.services.label">Услуги</p>
@@ -479,31 +469,5 @@
 
     <div id="footer-placeholder"></div>
     <script src="i18n.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const noteWrapper = document.querySelector('.section-note-wrapper');
-            if (noteWrapper) {
-                noteWrapper.style.animationPlayState = 'paused';
-                noteWrapper.querySelectorAll('*').forEach(el => {
-                    el.style.animationPlayState = 'paused';
-                });
-
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            noteWrapper.classList.add('in-view');
-                            noteWrapper.style.animationPlayState = 'running';
-                            noteWrapper.querySelectorAll('*').forEach(el => {
-                                el.style.animationPlayState = 'running';
-                            });
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.3 });
-
-                observer.observe(noteWrapper);
-            }
-        });
-    </script>
 </body>
 </html>

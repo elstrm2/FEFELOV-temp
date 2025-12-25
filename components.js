@@ -210,117 +210,80 @@ const commonStyles = `
     }
 
     .section-note-wrapper {
-        opacity: 0;
-        animation: fadeInWrapper 0.3s ease forwards;
-        animation-delay: 0.2s;
-    }
-    .section-note .note-outline {
-        animation: drawNote 1.2s ease forwards;
-        animation-delay: 0.4s;
+        transition: transform 0.2s ease;
     }
     .section-note .note-fill {
-        animation: fillNote 0.4s ease forwards;
-        animation-delay: 1.5s;
+        transition: all 0.2s ease;
+    }
+    .section-note .note-outline {
+        transition: all 0.2s ease;
     }
     .section-note .note-corner,
     .section-note .note-corner-fill {
-        animation: showCorner 0.3s ease forwards;
-        animation-delay: 1.6s;
+        transition: all 0.2s ease;
     }
-    .pencil-icon {
-        opacity: 0;
-        transform: translate(40px, -30px) rotate(-15deg);
-        animation: pencilAppear 0.5s ease forwards, pencilDraw 1.2s ease forwards;
-        animation-delay: 0.3s, 0.5s;
+    .section-note-wrapper:hover {
+        transform: scale(1.02);
     }
-    .section-text-content .text-label {
-        opacity: 0;
-        transform: translateY(10px);
-        animation: textReveal 0.5s ease forwards;
-        animation-delay: 1.7s;
+    .section-note-wrapper:hover .note-fill {
+        fill: #fef9c3;
     }
-    .section-text-content .text-title {
-        opacity: 0;
-        transform: translateY(10px);
-        animation: textReveal 0.5s ease forwards;
-        animation-delay: 1.9s;
+    .section-note-wrapper:hover .note-outline {
+        stroke: #f59e0b;
     }
-
-    @keyframes fadeInWrapper {
-        to { opacity: 1; }
-    }
-    @keyframes drawNote {
-        to { stroke-dashoffset: 0; }
-    }
-    @keyframes fillNote {
-        to { opacity: 0.7; }
-    }
-    @keyframes showCorner {
-        to { opacity: 1; }
-    }
-    @keyframes pencilAppear {
-        to { opacity: 1; transform: translate(0, 0) rotate(0deg); }
-    }
-    @keyframes pencilDraw {
-        0% { transform: translate(0, 0) rotate(0deg); }
-        20% { transform: translate(-5px, 5px) rotate(-5deg); }
-        40% { transform: translate(5px, -3px) rotate(3deg); }
-        60% { transform: translate(-3px, 8px) rotate(-3deg); }
-        80% { transform: translate(8px, 2px) rotate(5deg); }
-        100% { transform: translate(10px, -15px) rotate(10deg); opacity: 0.6; }
-    }
-    @keyframes textReveal {
-        to { opacity: 1; transform: translateY(0); }
-    }
-
-    .section-note-wrapper.animate {
-        animation-play-state: running;
-    }
-    .section-note-wrapper:not(.in-view) * {
-        animation-play-state: paused;
-    }
-    .section-note-wrapper.in-view * {
-        animation-play-state: running;
+    .section-note-wrapper:hover .note-corner-fill {
+        fill: #fcd34d;
     }
 `;
 
 const headerHTML = `
-<header class="fixed top-0 left-0 right-0 z-50 bg-stone-50/80 backdrop-blur-md border-b border-stone-200/50">
-    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-5 sm:py-6">
+<header id="main-header" class="liquid-glass-header fixed top-0 left-0 right-0 z-50">
+    <div class="lg-orb-container">
+        <div class="lg-orb lg-orb-1"></div>
+        <div class="lg-orb lg-orb-2"></div>
+        <div class="lg-orb lg-orb-3"></div>
+        <div class="lg-orb lg-orb-4"></div>
+        <div class="lg-orb lg-orb-5"></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-5 sm:py-6 relative z-10">
         <div class="flex items-center justify-between">
-            <a href="index.html" class="logo-container text-2xl sm:text-3xl font-semibold tracking-tight"><span class="logo-text">FEFELOV</span><span class="logo-dot logo-gradient">.</span></a>
+            <a href="index.html" class="lg-logo text-2xl sm:text-3xl font-semibold tracking-tight"><span class="lg-logo-text">FEFELOV</span><span class="lg-logo-dot">.</span></a>
             <nav class="hidden lg:flex items-center gap-10">
-                <a href="index.html#services" class="nav-link text-base text-stone-600 hover:text-stone-900" data-i18n="common.nav.services">Услуги</a>
-                <a href="index.html#divisions" class="nav-link text-base text-stone-600 hover:text-stone-900" data-i18n="common.nav.divisions">Подразделения</a>
+                <a href="index.html#services" class="lg-nav-link text-base text-stone-600" data-i18n="common.nav.services">Услуги</a>
+                <a href="index.html#divisions" class="lg-nav-link text-base text-stone-600" data-i18n="common.nav.divisions">Подразделения</a>
             </nav>
             <div class="flex items-center gap-3">
                 <div class="relative z-10">
-                    <button id="lang-btn" class="flex items-center gap-2 px-4 sm:px-5 py-2.5 text-base font-medium text-stone-600 hover:text-stone-900 border border-stone-200 rounded-full hover:bg-stone-100 transition-colors">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+                    <button id="lang-btn" class="lg-btn lg-ripple flex items-center gap-2 px-4 sm:px-5 py-2.5 text-base font-medium text-stone-600 rounded-full">
+                        <svg class="lg-btn-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
                         <span id="current-lang">Ру</span>
-                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        <svg class="w-3.5 h-3.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </button>
-                    <div id="lang-menu" class="lang-menu absolute right-0 top-full mt-2 bg-white border border-stone-200 rounded-xl shadow-lg py-2 min-w-[160px] z-50">
-                        <button data-lang="ru" class="w-full px-5 py-2.5 text-left text-base hover:bg-stone-50 transition-colors">Русский</button>
-                        <button data-lang="uk" class="w-full px-5 py-2.5 text-left text-base hover:bg-stone-50 transition-colors">Українська</button>
-                        <button data-lang="en" class="w-full px-5 py-2.5 text-left text-base hover:bg-stone-50 transition-colors">English</button>
-                        <button data-lang="zh" class="w-full px-5 py-2.5 text-left text-base hover:bg-stone-50 transition-colors">中文</button>
+                    <div id="lang-menu" class="lang-menu lg-dropdown absolute right-0 top-full mt-2 rounded-xl py-2 min-w-[160px] z-50">
+                        <button data-lang="ru" class="lg-dropdown-item w-full px-5 py-2.5 text-left text-base">Русский</button>
+                        <button data-lang="uk" class="lg-dropdown-item w-full px-5 py-2.5 text-left text-base">Українська</button>
+                        <button data-lang="en" class="lg-dropdown-item w-full px-5 py-2.5 text-left text-base">English</button>
+                        <button data-lang="zh" class="lg-dropdown-item w-full px-5 py-2.5 text-left text-base">中文</button>
                     </div>
                 </div>
-                <a href="contacts.html" class="hidden lg:inline-flex btn-gradient-border bg-stone-900 text-stone-50 px-6 py-2.5 text-base font-medium rounded-full" data-i18n="common.nav.contact_btn">
-                    Связаться
+                <a href="contacts.html" class="hidden lg:inline-flex lg-cta-btn text-stone-50 px-6 py-2.5 text-base font-medium rounded-full" data-i18n="common.nav.contact_btn">
+                    <span class="lg-cta-btn-shine"></span>
+                    <span class="relative z-10">Связаться</span>
                 </a>
-                <button id="mobile-menu-btn" class="lg:hidden w-12 h-12 flex items-center justify-center rounded-full hover:bg-stone-200/50 transition-colors">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                <button id="mobile-menu-btn" class="lg-hamburger lg-ripple lg:hidden w-12 h-12 flex items-center justify-center rounded-full">
+                    <span class="lg-hamburger-line"></span>
                 </button>
             </div>
         </div>
     </div>
-    <div id="mobile-menu" class="hidden lg:hidden bg-stone-50 border-t border-stone-200/50">
+    <div id="mobile-menu" class="hidden lg:hidden lg-mobile-menu">
         <nav class="max-w-7xl mx-auto px-6 py-6 flex flex-col gap-2">
-            <a href="index.html#services" class="px-5 py-4 text-base text-stone-600 hover:text-stone-900 hover:bg-stone-100 rounded-xl transition-colors" data-i18n="common.nav.services">Услуги</a>
-            <a href="index.html#divisions" class="px-5 py-4 text-base text-stone-600 hover:text-stone-900 hover:bg-stone-100 rounded-xl transition-colors" data-i18n="common.nav.divisions">Подразделения</a>
-            <a href="contacts.html" class="mt-3 self-start btn-gradient-border bg-stone-900 text-stone-50 px-8 py-4 text-base font-medium rounded-full text-center" data-i18n="common.nav.contact_btn">Связаться</a>
+            <a href="index.html#services" class="lg-mobile-menu-item px-5 py-4 text-base text-stone-600 rounded-xl" data-i18n="common.nav.services">Услуги</a>
+            <a href="index.html#divisions" class="lg-mobile-menu-item px-5 py-4 text-base text-stone-600 rounded-xl" data-i18n="common.nav.divisions">Подразделения</a>
+            <a href="contacts.html" class="mt-3 self-start lg-cta-btn text-stone-50 px-8 py-4 text-base font-medium rounded-full text-center" data-i18n="common.nav.contact_btn">
+                <span class="lg-cta-btn-shine"></span>
+                <span class="relative z-10">Связаться</span>
+            </a>
         </nav>
     </div>
 </header>
@@ -358,17 +321,25 @@ document.addEventListener('DOMContentLoaded', function() {
         if (mobileMenuBtn && mobileMenu) {
             mobileMenuBtn.addEventListener('click', function() {
                 mobileMenu.classList.toggle('hidden');
-                const isOpen = !mobileMenu.classList.contains('hidden');
-                mobileMenuBtn.innerHTML = isOpen
-                    ? '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>'
-                    : '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>';
+                mobileMenuBtn.classList.toggle('active');
             });
 
             mobileMenu.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
                     mobileMenu.classList.add('hidden');
-                    mobileMenuBtn.innerHTML = '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>';
+                    mobileMenuBtn.classList.remove('active');
                 });
+            });
+        }
+
+        const header = document.getElementById('main-header');
+        if (header) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
             });
         }
 

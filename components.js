@@ -55,6 +55,27 @@ const commonStyles = `
         50% { background-position: 100% 50%; }
         100% { background-position: 0% 50%; }
     }
+    .schedule-icon-gradient {
+        stroke: url(#schedule-icon-grad);
+    }
+    .schedule-card::before {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+    }
+    .schedule-card svg.schedule-icon-gradient {
+        stroke: #8b9dc3;
+        animation: schedule-icon-color 12s ease infinite;
+    }
+    @keyframes schedule-icon-color {
+        0% { stroke: #8b9dc3; }
+        25% { stroke: #9a8bc4; }
+        50% { stroke: #b8a9c9; }
+        75% { stroke: #a3b5d6; }
+        100% { stroke: #8b9dc3; }
+    }
 
     .logo-gradient {
         background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe, #667eea);

@@ -42,12 +42,13 @@ const commonStyles = `
     }
 
     .schedule-bg {
-        background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #4facfe, #667eea);
+        background: linear-gradient(-45deg, #8b9dc3, #9a8bc4, #b8a9c9, #a3b5d6, #8b9dc3);
         background-size: 400% 400%;
-        animation: schedule-gradient 8s ease infinite;
+        animation: schedule-gradient 12s ease infinite;
+        transition: opacity 0.5s ease;
     }
     .schedule-card:hover .schedule-bg {
-        animation-duration: 3s;
+        opacity: 0.9;
     }
     @keyframes schedule-gradient {
         0% { background-position: 0% 50%; }

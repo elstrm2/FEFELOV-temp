@@ -40,7 +40,9 @@
     },
     "status": {
       "label": "机器人状态",
-      "loading": "加载中..."
+      "loading": "加载中...",
+      "enable": "启用",
+      "disable": "禁用"
     },
     "stats": {
       "messages": "总消息数",
@@ -54,18 +56,23 @@
       "weekend_placeholder": "周末消息...",
       "spam_label": "垃圾信息警告",
       "spam_placeholder": "给垃圾发送者的消息...",
-      "save_btn": "保存"
+      "save_btn": "保存",
+      "saved": "已保存！"
     },
     "spam": {
       "title": "垃圾信息防护",
       "threshold_label": "阈值（消息数）",
       "window_label": "时间窗口（秒）",
       "hint": "如果用户在指定时间内发送的消息超过阈值，将发送警告。",
-      "save_btn": "保存设置"
+      "save_btn": "保存设置",
+      "saved": "已保存！"
     },
     "recent": {
       "title": "最近消息",
-      "loading": "加载中..."
+      "loading": "加载中...",
+      "empty": "暂无消息",
+      "user": "用户",
+      "empty_msg": "（空）"
     },
     "export": {
       "title": "导出聊天记录",
@@ -81,7 +88,10 @@
       "period_custom": "自定义",
       "start_date": "开始",
       "end_date": "结束",
-      "start_btn": "开始导出"
+      "start_btn": "开始导出",
+      "starting": "启动中...",
+      "enter_user": "请输入用户ID或链接",
+      "in_progress": "进行中..."
     },
     "job": {
       "title": "当前任务",

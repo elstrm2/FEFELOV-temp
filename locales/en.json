@@ -1128,7 +1128,9 @@
     },
     "status": {
       "label": "Bot Status",
-      "loading": "Loading..."
+      "loading": "Loading...",
+      "enable": "Enable",
+      "disable": "Disable"
     },
     "stats": {
       "messages": "Total Messages",
@@ -1142,18 +1144,23 @@
       "weekend_placeholder": "Message on weekends...",
       "spam_label": "Spam warning",
       "spam_placeholder": "Message for spammers...",
-      "save_btn": "Save"
+      "save_btn": "Save",
+      "saved": "Saved!"
     },
     "spam": {
       "title": "Spam Protection",
       "threshold_label": "Threshold (messages)",
       "window_label": "Window (seconds)",
       "hint": "Warning is sent if a user sends more messages than the threshold within the specified time.",
-      "save_btn": "Save Settings"
+      "save_btn": "Save Settings",
+      "saved": "Saved!"
     },
     "recent": {
       "title": "Recent Messages",
-      "loading": "Loading..."
+      "loading": "Loading...",
+      "empty": "No messages yet",
+      "user": "User",
+      "empty_msg": "(empty)"
     },
     "export": {
       "title": "Export Chat History",
@@ -1169,7 +1176,10 @@
       "period_custom": "Custom",
       "start_date": "Start",
       "end_date": "End",
-      "start_btn": "Start Export"
+      "start_btn": "Start Export",
+      "starting": "Starting...",
+      "enter_user": "Please enter a user ID or link",
+      "in_progress": "In progress..."
     },
     "job": {
       "title": "Current Task",

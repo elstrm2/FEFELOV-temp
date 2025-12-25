@@ -289,9 +289,10 @@ const commonStyles = `
         top: 0;
         width: 3px;
         height: 0;
-        background: var(--highlight-color);
+        background: linear-gradient(180deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe, #667eea);
+        background-size: 100% 300%;
         border-radius: 2px;
-        animation: leftLineGrow 0.8s ease 1.8s forwards;
+        animation: leftLineGrow 0.8s ease 1.8s forwards, sectionGradientShift 4s ease infinite 2.6s;
     }
     .section-highlight::after {
         content: '';
@@ -300,9 +301,10 @@ const commonStyles = `
         bottom: 0;
         width: 0;
         height: 3px;
-        background: var(--highlight-color);
+        background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe, #667eea);
+        background-size: 300% 100%;
         border-radius: 2px;
-        animation: bottomLineDraw 1s ease forwards, bottomLineFade 0.5s ease 1.5s forwards;
+        animation: bottomLineDraw 1s ease forwards, bottomLineGradient 4s ease infinite, bottomLineFade 0.5s ease 1.5s forwards;
     }
     @keyframes bottomLineDraw {
         0% { width: 0; opacity: 0; }
@@ -312,14 +314,21 @@ const commonStyles = `
     @keyframes bottomLineFade {
         to { opacity: 0; }
     }
+    @keyframes bottomLineGradient {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
     @keyframes leftLineGrow {
         0% { height: 0; opacity: 0; }
         20% { opacity: 1; }
         100% { height: 100%; opacity: 1; }
     }
-    .section-highlight-amber { --highlight-color: rgba(245, 158, 11, 0.6); }
-    .section-highlight-blue { --highlight-color: rgba(124, 58, 237, 0.6); }
-    .section-highlight-emerald { --highlight-color: rgba(52, 211, 153, 0.7); }
+    @keyframes sectionGradientShift {
+        0% { background-position: 50% 0%; }
+        50% { background-position: 50% 100%; }
+        100% { background-position: 50% 0%; }
+    }
 
     .typewriter {
         display: inline-block;

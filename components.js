@@ -180,23 +180,26 @@ const commonStyles = `
         inset: 0;
         overflow: hidden;
         pointer-events: none;
-        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .service-card:hover .card-bg {
-        transform: scale(1.05);
     }
     .service-card .card-bg svg {
         position: absolute;
-        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .service-card:hover .card-bg svg {
-        filter: brightness(1.1);
+    .service-card .card-bg svg.icon-left {
+        left: 1.25rem;
+        top: 1.25rem;
     }
-    .service-card .card-bg .main-icon {
-        filter: drop-shadow(0 4px 20px rgba(0,0,0,0.1));
+    .service-card .card-bg svg.icon-right {
+        right: 1.25rem;
+        top: 1.25rem;
     }
-    .service-card:hover .card-bg .main-icon {
-        filter: drop-shadow(0 8px 30px rgba(0,0,0,0.15));
+    .service-card:hover .card-bg svg.icon-left {
+        transform: translate(-8px, -8px);
+        opacity: 0.8;
+    }
+    .service-card:hover .card-bg svg.icon-right {
+        transform: translate(8px, -8px);
+        opacity: 0.7;
     }
 
     @keyframes float-gentle {
@@ -311,9 +314,26 @@ const commonStyles = `
 
     .division-card-study {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #6366f1 100%);
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
     .division-card-tech {
         background: linear-gradient(135deg, #10b981 0%, #14b8a6 50%, #06b6d4 100%);
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .division-card-study:hover, .division-card-tech:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+    .division-card-study .svg-draw, .division-card-tech .svg-draw {
+        transition: all 0.4s ease;
+    }
+    .division-card-study:hover .svg-draw.icon-left, .division-card-tech:hover .svg-draw.icon-left {
+        transform: translate(-8px, -8px);
+        opacity: 0.35;
+    }
+    .division-card-study:hover .svg-draw.icon-right, .division-card-tech:hover .svg-draw.icon-right {
+        transform: translate(8px, -8px);
+        opacity: 0.3;
     }
 
     .svg-draw path, .svg-draw rect, .svg-draw circle, .svg-draw line, .svg-draw ellipse, .svg-draw text {

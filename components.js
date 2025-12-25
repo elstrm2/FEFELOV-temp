@@ -242,64 +242,25 @@ const commonStyles = `
         pointer-events: none;
     }
 
-    .section-note-wrapper {
-        opacity: 0;
-        transform: translateY(20px) rotate(-1deg);
-        animation: noteAppear 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-        animation-delay: 0.3s;
+    .pen-highlight {
+        cursor: default;
+        transition: transform 0.15s ease;
     }
-    @keyframes noteAppear {
-        to {
-            opacity: 1;
-            transform: translateY(0) rotate(0deg);
-        }
+    .pen-highlight:hover {
+        transform: scale(1.02);
     }
-    .section-note .note-fill {
-        transition: all 0.3s ease;
+    .pen-stroke .stroke-line {
+        stroke-dasharray: 800;
+        stroke-dashoffset: 800;
+        animation: penDraw 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        animation-delay: 0.2s;
+        transition: stroke 0.15s ease;
     }
-    .section-note .note-outline {
-        stroke-dasharray: 1000;
-        stroke-dashoffset: 1000;
-        animation: noteDrawLine 1s ease forwards;
-        animation-delay: 0.5s;
-    }
-    @keyframes noteDrawLine {
+    @keyframes penDraw {
         to { stroke-dashoffset: 0; }
     }
-    .section-note .note-corner,
-    .section-note .note-corner-fill {
-        opacity: 0;
-        animation: noteCorner 0.3s ease forwards;
-        animation-delay: 1.2s;
-    }
-    @keyframes noteCorner {
-        to { opacity: 1; }
-    }
-    .section-note-wrapper:hover {
-        transform: scale(1.02) rotate(0.5deg);
-    }
-    .section-note-wrapper:hover .note-fill {
-        fill: #fef9c3;
-    }
-    .section-note-wrapper:hover .note-outline {
-        stroke: #f59e0b;
-    }
-    .section-note-wrapper:hover .note-corner-fill {
-        fill: #fcd34d;
-    }
-    .section-text-content .text-label {
-        opacity: 0;
-        animation: textSlide 0.4s ease forwards;
-        animation-delay: 0.8s;
-    }
-    .section-text-content .text-title {
-        opacity: 0;
-        animation: textSlide 0.4s ease forwards;
-        animation-delay: 1s;
-    }
-    @keyframes textSlide {
-        from { opacity: 0; transform: translateX(-10px); }
-        to { opacity: 1; transform: translateX(0); }
+    .pen-highlight:hover .stroke-line {
+        stroke-width: 3;
     }
 `;
 

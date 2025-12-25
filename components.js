@@ -409,6 +409,7 @@ const commonStyles = `
         stroke-dasharray: 200;
         stroke-dashoffset: 200;
         fill: none;
+        opacity: 0;
     }
     .svg-bg-redraw .redraw-1 { animation: svgDrawFirst 1.5s ease forwards 0s, svgRedraw 8s ease-in-out infinite 2s; }
     .svg-bg-redraw .redraw-2 { animation: svgDrawFirst 1.5s ease forwards 0.15s, svgRedraw 10s ease-in-out infinite 2.5s; }

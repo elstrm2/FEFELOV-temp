@@ -357,6 +357,9 @@
             };
             if (body) opts.body = JSON.stringify(body);
             const res = await fetch(API + endpoint, opts);
+            if (res.status === 401) {
+                throw new Error('Unauthorized');
+            }
             return res.json();
         }
 
@@ -383,16 +386,20 @@
         loginForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             loginError.classList.add('hidden');
-            const data = await api('/auth', 'POST', { password: passwordInput.value });
-            if (data.success) {
-                showPanel();
-            } else {
+            try {
+                const data = await api('/auth', 'POST', { password: passwordInput.value });
+                if (data.success) {
+                    showPanel();
+                } else {
+                    loginError.classList.remove('hidden');
+                }
+            } catch {
                 loginError.classList.remove('hidden');
             }
         });
 
         logoutBtn.addEventListener('click', async () => {
-            await api('/logout', 'POST');
+            try { await api('/logout', 'POST'); } catch {}
             loginScreen.classList.remove('hidden');
             panelScreen.classList.add('hidden');
             passwordInput.value = '';

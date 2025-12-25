@@ -254,13 +254,13 @@ const commonStyles = `
         stroke-dashoffset: 800;
         animation: penDraw 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
         animation-delay: 0.2s;
-        transition: stroke 0.15s ease;
+        transition: stroke 0.15s ease, stroke-width 0.15s ease;
     }
     @keyframes penDraw {
         to { stroke-dashoffset: 0; }
     }
     .pen-highlight:hover .stroke-line {
-        stroke-width: 3;
+        stroke-width: 2.5;
     }
 `;
 

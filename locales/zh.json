@@ -746,9 +746,15 @@
       "revision": "2025年12月24日第1.0版"
     },
     "operator": {
-      "label": "运营方：",
+      "title": "个人数据运营方",
+      "name_label": "名称",
       "value": "个体企业家巴先科·伊利亚·康斯坦丁诺维奇",
-      "inn_label": "税号："
+      "ogrnip": "ОГРНИП",
+      "inn_label": "税号",
+      "okpo": "ОКПО",
+      "region": "地区",
+      "region_value": "莫斯科",
+      "email": "电子邮件"
     },
     "s1": {
       "title": "1. 总则",

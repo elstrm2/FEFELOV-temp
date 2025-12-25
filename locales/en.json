@@ -669,9 +669,15 @@
       "revision": "Revision 1.0 dated 24.12.2025"
     },
     "operator": {
-      "label": "Operator:",
+      "title": "Personal Data Operator",
+      "name_label": "Name",
       "value": "IE Basenko Ilya Konstantinovich",
-      "inn_label": "INN:"
+      "ogrnip": "OGRNIP",
+      "inn_label": "INN",
+      "okpo": "OKPO",
+      "region": "Region",
+      "region_value": "Moscow",
+      "email": "Email"
     },
     "s1": {
       "title": "1. General Provisions",

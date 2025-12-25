@@ -417,13 +417,29 @@ const commonStyles = `
     .svg-bg-blur {
         filter: blur(4px);
         opacity: 0.2;
-        animation: svgFloat 20s ease-in-out infinite;
+        animation: svgFloat1 18s ease-in-out infinite, svgFloat2 23s ease-in-out infinite;
     }
-    @keyframes svgFloat {
-        0%, 100% { transform: translate(0, 0) scale(1); }
-        25% { transform: translate(10px, -10px) scale(1.02); }
-        50% { transform: translate(-5px, 5px) scale(0.98); }
-        75% { transform: translate(-10px, -5px) scale(1.01); }
+    @keyframes svgFloat1 {
+        0%, 100% { transform: translateX(0); }
+        33% { transform: translateX(8px); }
+        66% { transform: translateX(-6px); }
+    }
+    @keyframes svgFloat2 {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-8px); }
+    }
+    @keyframes svgFloat3 {
+        0%, 100% { transform: translate(0, 0) rotate(0deg); }
+        25% { transform: translate(5px, -7px) rotate(0.5deg); }
+        50% { transform: translate(-4px, 3px) rotate(-0.3deg); }
+        75% { transform: translate(-6px, -4px) rotate(0.2deg); }
+    }
+    @keyframes svgFloat4 {
+        0%, 100% { transform: translate(0, 0); }
+        20% { transform: translate(-5px, -5px); }
+        40% { transform: translate(6px, -3px); }
+        60% { transform: translate(4px, 6px); }
+        80% { transform: translate(-7px, 4px); }
     }
 
     .service-card .svg-bg-full {
@@ -437,8 +453,10 @@ const commonStyles = `
         height: 100%;
         opacity: 0.15;
         filter: blur(4px);
-        animation: svgFloat 25s ease-in-out infinite;
+        animation: svgFloat3 20s ease-in-out infinite;
     }
+    .service-card:nth-child(2n) .svg-bg-full svg { animation: svgFloat4 22s ease-in-out infinite; }
+    .service-card:nth-child(3n) .svg-bg-full svg { animation: svgFloat1 19s ease-in-out infinite, svgFloat2 25s ease-in-out infinite; }
     .service-card:hover .svg-bg-full svg {
         opacity: 0.18;
     }

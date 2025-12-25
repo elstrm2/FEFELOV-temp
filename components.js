@@ -460,6 +460,277 @@ const commonStyles = `
     .service-card:hover .svg-bg-full svg {
         opacity: 0.18;
     }
+
+    #lang-btn {
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
+        background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: #fff;
+        transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        box-shadow: 0 4px 15px -3px rgba(0, 0, 0, 0.3);
+        z-index: 1;
+    }
+
+    #lang-btn > * {
+        position: relative;
+        z-index: 10;
+        transition: all 0.3s ease;
+    }
+
+    #lang-btn::before {
+        content: '';
+        position: absolute;
+        inset: -100%;
+        width: 300%;
+        height: 300%;
+        background: conic-gradient(
+            from 0deg at 50% 50%,
+            var(--lang-color-1, #667eea) 0deg,
+            var(--lang-color-2, #764ba2) 90deg,
+            var(--lang-color-3, #f093fb) 180deg,
+            var(--lang-color-4, #4facfe) 270deg,
+            var(--lang-color-1, #667eea) 360deg
+        );
+        opacity: 0;
+        filter: blur(30px);
+        animation: langNebulaRotate 8s linear infinite paused;
+        transform-origin: center center;
+        z-index: -2;
+        transition: opacity 0.4s ease;
+    }
+
+    #lang-btn::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: var(--lang-pattern);
+        background-size: var(--lang-pattern-size, 100% 100%);
+        opacity: 0;
+        mix-blend-mode: overlay;
+        z-index: -1;
+        transition: opacity 0.3s ease;
+        animation: var(--lang-pattern-anim, none) 10s linear infinite;
+    }
+
+    #lang-btn:hover {
+        transform: translateY(-3px) scale(1.05);
+        border-color: var(--lang-color-1, rgba(255,255,255,0.3));
+        box-shadow:
+            0 15px 40px -10px var(--lang-glow-color, rgba(102, 126, 234, 0.4)),
+            0 0 30px -5px var(--lang-color-1, rgba(102, 126, 234, 0.3)),
+            inset 0 0 20px rgba(255, 255, 255, 0.05);
+    }
+
+    #lang-btn:hover::before {
+        opacity: 0.8;
+        animation-play-state: running;
+    }
+
+    #lang-btn:hover::after {
+        opacity: 0.6;
+    }
+
+    #lang-btn:hover > svg:first-child {
+        filter: drop-shadow(0 0 8px var(--lang-color-1, #667eea));
+        animation: langIconSpin 4s linear infinite;
+    }
+
+    #lang-btn:hover > svg:last-child {
+        transform: rotate(180deg);
+        filter: drop-shadow(0 0 5px var(--lang-color-2, #764ba2));
+    }
+
+    #lang-btn:active {
+        transform: scale(0.95);
+        transition: transform 0.1s ease;
+    }
+
+    #lang-btn[data-active-lang="ru"] {
+        --lang-color-1: #00f2fe;
+        --lang-color-2: #4facfe;
+        --lang-color-3: #a8edea;
+        --lang-color-4: #fed6e3;
+        --lang-glow-color: rgba(0, 242, 254, 0.5);
+        --lang-pattern:
+            repeating-linear-gradient(60deg, transparent 0px, transparent 10px, rgba(0, 242, 254, 0.1) 10px, rgba(0, 242, 254, 0.1) 11px),
+            repeating-linear-gradient(-60deg, transparent 0px, transparent 10px, rgba(79, 172, 254, 0.1) 10px, rgba(79, 172, 254, 0.1) 11px),
+            radial-gradient(circle at 30% 30%, rgba(0, 242, 254, 0.2), transparent 50%),
+            radial-gradient(circle at 70% 70%, rgba(79, 172, 254, 0.2), transparent 50%);
+        --lang-pattern-size: 100% 100%;
+        --lang-pattern-anim: langIceShimmer;
+    }
+
+    #lang-btn[data-active-lang="ru"]:hover {
+        background: linear-gradient(135deg, #0a1628 0%, #0d2137 50%, #0a1628 100%);
+        text-shadow: 0 0 10px rgba(0, 242, 254, 0.8);
+    }
+
+    #lang-btn[data-active-lang="ru"]:hover::before {
+        filter: blur(25px) saturate(1.5);
+    }
+
+    #lang-btn[data-active-lang="ru"]:hover::after {
+        animation: langIceShimmer 3s ease-in-out infinite;
+    }
+
+    #lang-btn[data-active-lang="en"] {
+        --lang-color-1: #39ff14;
+        --lang-color-2: #00ff88;
+        --lang-color-3: #00ffcc;
+        --lang-color-4: #88ff00;
+        --lang-glow-color: rgba(57, 255, 20, 0.5);
+        --lang-pattern:
+            linear-gradient(0deg, transparent 24%, rgba(57, 255, 20, 0.15) 25%, rgba(57, 255, 20, 0.15) 26%, transparent 27%, transparent 74%, rgba(57, 255, 20, 0.15) 75%, rgba(57, 255, 20, 0.15) 76%, transparent 77%),
+            linear-gradient(90deg, transparent 24%, rgba(57, 255, 20, 0.15) 25%, rgba(57, 255, 20, 0.15) 26%, transparent 27%, transparent 74%, rgba(57, 255, 20, 0.15) 75%, rgba(57, 255, 20, 0.15) 76%, transparent 77%);
+        --lang-pattern-size: 25px 25px;
+        --lang-pattern-anim: langMatrixScroll;
+    }
+
+    #lang-btn[data-active-lang="en"]:hover {
+        background: linear-gradient(135deg, #000a00 0%, #001a00 50%, #000a00 100%);
+        text-shadow: 0 0 5px #39ff14, 0 0 10px #39ff14, 0 0 20px #39ff14;
+        animation: langGlitchShake 0.3s cubic-bezier(.36,.07,.19,.97) both;
+    }
+
+    #lang-btn[data-active-lang="en"]:hover::before {
+        filter: blur(20px) hue-rotate(20deg);
+    }
+
+    #lang-btn[data-active-lang="uk"] {
+        --lang-color-1: #ffd93d;
+        --lang-color-2: #ff9500;
+        --lang-color-3: #ffeb3b;
+        --lang-color-4: #ffe066;
+        --lang-glow-color: rgba(255, 217, 61, 0.5);
+        --lang-pattern:
+            radial-gradient(circle at 50% 50%, rgba(255, 217, 61, 0.3) 0%, transparent 50%),
+            radial-gradient(circle at 20% 80%, rgba(255, 149, 0, 0.2) 0%, transparent 40%),
+            radial-gradient(circle at 80% 20%, rgba(255, 235, 59, 0.2) 0%, transparent 40%),
+            repeating-conic-gradient(from 0deg at 50% 50%, transparent 0deg, rgba(255, 217, 61, 0.1) 10deg, transparent 20deg);
+        --lang-pattern-size: 100% 100%;
+        --lang-pattern-anim: langSolarPulse;
+    }
+
+    #lang-btn[data-active-lang="uk"]:hover {
+        background: linear-gradient(135deg, #1a1400 0%, #2a1f00 50%, #1a1400 100%);
+        text-shadow: 0 0 10px #ffd93d, 0 0 20px #ff9500, 0 0 30px #ffeb3b;
+    }
+
+    #lang-btn[data-active-lang="uk"]:hover::before {
+        filter: blur(35px) brightness(1.3);
+        animation: langSolarFlare 4s ease-in-out infinite;
+    }
+
+    #lang-btn[data-active-lang="zh"] {
+        --lang-color-1: #8b0000;
+        --lang-color-2: #c41e3a;
+        --lang-color-3: #2d1b4e;
+        --lang-color-4: #4a0e0e;
+        --lang-glow-color: rgba(139, 0, 0, 0.5);
+        --lang-pattern:
+            radial-gradient(ellipse at 30% 30%, rgba(139, 0, 0, 0.3) 0%, transparent 50%),
+            radial-gradient(ellipse at 70% 70%, rgba(45, 27, 78, 0.3) 0%, transparent 50%),
+            radial-gradient(ellipse at 50% 50%, rgba(196, 30, 58, 0.2) 0%, transparent 60%);
+        --lang-pattern-size: 200% 200%;
+        --lang-pattern-anim: langInkFlow;
+    }
+
+    #lang-btn[data-active-lang="zh"]:hover {
+        background: linear-gradient(135deg, #0a0505 0%, #150a0a 50%, #0a0505 100%);
+        text-shadow: 0 0 10px rgba(139, 0, 0, 0.8), 0 0 20px rgba(196, 30, 58, 0.5);
+    }
+
+    #lang-btn[data-active-lang="zh"]:hover::before {
+        filter: blur(40px);
+        animation: langMysticSwirl 10s ease-in-out infinite;
+    }
+
+    #lang-btn[data-active-lang="zh"]:hover::after {
+        animation: langInkFlow 8s ease-in-out infinite, langSmokeDrift 5s ease-in-out infinite;
+    }
+
+    #lang-menu {
+        background: rgba(10, 10, 10, 0.95);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 8px;
+        box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    #lang-menu button {
+        position: relative;
+        color: #a8a29e;
+        border-radius: 8px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        z-index: 1;
+    }
+
+    #lang-menu button::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: var(--menu-item-bg, transparent);
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        z-index: -1;
+    }
+
+    #lang-menu button:hover {
+        color: #fff;
+        padding-left: 2.5rem;
+        background: transparent;
+    }
+
+    #lang-menu button:hover::before {
+        transform: translateX(0);
+    }
+
+    #lang-menu button[data-lang="ru"] { --menu-item-bg: linear-gradient(90deg, rgba(0, 242, 254, 0.2), transparent); }
+    #lang-menu button[data-lang="ru"]:hover { text-shadow: 0 0 10px rgba(0, 242, 254, 0.5); }
+    #lang-menu button[data-lang="ru"]::after { content: '❄'; position: absolute; left: 12px; top: 50%; transform: translateY(-50%) scale(0); color: #00f2fe; font-size: 12px; transition: transform 0.3s ease; filter: drop-shadow(0 0 3px #00f2fe); }
+    #lang-menu button[data-lang="ru"]:hover::after { transform: translateY(-50%) scale(1); animation: langMenuIconSpin 2s linear infinite; }
+
+    #lang-menu button[data-lang="en"] { --menu-item-bg: linear-gradient(90deg, rgba(57, 255, 20, 0.2), transparent); }
+    #lang-menu button[data-lang="en"]:hover { text-shadow: 0 0 10px rgba(57, 255, 20, 0.5); }
+    #lang-menu button[data-lang="en"]::after { content: '>'; position: absolute; left: 12px; top: 50%; transform: translateY(-50%) scale(0); color: #39ff14; font-family: monospace; font-weight: bold; transition: transform 0.3s ease; text-shadow: 0 0 5px #39ff14; }
+    #lang-menu button[data-lang="en"]:hover::after { transform: translateY(-50%) scale(1); animation: langMenuBlink 0.8s step-end infinite; }
+
+    #lang-menu button[data-lang="uk"] { --menu-item-bg: linear-gradient(90deg, rgba(255, 217, 61, 0.2), transparent); }
+    #lang-menu button[data-lang="uk"]:hover { text-shadow: 0 0 10px rgba(255, 217, 61, 0.5); }
+    #lang-menu button[data-lang="uk"]::after { content: '✦'; position: absolute; left: 12px; top: 50%; transform: translateY(-50%) scale(0); color: #ffd93d; font-size: 12px; transition: transform 0.3s ease; filter: drop-shadow(0 0 3px #ffd93d); }
+    #lang-menu button[data-lang="uk"]:hover::after { transform: translateY(-50%) scale(1); animation: langMenuPulse 0.5s ease infinite; }
+
+    #lang-menu button[data-lang="zh"] { --menu-item-bg: linear-gradient(90deg, rgba(139, 0, 0, 0.2), transparent); }
+    #lang-menu button[data-lang="zh"]:hover { text-shadow: 0 0 10px rgba(139, 0, 0, 0.5); }
+    #lang-menu button[data-lang="zh"]::after { content: '☁'; position: absolute; left: 12px; top: 50%; transform: translateY(-50%) scale(0); color: #8b0000; font-size: 14px; transition: transform 0.3s ease; filter: blur(1px) drop-shadow(0 0 3px #8b0000); }
+    #lang-menu button[data-lang="zh"]:hover::after { transform: translateY(-50%) scale(1); animation: langMenuFloat 2s ease infinite; }
+
+    @keyframes langNebulaRotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    @keyframes langIconSpin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    @keyframes langIceShimmer { 0% { background-position: 0% 0%, 0% 0%, 30% 30%, 70% 70%; opacity: 0.4; } 50% { background-position: 100% 100%, 100% 100%, 70% 70%, 30% 30%; opacity: 0.7; } 100% { background-position: 0% 0%, 0% 0%, 30% 30%, 70% 70%; opacity: 0.4; } }
+    @keyframes langMatrixScroll { 0% { background-position: 0 0; } 100% { background-position: 0 50px; } }
+    @keyframes langGlitchShake { 0%, 100% { transform: translateY(-3px) scale(1.05) translate(0, 0); filter: hue-rotate(0deg); } 10% { transform: translateY(-3px) scale(1.05) translate(-2px, 1px); filter: hue-rotate(90deg); } 20% { transform: translateY(-3px) scale(1.05) translate(2px, -1px); filter: hue-rotate(-90deg); } 30% { transform: translateY(-3px) scale(1.05) translate(-1px, 2px); filter: hue-rotate(180deg); } 40% { transform: translateY(-3px) scale(1.05) translate(1px, -2px); filter: hue-rotate(0deg); } }
+    @keyframes langSolarPulse { 0%, 100% { transform: scale(1); opacity: 0.5; } 50% { transform: scale(1.1); opacity: 0.8; } }
+    @keyframes langSolarFlare { 0%, 100% { transform: rotate(0deg) scale(1); filter: blur(35px) brightness(1.3); } 25% { transform: rotate(90deg) scale(1.1); filter: blur(30px) brightness(1.5); } 50% { transform: rotate(180deg) scale(1); filter: blur(40px) brightness(1.2); } 75% { transform: rotate(270deg) scale(1.1); filter: blur(30px) brightness(1.5); } }
+    @keyframes langInkFlow { 0% { background-position: 0% 0%; } 50% { background-position: 100% 100%; } 100% { background-position: 0% 0%; } }
+    @keyframes langMysticSwirl { 0% { transform: rotate(0deg) scale(1); } 33% { transform: rotate(120deg) scale(1.1); } 66% { transform: rotate(240deg) scale(0.9); } 100% { transform: rotate(360deg) scale(1); } }
+    @keyframes langSmokeDrift { 0%, 100% { transform: translateX(0) translateY(0); } 25% { transform: translateX(10px) translateY(-5px); } 50% { transform: translateX(-5px) translateY(-10px); } 75% { transform: translateX(-10px) translateY(5px); } }
+    @keyframes langMenuIconSpin { 0% { transform: translateY(-50%) scale(1) rotate(0deg); } 100% { transform: translateY(-50%) scale(1) rotate(360deg); } }
+    @keyframes langMenuBlink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    @keyframes langMenuPulse { 0%, 100% { transform: translateY(-50%) scale(1); } 50% { transform: translateY(-50%) scale(1.3); } }
+    @keyframes langMenuFloat { 0%, 100% { transform: translateY(-50%) scale(1); } 50% { transform: translateY(-60%) scale(1.1); } }
+
+    @media (max-width: 640px) {
+        #lang-btn:hover { transform: scale(1.02); }
+        #lang-btn::before { filter: blur(20px); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        #lang-btn, #lang-btn::before, #lang-btn::after { animation: none !important; transition: opacity 0.3s ease, background 0.3s ease !important; }
+    }
 `;
 
 const headerHTML = `
@@ -560,6 +831,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const langMenu = document.getElementById('lang-menu');
         const currentLang = document.getElementById('current-lang');
 
+        function updateLangVisuals(lang) {
+            if (langBtn) langBtn.setAttribute('data-active-lang', lang);
+        }
+
+        const storedLang = localStorage.getItem('lang') || 'ru';
+        updateLangVisuals(storedLang);
+
         if (langBtn && langMenu) {
             langBtn.addEventListener('click', function(e) {
                 e.stopPropagation();
@@ -578,6 +856,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (typeof I18N !== 'undefined') {
                         I18N.setLanguage(lang);
                     }
+                    updateLangVisuals(lang);
                     langMenu.classList.remove('active');
                     langBtn.setAttribute('aria-expanded', 'false');
                 });

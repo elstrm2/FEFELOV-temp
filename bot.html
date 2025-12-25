@@ -97,21 +97,21 @@
                     <h2 class="font-medium mb-4" data-i18n="bot.replies.title">Автоответы</h2>
                     <div class="space-y-4">
                         <div>
-                            <label class="text-stone-400 text-sm mb-2 block" data-i18n="bot.replies.standard_label">Стандартный ответ (рабочее время)</label>
+                            <label for="auto-reply" class="text-stone-400 text-sm mb-2 block" data-i18n="bot.replies.standard_label">Стандартный ответ (рабочее время)</label>
                             <textarea id="auto-reply" rows="2" data-i18n-placeholder="bot.replies.standard_placeholder" placeholder="Сообщение в рабочее время..."
                                 class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 placeholder-stone-500 focus:outline-none focus:border-stone-500 transition-colors resize-none text-sm"></textarea>
                         </div>
                         <div>
-                            <label class="text-stone-400 text-sm mb-2 block flex items-center gap-2">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            <label for="weekend-reply" class="text-stone-400 text-sm mb-2 block flex items-center gap-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                                 <span data-i18n="bot.replies.weekend_label">Ответ в нерабочее время</span>
                             </label>
                             <textarea id="weekend-reply" rows="2" data-i18n-placeholder="bot.replies.weekend_placeholder" placeholder="Сообщение в выходные..."
                                 class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 placeholder-stone-500 focus:outline-none focus:border-stone-500 transition-colors resize-none text-sm"></textarea>
                         </div>
                         <div>
-                            <label class="text-stone-400 text-sm mb-2 block flex items-center gap-2">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                            <label for="spam-reply" class="text-stone-400 text-sm mb-2 block flex items-center gap-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
                                 <span data-i18n="bot.replies.spam_label">Предупреждение о спаме</span>
                             </label>
                             <textarea id="spam-reply" rows="2" data-i18n-placeholder="bot.replies.spam_placeholder" placeholder="Сообщение для спамеров..."
@@ -125,12 +125,12 @@
                     <h2 class="font-medium mb-4" data-i18n="bot.spam.title">Защита от спама</h2>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                            <label class="text-stone-400 text-sm mb-2 block" data-i18n="bot.spam.threshold_label">Порог (сообщений)</label>
+                            <label for="spam-threshold" class="text-stone-400 text-sm mb-2 block" data-i18n="bot.spam.threshold_label">Порог (сообщений)</label>
                             <input type="number" id="spam-threshold" min="2" max="20" value="3"
                                 class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 focus:outline-none focus:border-stone-500 transition-colors text-sm">
                         </div>
                         <div>
-                            <label class="text-stone-400 text-sm mb-2 block" data-i18n="bot.spam.window_label">Окно (секунд)</label>
+                            <label for="spam-window" class="text-stone-400 text-sm mb-2 block" data-i18n="bot.spam.window_label">Окно (секунд)</label>
                             <input type="number" id="spam-window" min="10" max="300" value="60"
                                 class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 focus:outline-none focus:border-stone-500 transition-colors text-sm">
                         </div>
@@ -154,7 +154,7 @@
                     <h2 class="font-medium mb-4" data-i18n="bot.export.title">Экспорт истории чата</h2>
                     <div class="space-y-4">
                         <div>
-                            <label class="text-stone-400 text-sm mb-2 block" data-i18n="bot.export.user_label">ID или ссылка</label>
+                            <label for="retriever-user" class="text-stone-400 text-sm mb-2 block" data-i18n="bot.export.user_label">ID или ссылка</label>
                             <input type="text" id="retriever-user" data-i18n-placeholder="bot.export.user_placeholder" placeholder="id123456, vk.com/username или ник"
                                 class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 placeholder-stone-500 focus:outline-none focus:border-stone-500 transition-colors text-sm">
                         </div>
@@ -172,12 +172,12 @@
                         </div>
                         <div id="custom-dates" class="hidden grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
-                                <label class="text-stone-400 text-sm mb-2 block" data-i18n="bot.export.start_date">Начало</label>
+                                <label for="retriever-start" class="text-stone-400 text-sm mb-2 block" data-i18n="bot.export.start_date">Начало</label>
                                 <input type="datetime-local" id="retriever-start"
                                     class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 focus:outline-none focus:border-stone-500 transition-colors text-sm">
                             </div>
                             <div>
-                                <label class="text-stone-400 text-sm mb-2 block" data-i18n="bot.export.end_date">Конец</label>
+                                <label for="retriever-end" class="text-stone-400 text-sm mb-2 block" data-i18n="bot.export.end_date">Конец</label>
                                 <input type="datetime-local" id="retriever-end"
                                     class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 focus:outline-none focus:border-stone-500 transition-colors text-sm">
                             </div>

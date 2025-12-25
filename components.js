@@ -281,6 +281,7 @@ const commonStyles = `
     .section-highlight {
         position: relative;
         padding-left: 1.5rem;
+        padding-bottom: 0.75rem;
     }
     .section-highlight::before {
         content: '';
@@ -297,7 +298,7 @@ const commonStyles = `
     .section-highlight::after {
         content: '';
         position: absolute;
-        left: 0;
+        left: 1.5rem;
         bottom: 0;
         width: 0;
         height: 3px;
@@ -309,7 +310,7 @@ const commonStyles = `
     @keyframes bottomLineDraw {
         0% { width: 0; opacity: 0; }
         20% { opacity: 1; }
-        100% { width: 100%; opacity: 1; }
+        100% { width: calc(100% - 1.5rem); opacity: 1; }
     }
     @keyframes bottomLineFade {
         to { opacity: 0; }

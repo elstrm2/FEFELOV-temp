@@ -19,7 +19,7 @@
         .progress-bar { transition: width 0.3s ease; }
     </style>
 </head>
-<body class="gradient-bg min-h-screen text-stone-100 antialiased overflow-x-hidden">
+<body class="gradient-bg min-h-screen text-stone-100 antialiased overflow-x-hidden i18n-loading">
 
     <div id="login-screen" class="min-h-screen flex items-center justify-center px-4 sm:px-6">
         <div class="w-full max-w-sm">
@@ -33,7 +33,7 @@
                 <p class="text-stone-500 text-sm mt-2" data-i18n="bot.login.subtitle">Введите пароль для продолжения</p>
             </div>
             <form id="login-form" class="space-y-4">
-                <input type="password" id="password" data-i18n="[placeholder]bot.login.password_placeholder" placeholder="Пароль" autocomplete="current-password"
+                <input type="password" id="password" data-i18n-placeholder="bot.login.password_placeholder" placeholder="Пароль" autocomplete="current-password"
                     class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 placeholder-stone-500 focus:outline-none focus:border-stone-500 transition-colors">
                 <button type="submit" class="w-full bg-stone-100 text-stone-900 rounded-xl px-4 py-3 font-medium hover:bg-stone-200 transition-colors" data-i18n="bot.login.btn">
                     Войти
@@ -98,7 +98,7 @@
                     <div class="space-y-4">
                         <div>
                             <label class="text-stone-400 text-sm mb-2 block" data-i18n="bot.replies.standard_label">Стандартный ответ (рабочее время)</label>
-                            <textarea id="auto-reply" rows="2" data-i18n="[placeholder]bot.replies.standard_placeholder" placeholder="Сообщение в рабочее время..."
+                            <textarea id="auto-reply" rows="2" data-i18n-placeholder="bot.replies.standard_placeholder" placeholder="Сообщение в рабочее время..."
                                 class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 placeholder-stone-500 focus:outline-none focus:border-stone-500 transition-colors resize-none text-sm"></textarea>
                         </div>
                         <div>
@@ -106,7 +106,7 @@
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                                 <span data-i18n="bot.replies.weekend_label">Ответ в нерабочее время</span>
                             </label>
-                            <textarea id="weekend-reply" rows="2" data-i18n="[placeholder]bot.replies.weekend_placeholder" placeholder="Сообщение в выходные..."
+                            <textarea id="weekend-reply" rows="2" data-i18n-placeholder="bot.replies.weekend_placeholder" placeholder="Сообщение в выходные..."
                                 class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 placeholder-stone-500 focus:outline-none focus:border-stone-500 transition-colors resize-none text-sm"></textarea>
                         </div>
                         <div>
@@ -114,7 +114,7 @@
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
                                 <span data-i18n="bot.replies.spam_label">Предупреждение о спаме</span>
                             </label>
-                            <textarea id="spam-reply" rows="2" data-i18n="[placeholder]bot.replies.spam_placeholder" placeholder="Сообщение для спамеров..."
+                            <textarea id="spam-reply" rows="2" data-i18n-placeholder="bot.replies.spam_placeholder" placeholder="Сообщение для спамеров..."
                                 class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 placeholder-stone-500 focus:outline-none focus:border-stone-500 transition-colors resize-none text-sm"></textarea>
                         </div>
                     </div>
@@ -155,7 +155,7 @@
                     <div class="space-y-4">
                         <div>
                             <label class="text-stone-400 text-sm mb-2 block" data-i18n="bot.export.user_label">ID или ссылка</label>
-                            <input type="text" id="retriever-user" data-i18n="[placeholder]bot.export.user_placeholder" placeholder="id123456, vk.com/username или ник"
+                            <input type="text" id="retriever-user" data-i18n-placeholder="bot.export.user_placeholder" placeholder="id123456, vk.com/username или ник"
                                 class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 placeholder-stone-500 focus:outline-none focus:border-stone-500 transition-colors text-sm">
                         </div>
                         <div>

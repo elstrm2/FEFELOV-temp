@@ -6,3 +6,10 @@
 @theme {
   --font-sans: 'Onest', system-ui, sans-serif;
 }
+
+body.i18n-loading {
+  opacity: 0;
+}
+body {
+  transition: opacity 0.15s ease;
+}

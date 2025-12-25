@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FEFELOV — Образование и IT.</title>
-    <meta name="description" content="FEFELOV — помощь с курсовыми, дипломами, рефератами, научными работами. Разработка сайтов, приложений, Telegram-ботов, парсеров. Аналитика данных. Работаем официально по договору. ИП Басенко И.К. Москва.">
+    <title data-i18n="index.title">FEFELOV — Образование и IT.</title>
+    <meta name="description" data-i18n="index.description" content="FEFELOV — помощь с курсовыми, дипломами, рефератами, научными работами. Разработка сайтов, приложений, Telegram-ботов, парсеров. Аналитика данных. Работаем официально по договору. ИП Басенко И.К. Москва.">
     <meta name="keywords" content="курсовая работа на заказ, дипломная работа, реферат, помощь студентам, написание диплома, заказать курсовую, разработка сайтов, веб-разработка, создание сайтов, Telegram бот разработка, парсер данных, автоматизация, IT-услуги, научные исследования, аналитика данных, подготовка документов, консультации, Москва, FEFELOV, ОКВЭД 85.41.9, ОКВЭД 62.01, ОКВЭД 63.11, ОКВЭД 72.20, ОКВЭД 82.19">
     <meta name="author" content="ИП Басенко Илья Константинович">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
@@ -91,192 +91,387 @@
     <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>(function(){var l=localStorage.getItem('lang')||navigator.language.slice(0,2)||'ru';if(!['ru','uk','en','zh'].includes(l))l='ru';document.documentElement.lang=l;})();</script>
     <script src="components.js"></script>
-    <style>
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        .animate-gradient {
-            animation: gradient 3s ease infinite;
-        }
-    </style>
 </head>
-<body class="bg-stone-50 text-stone-900 antialiased max-w-full overflow-x-hidden">
+<body class="bg-stone-50 text-stone-900 antialiased max-w-full overflow-x-hidden i18n-loading">
     
     <div id="header-placeholder"></div>
 
-    <section class="pt-32 pb-20 md:pt-44 md:pb-32">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6">
-            <div class="max-w-3xl">
-                <p class="text-sm font-medium text-stone-500 mb-4 tracking-wide uppercase" data-i18n="index.hero.subtitle">ИП Басенко И.К.</p>
-                <h1 class="text-4xl md:text-6xl font-semibold leading-tight tracking-tight mb-6">
-                    <span data-i18n="index.hero.title_line1">Образовательные услуги</span><br><span data-i18n="index.hero.title_line2">и IT-решения</span>
+    <section class="min-h-screen flex items-center pt-24 sm:pt-28 pb-16 sm:pb-20">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
+            <div class="max-w-5xl">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] font-semibold leading-[1.1] tracking-tight mb-8 lg:mb-10">
+                    <span data-i18n="index.hero.title_line1">Образовательные услуги</span> <span data-i18n="index.hero.title_line2">и IT-решения</span>
                 </h1>
-                <p class="text-lg md:text-xl text-stone-600 leading-relaxed mb-10 max-w-2xl" data-i18n="index.hero.text">
+                <p class="text-lg sm:text-xl lg:text-2xl text-stone-600 leading-relaxed mb-12 lg:mb-14 max-w-2xl lg:max-w-3xl" data-i18n="index.hero.text">
                     Помогаем с учебными проектами, разрабатываем программное обеспечение,
                     консультируем по сложным вопросам. Работаем официально, по договору.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="contacts.html" class="group relative inline-flex items-center justify-center px-12 py-5 text-sm font-semibold rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/25 active:scale-95">
-                        <span class="absolute inset-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-[length:200%_100%] animate-gradient rounded-full"></span>
-                        <span class="absolute inset-[2px] bg-stone-50 rounded-full transition-all duration-300 group-hover:bg-white"></span>
-                        <span class="relative flex items-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient">
-                            <span data-i18n="index.hero.cta_primary">Обсудить проект</span>
-                            <svg class="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                        </span>
+                <div class="flex flex-col sm:flex-row gap-4 items-start">
+                    <a href="contacts.html" class="inline-flex items-center justify-start btn-gradient-border bg-stone-900 text-stone-50 px-10 py-4 sm:px-12 sm:py-5 text-base sm:text-lg font-medium rounded-full">
+                        <span data-i18n="index.hero.cta_primary">Обсудить проект</span>
+                        <svg class="ml-3 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="services" class="py-20 bg-white">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6">
-            <div class="mb-16">
-                <p class="text-sm font-medium text-stone-500 mb-3 tracking-wide uppercase" data-i18n="index.services.label">Услуги</p>
-                <h2 class="text-3xl md:text-4xl font-semibold tracking-tight" data-i18n="index.services.title">Чем занимаемся</h2>
+    <section id="services" class="py-24 sm:py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+            <div class="mb-14 sm:mb-16 relative">
+                <div class="section-note-wrapper inline-block relative">
+                    <svg class="section-note absolute -left-4 sm:-left-6 -top-4 sm:-top-6 w-[calc(100%+2rem)] sm:w-[calc(100%+3rem)] h-[calc(100%+2.5rem)] sm:h-[calc(100%+3.5rem)] pointer-events-none" viewBox="0 0 320 140" fill="none" preserveAspectRatio="none">
+                        <path class="note-outline" d="M20 10 L280 10 Q300 10 300 30 L300 110 Q300 130 280 130 L40 130 Q20 130 20 110 L20 30 Q20 10 40 10 Z"
+                              stroke="#fbbf24" stroke-width="2" fill="none"
+                              stroke-dasharray="900" stroke-dashoffset="900"/>
+                        <path class="note-fill" d="M20 10 L280 10 Q300 10 300 30 L300 110 Q300 130 280 130 L40 130 Q20 130 20 110 L20 30 Q20 10 40 10 Z"
+                              fill="#fef3c7" opacity="0"/>
+                        <path class="note-corner" d="M280 10 L280 35 Q280 40 275 40 L250 40" stroke="#f59e0b" stroke-width="1.5" fill="none" opacity="0"/>
+                        <path class="note-corner-fill" d="M280 10 L280 35 Q280 40 275 40 L250 40 L280 10 Z" fill="#fde68a" opacity="0"/>
+                    </svg>
+                    <svg class="pencil-icon absolute -right-8 sm:-right-12 -top-6 sm:-top-8 w-10 h-10 sm:w-14 sm:h-14 pointer-events-none" viewBox="0 0 48 48" fill="none">
+                        <g class="pencil-draw">
+                            <path d="M36 6L42 12L14 40L6 42L8 34L36 6Z" fill="#fbbf24" stroke="#f59e0b" stroke-width="1.5"/>
+                            <path d="M30 12L36 18" stroke="#f59e0b" stroke-width="1.5"/>
+                            <path d="M6 42L8 34L14 40L6 42Z" fill="#fca5a5"/>
+                            <path d="M8 34L6 42L14 40" stroke="#f87171" stroke-width="1"/>
+                        </g>
+                    </svg>
+                    <div class="section-text-content relative z-10">
+                        <p class="text-label text-sm sm:text-base font-medium text-stone-500 mb-3 tracking-wide uppercase" data-i18n="index.services.label">Услуги</p>
+                        <h2 class="text-title text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight" data-i18n="index.services.title">Чем занимаемся</h2>
+                    </div>
+                </div>
             </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="card-hover bg-stone-50 rounded-2xl p-5 sm:p-8">
-                    <div class="w-12 h-12 bg-stone-900 rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6 text-stone-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+                <div class="service-card bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 rounded-2xl sm:rounded-3xl p-6 sm:p-8 min-h-[240px] sm:min-h-[280px] flex flex-col justify-end border border-slate-200/60">
+                    <div class="card-bg">
+                        
+                        <svg class="main-icon w-24 h-24 right-2 top-0 anim-float-gentle" viewBox="0 0 96 96" fill="none">
+                            <defs>
+                                <linearGradient id="book-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#6366f1;stop-opacity:0.7"/>
+                                    <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0.5"/>
+                                </linearGradient>
+                            </defs>
+                            <path d="M48 20 L48 76 M48 20 C40 18 24 16 16 20 L16 72 C24 68 40 70 48 76 M48 20 C56 18 72 16 80 20 L80 72 C72 68 56 70 48 76" stroke="url(#book-grad)" stroke-width="3" stroke-linecap="round" fill="none"/>
+                            <path d="M24 32 L40 32 M24 42 L38 42 M24 52 L36 52" stroke="#6366f1" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+                            <path d="M56 32 L72 32 M58 42 L72 42 M60 52 L72 52" stroke="#6366f1" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+                        </svg>
+                        
+                        <svg class="w-14 h-14 left-4 top-4 anim-float-slow-delay" viewBox="0 0 56 56" fill="none">
+                            <path d="M28 12 L8 24 L28 36 L48 24 Z" fill="#4f46e5" opacity="0.4"/>
+                            <path d="M14 28 L14 40 C14 40 21 46 28 46 C35 46 42 40 42 40 L42 28" stroke="#4f46e5" stroke-width="2" fill="none" opacity="0.35"/>
+                            <line x1="44" y1="24" x2="44" y2="44" stroke="#4f46e5" stroke-width="2" opacity="0.4"/>
+                            <circle cx="44" cy="46" r="3" fill="#4f46e5" opacity="0.4"/>
+                        </svg>
+                        
+                        <svg class="w-8 h-8 right-28 bottom-20 anim-pulse-soft" viewBox="0 0 32 32" fill="none">
+                            <circle cx="16" cy="16" r="12" stroke="#6366f1" stroke-width="2" opacity="0.3" stroke-dasharray="4 4"/>
+                        </svg>
+                        <svg class="w-6 h-6 left-1/3 top-16 anim-float-reverse" viewBox="0 0 24 24" fill="none">
+                            <rect x="4" y="4" width="16" height="16" rx="2" fill="#818cf8" opacity="0.25"/>
+                        </svg>
                     </div>
-                    <h3 class="text-lg font-semibold mb-3" data-i18n="index.services.education.title">Образовательные услуги</h3>
-                    <p class="text-stone-600 text-sm leading-relaxed" data-i18n="index.services.education.text">Консультации по учебным работам, помощь с курсовыми, дипломами, рефератами. Репетиторство и подготовка к экзаменам.</p>
+                    <div class="relative z-10">
+                        <h3 class="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 text-stone-900" data-i18n="index.services.education.title">Образовательные услуги</h3>
+                        <p class="text-stone-600 text-sm sm:text-base leading-relaxed" data-i18n="index.services.education.text">Консультации по учебным работам, помощь с курсовыми, дипломами, рефератами. Репетиторство и подготовка к экзаменам.</p>
+                    </div>
                 </div>
 
-                <div class="card-hover bg-stone-50 rounded-2xl p-5 sm:p-8">
-                    <div class="w-12 h-12 bg-stone-900 rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6 text-stone-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                
+                <div class="service-card bg-gradient-to-br from-slate-50 via-violet-50 to-purple-100 rounded-2xl sm:rounded-3xl p-6 sm:p-8 min-h-[240px] sm:min-h-[280px] flex flex-col justify-end border border-slate-200/60">
+                    <div class="card-bg">
+                        
+                        <svg class="main-icon w-28 h-28 right-0 -top-2 anim-float-gentle" viewBox="0 0 112 112" fill="none">
+                            <defs>
+                                <linearGradient id="code-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.6"/>
+                                    <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:0.4"/>
+                                </linearGradient>
+                            </defs>
+                            <rect x="16" y="20" width="80" height="60" rx="8" stroke="url(#code-grad)" stroke-width="3" fill="none"/>
+                            <circle cx="28" cy="32" r="3" fill="#f87171" opacity="0.7"/>
+                            <circle cx="38" cy="32" r="3" fill="#fbbf24" opacity="0.7"/>
+                            <circle cx="48" cy="32" r="3" fill="#34d399" opacity="0.7"/>
+                            <path d="M28 48 L38 56 L28 64" stroke="#8b5cf6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+                            <line x1="46" y1="64" x2="66" y2="64" stroke="#8b5cf6" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
+                            <path d="M72 48 L82 56 L72 64" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.4"/>
+                        </svg>
+                        
+                        <svg class="w-12 h-12 left-4 top-6 anim-float-slow-delay" viewBox="0 0 48 48" fill="none">
+                            <path d="M18 8 C12 8 10 12 10 16 L10 20 C10 24 6 24 6 24 C6 24 10 24 10 28 L10 32 C10 36 12 40 18 40" stroke="#7c3aed" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.5"/>
+                            <path d="M30 8 C36 8 38 12 38 16 L38 20 C38 24 42 24 42 24 C42 24 38 24 38 28 L38 32 C38 36 36 40 30 40" stroke="#7c3aed" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.5"/>
+                        </svg>
+                        
+                        <svg class="w-10 h-10 right-24 bottom-16 anim-rotate-slow" viewBox="0 0 40 40" fill="none">
+                            <path d="M20 8 L22 12 L26 10 L26 14 L30 14 L28 18 L32 20 L28 22 L30 26 L26 26 L26 30 L22 28 L20 32 L18 28 L14 30 L14 26 L10 26 L12 22 L8 20 L12 18 L10 14 L14 14 L14 10 L18 12 Z" stroke="#a78bfa" stroke-width="1.5" fill="none" opacity="0.35"/>
+                            <circle cx="20" cy="20" r="5" stroke="#a78bfa" stroke-width="1.5" fill="none" opacity="0.35"/>
+                        </svg>
                     </div>
-                    <h3 class="text-lg font-semibold mb-3" data-i18n="index.services.development.title">Разработка ПО</h3>
-                    <p class="text-stone-600 text-sm leading-relaxed" data-i18n="index.services.development.text">Создание веб-сайтов, мобильных приложений, автоматизация процессов. От простых лендингов до сложных систем.</p>
+                    <div class="relative z-10">
+                        <h3 class="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 text-stone-900" data-i18n="index.services.development.title">Разработка ПО</h3>
+                        <p class="text-stone-600 text-sm sm:text-base leading-relaxed" data-i18n="index.services.development.text">Создание веб-сайтов, мобильных приложений, автоматизация процессов. От простых лендингов до сложных систем.</p>
+                    </div>
                 </div>
 
-                <div class="card-hover bg-stone-50 rounded-2xl p-5 sm:p-8">
-                    <div class="w-12 h-12 bg-stone-900 rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6 text-stone-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                
+                <div class="service-card bg-gradient-to-br from-slate-50 via-amber-50 to-orange-100 rounded-2xl sm:rounded-3xl p-6 sm:p-8 min-h-[240px] sm:min-h-[280px] flex flex-col justify-end border border-slate-200/60">
+                    <div class="card-bg">
+                        
+                        <svg class="main-icon w-24 h-24 right-2 top-0 anim-float-gentle" viewBox="0 0 96 96" fill="none">
+                            <defs>
+                                <linearGradient id="doc-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:0.6"/>
+                                    <stop offset="100%" style="stop-color:#ea580c;stop-opacity:0.4"/>
+                                </linearGradient>
+                            </defs>
+                            
+                            <rect x="28" y="12" width="44" height="56" rx="4" stroke="#fbbf24" stroke-width="2" fill="none" opacity="0.3"/>
+                            
+                            <rect x="24" y="18" width="44" height="56" rx="4" stroke="#f59e0b" stroke-width="2" fill="none" opacity="0.4"/>
+                            
+                            <rect x="20" y="24" width="44" height="56" rx="4" stroke="url(#doc-grad)" stroke-width="2.5" fill="none"/>
+                            <line x1="28" y1="38" x2="52" y2="38" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+                            <line x1="28" y1="48" x2="48" y2="48" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+                            <line x1="28" y1="58" x2="44" y2="58" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" opacity="0.35"/>
+                            <line x1="28" y1="68" x2="50" y2="68" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" opacity="0.3"/>
+                        </svg>
+                        
+                        <svg class="w-14 h-14 left-4 top-8 anim-float-slow-delay" viewBox="0 0 56 56" fill="none">
+                            <path d="M12 44 L40 16 L46 22 L18 50 L10 52 Z" stroke="#ea580c" stroke-width="2" fill="none" opacity="0.45"/>
+                            <path d="M36 20 L42 26" stroke="#ea580c" stroke-width="2" opacity="0.4"/>
+                        </svg>
+                        
+                        <svg class="w-8 h-8 left-1/3 bottom-20 anim-pulse-soft" viewBox="0 0 32 32" fill="none">
+                            <circle cx="16" cy="16" r="12" stroke="#f59e0b" stroke-width="2" opacity="0.3"/>
+                            <path d="M10 16 L14 20 L22 12" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+                        </svg>
                     </div>
-                    <h3 class="text-lg font-semibold mb-3" data-i18n="index.services.documents.title">Подготовка документов</h3>
-                    <p class="text-stone-600 text-sm leading-relaxed" data-i18n="index.services.documents.text">Оформление, редактирование, вёрстка документов. Презентации, отчёты, техническая документация.</p>
+                    <div class="relative z-10">
+                        <h3 class="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 text-stone-900" data-i18n="index.services.documents.title">Подготовка документов</h3>
+                        <p class="text-stone-600 text-sm sm:text-base leading-relaxed" data-i18n="index.services.documents.text">Оформление, редактирование, вёрстка документов. Презентации, отчёты, техническая документация.</p>
+                    </div>
                 </div>
 
-                <div class="card-hover bg-stone-50 rounded-2xl p-5 sm:p-8">
-                    <div class="w-12 h-12 bg-stone-900 rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6 text-stone-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                
+                <div class="service-card bg-gradient-to-br from-slate-50 via-emerald-50 to-teal-100 rounded-2xl sm:rounded-3xl p-6 sm:p-8 min-h-[240px] sm:min-h-[280px] flex flex-col justify-end border border-slate-200/60">
+                    <div class="card-bg">
+                        
+                        <svg class="main-icon w-28 h-28 right-0 -top-2 anim-float-gentle" viewBox="0 0 112 112" fill="none">
+                            <defs>
+                                <linearGradient id="chart-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+                                    <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.6"/>
+                                    <stop offset="100%" style="stop-color:#14b8a6;stop-opacity:0.4"/>
+                                </linearGradient>
+                            </defs>
+                            
+                            <path d="M24 20 L24 80 L96 80" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
+                            
+                            <path d="M28 68 Q40 60 48 50 T64 36 T80 28 T92 24" stroke="url(#chart-grad)" stroke-width="3" fill="none" stroke-linecap="round"/>
+                            
+                            <circle cx="28" cy="68" r="4" fill="#10b981" opacity="0.6"/>
+                            <circle cx="48" cy="50" r="4" fill="#10b981" opacity="0.6"/>
+                            <circle cx="64" cy="36" r="4" fill="#10b981" opacity="0.6"/>
+                            <circle cx="80" cy="28" r="4" fill="#10b981" opacity="0.6"/>
+                            <circle cx="92" cy="24" r="4" fill="#10b981" opacity="0.6"/>
+                            
+                            <path d="M28 68 Q40 60 48 50 T64 36 T80 28 T92 24 L92 80 L28 80 Z" fill="#10b981" opacity="0.1"/>
+                        </svg>
+                        
+                        <svg class="w-12 h-12 left-4 top-6 anim-float-slow-delay" viewBox="0 0 48 48" fill="none">
+                            <circle cx="20" cy="20" r="12" stroke="#14b8a6" stroke-width="2.5" fill="none" opacity="0.5"/>
+                            <line x1="29" y1="29" x2="40" y2="40" stroke="#14b8a6" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+                            <path d="M14 20 L18 16 L22 22 L26 18" stroke="#14b8a6" stroke-width="1.5" fill="none" opacity="0.4"/>
+                        </svg>
+                        
+                        <svg class="w-10 h-10 right-24 bottom-16 anim-rotate-slow" viewBox="0 0 40 40" fill="none">
+                            <circle cx="20" cy="20" r="14" stroke="#a7f3d0" stroke-width="6" fill="none" opacity="0.3" stroke-dasharray="44 88"/>
+                            <circle cx="20" cy="20" r="14" stroke="#34d399" stroke-width="6" fill="none" opacity="0.4" stroke-dasharray="22 66" stroke-dashoffset="-44"/>
+                        </svg>
                     </div>
-                    <h3 class="text-lg font-semibold mb-3" data-i18n="index.services.research.title">Исследования</h3>
-                    <p class="text-stone-600 text-sm leading-relaxed" data-i18n="index.services.research.text">Научные исследования в области гуманитарных и общественных наук. Анализ данных, статистика, аналитика.</p>
+                    <div class="relative z-10">
+                        <h3 class="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 text-stone-900" data-i18n="index.services.research.title">Исследования</h3>
+                        <p class="text-stone-600 text-sm sm:text-base leading-relaxed" data-i18n="index.services.research.text">Научные исследования в области гуманитарных и общественных наук. Анализ данных, статистика, аналитика.</p>
+                    </div>
                 </div>
 
-                <div class="card-hover bg-stone-50 rounded-2xl p-5 sm:p-8">
-                    <div class="w-12 h-12 bg-stone-900 rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6 text-stone-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/></svg>
+                
+                <div class="service-card bg-gradient-to-br from-slate-50 via-cyan-50 to-sky-100 rounded-2xl sm:rounded-3xl p-6 sm:p-8 min-h-[240px] sm:min-h-[280px] flex flex-col justify-end border border-slate-200/60">
+                    <div class="card-bg">
+                        
+                        <svg class="main-icon w-24 h-24 right-2 top-0 anim-float-gentle" viewBox="0 0 96 96" fill="none">
+                            <defs>
+                                <linearGradient id="data-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:0.6"/>
+                                    <stop offset="100%" style="stop-color:#0284c7;stop-opacity:0.4"/>
+                                </linearGradient>
+                            </defs>
+                            
+                            <ellipse cx="48" cy="24" rx="24" ry="8" stroke="url(#data-grad)" stroke-width="2.5" fill="none"/>
+                            <path d="M24 24 L24 72 M72 24 L72 72" stroke="url(#data-grad)" stroke-width="2.5"/>
+                            <ellipse cx="48" cy="72" rx="24" ry="8" stroke="url(#data-grad)" stroke-width="2.5" fill="none"/>
+                            <ellipse cx="48" cy="40" rx="24" ry="8" stroke="#06b6d4" stroke-width="1.5" fill="none" opacity="0.4"/>
+                            <ellipse cx="48" cy="56" rx="24" ry="8" stroke="#06b6d4" stroke-width="1.5" fill="none" opacity="0.3"/>
+                            
+                            <circle cx="36" cy="48" r="2" fill="#22d3ee" opacity="0.6"/>
+                            <circle cx="48" cy="48" r="2" fill="#22d3ee" opacity="0.6"/>
+                            <circle cx="60" cy="48" r="2" fill="#22d3ee" opacity="0.6"/>
+                        </svg>
+                        
+                        <svg class="w-16 h-16 left-2 top-4 anim-float-slow-delay" viewBox="0 0 64 64" fill="none">
+                            <path d="M8 16 Q24 16 32 32 T56 48" stroke="#0891b2" stroke-width="2" fill="none" opacity="0.4" class="anim-dash"/>
+                            <path d="M8 32 Q24 32 32 40 T56 32" stroke="#06b6d4" stroke-width="2" fill="none" opacity="0.35" class="anim-dash"/>
+                            <path d="M8 48 Q24 48 32 24 T56 16" stroke="#22d3ee" stroke-width="2" fill="none" opacity="0.3" class="anim-dash"/>
+                        </svg>
+                        
+                        <svg class="w-8 h-8 right-24 bottom-20 anim-pulse-soft" viewBox="0 0 32 32" fill="none">
+                            <circle cx="8" cy="16" r="4" fill="#06b6d4" opacity="0.4"/>
+                            <circle cx="24" cy="8" r="4" fill="#06b6d4" opacity="0.4"/>
+                            <circle cx="24" cy="24" r="4" fill="#06b6d4" opacity="0.4"/>
+                            <line x1="12" y1="14" x2="20" y2="10" stroke="#06b6d4" stroke-width="1.5" opacity="0.3"/>
+                            <line x1="12" y1="18" x2="20" y2="22" stroke="#06b6d4" stroke-width="1.5" opacity="0.3"/>
+                        </svg>
                     </div>
-                    <h3 class="text-lg font-semibold mb-3" data-i18n="index.services.data.title">Обработка данных</h3>
-                    <p class="text-stone-600 text-sm leading-relaxed" data-i18n="index.services.data.text">Сбор, обработка и анализ информации. Парсинг, структурирование данных, интеграции.</p>
+                    <div class="relative z-10">
+                        <h3 class="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 text-stone-900" data-i18n="index.services.data.title">Обработка данных</h3>
+                        <p class="text-stone-600 text-sm sm:text-base leading-relaxed" data-i18n="index.services.data.text">Сбор, обработка и анализ информации. Парсинг, структурирование данных, интеграции.</p>
+                    </div>
                 </div>
 
-                <div class="card-hover bg-stone-50 rounded-2xl p-5 sm:p-8">
-                    <div class="w-12 h-12 bg-stone-900 rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6 text-stone-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/></svg>
+                
+                <div class="service-card bg-gradient-to-br from-slate-50 via-rose-50 to-pink-100 rounded-2xl sm:rounded-3xl p-6 sm:p-8 min-h-[240px] sm:min-h-[280px] flex flex-col justify-end border border-slate-200/60">
+                    <div class="card-bg">
+                        
+                        <svg class="main-icon w-28 h-28 right-0 -top-2 anim-float-gentle" viewBox="0 0 112 112" fill="none">
+                            <defs>
+                                <linearGradient id="chat-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#f43f5e;stop-opacity:0.5"/>
+                                    <stop offset="100%" style="stop-color:#ec4899;stop-opacity:0.35"/>
+                                </linearGradient>
+                            </defs>
+                            
+                            <path d="M24 24 L72 24 Q80 24 80 32 L80 56 Q80 64 72 64 L40 64 L28 76 L28 64 L24 64 Q16 64 16 56 L16 32 Q16 24 24 24 Z" stroke="url(#chat-grad)" stroke-width="2.5" fill="none"/>
+                            <line x1="28" y1="36" x2="68" y2="36" stroke="#f43f5e" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+                            <line x1="28" y1="46" x2="58" y2="46" stroke="#f43f5e" stroke-width="2" stroke-linecap="round" opacity="0.35"/>
+                            <line x1="28" y1="56" x2="48" y2="56" stroke="#f43f5e" stroke-width="2" stroke-linecap="round" opacity="0.3"/>
+                            
+                            <path d="M60 56 L88 56 Q96 56 96 64 L96 80 Q96 88 88 88 L72 88 L68 96 L68 88 L60 88 Q52 88 52 80 L52 64 Q52 56 60 56 Z" stroke="#ec4899" stroke-width="2" fill="none" opacity="0.5"/>
+                            <circle cx="66" cy="72" r="3" fill="#ec4899" opacity="0.4"/>
+                            <circle cx="76" cy="72" r="3" fill="#ec4899" opacity="0.4"/>
+                            <circle cx="86" cy="72" r="3" fill="#ec4899" opacity="0.4"/>
+                        </svg>
+                        
+                        <svg class="w-12 h-12 left-4 top-8 anim-float-slow-delay" viewBox="0 0 48 48" fill="none">
+                            <circle cx="16" cy="16" r="8" stroke="#f43f5e" stroke-width="2" fill="none" opacity="0.45"/>
+                            <path d="M4 40 Q4 28 16 28 Q28 28 28 40" stroke="#f43f5e" stroke-width="2" fill="none" opacity="0.4"/>
+                            <circle cx="34" cy="18" r="6" stroke="#ec4899" stroke-width="2" fill="none" opacity="0.35"/>
+                            <path d="M26 42 Q26 32 34 32 Q42 32 42 42" stroke="#ec4899" stroke-width="2" fill="none" opacity="0.3"/>
+                        </svg>
+                        
+                        <svg class="w-8 h-8 left-1/3 bottom-20 anim-pulse-soft" viewBox="0 0 32 32" fill="none">
+                            <circle cx="8" cy="16" r="3" fill="#f43f5e" opacity="0.3"/>
+                            <circle cx="16" cy="16" r="3" fill="#f43f5e" opacity="0.4"/>
+                            <circle cx="24" cy="16" r="3" fill="#f43f5e" opacity="0.3"/>
+                        </svg>
                     </div>
-                    <h3 class="text-lg font-semibold mb-3" data-i18n="index.services.consulting.title">Консультации</h3>
-                    <p class="text-stone-600 text-sm leading-relaxed" data-i18n="index.services.consulting.text">Индивидуальные консультации по любым вопросам. Коммуникация с третьими лицами в ваших интересах.</p>
+                    <div class="relative z-10">
+                        <h3 class="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 text-stone-900" data-i18n="index.services.consulting.title">Консультации</h3>
+                        <p class="text-stone-600 text-sm sm:text-base leading-relaxed" data-i18n="index.services.consulting.text">Индивидуальные консультации по любым вопросам. Коммуникация с третьими лицами в ваших интересах.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="divisions" class="py-20">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6">
-            <div class="mb-16">
-                <p class="text-sm font-medium text-stone-500 mb-3 tracking-wide uppercase" data-i18n="index.divisions.label">Структура</p>
-                <h2 class="text-3xl md:text-4xl font-semibold tracking-tight" data-i18n="index.divisions.title">Подразделения</h2>
+    <section id="divisions" class="py-24 sm:py-32">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+            <div class="mb-14 sm:mb-16">
+                <p class="text-sm sm:text-base font-medium text-stone-500 mb-3 tracking-wide uppercase" data-i18n="index.divisions.label">Структура</p>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight" data-i18n="index.divisions.title">Подразделения</h2>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="card-hover border border-stone-200 rounded-2xl p-5 sm:p-10 bg-white">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
-                        <span class="text-sm font-medium text-stone-500" data-i18n="index.divisions.study.label">Образование</span>
+            <div class="grid md:grid-cols-2 gap-5 sm:gap-6">
+                <div class="division-card rounded-2xl sm:rounded-3xl p-6 sm:p-10 bg-gradient-to-br from-blue-500 to-indigo-600 text-white min-h-[300px] sm:min-h-[340px] relative">
+                    <div class="bg-pattern opacity-10">
+                        <svg class="w-full h-full" viewBox="0 0 400 300" fill="none">
+                            <rect x="20" y="30" width="80" height="100" rx="4" stroke="currentColor" stroke-width="2" opacity="0.5"/>
+                            <rect x="30" y="45" width="60" height="6" rx="3" fill="currentColor" opacity="0.4"/>
+                            <rect x="30" y="58" width="50" height="4" rx="2" fill="currentColor" opacity="0.3"/>
+                            <rect x="30" y="68" width="55" height="4" rx="2" fill="currentColor" opacity="0.3"/>
+                            <rect x="30" y="78" width="45" height="4" rx="2" fill="currentColor" opacity="0.3"/>
+                            <circle cx="320" cy="60" r="40" stroke="currentColor" stroke-width="2" opacity="0.4"/>
+                            <path d="M300 60l15 15 30-30" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+                            <rect x="150" y="150" width="100" height="80" rx="6" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+                            <circle cx="200" cy="190" r="20" stroke="currentColor" stroke-width="2" opacity="0.4"/>
+                            <rect x="280" y="180" width="60" height="80" rx="4" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+                            <rect x="290" y="195" width="40" height="5" rx="2" fill="currentColor" opacity="0.3"/>
+                            <rect x="290" y="205" width="35" height="4" rx="2" fill="currentColor" opacity="0.2"/>
+                        </svg>
                     </div>
-                    <h3 class="text-2xl font-semibold mb-4" data-i18n="index.divisions.study.title">FEFELOV.Study</h3>
-                    <p class="text-stone-600 leading-relaxed mb-6" data-i18n="index.divisions.study.text">Информационно-консультационные и образовательные услуги. Помощь студентам и школьникам с учебными проектами, репетиторство, подготовка к экзаменам.</p>
-                    <ul class="space-y-2 text-sm text-stone-600">
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-stone-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span data-i18n="index.divisions.study.item1">Курсовые и дипломные работы</span></li>
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-stone-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span data-i18n="index.divisions.study.item2">Рефераты и эссе</span></li>
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-stone-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span data-i18n="index.divisions.study.item3">Репетиторство</span></li>
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-stone-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span data-i18n="index.divisions.study.item4">Подготовка к экзаменам (ЕГЭ, ОГЭ)</span></li>
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-stone-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span data-i18n="index.divisions.study.item5">Контрольные и лабораторные</span></li>
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-stone-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span data-i18n="index.divisions.study.item6">Презентации и доклады</span></li>
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-stone-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span data-i18n="index.divisions.study.item7">Научные статьи</span></li>
-                        <li class="flex items-center gap-2 text-stone-500 italic"><svg class="w-4 h-4 text-stone-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v3.586L7.707 11.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 10.586V7z" clip-rule="evenodd"/></svg><span data-i18n="index.divisions.study.more">И другое...</span></li>
-                    </ul>
+                    <div class="relative z-10">
+                        <div class="flex items-center gap-2 mb-4 sm:mb-5">
+                            <div class="w-2.5 h-2.5 bg-white rounded-full"></div>
+                            <span class="text-sm sm:text-base font-medium text-blue-100" data-i18n="index.divisions.study.label">Образование</span>
+                        </div>
+                        <h3 class="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4" data-i18n="index.divisions.study.title">FEFELOV.Study</h3>
+                        <p class="text-blue-100 text-sm sm:text-base leading-relaxed mb-5 sm:mb-6" data-i18n="index.divisions.study.text">Информационно-консультационные и образовательные услуги. Помощь студентам и школьникам с учебными проектами, репетиторство, подготовка к экзаменам.</p>
+                        <div class="flex flex-wrap gap-2 sm:gap-3">
+                            <span class="px-3 sm:px-4 py-1.5 sm:py-2 bg-white/20 rounded-full text-xs sm:text-sm" data-i18n="index.divisions.study.tag1">Курсовые</span>
+                            <span class="px-3 sm:px-4 py-1.5 sm:py-2 bg-white/20 rounded-full text-xs sm:text-sm" data-i18n="index.divisions.study.tag2">Дипломы</span>
+                            <span class="px-3 sm:px-4 py-1.5 sm:py-2 bg-white/20 rounded-full text-xs sm:text-sm" data-i18n="index.divisions.study.tag3">Репетиторство</span>
+                            <span class="px-3 sm:px-4 py-1.5 sm:py-2 bg-white/20 rounded-full text-xs sm:text-sm" data-i18n="index.divisions.study.tag4">ЕГЭ/ОГЭ</span>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="card-hover border border-stone-200 rounded-2xl p-5 sm:p-10 bg-white">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-3 h-3 bg-emerald-500 rounded-full"></div>
-                        <span class="text-sm font-medium text-stone-500" data-i18n="index.divisions.tech.label">Технологии</span>
+                <div class="division-card rounded-2xl sm:rounded-3xl p-6 sm:p-10 bg-gradient-to-br from-emerald-500 to-teal-600 text-white min-h-[300px] sm:min-h-[340px] relative">
+                    <div class="bg-pattern opacity-10">
+                        <svg class="w-full h-full" viewBox="0 0 400 300" fill="none">
+                            <rect x="30" y="40" width="120" height="80" rx="6" stroke="currentColor" stroke-width="2" opacity="0.5"/>
+                            <text x="45" y="70" font-family="monospace" font-size="12" fill="currentColor" opacity="0.6">&lt;code&gt;</text>
+                            <text x="55" y="90" font-family="monospace" font-size="10" fill="currentColor" opacity="0.5">function()</text>
+                            <text x="45" y="108" font-family="monospace" font-size="12" fill="currentColor" opacity="0.6">&lt;/code&gt;</text>
+                            <rect x="200" y="30" width="80" height="120" rx="12" stroke="currentColor" stroke-width="2" opacity="0.4"/>
+                            <circle cx="240" cy="135" r="8" stroke="currentColor" stroke-width="2" opacity="0.5"/>
+                            <rect x="210" y="50" width="60" height="60" rx="4" fill="currentColor" opacity="0.2"/>
+                            <circle cx="340" cy="80" r="35" stroke="currentColor" stroke-width="2" opacity="0.4"/>
+                            <path d="M325 80h30M340 65v30" stroke="currentColor" stroke-width="2" opacity="0.5"/>
+                            <rect x="60" y="180" width="150" height="60" rx="8" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+                            <circle cx="90" cy="210" r="15" fill="currentColor" opacity="0.3"/>
+                            <rect x="115" y="200" width="80" height="6" rx="3" fill="currentColor" opacity="0.3"/>
+                            <rect x="115" y="212" width="60" height="4" rx="2" fill="currentColor" opacity="0.2"/>
+                            <path d="M280 200l40 40M320 200l-40 40" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+                        </svg>
                     </div>
-                    <h3 class="text-2xl font-semibold mb-4" data-i18n="index.divisions.tech.title">FEFELOV.Tech</h3>
-                    <p class="text-stone-600 leading-relaxed mb-6" data-i18n="index.divisions.tech.text">IT-направление: разработка программного обеспечения, веб-сайтов, мобильных приложений. Автоматизация, интеграции, техническое сопровождение.</p>
-                    <ul class="space-y-2 text-sm text-stone-600">
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-stone-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span data-i18n="index.divisions.tech.item1">Веб-разработка</span></li>
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-stone-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span data-i18n="index.divisions.tech.item2">Мобильные приложения</span></li>
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-stone-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span data-i18n="index.divisions.tech.item3">Автоматизация</span></li>
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-stone-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span data-i18n="index.divisions.tech.item4">Телеграм-боты</span></li>
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-stone-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span data-i18n="index.divisions.tech.item5">Парсинг данных</span></li>
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-stone-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span data-i18n="index.divisions.tech.item6">Интеграции и API</span></li>
-                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-stone-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span data-i18n="index.divisions.tech.item7">Техническое сопровождение</span></li>
-                        <li class="flex items-center gap-2 text-stone-500 italic"><svg class="w-4 h-4 text-stone-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v3.586L7.707 11.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 10.586V7z" clip-rule="evenodd"/></svg><span data-i18n="index.divisions.tech.more">И другое...</span></li>
-                    </ul>
+                    <div class="relative z-10">
+                        <div class="flex items-center gap-2 mb-4 sm:mb-5">
+                            <div class="w-2.5 h-2.5 bg-white rounded-full"></div>
+                            <span class="text-sm sm:text-base font-medium text-emerald-100" data-i18n="index.divisions.tech.label">Технологии</span>
+                        </div>
+                        <h3 class="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4" data-i18n="index.divisions.tech.title">FEFELOV.Tech</h3>
+                        <p class="text-emerald-100 text-sm sm:text-base leading-relaxed mb-5 sm:mb-6" data-i18n="index.divisions.tech.text">IT-направление: разработка программного обеспечения, веб-сайтов, мобильных приложений. Автоматизация, интеграции, техническое сопровождение.</p>
+                        <div class="flex flex-wrap gap-2 sm:gap-3">
+                            <span class="px-3 sm:px-4 py-1.5 sm:py-2 bg-white/20 rounded-full text-xs sm:text-sm" data-i18n="index.divisions.tech.tag1">Веб</span>
+                            <span class="px-3 sm:px-4 py-1.5 sm:py-2 bg-white/20 rounded-full text-xs sm:text-sm" data-i18n="index.divisions.tech.tag2">Боты</span>
+                            <span class="px-3 sm:px-4 py-1.5 sm:py-2 bg-white/20 rounded-full text-xs sm:text-sm" data-i18n="index.divisions.tech.tag3">Парсинг</span>
+                            <span class="px-3 sm:px-4 py-1.5 sm:py-2 bg-white/20 rounded-full text-xs sm:text-sm" data-i18n="index.divisions.tech.tag4">API</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-            <div class="mt-8 p-6 bg-stone-100 rounded-2xl">
-                <p class="text-sm text-stone-600 text-center" data-i18n="index.divisions.note">В каждом подразделении работает команда специалистов. Планируем расширение и запуск новых направлений в 2026 году.</p>
             </div>
         </div>
     </section>
 
-    <section id="about" class="py-20 bg-white">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6">
-            <div class="grid md:grid-cols-2 gap-16 items-center">
-                <div>
-                    <p class="text-sm font-medium text-stone-500 mb-3 tracking-wide uppercase" data-i18n="index.about.label">О компании</p>
-                    <h2 class="text-3xl md:text-4xl font-semibold tracking-tight mb-6" data-i18n="index.about.title">Работаем официально</h2>
-                    <div class="space-y-4 text-stone-600">
-                        <p data-i18n="index.about.text1">ИП Басенко Илья Константинович — официально зарегистрированный индивидуальный предприниматель в Москве. Работаем по устному или письменному договору, предоставляем все необходимые документы. В любом случае, обращаясь к нам, человек принимает условия публичной оферты.</p>
-                        <p data-i18n="index.about.text2">Оказываем услуги в сфере образования и IT с соблюдением законодательства РФ. Каждый заказ фиксируется, все условия прозрачны.</p>
-                        <p data-i18n="index.about.text3">Наша цель — качественный результат и долгосрочное сотрудничество. Ценим время клиентов и своё.</p>
-                    </div>
-                </div>
-                <div class="bg-stone-50 rounded-2xl p-5 sm:p-8">
-                    <h3 class="font-semibold mb-6" data-i18n="index.about.requisites_title">Реквизиты</h3>
-                    <div class="space-y-4 text-sm">
-                        <div class="flex flex-col sm:flex-row sm:justify-between py-3 border-b border-stone-200 gap-1"><span class="text-stone-500" data-i18n="index.about.ip">ИП</span><span class="font-medium" data-i18n="index.about.ip_value">Басенко Илья Константинович</span></div>
-                        <div class="flex flex-col sm:flex-row sm:justify-between py-3 border-b border-stone-200 gap-1"><span class="text-stone-500" data-i18n="index.about.ogrnip">ОГРНИП</span><span class="font-medium">325774600531587</span></div>
-                        <div class="flex flex-col sm:flex-row sm:justify-between py-3 border-b border-stone-200 gap-1"><span class="text-stone-500" data-i18n="index.about.inn">ИНН</span><span class="font-medium">772370980295</span></div>
-                        <div class="flex flex-col sm:flex-row sm:justify-between py-3 border-b border-stone-200 gap-1"><span class="text-stone-500" data-i18n="index.about.okpo">ОКПО</span><span class="font-medium">2044454351</span></div>
-                        <div class="flex flex-col sm:flex-row sm:justify-between py-3 gap-1"><span class="text-stone-500" data-i18n="index.about.region">Регион</span><span class="font-medium" data-i18n="index.about.region_value">г. Москва</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-20">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6">
-            <div class="bg-stone-900 text-stone-50 rounded-3xl p-6 sm:p-12 md:p-16 text-center">
-                <h2 class="text-3xl md:text-4xl font-semibold mb-4" data-i18n="index.cta.title">Готовы обсудить проект?</h2>
-                <p class="text-stone-400 mb-8 max-w-xl mx-auto" data-i18n="index.cta.text">Напишите нам — обсудим задачу, сроки и стоимость. Ответим в рабочее время: пн-пт, 10:00–20:00 МСК.</p>
-                <a href="contacts.html" class="inline-flex items-center justify-center bg-stone-50 text-stone-900 px-8 py-4 text-sm font-medium rounded-full hover:bg-stone-100 transition-colors">
+    <section class="py-16 sm:py-20">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+            <div class="bg-stone-900 text-stone-50 rounded-3xl p-8 sm:p-14 md:p-20 text-center">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-semibold mb-5 sm:mb-6" data-i18n="index.cta.title">Готовы обсудить проект?</h2>
+                <p class="text-stone-400 text-base sm:text-lg mb-10 sm:mb-12 max-w-2xl mx-auto" data-i18n="index.cta.text">Напишите нам — обсудим задачу, сроки и стоимость. Ответим в рабочее время: пн-пт, 10:00–20:00 МСК.</p>
+                <a href="contacts.html" class="inline-flex items-center justify-center btn-gradient-border-light bg-stone-50 text-stone-900 px-10 sm:px-12 py-4 sm:py-5 text-base sm:text-lg font-medium rounded-full">
                     <span data-i18n="index.cta.btn">Написать</span>
-                    <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    <svg class="ml-3 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                 </a>
             </div>
         </div>
@@ -284,5 +479,31 @@
 
     <div id="footer-placeholder"></div>
     <script src="i18n.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const noteWrapper = document.querySelector('.section-note-wrapper');
+            if (noteWrapper) {
+                noteWrapper.style.animationPlayState = 'paused';
+                noteWrapper.querySelectorAll('*').forEach(el => {
+                    el.style.animationPlayState = 'paused';
+                });
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            noteWrapper.classList.add('in-view');
+                            noteWrapper.style.animationPlayState = 'running';
+                            noteWrapper.querySelectorAll('*').forEach(el => {
+                                el.style.animationPlayState = 'running';
+                            });
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.3 });
+
+                observer.observe(noteWrapper);
+            }
+        });
+    </script>
 </body>
 </html>

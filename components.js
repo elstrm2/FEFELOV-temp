@@ -19,31 +19,31 @@ const commonStyles = `
         -webkit-text-fill-color: transparent;
         color: transparent;
         animation: gradient-shift 4s ease infinite;
-        transition: all 0.3s ease;
     }
     .logo-text {
         color: #0a0a0a;
-        transition: all 0.3s ease;
-        padding-right: 1px;
-        margin-right: -1px;
+        -webkit-text-fill-color: #0a0a0a;
+        background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe, #667eea);
+        background-size: 300% 100%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        transition: -webkit-text-fill-color 0.3s ease;
     }
     .logo-container:hover .logo-text {
-        background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe, #667eea);
-        background-size: 300% 100%;
-        -webkit-background-clip: text;
-        background-clip: text;
         -webkit-text-fill-color: transparent;
-        color: transparent;
         animation: gradient-shift 3s ease infinite;
     }
-    .logo-container:hover .logo-dot {
-        background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe, #667eea);
-        background-size: 300% 100%;
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        color: transparent;
-        animation: gradient-shift 3s ease infinite;
+    .logo-dot {
+        transition: -webkit-text-fill-color 0.3s ease;
+    }
+    .logo-container {
+        padding: 4px;
+        margin: -4px;
+        overflow: visible;
+        display: inline-block;
+    }
+    .logo-text, .logo-dot {
+        display: inline-block;
     }
     @keyframes gradient-shift {
         0% { background-position: 0% 50%; }
@@ -51,88 +51,293 @@ const commonStyles = `
         100% { background-position: 0% 50%; }
     }
 
+    .btn-gradient-border {
+        position: relative;
+        z-index: 1;
+        background: #0a0a0a;
+        transition: all 0.3s ease;
+    }
+    .btn-gradient-border::before {
+        content: '';
+        position: absolute;
+        inset: -2px;
+        border-radius: inherit;
+        background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe, #667eea);
+        background-size: 300% 100%;
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        animation: gradient-shift 3s ease infinite;
+    }
+    .btn-gradient-border::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background: inherit;
+        z-index: -1;
+    }
+    .btn-gradient-border:hover::before {
+        opacity: 1;
+    }
+    .btn-gradient-border:hover {
+        background: #0a0a0a;
+        box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+    }
+
+    .btn-gradient-border-light {
+        position: relative;
+        z-index: 1;
+        background: #fafaf9;
+        transition: all 0.3s ease;
+    }
+    .btn-gradient-border-light::before {
+        content: '';
+        position: absolute;
+        inset: -2px;
+        border-radius: inherit;
+        background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe, #667eea);
+        background-size: 300% 100%;
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        animation: gradient-shift 3s ease infinite;
+    }
+    .btn-gradient-border-light::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background: inherit;
+        z-index: -1;
+    }
+    .btn-gradient-border-light:hover::before {
+        opacity: 1;
+    }
+    .btn-gradient-border-light:hover {
+        background: #fafaf9;
+        box-shadow: 0 0 25px rgba(102, 126, 234, 0.4);
+    }
+
     .lang-menu { display: none; }
     .lang-menu.active { display: block; }
+
+    .service-card {
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .service-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
+    }
+    .service-card .card-bg {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        pointer-events: none;
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .service-card:hover .card-bg {
+        transform: scale(1.05);
+    }
+    .service-card .card-bg svg {
+        position: absolute;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .service-card:hover .card-bg svg {
+        filter: brightness(1.1);
+    }
+    .service-card .card-bg .main-icon {
+        filter: drop-shadow(0 4px 20px rgba(0,0,0,0.1));
+    }
+    .service-card:hover .card-bg .main-icon {
+        filter: drop-shadow(0 8px 30px rgba(0,0,0,0.15));
+    }
+
+    @keyframes float-gentle {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-8px); }
+    }
+    @keyframes float-slow {
+        0%, 100% { transform: translateY(0) rotate(0deg); }
+        50% { transform: translateY(-12px) rotate(2deg); }
+    }
+    @keyframes float-reverse {
+        0%, 100% { transform: translateY(-6px); }
+        50% { transform: translateY(6px); }
+    }
+    @keyframes pulse-soft {
+        0%, 100% { opacity: 0.4; transform: scale(1); }
+        50% { opacity: 0.6; transform: scale(1.02); }
+    }
+    @keyframes rotate-slow {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    @keyframes dash-flow {
+        0% { stroke-dashoffset: 0; }
+        100% { stroke-dashoffset: -20; }
+    }
+    @keyframes glow-pulse {
+        0%, 100% { filter: drop-shadow(0 0 8px currentColor); opacity: 0.6; }
+        50% { filter: drop-shadow(0 0 16px currentColor); opacity: 0.8; }
+    }
+    @keyframes morph {
+        0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+        50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+    }
+
+    .anim-float-gentle { animation: float-gentle 4s ease-in-out infinite; }
+    .anim-float-slow { animation: float-slow 6s ease-in-out infinite; }
+    .anim-float-slow-delay { animation: float-slow 6s ease-in-out infinite 1.5s; }
+    .anim-float-reverse { animation: float-reverse 5s ease-in-out infinite; }
+    .anim-pulse-soft { animation: pulse-soft 4s ease-in-out infinite; }
+    .anim-rotate-slow { animation: rotate-slow 20s linear infinite; }
+    .anim-dash { animation: dash-flow 2s linear infinite; stroke-dasharray: 8 4; }
+    .anim-glow { animation: glow-pulse 3s ease-in-out infinite; }
+    .anim-morph { animation: morph 8s ease-in-out infinite; }
+
+    .division-card {
+        position: relative;
+        overflow: hidden;
+    }
+    .division-card .bg-pattern {
+        position: absolute;
+        inset: 0;
+        opacity: 0.05;
+        pointer-events: none;
+    }
+
+    .section-note-wrapper {
+        opacity: 0;
+        animation: fadeInWrapper 0.3s ease forwards;
+        animation-delay: 0.2s;
+    }
+    .section-note .note-outline {
+        animation: drawNote 1.2s ease forwards;
+        animation-delay: 0.4s;
+    }
+    .section-note .note-fill {
+        animation: fillNote 0.4s ease forwards;
+        animation-delay: 1.5s;
+    }
+    .section-note .note-corner,
+    .section-note .note-corner-fill {
+        animation: showCorner 0.3s ease forwards;
+        animation-delay: 1.6s;
+    }
+    .pencil-icon {
+        opacity: 0;
+        transform: translate(40px, -30px) rotate(-15deg);
+        animation: pencilAppear 0.5s ease forwards, pencilDraw 1.2s ease forwards;
+        animation-delay: 0.3s, 0.5s;
+    }
+    .section-text-content .text-label {
+        opacity: 0;
+        transform: translateY(10px);
+        animation: textReveal 0.5s ease forwards;
+        animation-delay: 1.7s;
+    }
+    .section-text-content .text-title {
+        opacity: 0;
+        transform: translateY(10px);
+        animation: textReveal 0.5s ease forwards;
+        animation-delay: 1.9s;
+    }
+
+    @keyframes fadeInWrapper {
+        to { opacity: 1; }
+    }
+    @keyframes drawNote {
+        to { stroke-dashoffset: 0; }
+    }
+    @keyframes fillNote {
+        to { opacity: 0.7; }
+    }
+    @keyframes showCorner {
+        to { opacity: 1; }
+    }
+    @keyframes pencilAppear {
+        to { opacity: 1; transform: translate(0, 0) rotate(0deg); }
+    }
+    @keyframes pencilDraw {
+        0% { transform: translate(0, 0) rotate(0deg); }
+        20% { transform: translate(-5px, 5px) rotate(-5deg); }
+        40% { transform: translate(5px, -3px) rotate(3deg); }
+        60% { transform: translate(-3px, 8px) rotate(-3deg); }
+        80% { transform: translate(8px, 2px) rotate(5deg); }
+        100% { transform: translate(10px, -15px) rotate(10deg); opacity: 0.6; }
+    }
+    @keyframes textReveal {
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-note-wrapper.animate {
+        animation-play-state: running;
+    }
+    .section-note-wrapper:not(.in-view) * {
+        animation-play-state: paused;
+    }
+    .section-note-wrapper.in-view * {
+        animation-play-state: running;
+    }
 `;
 
 const headerHTML = `
 <header class="fixed top-0 left-0 right-0 z-50 bg-stone-50/80 backdrop-blur-md border-b border-stone-200/50">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-5 sm:py-6">
         <div class="flex items-center justify-between">
-            <a href="index.html" class="logo-container text-xl font-semibold tracking-tight"><span class="logo-text">FEFELOV</span><span class="logo-dot logo-gradient">.</span></a>
-            <nav class="hidden md:flex items-center gap-8">
-                <a href="index.html" class="nav-link text-sm text-stone-600 hover:text-stone-900" data-i18n="common.nav.home">Главная</a>
-                <a href="index.html#services" class="nav-link text-sm text-stone-600 hover:text-stone-900" data-i18n="common.nav.services">Услуги</a>
-                <a href="index.html#divisions" class="nav-link text-sm text-stone-600 hover:text-stone-900" data-i18n="common.nav.divisions">Подразделения</a>
-                <a href="contacts.html" class="nav-link text-sm text-stone-600 hover:text-stone-900" data-i18n="common.nav.contacts">Контакты</a>
+            <a href="index.html" class="logo-container text-2xl sm:text-3xl font-semibold tracking-tight"><span class="logo-text">FEFELOV</span><span class="logo-dot logo-gradient">.</span></a>
+            <nav class="hidden lg:flex items-center gap-10">
+                <a href="index.html#services" class="nav-link text-base text-stone-600 hover:text-stone-900" data-i18n="common.nav.services">Услуги</a>
+                <a href="index.html#divisions" class="nav-link text-base text-stone-600 hover:text-stone-900" data-i18n="common.nav.divisions">Подразделения</a>
             </nav>
             <div class="flex items-center gap-3">
-                <div class="relative">
-                    <button id="lang-btn" class="flex items-center gap-1 px-3 py-2 text-sm text-stone-600 hover:text-stone-900 rounded-full hover:bg-stone-100 transition-colors">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+                <div class="relative z-10">
+                    <button id="lang-btn" class="flex items-center gap-2 px-4 sm:px-5 py-2.5 text-base font-medium text-stone-600 hover:text-stone-900 border border-stone-200 rounded-full hover:bg-stone-100 transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
                         <span id="current-lang">RU</span>
-                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </button>
-                    <div id="lang-menu" class="lang-menu absolute right-0 top-full mt-1 bg-white border border-stone-200 rounded-xl shadow-lg py-1 min-w-[140px] z-50">
-                        <button data-lang="ru" class="w-full px-4 py-2 text-left text-sm hover:bg-stone-50 transition-colors">Русский</button>
-                        <button data-lang="uk" class="w-full px-4 py-2 text-left text-sm hover:bg-stone-50 transition-colors">Українська</button>
-                        <button data-lang="en" class="w-full px-4 py-2 text-left text-sm hover:bg-stone-50 transition-colors">English</button>
-                        <button data-lang="zh" class="w-full px-4 py-2 text-left text-sm hover:bg-stone-50 transition-colors">中文</button>
+                    <div id="lang-menu" class="lang-menu absolute right-0 top-full mt-2 bg-white border border-stone-200 rounded-xl shadow-lg py-2 min-w-[160px] z-50">
+                        <button data-lang="ru" class="w-full px-5 py-2.5 text-left text-base hover:bg-stone-50 transition-colors">Русский</button>
+                        <button data-lang="uk" class="w-full px-5 py-2.5 text-left text-base hover:bg-stone-50 transition-colors">Українська</button>
+                        <button data-lang="en" class="w-full px-5 py-2.5 text-left text-base hover:bg-stone-50 transition-colors">English</button>
+                        <button data-lang="zh" class="w-full px-5 py-2.5 text-left text-base hover:bg-stone-50 transition-colors">中文</button>
                     </div>
                 </div>
-                <a href="contacts.html" class="hidden md:inline-flex bg-stone-900 text-stone-50 px-5 py-2.5 text-sm font-medium rounded-full hover:bg-stone-800 transition-colors" data-i18n="common.nav.contact_btn">
+                <a href="contacts.html" class="hidden lg:inline-flex btn-gradient-border bg-stone-900 text-stone-50 px-6 py-2.5 text-base font-medium rounded-full" data-i18n="common.nav.contact_btn">
                     Связаться
                 </a>
-                <button id="mobile-menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center rounded-full hover:bg-stone-200/50 transition-colors">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                <button id="mobile-menu-btn" class="lg:hidden w-12 h-12 flex items-center justify-center rounded-full hover:bg-stone-200/50 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
                 </button>
             </div>
         </div>
     </div>
-    <div id="mobile-menu" class="hidden md:hidden bg-stone-50 border-t border-stone-200/50">
-        <nav class="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-1">
-            <a href="index.html" class="px-4 py-3 text-sm text-stone-600 hover:text-stone-900 hover:bg-stone-100 rounded-xl transition-colors" data-i18n="common.nav.home">Главная</a>
-            <a href="index.html#services" class="px-4 py-3 text-sm text-stone-600 hover:text-stone-900 hover:bg-stone-100 rounded-xl transition-colors" data-i18n="common.nav.services">Услуги</a>
-            <a href="index.html#divisions" class="px-4 py-3 text-sm text-stone-600 hover:text-stone-900 hover:bg-stone-100 rounded-xl transition-colors" data-i18n="common.nav.divisions">Подразделения</a>
-            <a href="contacts.html" class="px-4 py-3 text-sm text-stone-600 hover:text-stone-900 hover:bg-stone-100 rounded-xl transition-colors" data-i18n="common.nav.contacts">Контакты</a>
-            <a href="contacts.html" class="mt-2 bg-stone-900 text-stone-50 px-4 py-3 text-sm font-medium rounded-xl hover:bg-stone-800 transition-colors text-center" data-i18n="common.nav.contact_btn">Связаться</a>
+    <div id="mobile-menu" class="hidden lg:hidden bg-stone-50 border-t border-stone-200/50">
+        <nav class="max-w-7xl mx-auto px-6 py-6 flex flex-col gap-2">
+            <a href="index.html#services" class="px-5 py-4 text-base text-stone-600 hover:text-stone-900 hover:bg-stone-100 rounded-xl transition-colors" data-i18n="common.nav.services">Услуги</a>
+            <a href="index.html#divisions" class="px-5 py-4 text-base text-stone-600 hover:text-stone-900 hover:bg-stone-100 rounded-xl transition-colors" data-i18n="common.nav.divisions">Подразделения</a>
+            <a href="contacts.html" class="mt-3 self-start btn-gradient-border bg-stone-900 text-stone-50 px-8 py-4 text-base font-medium rounded-full text-center" data-i18n="common.nav.contact_btn">Связаться</a>
         </nav>
     </div>
 </header>
 `;
 
 const footerHTML = `
-<footer class="py-12 border-t border-stone-200">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
-        <div class="grid md:grid-cols-4 gap-8 mb-12">
-            <div>
-                <h4 class="font-semibold mb-4">FEFELOV<span class="logo-gradient">.</span></h4>
-                <p class="text-sm text-stone-600" data-i18n-html="common.footer.tagline">Образовательные услуги<br>и IT-решения</p>
-            </div>
-            <div>
-                <h4 class="font-semibold mb-4" data-i18n="common.footer.divisions_title">Подразделения</h4>
-                <ul class="space-y-2 text-sm text-stone-600"><li>FEFELOV.Study</li><li>FEFELOV.Tech</li></ul>
-            </div>
-            <div>
-                <h4 class="font-semibold mb-4" data-i18n="common.footer.docs_title">Документы</h4>
-                <ul class="space-y-2 text-sm">
-                    <li><a href="terms.html" class="text-stone-600 hover:text-stone-900" data-i18n="common.footer.terms">Публичная оферта</a></li>
-                    <li><a href="privacy.html" class="text-stone-600 hover:text-stone-900" data-i18n="common.footer.privacy">Политика конфиденциальности</a></li>
-                    <li><a href="refund.html" class="text-stone-600 hover:text-stone-900" data-i18n="common.footer.refund">Возврат средств</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="font-semibold mb-4" data-i18n="common.footer.contacts_title">Контакты</h4>
-                <ul class="space-y-2 text-sm text-stone-600">
-                    <li><a href="mailto:182003Bkmz@gmail.com" class="hover:text-stone-900">182003Bkmz@gmail.com</a></li>
-                    <li><a href="https://vk.com/fefelov_net" target="_blank" class="hover:text-stone-900">vk.com/fefelov_net →</a></li>
-                    <li><a href="contacts.html" class="hover:text-stone-900" data-i18n="common.footer.all_contacts">Все контакты →</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="pt-8 border-t border-stone-200 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-stone-500">
-            <p data-i18n="common.footer.copyright">© 2025 ИП Басенко И.К. ОГРНИП 325774600531587</p>
-            <p data-i18n="common.footer.location">Москва, Россия</p>
+<footer class="py-8 sm:py-10 border-t border-stone-200">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-6">
+            <p class="text-base text-stone-500 order-2 sm:order-1">© 2025–<span id="footer-year"></span>. <span data-i18n="common.footer.copyright">ИП Басенко И. К.</span></p>
+            <nav class="flex items-center gap-3 order-1 sm:order-2">
+                <a href="terms.html" class="text-base text-stone-500 hover:text-stone-900 transition-colors" data-i18n="common.footer.terms">Оферта</a>
+                <span class="text-stone-400">·</span>
+                <a href="privacy.html" class="text-base text-stone-500 hover:text-stone-900 transition-colors" data-i18n="common.footer.privacy">Конфиденциальность</a>
+                <span class="text-stone-400">·</span>
+                <a href="refund.html" class="text-base text-stone-500 hover:text-stone-900 transition-colors" data-i18n="common.footer.refund">Возврат</a>
+            </nav>
         </div>
     </div>
 </footer>
@@ -181,24 +386,28 @@ document.addEventListener('DOMContentLoaded', function() {
                 langMenu.classList.remove('active');
             });
 
+            const langLabels = { ru: 'Ру', en: 'En', uk: 'Укр', zh: '中文' };
+
             langMenu.querySelectorAll('[data-lang]').forEach(btn => {
                 btn.addEventListener('click', function() {
                     const lang = this.dataset.lang;
                     if (typeof I18N !== 'undefined') {
                         I18N.setLanguage(lang);
                     }
-                    currentLang.textContent = lang.toUpperCase();
+                    currentLang.textContent = langLabels[lang] || lang.toUpperCase();
                     langMenu.classList.remove('active');
                 });
             });
 
             const storedLang = localStorage.getItem('lang') || 'ru';
-            currentLang.textContent = storedLang.toUpperCase();
+            currentLang.textContent = langLabels[storedLang] || storedLang.toUpperCase();
         }
     }
 
     const footerPlaceholder = document.getElementById('footer-placeholder');
     if (footerPlaceholder) {
         footerPlaceholder.innerHTML = footerHTML;
+        const yearEl = document.getElementById('footer-year');
+        if (yearEl) yearEl.textContent = new Date().getFullYear();
     }
 });

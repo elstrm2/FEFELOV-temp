@@ -33,9 +33,9 @@ const I18N = {
             this.updateLangSwitcher();
         } catch (error) {
             console.error('i18n error:', error);
-            if (lang !== this.defaultLang) {
-                this.loadTranslations(this.defaultLang);
-            }
+            document.body.classList.remove('i18n-loading');
+            const langBtn = document.getElementById('lang-btn');
+            if (langBtn) langBtn.style.display = 'none';
         }
     },
 
@@ -43,13 +43,7 @@ const I18N = {
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.dataset.i18n;
             const text = this.getNestedValue(key);
-            if (text) {
-                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-                    el.placeholder = text;
-                } else {
-                    el.textContent = text;
-                }
-            }
+            if (text) el.textContent = text;
         });
 
         document.querySelectorAll('[data-i18n-html]').forEach(el => {
@@ -64,6 +58,12 @@ const I18N = {
             if (text) el.title = text;
         });
 
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+            const key = el.dataset.i18nPlaceholder;
+            const text = this.getNestedValue(key);
+            if (text) el.placeholder = text;
+        });
+
         const titleEl = document.querySelector('title');
         if (titleEl && titleEl.dataset.i18n) {
             const text = this.getNestedValue(titleEl.dataset.i18n);
@@ -75,9 +75,12 @@ const I18N = {
             const text = this.getNestedValue(descEl.dataset.i18n);
             if (text) descEl.content = text;
         }
+
+        document.body.classList.remove('i18n-loading');
     },
 
     getNestedValue(key) {
+        if (!key) return null;
         return key.split('.').reduce((obj, k) => obj?.[k], this.translations);
     },
 

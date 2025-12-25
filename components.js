@@ -11,6 +11,20 @@ const commonStyles = `
     .contact-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
     .contact-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.1); }
 
+    .schedule-bg {
+        background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #4facfe, #667eea);
+        background-size: 400% 400%;
+        animation: schedule-gradient 8s ease infinite;
+    }
+    .schedule-card:hover .schedule-bg {
+        animation-duration: 3s;
+    }
+    @keyframes schedule-gradient {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
     .logo-gradient {
         background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe, #667eea);
         background-size: 300% 100%;

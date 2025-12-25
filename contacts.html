@@ -90,64 +90,18 @@
                     <p class="font-medium" data-i18n="contacts.phone.value">+7 999 886-66-99</p>
                 </a>
 
-                <div class="contact-card bg-white border border-stone-200 rounded-2xl p-5 sm:p-8">
-                    <div class="w-12 h-12 bg-stone-900 rounded-xl flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6 text-stone-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                    </div>
-                    <h3 class="text-lg font-semibold mb-2" data-i18n="contacts.schedule.title">Режим работы</h3>
-                    <p class="text-stone-600 text-sm mb-4" data-i18n="contacts.schedule.text">Время ответа на сообщения</p>
-                    <p class="font-medium" data-i18n="contacts.schedule.value">Пн–Пт: 10:00–20:00 МСК</p>
-                </div>
-
-            </div>
-
-            <div class="bg-white border border-stone-200 rounded-2xl p-5 sm:p-8 mb-12">
-                <h2 class="text-xl font-semibold mb-6" data-i18n="contacts.requisites.title">Реквизиты</h2>
-                <div class="grid md:grid-cols-2 gap-6 text-sm">
-                    <div>
-                        <p class="text-stone-500 mb-1" data-i18n="contacts.requisites.ip">ИП</p>
-                        <p class="font-medium" data-i18n="contacts.requisites.ip_value">Басенко Илья Константинович</p>
-                    </div>
-                    <div>
-                        <p class="text-stone-500 mb-1" data-i18n="contacts.requisites.ogrnip">ОГРНИП</p>
-                        <p class="font-medium" data-i18n="contacts.requisites.ogrnip_value">325774600531587</p>
-                    </div>
-                    <div>
-                        <p class="text-stone-500 mb-1" data-i18n="contacts.requisites.inn">ИНН</p>
-                        <p class="font-medium" data-i18n="contacts.requisites.inn_value">772370980295</p>
-                    </div>
-                    <div>
-                        <p class="text-stone-500 mb-1" data-i18n="contacts.requisites.okpo">ОКПО</p>
-                        <p class="font-medium" data-i18n="contacts.requisites.okpo_value">2044454351</p>
-                    </div>
-                    <div>
-                        <p class="text-stone-500 mb-1" data-i18n="contacts.requisites.region">Регион</p>
-                        <p class="font-medium" data-i18n="contacts.requisites.region_value">г. Москва</p>
-                    </div>
-                    <div>
-                        <p class="text-stone-500 mb-1" data-i18n="contacts.requisites.tax">Налоговый орган</p>
-                        <p class="font-medium" data-i18n="contacts.requisites.tax_value">ИФНС №23 по г. Москве</p>
+                <div class="contact-card schedule-card relative overflow-hidden rounded-2xl p-5 sm:p-8">
+                    <div class="schedule-bg absolute inset-0"></div>
+                    <div class="relative z-10">
+                        <div class="w-12 h-12 bg-white/90 backdrop-blur rounded-xl flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2 text-white" data-i18n="contacts.schedule.title">Режим работы</h3>
+                        <p class="text-white/70 text-sm mb-4" data-i18n="contacts.schedule.text">Время ответа на сообщения</p>
+                        <p class="font-medium text-white" data-i18n="contacts.schedule.value">Пн–Пт: 10:00–20:00 МСК</p>
                     </div>
                 </div>
-            </div>
 
-            <div class="bg-amber-50 border border-amber-200 rounded-2xl p-6">
-                <h3 class="font-semibold mb-3" data-i18n="contacts.notice.title">Перед обращением</h3>
-                <p class="text-sm text-amber-900 mb-4" data-i18n="contacts.notice.text">
-                    Обращаясь к нам, вы автоматически принимаете условия публичной оферты, политику конфиденциальности и условия возврата средств.
-                    Работаем по устному или письменному договору — в любом случае все документы принимаются при обращении.
-                </p>
-                <div class="flex flex-wrap gap-3">
-                    <a href="terms.html" class="inline-flex items-center bg-white px-4 py-2 rounded-full text-sm font-medium hover:bg-stone-50 transition-colors" data-i18n="contacts.notice.terms_link">
-                        Публичная оферта →
-                    </a>
-                    <a href="privacy.html" class="inline-flex items-center bg-white px-4 py-2 rounded-full text-sm font-medium hover:bg-stone-50 transition-colors" data-i18n="contacts.notice.privacy_link">
-                        Конфиденциальность →
-                    </a>
-                    <a href="refund.html" class="inline-flex items-center bg-white px-4 py-2 rounded-full text-sm font-medium hover:bg-stone-50 transition-colors" data-i18n="contacts.notice.refund_link">
-                        Возврат средств →
-                    </a>
-                </div>
             </div>
 
         </div>

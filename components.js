@@ -367,7 +367,7 @@ const commonStyles = `
         to { fill-opacity: 0.15; }
     }
 
-    .svg-bg-redraw path, .svg-bg-redraw rect, .svg-bg-redraw circle, .svg-bg-redraw line, .svg-bg-redraw ellipse {
+    .svg-bg-redraw path, .svg-bg-redraw rect, .svg-bg-redraw circle, .svg-bg-redraw line, .svg-bg-redraw ellipse, .svg-bg-redraw polyline, .svg-bg-redraw polygon {
         stroke-dasharray: 200;
         stroke-dashoffset: 200;
         fill: none;

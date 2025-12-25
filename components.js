@@ -350,6 +350,8 @@ const commonStyles = `
     .svg-draw .draw-6 { animation-delay: 1s; }
     .svg-draw .draw-7 { animation-delay: 1.2s; }
     .svg-draw .draw-8 { animation-delay: 1.4s; }
+    .svg-draw .draw-9 { animation-delay: 1.6s; }
+    .svg-draw .draw-10 { animation-delay: 1.8s; }
 
     @keyframes svgDraw {
         to { stroke-dashoffset: 0; }
@@ -362,6 +364,56 @@ const commonStyles = `
     }
     @keyframes svgFillIn {
         to { fill-opacity: 0.15; }
+    }
+
+    .svg-bg-redraw path, .svg-bg-redraw rect, .svg-bg-redraw circle, .svg-bg-redraw line, .svg-bg-redraw ellipse {
+        stroke-dasharray: 200;
+        stroke-dashoffset: 200;
+        fill: none;
+    }
+    .svg-bg-redraw .redraw-1 { animation: svgDrawFirst 1.5s ease forwards 0s, svgRedraw 8s ease-in-out infinite 2s; }
+    .svg-bg-redraw .redraw-2 { animation: svgDrawFirst 1.5s ease forwards 0.15s, svgRedraw 10s ease-in-out infinite 2.5s; }
+    .svg-bg-redraw .redraw-3 { animation: svgDrawFirst 1.5s ease forwards 0.3s, svgRedraw 12s ease-in-out infinite 3s; }
+    .svg-bg-redraw .redraw-4 { animation: svgDrawFirst 1.5s ease forwards 0.45s, svgRedraw 9s ease-in-out infinite 3.5s; }
+    .svg-bg-redraw .redraw-5 { animation: svgDrawFirst 1.5s ease forwards 0.6s, svgRedraw 11s ease-in-out infinite 4s; }
+    .svg-bg-redraw .redraw-6 { animation: svgDrawFirst 1.5s ease forwards 0.75s, svgRedraw 7s ease-in-out infinite 4.5s; }
+    .svg-bg-redraw .redraw-7 { animation: svgDrawFirst 1.5s ease forwards 0.9s, svgRedraw 13s ease-in-out infinite 5s; }
+    .svg-bg-redraw .redraw-8 { animation: svgDrawFirst 1.5s ease forwards 1.05s, svgRedraw 10s ease-in-out infinite 5.5s; }
+    .svg-bg-redraw .redraw-9 { animation: svgDrawFirst 1.5s ease forwards 1.2s, svgRedraw 8s ease-in-out infinite 6s; }
+    .svg-bg-redraw .redraw-10 { animation: svgDrawFirst 1.5s ease forwards 1.35s, svgRedraw 14s ease-in-out infinite 6.5s; }
+
+    @keyframes svgDrawFirst {
+        0% { stroke-dashoffset: 200; opacity: 0; }
+        10% { opacity: 1; }
+        100% { stroke-dashoffset: 0; opacity: 1; }
+    }
+
+    @keyframes svgRedraw {
+        0%, 40% { stroke-dashoffset: 0; opacity: 1; }
+        50% { stroke-dashoffset: 200; opacity: 0.3; }
+        60% { stroke-dashoffset: 200; opacity: 0.3; }
+        100% { stroke-dashoffset: 0; opacity: 1; }
+    }
+
+    .svg-bg-blur {
+        filter: blur(0.5px);
+        opacity: 0.15;
+    }
+
+    .service-card .svg-bg-full {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        pointer-events: none;
+    }
+    .service-card .svg-bg-full svg {
+        width: 100%;
+        height: 100%;
+        opacity: 0.12;
+        filter: blur(0.3px);
+    }
+    .service-card:hover .svg-bg-full svg {
+        opacity: 0.18;
     }
 `;
 

@@ -281,7 +281,7 @@ const commonStyles = `
     .section-highlight {
         position: relative;
         padding-left: 0;
-        animation: textSlideRight 0.8s ease forwards;
+        animation: textSlideRight 0.5s ease forwards;
     }
     .section-highlight::before {
         content: '';
@@ -293,7 +293,7 @@ const commonStyles = `
         background: linear-gradient(180deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe, #667eea);
         background-size: 100% 300%;
         border-radius: 2px;
-        animation: leftLineGrow 0.8s ease forwards, sectionGradientShift 4s ease infinite 0.8s;
+        animation: leftLineGrow 0.6s ease 0.5s forwards, sectionGradientShift 4s ease infinite 1.1s;
     }
     @keyframes textSlideRight {
         0% { padding-left: 0; }

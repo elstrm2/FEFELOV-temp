@@ -376,9 +376,19 @@
 
     <section id="divisions" class="py-24 sm:py-32">
         <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-            <div class="mb-14 sm:mb-16">
-                <p class="text-sm sm:text-base font-medium text-stone-500 mb-3 tracking-wide uppercase" data-i18n="index.divisions.label">Структура</p>
-                <h2 class="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight" data-i18n="index.divisions.title">Подразделения</h2>
+            <div class="mb-14 sm:mb-16 relative">
+                <div class="section-note-wrapper inline-block relative cursor-default">
+                    <svg class="section-note absolute -left-4 sm:-left-5 -top-3 sm:-top-4 w-[calc(100%+2rem)] sm:w-[calc(100%+2.5rem)] h-[calc(100%+1.5rem)] sm:h-[calc(100%+2rem)] pointer-events-none" viewBox="0 0 320 120" fill="none" preserveAspectRatio="none">
+                        <path class="note-fill" d="M8 8 L290 8 Q304 8 304 22 L304 90 Q304 104 290 104 L22 104 Q8 104 8 90 L8 22 Q8 8 22 8 Z" fill="#dbeafe"/>
+                        <path class="note-outline" d="M8 8 L290 8 Q304 8 304 22 L304 90 Q304 104 290 104 L22 104 Q8 104 8 90 L8 22 Q8 8 22 8 Z" stroke="#93c5fd" stroke-width="2" fill="none"/>
+                        <path class="note-corner-fill" d="M266 8 L290 8 Q304 8 304 22 L304 46 Q290 46 278 34 Q266 22 266 8 Z" fill="#bfdbfe"/>
+                        <path class="note-corner" d="M266 8 Q266 22 278 34 Q290 46 304 46" stroke="#60a5fa" stroke-width="1.5" fill="none"/>
+                    </svg>
+                    <div class="section-text-content relative z-10">
+                        <p class="text-label text-sm sm:text-base font-medium text-stone-500 mb-3 tracking-wide uppercase" data-i18n="index.divisions.label">Структура</p>
+                        <h2 class="text-title text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight" data-i18n="index.divisions.title">Подразделения</h2>
+                    </div>
+                </div>
             </div>
 
             <div class="grid md:grid-cols-2 gap-5 sm:gap-6">
@@ -455,7 +465,16 @@
 
     <section class="py-16 sm:py-20">
         <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-            <div class="bg-stone-900 text-stone-50 rounded-3xl p-8 sm:p-14 md:p-20 text-center">
+            <div class="bg-stone-900 text-stone-50 rounded-3xl p-8 sm:p-14 md:p-20 text-center relative overflow-hidden">
+                <div class="section-note-wrapper inline-block relative cursor-default mb-8">
+                    <svg class="section-note absolute -left-4 sm:-left-5 -top-3 sm:-top-4 w-[calc(100%+2rem)] sm:w-[calc(100%+2.5rem)] h-[calc(100%+1.5rem)] sm:h-[calc(100%+2rem)] pointer-events-none" viewBox="0 0 320 80" fill="none" preserveAspectRatio="none">
+                        <path class="note-fill" d="M8 8 L290 8 Q304 8 304 22 L304 58 Q304 72 290 72 L22 72 Q8 72 8 58 L8 22 Q8 8 22 8 Z" fill="#d1fae5"/>
+                        <path class="note-outline" d="M8 8 L290 8 Q304 8 304 22 L304 58 Q304 72 290 72 L22 72 Q8 72 8 58 L8 22 Q8 8 22 8 Z" stroke="#6ee7b7" stroke-width="2" fill="none"/>
+                        <path class="note-corner-fill" d="M270 8 L290 8 Q304 8 304 22 L304 42 Q290 42 280 32 Q270 22 270 8 Z" fill="#a7f3d0"/>
+                        <path class="note-corner" d="M270 8 Q270 22 280 32 Q290 42 304 42" stroke="#34d399" stroke-width="1.5" fill="none"/>
+                    </svg>
+                    <p class="section-text-content text-label relative z-10 text-sm sm:text-base font-medium text-emerald-400 tracking-wide uppercase px-2" data-i18n="index.cta.label">Связаться</p>
+                </div>
                 <h2 class="text-3xl sm:text-4xl md:text-5xl font-semibold mb-5 sm:mb-6" data-i18n="index.cta.title">Готовы обсудить проект?</h2>
                 <p class="text-stone-400 text-base sm:text-lg mb-10 sm:mb-12 max-w-2xl mx-auto" data-i18n="index.cta.text">Напишите нам — обсудим задачу, сроки и стоимость. Ответим в рабочее время: пн-пт, 10:00–20:00 МСК.</p>
                 <a href="contacts.html" class="inline-flex items-center justify-center btn-gradient-border-light bg-stone-50 text-stone-900 px-10 sm:px-12 py-4 sm:py-5 text-base sm:text-lg font-medium rounded-full">

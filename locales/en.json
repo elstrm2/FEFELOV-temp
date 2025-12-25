@@ -101,6 +101,7 @@
       "region_value": "Moscow"
     },
     "cta": {
+      "label": "Contact",
       "title": "Ready to Discuss a Project?",
       "text": "Write to us — we'll discuss the task, deadlines and cost. We respond during business hours: Mon-Fri, 10:00-20:00 MSK.",
       "btn": "Write"

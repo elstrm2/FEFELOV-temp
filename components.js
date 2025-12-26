@@ -188,6 +188,35 @@ const commonStyles = `
     .lang-menu { display: none; }
     .lang-menu.active { display: block; }
 
+    .lang-btn-expand {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow: hidden;
+        width: 44px;
+        height: 44px;
+    }
+    .lang-btn-expand .lang-text,
+    .lang-btn-expand .lang-arrow {
+        opacity: 0;
+        max-width: 0;
+        margin-left: 0;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .lang-btn-expand:hover {
+        width: auto;
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+    .lang-btn-expand:hover .lang-text {
+        opacity: 1;
+        max-width: 50px;
+        margin-left: 8px;
+    }
+    .lang-btn-expand:hover .lang-arrow {
+        opacity: 1;
+        max-width: 20px;
+        margin-left: 4px;
+    }
+
     .service-card {
         position: relative;
         overflow: hidden;
@@ -595,10 +624,10 @@ const headerHTML = `
             </nav>
             <div class="flex items-center gap-3">
                 <div class="relative z-10">
-                    <button id="lang-btn" class="flex items-center gap-2 px-4 sm:px-5 py-2.5 text-base font-medium text-stone-600 hover:text-stone-900 bg-white/60 border border-stone-200 rounded-full hover:bg-white transition-all" aria-label="Выбор языка" aria-expanded="false" aria-haspopup="true" aria-controls="lang-menu">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
-                        <span id="current-lang">Ру</span>
-                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    <button id="lang-btn" class="lang-btn-expand flex items-center justify-center p-2.5 text-base font-medium text-stone-600 hover:text-stone-900 bg-white/60 border border-stone-200 rounded-full hover:bg-white" aria-label="Выбор языка" aria-expanded="false" aria-haspopup="true" aria-controls="lang-menu">
+                        <svg class="lang-icon w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+                        <span id="current-lang" class="lang-text">Ру</span>
+                        <svg class="lang-arrow w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </button>
                     <div id="lang-menu" class="lang-menu absolute right-0 top-full mt-2 bg-white border border-stone-200 rounded-xl shadow-lg py-2 min-w-[160px] z-50" role="menu">
                         <button data-lang="ru" class="w-full px-5 py-2.5 text-left text-base hover:bg-stone-50 transition-colors" role="menuitem">Русский</button>

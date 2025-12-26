@@ -111,6 +111,13 @@ const commonStyles = `
     .logo-text, .logo-dot {
         display: inline-block;
     }
+    .logo-dot {
+        transition: opacity 0.2s ease;
+    }
+    @keyframes logoPulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.15); filter: drop-shadow(0 0 8px rgba(102, 126, 234, 0.6)); }
+    }
     @keyframes gradient-shift {
         0% { background-position: 0% 50%; }
         50% { background-position: 100% 50%; }
@@ -624,6 +631,197 @@ const commonStyles = `
     @keyframes langIconEn { 0%, 100% { transform: translateY(-50%) translateX(0); } 25% { transform: translateY(-50%) translateX(3px); } 50% { transform: translateY(-50%) translateX(1px); } 75% { transform: translateY(-50%) translateX(4px); } }
     @keyframes langIconUk { 0%, 100% { transform: translateY(-50%) scale(1) rotate(0deg); } 33% { transform: translateY(-50%) scale(1.15) rotate(120deg); } 66% { transform: translateY(-50%) scale(0.9) rotate(240deg); } }
     @keyframes langIconZh { 0%, 100% { transform: translateY(-50%) scale(1) translateX(0); } 25% { transform: translateY(-53%) scale(1.05) translateX(2px); } 50% { transform: translateY(-47%) scale(1.1) translateX(-1px); } 75% { transform: translateY(-52%) scale(0.95) translateX(1px); } }
+
+    /* Hero Section */
+    .hero-blob {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.4;
+        pointer-events: none;
+        will-change: transform;
+    }
+    .hero-blob-1 {
+        width: 400px;
+        height: 400px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        top: 5%;
+        right: 10%;
+        animation: blobFloat1 20s ease-in-out infinite;
+    }
+    .hero-blob-2 {
+        width: 300px;
+        height: 300px;
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        bottom: 20%;
+        left: 5%;
+        animation: blobFloat2 25s ease-in-out infinite;
+    }
+    .hero-blob-3 {
+        width: 250px;
+        height: 250px;
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        top: 40%;
+        right: 25%;
+        animation: blobFloat3 18s ease-in-out infinite;
+    }
+    @keyframes blobFloat1 {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        25% { transform: translate(-30px, 40px) scale(1.05); }
+        50% { transform: translate(20px, -20px) scale(0.95); }
+        75% { transform: translate(-15px, -30px) scale(1.02); }
+    }
+    @keyframes blobFloat2 {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        33% { transform: translate(40px, -30px) scale(1.08); }
+        66% { transform: translate(-20px, 20px) scale(0.92); }
+    }
+    @keyframes blobFloat3 {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        20% { transform: translate(25px, 35px) scale(1.03); }
+        40% { transform: translate(-35px, 15px) scale(0.97); }
+        60% { transform: translate(15px, -25px) scale(1.05); }
+        80% { transform: translate(-20px, -15px) scale(0.98); }
+    }
+
+    .hero-terminal {
+        background: linear-gradient(145deg, #1a1a2e 0%, #0f0f1a 100%);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 25px 80px -20px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+    }
+    .hero-terminal-header {
+        background: rgba(255, 255, 255, 0.03);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        padding: 12px 16px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .hero-terminal-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+    }
+    .hero-terminal-dot-red { background: #ff5f56; }
+    .hero-terminal-dot-yellow { background: #ffbd2e; }
+    .hero-terminal-dot-green { background: #27ca40; }
+    .hero-terminal-body {
+        padding: 20px;
+        font-family: 'JetBrains Mono', 'Fira Code', monospace;
+        font-size: 13px;
+        line-height: 1.6;
+        color: #a8b2d1;
+        min-height: 180px;
+    }
+    .hero-terminal-line {
+        margin-bottom: 8px;
+        opacity: 0;
+        transform: translateY(10px);
+        animation: terminalLineAppear 0.4s ease forwards;
+    }
+    .hero-terminal-prompt { color: #64ffda; }
+    .hero-terminal-command { color: #e6e6e6; }
+    .hero-terminal-output { color: #8892b0; }
+    .hero-terminal-success { color: #64ffda; }
+    .hero-terminal-warning { color: #ffbd2e; }
+    .hero-terminal-cursor {
+        display: inline-block;
+        width: 8px;
+        height: 16px;
+        background: #64ffda;
+        animation: cursorBlink 1s step-end infinite;
+        vertical-align: middle;
+        margin-left: 2px;
+    }
+    @keyframes terminalLineAppear {
+        to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes cursorBlink {
+        0%, 50% { opacity: 1; }
+        51%, 100% { opacity: 0; }
+    }
+
+    .hero-floating-icon {
+        position: absolute;
+        opacity: 0.15;
+        pointer-events: none;
+        will-change: transform;
+    }
+    .hero-floating-icon svg {
+        width: 100%;
+        height: 100%;
+        stroke: currentColor;
+        stroke-width: 1.5;
+        fill: none;
+    }
+    .hero-icon-1 { width: 60px; height: 60px; top: 15%; left: 8%; color: #667eea; animation: iconFloat1 12s ease-in-out infinite; }
+    .hero-icon-2 { width: 45px; height: 45px; top: 25%; right: 15%; color: #f093fb; animation: iconFloat2 15s ease-in-out infinite; }
+    .hero-icon-3 { width: 55px; height: 55px; bottom: 30%; left: 12%; color: #4facfe; animation: iconFloat3 10s ease-in-out infinite; }
+    .hero-icon-4 { width: 40px; height: 40px; top: 60%; right: 8%; color: #f5576c; animation: iconFloat4 14s ease-in-out infinite; }
+    .hero-icon-5 { width: 50px; height: 50px; bottom: 15%; right: 20%; color: #764ba2; animation: iconFloat5 11s ease-in-out infinite; }
+    .hero-icon-6 { width: 35px; height: 35px; top: 45%; left: 5%; color: #00f2fe; animation: iconFloat6 13s ease-in-out infinite; }
+    @keyframes iconFloat1 { 0%, 100% { transform: translate(0, 0) rotate(0deg); } 50% { transform: translate(15px, -20px) rotate(10deg); } }
+    @keyframes iconFloat2 { 0%, 100% { transform: translate(0, 0) rotate(0deg); } 33% { transform: translate(-20px, 15px) rotate(-8deg); } 66% { transform: translate(10px, -10px) rotate(5deg); } }
+    @keyframes iconFloat3 { 0%, 100% { transform: translate(0, 0) rotate(0deg); } 50% { transform: translate(20px, 25px) rotate(-12deg); } }
+    @keyframes iconFloat4 { 0%, 100% { transform: translate(0, 0) rotate(0deg); } 25% { transform: translate(-15px, -15px) rotate(8deg); } 75% { transform: translate(10px, 20px) rotate(-6deg); } }
+    @keyframes iconFloat5 { 0%, 100% { transform: translate(0, 0) rotate(0deg); } 40% { transform: translate(-25px, 10px) rotate(-10deg); } 80% { transform: translate(15px, -15px) rotate(7deg); } }
+    @keyframes iconFloat6 { 0%, 100% { transform: translate(0, 0) rotate(0deg); } 50% { transform: translate(18px, 18px) rotate(15deg); } }
+
+    .hero-service-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 18px;
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: 500;
+        color: #44403c;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: default;
+        white-space: nowrap;
+    }
+    .hero-service-pill:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.15);
+        background: #fff;
+    }
+    .hero-service-pill svg {
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
+    }
+    .hero-service-pill-edu { --pill-color: #6366f1; }
+    .hero-service-pill-edu svg { color: var(--pill-color); }
+    .hero-service-pill-edu:hover { border-color: var(--pill-color); }
+    .hero-service-pill-it { --pill-color: #10b981; }
+    .hero-service-pill-it svg { color: var(--pill-color); }
+    .hero-service-pill-it:hover { border-color: var(--pill-color); }
+
+    .hero-pills-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 2rem;
+    }
+
+    @media (max-width: 1024px) {
+        .hero-blob { opacity: 0.25; }
+        .hero-blob-1 { width: 250px; height: 250px; }
+        .hero-blob-2 { width: 200px; height: 200px; }
+        .hero-blob-3 { width: 150px; height: 150px; }
+        .hero-floating-icon { opacity: 0.08; }
+    }
+    @media (max-width: 640px) {
+        .hero-blob { opacity: 0.2; filter: blur(60px); }
+        .hero-floating-icon { display: none; }
+        .hero-terminal { display: none; }
+    }
 `;
 
 const headerHTML = `
@@ -763,6 +961,69 @@ document.addEventListener('DOMContentLoaded', function() {
                     langBtn.setAttribute('aria-expanded', 'false');
                 });
             });
+        }
+
+        // Logo animation
+        const logoText = document.querySelector('.logo-text');
+        const logoDot = document.querySelector('.logo-dot');
+        const logoContainer = document.querySelector('.logo-container');
+
+        if (logoText && logoDot) {
+            const fullText = 'FEFELOV';
+            let logoAnimationTimer = null;
+            let isLogoAnimating = false;
+
+            function animateLogo() {
+                if (isLogoAnimating) return;
+                isLogoAnimating = true;
+
+                let currentLength = fullText.length;
+
+                // Phase 1: Remove letters one by one (including dot first)
+                const removeInterval = setInterval(() => {
+                    if (currentLength > 1) {
+                        currentLength--;
+                        logoText.textContent = fullText.substring(0, currentLength);
+                        if (currentLength === fullText.length - 1) {
+                            logoDot.style.opacity = '0';
+                        }
+                    } else {
+                        clearInterval(removeInterval);
+                        // Phase 2: F pulses
+                        logoText.style.animation = 'logoPulse 0.3s ease-in-out 4';
+
+                        setTimeout(() => {
+                            logoText.style.animation = '';
+                            // Phase 3: Fast "shot" - write all letters quickly
+                            let shotIndex = 1;
+                            const shotInterval = setInterval(() => {
+                                if (shotIndex <= fullText.length) {
+                                    logoText.textContent = fullText.substring(0, shotIndex);
+                                    shotIndex++;
+                                } else {
+                                    clearInterval(shotInterval);
+                                    logoDot.style.opacity = '1';
+                                    isLogoAnimating = false;
+                                }
+                            }, 100);
+                        }, 1200);
+                    }
+                }, 300);
+            }
+
+            function resetLogoAnimation() {
+                if (logoAnimationTimer) clearTimeout(logoAnimationTimer);
+                isLogoAnimating = false;
+                logoText.textContent = fullText;
+                logoText.style.animation = '';
+                logoDot.style.opacity = '1';
+                logoAnimationTimer = setTimeout(animateLogo, 30000);
+            }
+
+            logoContainer.addEventListener('mouseenter', resetLogoAnimation);
+            logoContainer.addEventListener('click', resetLogoAnimation);
+
+            logoAnimationTimer = setTimeout(animateLogo, 30000);
         }
     }
 

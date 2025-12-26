@@ -614,9 +614,9 @@ const headerHTML = `
 const footerHTML = `
 <footer class="py-8 sm:py-10 border-t border-stone-200">
     <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-6">
+        <div class="flex flex-col sm:flex-row items-center sm:justify-between gap-4 sm:gap-6 text-center sm:text-left">
             <p class="text-base text-stone-500 order-2 sm:order-1">© 2025–<span id="footer-year"></span>. <span data-i18n="common.footer.copyright">ИП Басенко И. К.</span></p>
-            <nav class="flex items-center gap-3 order-1 sm:order-2">
+            <nav class="flex items-center justify-center sm:justify-start gap-3 order-1 sm:order-2">
                 <a href="terms.html" class="text-base text-stone-500 hover:text-stone-900 transition-colors" data-i18n="common.footer.terms">Оферта</a>
                 <span class="text-stone-400">·</span>
                 <a href="privacy.html" class="text-base text-stone-500 hover:text-stone-900 transition-colors" data-i18n="common.footer.privacy">Конфиденциальность</a>

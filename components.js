@@ -189,7 +189,7 @@ const commonStyles = `
     .lang-menu.active { display: block; }
 
     .lang-btn-expand {
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1), padding 0.35s cubic-bezier(0.4, 0, 0.2, 1), background 0.2s ease;
         overflow: hidden;
         width: 44px;
         height: 44px;
@@ -199,19 +199,22 @@ const commonStyles = `
         opacity: 0;
         max-width: 0;
         margin-left: 0;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: opacity 0.25s ease, max-width 0.35s cubic-bezier(0.4, 0, 0.2, 1), margin 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .lang-btn-expand:hover {
+    .lang-btn-expand:hover,
+    .lang-btn-expand[aria-expanded="true"] {
         width: auto;
         padding-left: 14px;
         padding-right: 14px;
     }
-    .lang-btn-expand:hover .lang-text {
+    .lang-btn-expand:hover .lang-text,
+    .lang-btn-expand[aria-expanded="true"] .lang-text {
         opacity: 1;
         max-width: 50px;
         margin-left: 8px;
     }
-    .lang-btn-expand:hover .lang-arrow {
+    .lang-btn-expand:hover .lang-arrow,
+    .lang-btn-expand[aria-expanded="true"] .lang-arrow {
         opacity: 1;
         max-width: 20px;
         margin-left: 4px;
@@ -738,6 +741,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 e.stopPropagation();
                 langMenu.classList.toggle('active');
                 langBtn.setAttribute('aria-expanded', langMenu.classList.contains('active'));
+            });
+
+            langMenu.addEventListener('click', function(e) {
+                e.stopPropagation();
             });
 
             document.addEventListener('click', function() {

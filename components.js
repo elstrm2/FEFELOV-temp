@@ -86,6 +86,11 @@ const commonStyles = `
         color: transparent;
         animation: gradient-shift 4s ease infinite;
     }
+    .footer-dot {
+        display: inline-block;
+        width: 12px;
+        text-align: center;
+    }
     .logo-text {
         color: #0a0a0a;
         -webkit-text-fill-color: #0a0a0a;
@@ -987,6 +992,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     } else {
                         clearInterval(removeInterval);
                         logoText.style.animation = 'logoPulse 0.3s ease-in-out 4';
+                        if (typeof window.animateFooterDots === 'function') window.animateFooterDots();
 
                         setTimeout(() => {
                             logoText.style.animation = '';
@@ -1012,6 +1018,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 logoText.textContent = fullText;
                 logoText.style.animation = '';
                 logoDot.style.opacity = '1';
+                if (typeof window.cancelFooterDots === 'function') window.cancelFooterDots();
                 logoAnimationTimer = setTimeout(animateLogo, 30000);
             }
 
@@ -1031,27 +1038,35 @@ document.addEventListener('DOMContentLoaded', function() {
         const footerDots = document.querySelectorAll('.footer-dot');
         if (footerDots.length > 0) {
             const spinnerFrames = ['·', '/', '—', '\\', '|', '\\', '—', '/'];
-            let isAnimating = false;
+            let dotsAnimating = false;
+            let dotsInterval = null;
 
-            function animateDots() {
-                if (isAnimating) return;
-                isAnimating = true;
+            window.animateFooterDots = function() {
+                if (dotsAnimating) return;
+                dotsAnimating = true;
                 let frame = 0;
-                const interval = setInterval(() => {
+                dotsInterval = setInterval(() => {
                     footerDots.forEach(dot => {
                         dot.textContent = spinnerFrames[frame % spinnerFrames.length];
                     });
                     frame++;
-                    if (frame >= spinnerFrames.length * 4) {
-                        clearInterval(interval);
+                    if (frame >= spinnerFrames.length) {
+                        clearInterval(dotsInterval);
+                        dotsInterval = null;
                         footerDots.forEach(dot => dot.textContent = '·');
-                        isAnimating = false;
+                        dotsAnimating = false;
                     }
-                }, 150);
-            }
+                }, 250);
+            };
 
-            setInterval(animateDots, 30000);
-            setTimeout(animateDots, 5000);
+            window.cancelFooterDots = function() {
+                if (dotsInterval) {
+                    clearInterval(dotsInterval);
+                    dotsInterval = null;
+                }
+                footerDots.forEach(dot => dot.textContent = '·');
+                dotsAnimating = false;
+            };
         }
     }
 

@@ -570,36 +570,34 @@ const commonStyles = `
     }
 
     #lang-menu button {
-        position: relative;
         color: #57534e;
         border-radius: 10px;
-        overflow: hidden;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         padding: 10px 16px;
         display: flex;
         align-items: center;
+        gap: 0;
     }
 
-    #lang-menu button::before {
-        content: '';
-        position: absolute;
-        left: -20px;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 14px;
+    #lang-menu button .lang-icon {
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
         opacity: 0;
+        margin-right: 0;
+        transform: translateX(-10px);
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     #lang-menu button:hover {
         color: #1c1917;
         background: #f5f5f4;
-        padding-left: 36px;
     }
 
-    #lang-menu button:hover::before {
-        left: 12px;
+    #lang-menu button:hover .lang-icon {
         opacity: 1;
+        margin-right: 10px;
+        transform: translateX(0);
     }
 
     #lang-menu button.active {
@@ -607,30 +605,32 @@ const commonStyles = `
         color: #1c1917;
     }
 
-    #lang-menu button[data-lang="ru"]::before { content: '❄'; background: linear-gradient(135deg, #67e8f9, #0ea5e9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    #lang-menu button[data-lang="ru"]:hover::before { animation: langIconRu 2s ease-in-out infinite; }
-    #lang-menu button[data-lang="ru"].active { padding-left: 36px; }
-    #lang-menu button[data-lang="ru"].active::before { left: 12px; opacity: 1; font-size: 15px; filter: drop-shadow(0 0 4px rgba(14, 165, 233, 0.5)); animation: langIconRu 2s ease-in-out infinite; }
+    #lang-menu button.active .lang-icon {
+        opacity: 1;
+        margin-right: 10px;
+        transform: translateX(0);
+    }
 
-    #lang-menu button[data-lang="en"]::before { content: '>'; font-family: monospace; font-weight: bold; background: linear-gradient(135deg, #4ade80, #22c55e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    #lang-menu button[data-lang="en"]:hover::before { animation: langIconEn 1.2s ease-in-out infinite; }
-    #lang-menu button[data-lang="en"].active { padding-left: 36px; }
-    #lang-menu button[data-lang="en"].active::before { left: 12px; opacity: 1; font-size: 15px; filter: drop-shadow(0 0 4px rgba(34, 197, 94, 0.5)); animation: langIconEn 1.2s ease-in-out infinite; }
+    #lang-menu button[data-lang="ru"] .lang-icon { color: #0ea5e9; filter: drop-shadow(0 0 3px rgba(14, 165, 233, 0.4)); }
+    #lang-menu button[data-lang="ru"]:hover .lang-icon,
+    #lang-menu button[data-lang="ru"].active .lang-icon { animation: langIconRu 2s ease-in-out infinite; }
 
-    #lang-menu button[data-lang="uk"]::before { content: '✦'; background: linear-gradient(135deg, #fcd34d, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    #lang-menu button[data-lang="uk"]:hover::before { animation: langIconUk 2.5s ease-in-out infinite; }
-    #lang-menu button[data-lang="uk"].active { padding-left: 36px; }
-    #lang-menu button[data-lang="uk"].active::before { left: 12px; opacity: 1; font-size: 15px; filter: drop-shadow(0 0 4px rgba(245, 158, 11, 0.5)); animation: langIconUk 2.5s ease-in-out infinite; }
+    #lang-menu button[data-lang="en"] .lang-icon { color: #22c55e; filter: drop-shadow(0 0 3px rgba(34, 197, 94, 0.4)); }
+    #lang-menu button[data-lang="en"]:hover .lang-icon,
+    #lang-menu button[data-lang="en"].active .lang-icon { animation: langIconEn 1.2s ease-in-out infinite; }
 
-    #lang-menu button[data-lang="zh"]::before { content: '☁'; font-size: 15px; background: linear-gradient(135deg, #f87171, #dc2626); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    #lang-menu button[data-lang="zh"]:hover::before { animation: langIconZh 3s ease-in-out infinite; }
-    #lang-menu button[data-lang="zh"].active { padding-left: 36px; }
-    #lang-menu button[data-lang="zh"].active::before { left: 12px; opacity: 1; font-size: 17px; filter: drop-shadow(0 0 4px rgba(220, 38, 38, 0.5)); animation: langIconZh 3s ease-in-out infinite; }
+    #lang-menu button[data-lang="uk"] .lang-icon { color: #f59e0b; filter: drop-shadow(0 0 3px rgba(245, 158, 11, 0.4)); }
+    #lang-menu button[data-lang="uk"]:hover .lang-icon,
+    #lang-menu button[data-lang="uk"].active .lang-icon { animation: langIconUk 2.5s ease-in-out infinite; }
 
-    @keyframes langIconRu { 0%, 100% { transform: translateY(-50%) scale(1) rotate(0deg); } 25% { transform: translateY(-52%) scale(1.1) rotate(-5deg); } 50% { transform: translateY(-48%) scale(0.95) rotate(5deg); } 75% { transform: translateY(-51%) scale(1.05) rotate(-3deg); } }
-    @keyframes langIconEn { 0%, 100% { transform: translateY(-50%) translateX(0); } 25% { transform: translateY(-50%) translateX(3px); } 50% { transform: translateY(-50%) translateX(1px); } 75% { transform: translateY(-50%) translateX(4px); } }
-    @keyframes langIconUk { 0%, 100% { transform: translateY(-50%) scale(1) rotate(0deg); } 33% { transform: translateY(-50%) scale(1.15) rotate(120deg); } 66% { transform: translateY(-50%) scale(0.9) rotate(240deg); } }
-    @keyframes langIconZh { 0%, 100% { transform: translateY(-50%) scale(1) translateX(0); } 25% { transform: translateY(-53%) scale(1.05) translateX(2px); } 50% { transform: translateY(-47%) scale(1.1) translateX(-1px); } 75% { transform: translateY(-52%) scale(0.95) translateX(1px); } }
+    #lang-menu button[data-lang="zh"] .lang-icon { color: #dc2626; filter: drop-shadow(0 0 3px rgba(220, 38, 38, 0.4)); }
+    #lang-menu button[data-lang="zh"]:hover .lang-icon,
+    #lang-menu button[data-lang="zh"].active .lang-icon { animation: langIconZh 3s ease-in-out infinite; }
+
+    @keyframes langIconRu { 0%, 100% { transform: scale(1) rotate(0deg); } 25% { transform: scale(1.1) rotate(-5deg); } 50% { transform: scale(0.95) rotate(5deg); } 75% { transform: scale(1.05) rotate(-3deg); } }
+    @keyframes langIconEn { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(3px); } 50% { transform: translateX(1px); } 75% { transform: translateX(4px); } }
+    @keyframes langIconUk { 0%, 100% { transform: scale(1) rotate(0deg); } 33% { transform: scale(1.15) rotate(120deg); } 66% { transform: scale(0.9) rotate(240deg); } }
+    @keyframes langIconZh { 0%, 100% { transform: scale(1) translateX(0); } 25% { transform: scale(1.05) translateX(2px); } 50% { transform: scale(1.1) translateX(-1px); } 75% { transform: scale(0.95) translateX(1px); } }
 
     .hero-blob {
         position: absolute;
@@ -840,10 +840,10 @@ const headerHTML = `
                         <svg class="lang-arrow w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </button>
                     <div id="lang-menu" class="lang-menu absolute right-0 top-full mt-2 bg-white border border-stone-200 rounded-xl shadow-lg py-2 min-w-[160px] z-50" role="menu">
-                        <button data-lang="ru" class="w-full px-5 py-2.5 text-left text-base hover:bg-stone-50 transition-colors" role="menuitem">Русский</button>
-                        <button data-lang="uk" class="w-full px-5 py-2.5 text-left text-base hover:bg-stone-50 transition-colors" role="menuitem">Українська</button>
-                        <button data-lang="en" class="w-full px-5 py-2.5 text-left text-base hover:bg-stone-50 transition-colors" role="menuitem">English</button>
-                        <button data-lang="zh" class="w-full px-5 py-2.5 text-left text-base hover:bg-stone-50 transition-colors" role="menuitem">中文</button>
+                        <button data-lang="ru" class="w-full text-left text-base" role="menuitem"><svg class="lang-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/></svg><span>Русский</span></button>
+                        <button data-lang="uk" class="w-full text-left text-base" role="menuitem"><svg class="lang-icon" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15,9 22,9 16.5,14 18.5,21 12,17 5.5,21 7.5,14 2,9 9,9"/></svg><span>Українська</span></button>
+                        <button data-lang="en" class="w-full text-left text-base" role="menuitem"><svg class="lang-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg><span>English</span></button>
+                        <button data-lang="zh" class="w-full text-left text-base" role="menuitem"><svg class="lang-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M19.35 10.04A7.49 7.49 0 0012 4C9.11 4 6.6 5.64 5.35 8.04A5.994 5.994 0 000 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/></svg><span>中文</span></button>
                     </div>
                 </div>
                 <a href="contacts.html" class="hidden lg:inline-flex items-center btn-gradient-border bg-stone-900 text-stone-50 px-6 py-2.5 text-base font-medium rounded-full">

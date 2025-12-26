@@ -1,578 +1,938 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, nofollow">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
     <title data-i18n="bot.title">FEFELOV — Бот.</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script>(function(){var l=localStorage.getItem('lang')||navigator.language.slice(0,2)||'ru';if(!['ru','uk','en','zh'].includes(l))l='ru';document.documentElement.lang=l;})();</script>
-    <style>
-        .gradient-bg { background: linear-gradient(135deg, #1c1917 0%, #292524 100%); }
-        .status-dot { animation: pulse 2s infinite; }
-        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
-        .tab-btn.active { background: rgba(168, 162, 158, 0.2); border-color: rgba(168, 162, 158, 0.3); }
-        .period-btn.active { background: #fafaf9; color: #1c1917; }
-        .progress-bar { transition: width 0.3s ease; }
-        .toast {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            background: #292524;
-            border: 1px solid #44403c;
-            border-radius: 12px;
-            padding: 12px 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5);
-            transform: translateY(100px);
-            opacity: 0;
-            transition: all 0.3s ease;
-            z-index: 100;
-        }
-        .toast.show {
-            transform: translateY(0);
-            opacity: 1;
-        }
-        .toast.error { border-color: #7f1d1d; }
-        .toast.success { border-color: #14532d; }
-    </style>
-</head>
-<body class="gradient-bg min-h-screen text-stone-100 antialiased overflow-x-hidden i18n-loading">
-
-    <div id="login-screen" class="min-h-screen flex items-center justify-center px-4 sm:px-6 relative">
-        <div class="absolute top-6 left-1/2 -translate-x-1/2">
-            <div class="relative">
-                <button id="login-lang-btn" class="flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-stone-400 hover:text-stone-200 bg-stone-800/60 border border-stone-700 rounded-full hover:bg-stone-800 transition-all" aria-label="Выбор языка" data-i18n-aria-label="bot.aria.select_language" aria-expanded="false" aria-haspopup="true">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
-                    <span id="login-current-lang">Ру</span>
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                </button>
-                <div id="login-lang-menu" class="hidden absolute left-1/2 -translate-x-1/2 top-full mt-2 bg-stone-800 border border-stone-700 rounded-xl shadow-lg py-2 min-w-[140px] z-50" role="menu">
-                    <button data-lang="ru" class="w-full px-4 py-2 text-left text-sm text-stone-300 hover:bg-stone-700 transition-colors" role="menuitem">Русский</button>
-                    <button data-lang="uk" class="w-full px-4 py-2 text-left text-sm text-stone-300 hover:bg-stone-700 transition-colors" role="menuitem">Українська</button>
-                    <button data-lang="en" class="w-full px-4 py-2 text-left text-sm text-stone-300 hover:bg-stone-700 transition-colors" role="menuitem">English</button>
-                    <button data-lang="zh" class="w-full px-4 py-2 text-left text-sm text-stone-300 hover:bg-stone-700 transition-colors" role="menuitem">中文</button>
-                </div>
-            </div>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      (function () {
+        var l = localStorage.getItem('lang') || navigator.language.slice(0, 2) || 'ru';
+        if (!['ru', 'uk', 'en', 'zh'].includes(l)) l = 'ru';
+        document.documentElement.lang = l;
+      })();
+    </script>
+    <script src="components.js"></script>
+  </head>
+  <body class="gradient-bg min-h-screen text-stone-100 antialiased overflow-x-hidden i18n-loading">
+    <div
+      id="login-screen"
+      class="min-h-screen flex items-center justify-center px-4 sm:px-6 relative"
+    >
+      <div class="absolute top-6 left-1/2 -translate-x-1/2">
+        <div class="relative">
+          <button
+            id="login-lang-btn"
+            class="flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-stone-400 hover:text-stone-200 bg-stone-800/60 border border-stone-700 rounded-full hover:bg-stone-800 transition-all"
+            aria-label="Выбор языка"
+            data-i18n-aria-label="bot.aria.select_language"
+            aria-expanded="false"
+            aria-haspopup="true"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+              />
+            </svg>
+            <span id="login-current-lang">Ру</span>
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </button>
+          <div
+            id="login-lang-menu"
+            class="hidden absolute left-1/2 -translate-x-1/2 top-full mt-2 bg-stone-800 border border-stone-700 rounded-xl shadow-lg py-2 min-w-[140px] z-50"
+            role="menu"
+          >
+            <button
+              data-lang="ru"
+              class="w-full px-4 py-2 text-left text-sm text-stone-300 hover:bg-stone-700 transition-colors"
+              role="menuitem"
+            >
+              Русский
+            </button>
+            <button
+              data-lang="uk"
+              class="w-full px-4 py-2 text-left text-sm text-stone-300 hover:bg-stone-700 transition-colors"
+              role="menuitem"
+            >
+              Українська
+            </button>
+            <button
+              data-lang="en"
+              class="w-full px-4 py-2 text-left text-sm text-stone-300 hover:bg-stone-700 transition-colors"
+              role="menuitem"
+            >
+              English
+            </button>
+            <button
+              data-lang="zh"
+              class="w-full px-4 py-2 text-left text-sm text-stone-300 hover:bg-stone-700 transition-colors"
+              role="menuitem"
+            >
+              中文
+            </button>
+          </div>
         </div>
-        <div class="w-full max-w-sm">
-            <div class="text-center mb-8">
-                <div class="w-16 h-16 bg-stone-800 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <svg class="w-8 h-8 text-stone-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                    </svg>
-                </div>
-                <h1 class="text-2xl font-semibold" data-i18n="bot.login.heading">Панель бота</h1>
-                <p class="text-stone-500 text-sm mt-2" data-i18n="bot.login.subtitle">Введите пароль для продолжения</p>
-            </div>
-            <form id="login-form" class="space-y-4">
-                <input type="password" id="password" data-i18n-placeholder="bot.login.password_placeholder" placeholder="Пароль" autocomplete="current-password"
-                    class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 placeholder-stone-500 focus:outline-none focus:border-stone-500 transition-colors">
-                <button type="submit" class="w-full bg-stone-100 text-stone-900 rounded-xl px-4 py-3 font-medium hover:bg-stone-200 transition-colors" data-i18n="bot.login.btn">
-                    Войти
-                </button>
-            </form>
+      </div>
+      <div class="w-full max-w-sm">
+        <div class="text-center mb-8">
+          <div
+            class="w-16 h-16 bg-stone-800 rounded-2xl flex items-center justify-center mx-auto mb-4"
+          >
+            <svg
+              class="w-8 h-8 text-stone-300"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+              />
+            </svg>
+          </div>
+          <h1 class="text-2xl font-semibold" data-i18n="bot.login.heading">Панель бота</h1>
+          <p class="text-stone-500 text-sm mt-2" data-i18n="bot.login.subtitle">
+            Введите пароль для продолжения
+          </p>
         </div>
+        <form id="login-form" class="space-y-4">
+          <input
+            type="password"
+            id="password"
+            data-i18n-placeholder="bot.login.password_placeholder"
+            placeholder="Пароль"
+            autocomplete="current-password"
+            class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 placeholder-stone-500 focus:outline-none focus:border-stone-500 transition-colors"
+          />
+          <button
+            type="submit"
+            class="w-full bg-stone-100 text-stone-900 rounded-xl px-4 py-3 font-medium hover:bg-stone-200 transition-colors"
+            data-i18n="bot.login.btn"
+          >
+            Войти
+          </button>
+        </form>
+      </div>
     </div>
 
     <div id="panel-screen" class="hidden">
-        <header class="border-b border-stone-800">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-stone-800 rounded-xl flex items-center justify-center">
-                        <svg class="w-5 h-5 text-stone-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
-                        </svg>
-                    </div>
-                    <span class="font-semibold" data-i18n="bot.header.name">VK Бот</span>
-                </div>
-                <div class="flex items-center gap-4">
-                    <div class="relative">
-                        <button id="bot-lang-btn" class="flex items-center gap-1.5 text-stone-500 hover:text-stone-300 text-sm transition-colors" aria-label="Выбор языка" data-i18n-aria-label="bot.aria.select_language" aria-expanded="false" aria-haspopup="true">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
-                            <span id="bot-current-lang">Ру</span>
-                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                        </button>
-                        <div id="bot-lang-menu" class="hidden absolute right-0 top-full mt-2 bg-stone-800 border border-stone-700 rounded-xl shadow-lg py-2 min-w-[140px] z-50" role="menu">
-                            <button data-lang="ru" class="w-full px-4 py-2 text-left text-sm text-stone-300 hover:bg-stone-700 transition-colors" role="menuitem">Русский</button>
-                            <button data-lang="uk" class="w-full px-4 py-2 text-left text-sm text-stone-300 hover:bg-stone-700 transition-colors" role="menuitem">Українська</button>
-                            <button data-lang="en" class="w-full px-4 py-2 text-left text-sm text-stone-300 hover:bg-stone-700 transition-colors" role="menuitem">English</button>
-                            <button data-lang="zh" class="w-full px-4 py-2 text-left text-sm text-stone-300 hover:bg-stone-700 transition-colors" role="menuitem">中文</button>
-                        </div>
-                    </div>
-                    <button id="logout-btn" class="text-stone-500 hover:text-stone-300 text-sm transition-colors" data-i18n="bot.header.logout">Выйти</button>
-                </div>
+      <header class="border-b border-stone-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-stone-800 rounded-xl flex items-center justify-center">
+              <svg
+                class="w-5 h-5 text-stone-300"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                />
+              </svg>
             </div>
-        </header>
-
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 pt-6">
-            <div class="flex gap-2 mb-6">
-                <button class="tab-btn active flex-1 sm:flex-none px-4 py-2 rounded-xl border border-transparent text-sm font-medium transition-colors" data-tab="autoresponder">
-                    <span class="hidden sm:inline" data-i18n="bot.tabs.autoresponder">Автоответчик</span>
-                    <span class="sm:hidden" data-i18n="bot.tabs.auto_short">Авто</span>
+            <span class="font-semibold" data-i18n="bot.header.name">VK Бот</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="relative">
+              <button
+                id="bot-lang-btn"
+                class="flex items-center gap-1.5 text-stone-500 hover:text-stone-300 text-sm transition-colors"
+                aria-label="Выбор языка"
+                data-i18n-aria-label="bot.aria.select_language"
+                aria-expanded="false"
+                aria-haspopup="true"
+              >
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+                  />
+                </svg>
+                <span id="bot-current-lang">Ру</span>
+                <svg
+                  class="w-3 h-3"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                id="bot-lang-menu"
+                class="hidden absolute right-0 top-full mt-2 bg-stone-800 border border-stone-700 rounded-xl shadow-lg py-2 min-w-[140px] z-50"
+                role="menu"
+              >
+                <button
+                  data-lang="ru"
+                  class="w-full px-4 py-2 text-left text-sm text-stone-300 hover:bg-stone-700 transition-colors"
+                  role="menuitem"
+                >
+                  Русский
                 </button>
-                <button class="tab-btn flex-1 sm:flex-none px-4 py-2 rounded-xl border border-transparent text-sm font-medium transition-colors" data-tab="retriever">
-                    <span class="hidden sm:inline" data-i18n="bot.tabs.retriever">Экспорт</span>
-                    <span class="sm:hidden" data-i18n="bot.tabs.export_short">Экспорт</span>
+                <button
+                  data-lang="uk"
+                  class="w-full px-4 py-2 text-left text-sm text-stone-300 hover:bg-stone-700 transition-colors"
+                  role="menuitem"
+                >
+                  Українська
                 </button>
+                <button
+                  data-lang="en"
+                  class="w-full px-4 py-2 text-left text-sm text-stone-300 hover:bg-stone-700 transition-colors"
+                  role="menuitem"
+                >
+                  English
+                </button>
+                <button
+                  data-lang="zh"
+                  class="w-full px-4 py-2 text-left text-sm text-stone-300 hover:bg-stone-700 transition-colors"
+                  role="menuitem"
+                >
+                  中文
+                </button>
+              </div>
             </div>
+            <button
+              id="logout-btn"
+              class="text-stone-500 hover:text-stone-300 text-sm transition-colors"
+              data-i18n="bot.header.logout"
+            >
+              Выйти
+            </button>
+          </div>
         </div>
+      </header>
 
-        <main id="tab-autoresponder" class="max-w-4xl mx-auto px-4 sm:px-6 pb-8">
-            <div class="grid gap-6">
-                <div class="bg-stone-800/30 border border-stone-800 rounded-2xl p-4 sm:p-6">
-                    <div class="flex items-center justify-between mb-6">
-                        <div class="flex items-center gap-3">
-                            <div id="status-indicator" class="w-3 h-3 rounded-full bg-stone-500 status-dot"></div>
-                            <span class="font-medium" data-i18n="bot.status.label">Статус бота</span>
-                        </div>
-                        <button id="toggle-btn" class="bg-stone-700 hover:bg-stone-600 px-4 py-2 rounded-lg text-sm font-medium transition-colors" data-i18n="bot.status.loading">Загрузка...</button>
-                    </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="bg-stone-800/50 rounded-xl p-4">
-                            <p class="text-stone-500 text-xs uppercase tracking-wide mb-1" data-i18n="bot.stats.messages">Всего сообщений</p>
-                            <p id="stat-messages" class="text-2xl font-semibold">-</p>
-                        </div>
-                        <div class="bg-stone-800/50 rounded-xl p-4">
-                            <p class="text-stone-500 text-xs uppercase tracking-wide mb-1" data-i18n="bot.stats.users">Уникальных пользователей</p>
-                            <p id="stat-users" class="text-2xl font-semibold">-</p>
-                        </div>
-                    </div>
-                </div>
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 pt-6">
+        <div class="flex gap-2 mb-6">
+          <button
+            class="tab-btn active flex-1 sm:flex-none px-4 py-2 rounded-xl border border-transparent text-sm font-medium transition-colors"
+            data-tab="autoresponder"
+          >
+            <span class="hidden sm:inline" data-i18n="bot.tabs.autoresponder">Автоответчик</span>
+            <span class="sm:hidden" data-i18n="bot.tabs.auto_short">Авто</span>
+          </button>
+          <button
+            class="tab-btn flex-1 sm:flex-none px-4 py-2 rounded-xl border border-transparent text-sm font-medium transition-colors"
+            data-tab="retriever"
+          >
+            <span class="hidden sm:inline" data-i18n="bot.tabs.retriever">Экспорт</span>
+            <span class="sm:hidden" data-i18n="bot.tabs.export_short">Экспорт</span>
+          </button>
+        </div>
+      </div>
 
-                <div class="bg-stone-800/30 border border-stone-800 rounded-2xl p-4 sm:p-6">
-                    <h2 class="font-medium mb-4" data-i18n="bot.replies.title">Автоответы</h2>
-                    <div class="space-y-4">
-                        <div>
-                            <label for="auto-reply" class="text-stone-400 text-sm mb-2 block" data-i18n="bot.replies.standard_label">Стандартный ответ (рабочее время)</label>
-                            <textarea id="auto-reply" rows="2" data-i18n-placeholder="bot.replies.standard_placeholder" placeholder="Сообщение в рабочее время..."
-                                class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 placeholder-stone-500 focus:outline-none focus:border-stone-500 transition-colors resize-none text-sm"></textarea>
-                        </div>
-                        <div>
-                            <label for="weekend-reply" class="text-stone-400 text-sm mb-2 block flex items-center gap-2">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                                <span data-i18n="bot.replies.weekend_label">Ответ в нерабочее время</span>
-                            </label>
-                            <textarea id="weekend-reply" rows="2" data-i18n-placeholder="bot.replies.weekend_placeholder" placeholder="Сообщение в выходные..."
-                                class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 placeholder-stone-500 focus:outline-none focus:border-stone-500 transition-colors resize-none text-sm"></textarea>
-                        </div>
-                        <div>
-                            <label for="spam-reply" class="text-stone-400 text-sm mb-2 block flex items-center gap-2">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
-                                <span data-i18n="bot.replies.spam_label">Предупреждение о спаме</span>
-                            </label>
-                            <textarea id="spam-reply" rows="2" data-i18n-placeholder="bot.replies.spam_placeholder" placeholder="Сообщение для спамеров..."
-                                class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 placeholder-stone-500 focus:outline-none focus:border-stone-500 transition-colors resize-none text-sm"></textarea>
-                        </div>
-                    </div>
-                    <button id="save-btn" class="mt-4 bg-stone-100 text-stone-900 rounded-xl px-6 py-2 text-sm font-medium hover:bg-stone-200 transition-colors" data-i18n="bot.replies.save_btn">Сохранить</button>
-                </div>
-
-                <div class="bg-stone-800/30 border border-stone-800 rounded-2xl p-4 sm:p-6">
-                    <h2 class="font-medium mb-4" data-i18n="bot.spam.title">Защита от спама</h2>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                            <label for="spam-threshold" class="text-stone-400 text-sm mb-2 block" data-i18n="bot.spam.threshold_label">Порог (сообщений)</label>
-                            <input type="number" id="spam-threshold" min="2" max="20" value="3"
-                                class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 focus:outline-none focus:border-stone-500 transition-colors text-sm">
-                        </div>
-                        <div>
-                            <label for="spam-window" class="text-stone-400 text-sm mb-2 block" data-i18n="bot.spam.window_label">Окно (секунд)</label>
-                            <input type="number" id="spam-window" min="10" max="300" value="60"
-                                class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 focus:outline-none focus:border-stone-500 transition-colors text-sm">
-                        </div>
-                    </div>
-                    <p class="text-stone-500 text-xs mt-3" data-i18n="bot.spam.hint">Предупреждение отправляется, если пользователь отправит больше сообщений, чем порог, за указанное время.</p>
-                    <button id="save-spam-btn" class="mt-4 bg-stone-700 hover:bg-stone-600 rounded-xl px-6 py-2 text-sm font-medium transition-colors" data-i18n="bot.spam.save_btn">Сохранить настройки</button>
-                </div>
-
-                <div class="bg-stone-800/30 border border-stone-800 rounded-2xl p-4 sm:p-6">
-                    <h2 class="font-medium mb-4" data-i18n="bot.recent.title">Последние сообщения</h2>
-                    <div id="recent-messages" class="space-y-2 text-sm max-h-64 overflow-y-auto">
-                        <p class="text-stone-500" data-i18n="bot.recent.loading">Загрузка...</p>
-                    </div>
-                </div>
+      <main id="tab-autoresponder" class="max-w-4xl mx-auto px-4 sm:px-6 pb-8">
+        <div class="grid gap-6">
+          <div class="bg-stone-800/30 border border-stone-800 rounded-2xl p-4 sm:p-6">
+            <div class="flex items-center justify-between mb-6">
+              <div class="flex items-center gap-3">
+                <div
+                  id="status-indicator"
+                  class="w-3 h-3 rounded-full bg-stone-500 status-dot"
+                ></div>
+                <span class="font-medium" data-i18n="bot.status.label">Статус бота</span>
+              </div>
+              <button
+                id="toggle-btn"
+                class="bg-stone-700 hover:bg-stone-600 px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+                data-i18n="bot.status.loading"
+              >
+                Загрузка...
+              </button>
             </div>
-        </main>
-
-        <main id="tab-retriever" class="hidden max-w-4xl mx-auto px-4 sm:px-6 pb-8">
-            <div class="grid gap-6">
-                <div class="bg-stone-800/30 border border-stone-800 rounded-2xl p-4 sm:p-6">
-                    <h2 class="font-medium mb-4" data-i18n="bot.export.title">Экспорт истории чата</h2>
-                    <div class="space-y-4">
-                        <div>
-                            <label for="retriever-user" class="text-stone-400 text-sm mb-2 block" data-i18n="bot.export.user_label">ID или ссылка</label>
-                            <input type="text" id="retriever-user" data-i18n-placeholder="bot.export.user_placeholder" placeholder="id123456, vk.com/username или ник"
-                                class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 placeholder-stone-500 focus:outline-none focus:border-stone-500 transition-colors text-sm">
-                        </div>
-                        <div>
-                            <label class="text-stone-400 text-sm mb-2 block" data-i18n="bot.export.period_label">Период</label>
-                            <div class="flex flex-wrap gap-2">
-                                <button class="period-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-700 hover:bg-stone-600 transition-colors" data-period="2h" data-i18n="bot.export.period_2h">2 часа</button>
-                                <button class="period-btn active px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-700 hover:bg-stone-600 transition-colors" data-period="1d" data-i18n="bot.export.period_1d">1 день</button>
-                                <button class="period-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-700 hover:bg-stone-600 transition-colors" data-period="1w" data-i18n="bot.export.period_1w">1 неделя</button>
-                                <button class="period-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-700 hover:bg-stone-600 transition-colors" data-period="2w" data-i18n="bot.export.period_2w">2 недели</button>
-                                <button class="period-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-700 hover:bg-stone-600 transition-colors" data-period="1m" data-i18n="bot.export.period_1m">1 месяц</button>
-                                <button class="period-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-700 hover:bg-stone-600 transition-colors" data-period="all" data-i18n="bot.export.period_all">Всё время</button>
-                                <button class="period-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-700 hover:bg-stone-600 transition-colors" data-period="custom" data-i18n="bot.export.period_custom">Другой</button>
-                            </div>
-                        </div>
-                        <div id="custom-dates" class="hidden grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div>
-                                <label for="retriever-start" class="text-stone-400 text-sm mb-2 block" data-i18n="bot.export.start_date">Начало</label>
-                                <input type="datetime-local" id="retriever-start"
-                                    class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 focus:outline-none focus:border-stone-500 transition-colors text-sm">
-                            </div>
-                            <div>
-                                <label for="retriever-end" class="text-stone-400 text-sm mb-2 block" data-i18n="bot.export.end_date">Конец</label>
-                                <input type="datetime-local" id="retriever-end"
-                                    class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 focus:outline-none focus:border-stone-500 transition-colors text-sm">
-                            </div>
-                        </div>
-                        <button id="start-retrieval-btn" class="w-full bg-stone-100 text-stone-900 rounded-xl px-6 py-3 text-sm font-medium hover:bg-stone-200 transition-colors" data-i18n="bot.export.start_btn">
-                            Начать экспорт
-                        </button>
-                    </div>
-                </div>
-
-                <div id="current-job" class="hidden bg-stone-800/30 border border-stone-800 rounded-2xl p-4 sm:p-6">
-                    <div class="flex items-center justify-between mb-4">
-                        <h2 class="font-medium" data-i18n="bot.job.title">Текущая задача</h2>
-                        <button id="cancel-job-btn" class="text-red-400 hover:text-red-300 text-sm transition-colors" data-i18n="bot.job.cancel">Отмена</button>
-                    </div>
-                    <div class="space-y-3">
-                        <div class="flex justify-between text-sm gap-2">
-                            <span class="text-stone-400 flex-shrink-0" data-i18n="bot.job.user">Пользователь:</span>
-                            <span id="job-user" class="font-medium truncate">-</span>
-                        </div>
-                        <div class="flex justify-between text-sm">
-                            <span class="text-stone-400" data-i18n="bot.job.status">Статус:</span>
-                            <span id="job-status" class="font-medium">-</span>
-                        </div>
-                        <div class="flex justify-between text-sm">
-                            <span class="text-stone-400" data-i18n="bot.job.messages">Сообщений:</span>
-                            <span id="job-messages" class="font-medium">-</span>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-sm mb-1">
-                                <span class="text-stone-400" data-i18n="bot.job.progress">Прогресс:</span>
-                                <span id="job-progress-text" class="font-medium">0%</span>
-                            </div>
-                            <div class="w-full bg-stone-700 rounded-full h-2">
-                                <div id="job-progress-bar" class="progress-bar bg-green-500 h-2 rounded-full" style="width: 0%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-stone-800/30 border border-stone-800 rounded-2xl p-4 sm:p-6">
-                    <h2 class="font-medium mb-4" data-i18n="bot.history.title">История экспорта</h2>
-                    <div id="job-history" class="space-y-2 text-sm">
-                        <p class="text-stone-500" data-i18n="bot.history.empty">Экспортов пока нет</p>
-                    </div>
-                </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="bg-stone-800/50 rounded-xl p-4">
+                <p
+                  class="text-stone-500 text-xs uppercase tracking-wide mb-1"
+                  data-i18n="bot.stats.messages"
+                >
+                  Всего сообщений
+                </p>
+                <p id="stat-messages" class="text-2xl font-semibold">-</p>
+              </div>
+              <div class="bg-stone-800/50 rounded-xl p-4">
+                <p
+                  class="text-stone-500 text-xs uppercase tracking-wide mb-1"
+                  data-i18n="bot.stats.users"
+                >
+                  Уникальных пользователей
+                </p>
+                <p id="stat-users" class="text-2xl font-semibold">-</p>
+              </div>
             </div>
-        </main>
+          </div>
+
+          <div class="bg-stone-800/30 border border-stone-800 rounded-2xl p-4 sm:p-6">
+            <h2 class="font-medium mb-4" data-i18n="bot.replies.title">Автоответы</h2>
+            <div class="space-y-4">
+              <div>
+                <label
+                  for="auto-reply"
+                  class="text-stone-400 text-sm mb-2 block"
+                  data-i18n="bot.replies.standard_label"
+                  >Стандартный ответ (рабочее время)</label
+                >
+                <textarea
+                  id="auto-reply"
+                  rows="2"
+                  data-i18n-placeholder="bot.replies.standard_placeholder"
+                  placeholder="Сообщение в рабочее время..."
+                  class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 placeholder-stone-500 focus:outline-none focus:border-stone-500 transition-colors resize-none text-sm"
+                ></textarea>
+              </div>
+              <div>
+                <label
+                  for="weekend-reply"
+                  class="text-stone-400 text-sm mb-2 block flex items-center gap-2"
+                >
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  <span data-i18n="bot.replies.weekend_label">Ответ в нерабочее время</span>
+                </label>
+                <textarea
+                  id="weekend-reply"
+                  rows="2"
+                  data-i18n-placeholder="bot.replies.weekend_placeholder"
+                  placeholder="Сообщение в выходные..."
+                  class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 placeholder-stone-500 focus:outline-none focus:border-stone-500 transition-colors resize-none text-sm"
+                ></textarea>
+              </div>
+              <div>
+                <label
+                  for="spam-reply"
+                  class="text-stone-400 text-sm mb-2 block flex items-center gap-2"
+                >
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                    />
+                  </svg>
+                  <span data-i18n="bot.replies.spam_label">Предупреждение о спаме</span>
+                </label>
+                <textarea
+                  id="spam-reply"
+                  rows="2"
+                  data-i18n-placeholder="bot.replies.spam_placeholder"
+                  placeholder="Сообщение для спамеров..."
+                  class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 placeholder-stone-500 focus:outline-none focus:border-stone-500 transition-colors resize-none text-sm"
+                ></textarea>
+              </div>
+            </div>
+            <button
+              id="save-btn"
+              class="mt-4 bg-stone-100 text-stone-900 rounded-xl px-6 py-2 text-sm font-medium hover:bg-stone-200 transition-colors"
+              data-i18n="bot.replies.save_btn"
+            >
+              Сохранить
+            </button>
+          </div>
+
+          <div class="bg-stone-800/30 border border-stone-800 rounded-2xl p-4 sm:p-6">
+            <h2 class="font-medium mb-4" data-i18n="bot.spam.title">Защита от спама</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label
+                  for="spam-threshold"
+                  class="text-stone-400 text-sm mb-2 block"
+                  data-i18n="bot.spam.threshold_label"
+                  >Порог (сообщений)</label
+                >
+                <input
+                  type="number"
+                  id="spam-threshold"
+                  min="2"
+                  max="20"
+                  value="3"
+                  class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 focus:outline-none focus:border-stone-500 transition-colors text-sm"
+                />
+              </div>
+              <div>
+                <label
+                  for="spam-window"
+                  class="text-stone-400 text-sm mb-2 block"
+                  data-i18n="bot.spam.window_label"
+                  >Окно (секунд)</label
+                >
+                <input
+                  type="number"
+                  id="spam-window"
+                  min="10"
+                  max="300"
+                  value="60"
+                  class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 focus:outline-none focus:border-stone-500 transition-colors text-sm"
+                />
+              </div>
+            </div>
+            <p class="text-stone-500 text-xs mt-3" data-i18n="bot.spam.hint">
+              Предупреждение отправляется, если пользователь отправит больше сообщений, чем порог,
+              за указанное время.
+            </p>
+            <button
+              id="save-spam-btn"
+              class="mt-4 bg-stone-700 hover:bg-stone-600 rounded-xl px-6 py-2 text-sm font-medium transition-colors"
+              data-i18n="bot.spam.save_btn"
+            >
+              Сохранить настройки
+            </button>
+          </div>
+
+          <div class="bg-stone-800/30 border border-stone-800 rounded-2xl p-4 sm:p-6">
+            <h2 class="font-medium mb-4" data-i18n="bot.recent.title">Последние сообщения</h2>
+            <div id="recent-messages" class="space-y-2 text-sm max-h-64 overflow-y-auto">
+              <p class="text-stone-500" data-i18n="bot.recent.loading">Загрузка...</p>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <main id="tab-retriever" class="hidden max-w-4xl mx-auto px-4 sm:px-6 pb-8">
+        <div class="grid gap-6">
+          <div class="bg-stone-800/30 border border-stone-800 rounded-2xl p-4 sm:p-6">
+            <h2 class="font-medium mb-4" data-i18n="bot.export.title">Экспорт истории чата</h2>
+            <div class="space-y-4">
+              <div>
+                <label
+                  for="retriever-user"
+                  class="text-stone-400 text-sm mb-2 block"
+                  data-i18n="bot.export.user_label"
+                  >ID или ссылка</label
+                >
+                <input
+                  type="text"
+                  id="retriever-user"
+                  data-i18n-placeholder="bot.export.user_placeholder"
+                  placeholder="id123456, vk.com/username или ник"
+                  class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 placeholder-stone-500 focus:outline-none focus:border-stone-500 transition-colors text-sm"
+                />
+              </div>
+              <div>
+                <label class="text-stone-400 text-sm mb-2 block" data-i18n="bot.export.period_label"
+                  >Период</label
+                >
+                <div class="flex flex-wrap gap-2">
+                  <button
+                    class="period-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-700 hover:bg-stone-600 transition-colors"
+                    data-period="2h"
+                    data-i18n="bot.export.period_2h"
+                  >
+                    2 часа
+                  </button>
+                  <button
+                    class="period-btn active px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-700 hover:bg-stone-600 transition-colors"
+                    data-period="1d"
+                    data-i18n="bot.export.period_1d"
+                  >
+                    1 день
+                  </button>
+                  <button
+                    class="period-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-700 hover:bg-stone-600 transition-colors"
+                    data-period="1w"
+                    data-i18n="bot.export.period_1w"
+                  >
+                    1 неделя
+                  </button>
+                  <button
+                    class="period-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-700 hover:bg-stone-600 transition-colors"
+                    data-period="2w"
+                    data-i18n="bot.export.period_2w"
+                  >
+                    2 недели
+                  </button>
+                  <button
+                    class="period-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-700 hover:bg-stone-600 transition-colors"
+                    data-period="1m"
+                    data-i18n="bot.export.period_1m"
+                  >
+                    1 месяц
+                  </button>
+                  <button
+                    class="period-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-700 hover:bg-stone-600 transition-colors"
+                    data-period="all"
+                    data-i18n="bot.export.period_all"
+                  >
+                    Всё время
+                  </button>
+                  <button
+                    class="period-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-stone-700 hover:bg-stone-600 transition-colors"
+                    data-period="custom"
+                    data-i18n="bot.export.period_custom"
+                  >
+                    Другой
+                  </button>
+                </div>
+              </div>
+              <div id="custom-dates" class="hidden grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label
+                    for="retriever-start"
+                    class="text-stone-400 text-sm mb-2 block"
+                    data-i18n="bot.export.start_date"
+                    >Начало</label
+                  >
+                  <input
+                    type="datetime-local"
+                    id="retriever-start"
+                    class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 focus:outline-none focus:border-stone-500 transition-colors text-sm"
+                  />
+                </div>
+                <div>
+                  <label
+                    for="retriever-end"
+                    class="text-stone-400 text-sm mb-2 block"
+                    data-i18n="bot.export.end_date"
+                    >Конец</label
+                  >
+                  <input
+                    type="datetime-local"
+                    id="retriever-end"
+                    class="w-full bg-stone-800/50 border border-stone-700 rounded-xl px-4 py-3 text-stone-100 focus:outline-none focus:border-stone-500 transition-colors text-sm"
+                  />
+                </div>
+              </div>
+              <button
+                id="start-retrieval-btn"
+                class="w-full bg-stone-100 text-stone-900 rounded-xl px-6 py-3 text-sm font-medium hover:bg-stone-200 transition-colors"
+                data-i18n="bot.export.start_btn"
+              >
+                Начать экспорт
+              </button>
+            </div>
+          </div>
+
+          <div
+            id="current-job"
+            class="hidden bg-stone-800/30 border border-stone-800 rounded-2xl p-4 sm:p-6"
+          >
+            <div class="flex items-center justify-between mb-4">
+              <h2 class="font-medium" data-i18n="bot.job.title">Текущая задача</h2>
+              <button
+                id="cancel-job-btn"
+                class="text-red-400 hover:text-red-300 text-sm transition-colors"
+                data-i18n="bot.job.cancel"
+              >
+                Отмена
+              </button>
+            </div>
+            <div class="space-y-3">
+              <div class="flex justify-between text-sm gap-2">
+                <span class="text-stone-400 flex-shrink-0" data-i18n="bot.job.user"
+                  >Пользователь:</span
+                >
+                <span id="job-user" class="font-medium truncate">-</span>
+              </div>
+              <div class="flex justify-between text-sm">
+                <span class="text-stone-400" data-i18n="bot.job.status">Статус:</span>
+                <span id="job-status" class="font-medium">-</span>
+              </div>
+              <div class="flex justify-between text-sm">
+                <span class="text-stone-400" data-i18n="bot.job.messages">Сообщений:</span>
+                <span id="job-messages" class="font-medium">-</span>
+              </div>
+              <div>
+                <div class="flex justify-between text-sm mb-1">
+                  <span class="text-stone-400" data-i18n="bot.job.progress">Прогресс:</span>
+                  <span id="job-progress-text" class="font-medium">0%</span>
+                </div>
+                <div class="w-full bg-stone-700 rounded-full h-2">
+                  <div
+                    id="job-progress-bar"
+                    class="progress-bar bg-green-500 h-2 rounded-full"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-stone-800/30 border border-stone-800 rounded-2xl p-4 sm:p-6">
+            <h2 class="font-medium mb-4" data-i18n="bot.history.title">История экспорта</h2>
+            <div id="job-history" class="space-y-2 text-sm">
+              <p class="text-stone-500" data-i18n="bot.history.empty">Экспортов пока нет</p>
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
 
-    <div id="toast" class="toast" style="cursor:pointer" data-i18n-title="bot.toast.close">
-        <svg id="toast-icon" class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-        </svg>
-        <span id="toast-text" class="text-sm text-stone-200">Сообщение</span>
+    <div id="toast" class="toast" data-i18n-title="bot.toast.close">
+      <svg
+        id="toast-icon"
+        class="w-5 h-5 text-red-400"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+        />
+      </svg>
+      <span id="toast-text" class="text-sm text-stone-200">Сообщение</span>
     </div>
 
     <script>
-        const API = 'https://api.fefelov.net:8443';
+      const API = 'https://api.fefelov.net:8443';
 
-        const loginScreen = document.getElementById('login-screen');
-        const panelScreen = document.getElementById('panel-screen');
-        const loginForm = document.getElementById('login-form');
-        const passwordInput = document.getElementById('password');
-        const toast = document.getElementById('toast');
-        const toastText = document.getElementById('toast-text');
-        const logoutBtn = document.getElementById('logout-btn');
-        const toggleBtn = document.getElementById('toggle-btn');
-        const saveBtn = document.getElementById('save-btn');
-        const saveSpamBtn = document.getElementById('save-spam-btn');
-        const statusIndicator = document.getElementById('status-indicator');
-        const statMessages = document.getElementById('stat-messages');
-        const statUsers = document.getElementById('stat-users');
-        const autoReply = document.getElementById('auto-reply');
-        const weekendReply = document.getElementById('weekend-reply');
-        const spamReply = document.getElementById('spam-reply');
-        const spamThreshold = document.getElementById('spam-threshold');
-        const spamWindow = document.getElementById('spam-window');
-        const recentMessages = document.getElementById('recent-messages');
+      const loginScreen = document.getElementById('login-screen');
+      const panelScreen = document.getElementById('panel-screen');
+      const loginForm = document.getElementById('login-form');
+      const passwordInput = document.getElementById('password');
+      const toast = document.getElementById('toast');
+      const toastText = document.getElementById('toast-text');
+      const logoutBtn = document.getElementById('logout-btn');
+      const toggleBtn = document.getElementById('toggle-btn');
+      const saveBtn = document.getElementById('save-btn');
+      const saveSpamBtn = document.getElementById('save-spam-btn');
+      const statusIndicator = document.getElementById('status-indicator');
+      const statMessages = document.getElementById('stat-messages');
+      const statUsers = document.getElementById('stat-users');
+      const autoReply = document.getElementById('auto-reply');
+      const weekendReply = document.getElementById('weekend-reply');
+      const spamReply = document.getElementById('spam-reply');
+      const spamThreshold = document.getElementById('spam-threshold');
+      const spamWindow = document.getElementById('spam-window');
+      const recentMessages = document.getElementById('recent-messages');
 
-        const tabBtns = document.querySelectorAll('.tab-btn');
-        const tabAutoresponder = document.getElementById('tab-autoresponder');
-        const tabRetriever = document.getElementById('tab-retriever');
-        const periodBtns = document.querySelectorAll('.period-btn');
-        const customDates = document.getElementById('custom-dates');
-        const retrieverUser = document.getElementById('retriever-user');
-        const retrieverStart = document.getElementById('retriever-start');
-        const retrieverEnd = document.getElementById('retriever-end');
-        const startRetrievalBtn = document.getElementById('start-retrieval-btn');
-        const currentJobDiv = document.getElementById('current-job');
-        const cancelJobBtn = document.getElementById('cancel-job-btn');
-        const jobUser = document.getElementById('job-user');
-        const jobStatus = document.getElementById('job-status');
-        const jobMessages = document.getElementById('job-messages');
-        const jobProgressText = document.getElementById('job-progress-text');
-        const jobProgressBar = document.getElementById('job-progress-bar');
-        const jobHistory = document.getElementById('job-history');
+      const tabBtns = document.querySelectorAll('.tab-btn');
+      const tabAutoresponder = document.getElementById('tab-autoresponder');
+      const tabRetriever = document.getElementById('tab-retriever');
+      const periodBtns = document.querySelectorAll('.period-btn');
+      const customDates = document.getElementById('custom-dates');
+      const retrieverUser = document.getElementById('retriever-user');
+      const retrieverStart = document.getElementById('retriever-start');
+      const retrieverEnd = document.getElementById('retriever-end');
+      const startRetrievalBtn = document.getElementById('start-retrieval-btn');
+      const currentJobDiv = document.getElementById('current-job');
+      const cancelJobBtn = document.getElementById('cancel-job-btn');
+      const jobUser = document.getElementById('job-user');
+      const jobStatus = document.getElementById('job-status');
+      const jobMessages = document.getElementById('job-messages');
+      const jobProgressText = document.getElementById('job-progress-text');
+      const jobProgressBar = document.getElementById('job-progress-bar');
+      const jobHistory = document.getElementById('job-history');
 
-        let isEnabled = false;
-        let selectedPeriod = '1d';
-        let retrieverInterval = null;
+      let isEnabled = false;
+      let selectedPeriod = '1d';
+      let retrieverInterval = null;
 
-        function t(key) {
-            return typeof I18N !== 'undefined' ? I18N.translate(key) : key.split('.').pop();
+      function t(key) {
+        return typeof I18N !== 'undefined' ? I18N.translate(key) : key.split('.').pop();
+      }
+
+      function initLangSwitcher(btnId, menuId, labelId) {
+        const btn = document.getElementById(btnId);
+        const menu = document.getElementById(menuId);
+        const label = document.getElementById(labelId);
+        if (!btn || !menu) return;
+
+        let currentLang = localStorage.getItem('lang');
+        if (!currentLang || !['ru', 'uk', 'en', 'zh'].includes(currentLang)) {
+          currentLang = navigator.language.slice(0, 2);
+          if (!['ru', 'uk', 'en', 'zh'].includes(currentLang)) currentLang = 'ru';
         }
+        if (label) label.textContent = I18N.langLabels[currentLang] || currentLang;
 
-        function initLangSwitcher(btnId, menuId, labelId) {
-            const btn = document.getElementById(btnId);
-            const menu = document.getElementById(menuId);
-            const label = document.getElementById(labelId);
-            if (!btn || !menu) return;
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          menu.classList.toggle('hidden');
+          btn.setAttribute('aria-expanded', !menu.classList.contains('hidden'));
+        });
 
-            let currentLang = localStorage.getItem('lang');
-            if (!currentLang || !['ru','uk','en','zh'].includes(currentLang)) {
-                currentLang = navigator.language.slice(0,2);
-                if (!['ru','uk','en','zh'].includes(currentLang)) currentLang = 'ru';
-            }
-            if (label) label.textContent = I18N.langLabels[currentLang] || currentLang;
-
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                menu.classList.toggle('hidden');
-                btn.setAttribute('aria-expanded', !menu.classList.contains('hidden'));
+        menu.querySelectorAll('[data-lang]').forEach((item) => {
+          item.addEventListener('click', () => {
+            const lang = item.dataset.lang;
+            if (typeof I18N !== 'undefined') I18N.setLanguage(lang);
+            document.querySelectorAll('#login-current-lang, #bot-current-lang').forEach((el) => {
+              el.textContent = I18N.langLabels[lang] || lang;
             });
+            menu.classList.add('hidden');
+            btn.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
 
-            menu.querySelectorAll('[data-lang]').forEach(item => {
-                item.addEventListener('click', () => {
-                    const lang = item.dataset.lang;
-                    if (typeof I18N !== 'undefined') I18N.setLanguage(lang);
-                    document.querySelectorAll('#login-current-lang, #bot-current-lang').forEach(el => {
-                        el.textContent = I18N.langLabels[lang] || lang;
-                    });
-                    menu.classList.add('hidden');
-                    btn.setAttribute('aria-expanded', 'false');
-                });
-            });
+      initLangSwitcher('login-lang-btn', 'login-lang-menu', 'login-current-lang');
+      initLangSwitcher('bot-lang-btn', 'bot-lang-menu', 'bot-current-lang');
+
+      document.addEventListener('click', () => {
+        document
+          .querySelectorAll('#login-lang-menu, #bot-lang-menu')
+          .forEach((m) => m.classList.add('hidden'));
+        document
+          .querySelectorAll('#login-lang-btn, #bot-lang-btn')
+          .forEach((b) => b.setAttribute('aria-expanded', 'false'));
+      });
+
+      async function api(endpoint, method = 'GET', body = null) {
+        const opts = {
+          method,
+          headers: { 'Content-Type': 'application/json' },
+          credentials: 'include',
+        };
+        if (body) opts.body = JSON.stringify(body);
+        const res = await fetch(API + endpoint, opts);
+        if (res.status === 401) {
+          throw new Error('Unauthorized');
         }
+        return res.json();
+      }
 
-        initLangSwitcher('login-lang-btn', 'login-lang-menu', 'login-current-lang');
-        initLangSwitcher('bot-lang-btn', 'bot-lang-menu', 'bot-current-lang');
-
-        document.addEventListener('click', () => {
-            document.querySelectorAll('#login-lang-menu, #bot-lang-menu').forEach(m => m.classList.add('hidden'));
-            document.querySelectorAll('#login-lang-btn, #bot-lang-btn').forEach(b => b.setAttribute('aria-expanded', 'false'));
+      tabBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          tabBtns.forEach((b) => b.classList.remove('active'));
+          btn.classList.add('active');
+          const tab = btn.dataset.tab;
+          tabAutoresponder.classList.toggle('hidden', tab !== 'autoresponder');
+          tabRetriever.classList.toggle('hidden', tab !== 'retriever');
+          if (tab === 'retriever') loadRetrieverStatus();
         });
+      });
 
-        async function api(endpoint, method = 'GET', body = null) {
-            const opts = {
-                method,
-                headers: { 'Content-Type': 'application/json' },
-                credentials: 'include'
-            };
-            if (body) opts.body = JSON.stringify(body);
-            const res = await fetch(API + endpoint, opts);
-            if (res.status === 401) {
-                throw new Error('Unauthorized');
-            }
-            return res.json();
+      periodBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          periodBtns.forEach((b) => b.classList.remove('active'));
+          btn.classList.add('active');
+          selectedPeriod = btn.dataset.period;
+          customDates.classList.toggle('hidden', selectedPeriod !== 'custom');
+        });
+      });
+
+      let toastTimeout = null;
+      function showToast(message, type = 'error') {
+        if (toastTimeout) clearTimeout(toastTimeout);
+        toast.classList.remove('show');
+        void toast.offsetWidth;
+        toastText.textContent = message;
+        toast.className = 'toast ' + type;
+        toast.classList.add('show');
+        toastTimeout = setTimeout(() => toast.classList.remove('show'), 3000);
+      }
+      toast.addEventListener('click', function () {
+        if (toastTimeout) clearTimeout(toastTimeout);
+        toast.classList.remove('show');
+      });
+
+      loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        try {
+          const data = await api('/auth', 'POST', { password: passwordInput.value });
+          if (data.success) {
+            showPanel();
+          } else {
+            showToast(t('bot.login.error'), 'error');
+          }
+        } catch {
+          showToast(t('bot.login.error'), 'error');
         }
+      });
 
-        tabBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                tabBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                const tab = btn.dataset.tab;
-                tabAutoresponder.classList.toggle('hidden', tab !== 'autoresponder');
-                tabRetriever.classList.toggle('hidden', tab !== 'retriever');
-                if (tab === 'retriever') loadRetrieverStatus();
-            });
+      logoutBtn.addEventListener('click', async () => {
+        try {
+          await api('/logout', 'POST');
+        } catch {}
+        loginScreen.classList.remove('hidden');
+        panelScreen.classList.add('hidden');
+        passwordInput.value = '';
+        if (retrieverInterval) clearInterval(retrieverInterval);
+      });
+
+      toggleBtn.addEventListener('click', async () => {
+        const data = await api('/toggle', 'POST');
+        isEnabled = data.enabled;
+        updateStatus();
+      });
+
+      saveBtn.addEventListener('click', async () => {
+        await api('/settings', 'POST', {
+          auto_reply: autoReply.value,
+          weekend_reply: weekendReply.value,
+          spam_reply: spamReply.value,
         });
+        saveBtn.textContent = t('bot.replies.saved');
+        setTimeout(() => (saveBtn.textContent = t('bot.replies.save_btn')), 2000);
+      });
 
-        periodBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                periodBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                selectedPeriod = btn.dataset.period;
-                customDates.classList.toggle('hidden', selectedPeriod !== 'custom');
-            });
+      saveSpamBtn.addEventListener('click', async () => {
+        await api('/settings', 'POST', {
+          spam_threshold: spamThreshold.value,
+          spam_window: spamWindow.value,
         });
+        saveSpamBtn.textContent = t('bot.spam.saved');
+        setTimeout(() => (saveSpamBtn.textContent = t('bot.spam.save_btn')), 2000);
+      });
 
-        let toastTimeout = null;
-        function showToast(message, type = 'error') {
-            if (toastTimeout) clearTimeout(toastTimeout);
-            toast.classList.remove('show');
-            void toast.offsetWidth;
-            toastText.textContent = message;
-            toast.className = 'toast ' + type;
-            toast.classList.add('show');
-            toastTimeout = setTimeout(() => toast.classList.remove('show'), 3000);
+      startRetrievalBtn.addEventListener('click', async () => {
+        const user = retrieverUser.value.trim();
+        if (!user) {
+          showToast(t('bot.export.enter_user'), 'error');
+          return;
         }
-        toast.addEventListener('click', function() {
-            if (toastTimeout) clearTimeout(toastTimeout);
-            toast.classList.remove('show');
-        });
-
-        loginForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            try {
-                const data = await api('/auth', 'POST', { password: passwordInput.value });
-                if (data.success) {
-                    showPanel();
-                } else {
-                    showToast(t('bot.login.error'), 'error');
-                }
-            } catch {
-                showToast(t('bot.login.error'), 'error');
-            }
-        });
-
-        logoutBtn.addEventListener('click', async () => {
-            try { await api('/logout', 'POST'); } catch {}
-            loginScreen.classList.remove('hidden');
-            panelScreen.classList.add('hidden');
-            passwordInput.value = '';
-            if (retrieverInterval) clearInterval(retrieverInterval);
-        });
-
-        toggleBtn.addEventListener('click', async () => {
-            const data = await api('/toggle', 'POST');
-            isEnabled = data.enabled;
-            updateStatus();
-        });
-
-        saveBtn.addEventListener('click', async () => {
-            await api('/settings', 'POST', {
-                auto_reply: autoReply.value,
-                weekend_reply: weekendReply.value,
-                spam_reply: spamReply.value
-            });
-            saveBtn.textContent = t('bot.replies.saved');
-            setTimeout(() => saveBtn.textContent = t('bot.replies.save_btn'), 2000);
-        });
-
-        saveSpamBtn.addEventListener('click', async () => {
-            await api('/settings', 'POST', {
-                spam_threshold: spamThreshold.value,
-                spam_window: spamWindow.value
-            });
-            saveSpamBtn.textContent = t('bot.spam.saved');
-            setTimeout(() => saveSpamBtn.textContent = t('bot.spam.save_btn'), 2000);
-        });
-
-        startRetrievalBtn.addEventListener('click', async () => {
-            const user = retrieverUser.value.trim();
-            if (!user) {
-                showToast(t('bot.export.enter_user'), 'error');
-                return;
-            }
-            const body = { user, period: selectedPeriod };
-            if (selectedPeriod === 'custom') {
-                body.start_date = retrieverStart.value;
-                body.end_date = retrieverEnd.value;
-            }
-            startRetrievalBtn.disabled = true;
-            startRetrievalBtn.textContent = t('bot.export.starting');
-            const data = await api('/retriever/start', 'POST', body);
-            if (data.error) {
-                showToast(data.error, 'error');
-                startRetrievalBtn.disabled = false;
-                startRetrievalBtn.textContent = t('bot.export.start_btn');
-            } else {
-                loadRetrieverStatus();
-            }
-        });
-
-        cancelJobBtn.addEventListener('click', async () => {
-            await api('/retriever/cancel', 'POST');
-            loadRetrieverStatus();
-        });
-
-        function updateStatus() {
-            statusIndicator.className = 'w-3 h-3 rounded-full status-dot ' + (isEnabled ? 'bg-green-500' : 'bg-red-500');
-            toggleBtn.textContent = isEnabled ? t('bot.status.disable') : t('bot.status.enable');
+        const body = { user, period: selectedPeriod };
+        if (selectedPeriod === 'custom') {
+          body.start_date = retrieverStart.value;
+          body.end_date = retrieverEnd.value;
         }
+        startRetrievalBtn.disabled = true;
+        startRetrievalBtn.textContent = t('bot.export.starting');
+        const data = await api('/retriever/start', 'POST', body);
+        if (data.error) {
+          showToast(data.error, 'error');
+          startRetrievalBtn.disabled = false;
+          startRetrievalBtn.textContent = t('bot.export.start_btn');
+        } else {
+          loadRetrieverStatus();
+        }
+      });
 
-        async function loadStatus() {
-            try {
-                const data = await api('/status');
-                isEnabled = data.enabled;
-                autoReply.value = data.auto_reply || '';
-                weekendReply.value = data.weekend_reply || '';
-                spamReply.value = data.spam_reply || '';
-                spamThreshold.value = data.spam_threshold || '3';
-                spamWindow.value = data.spam_window || '60';
-                statMessages.textContent = data.stats.total_messages;
-                statUsers.textContent = data.stats.unique_users;
-                updateStatus();
+      cancelJobBtn.addEventListener('click', async () => {
+        await api('/retriever/cancel', 'POST');
+        loadRetrieverStatus();
+      });
 
-                if (data.stats.recent && data.stats.recent.length > 0) {
-                    recentMessages.innerHTML = data.stats.recent.map(m =>
-                        `<div class="bg-stone-800/50 rounded-lg px-3 py-2">
+      function updateStatus() {
+        statusIndicator.className =
+          'w-3 h-3 rounded-full status-dot ' + (isEnabled ? 'bg-green-500' : 'bg-red-500');
+        toggleBtn.textContent = isEnabled ? t('bot.status.disable') : t('bot.status.enable');
+      }
+
+      async function loadStatus() {
+        try {
+          const data = await api('/status');
+          isEnabled = data.enabled;
+          autoReply.value = data.auto_reply || '';
+          weekendReply.value = data.weekend_reply || '';
+          spamReply.value = data.spam_reply || '';
+          spamThreshold.value = data.spam_threshold || '3';
+          spamWindow.value = data.spam_window || '60';
+          statMessages.textContent = data.stats.total_messages;
+          statUsers.textContent = data.stats.unique_users;
+          updateStatus();
+
+          if (data.stats.recent && data.stats.recent.length > 0) {
+            recentMessages.innerHTML = data.stats.recent
+              .map(
+                (m) =>
+                  `<div class="bg-stone-800/50 rounded-lg px-3 py-2">
                             <span class="text-stone-500">${t('bot.recent.user')} ${m.user_id}:</span> ${escapeHtml(m.message) || t('bot.recent.empty_msg')}
                         </div>`
-                    ).join('');
-                } else {
-                    recentMessages.innerHTML = `<p class="text-stone-500">${t('bot.recent.empty')}</p>`;
-                }
-            } catch (e) {
-                if (e.message === 'Unauthorized') {
-                    logoutBtn.click();
-                } else {
-                    console.error('loadStatus error:', e);
-                }
-            }
+              )
+              .join('');
+          } else {
+            recentMessages.innerHTML = `<p class="text-stone-500">${t('bot.recent.empty')}</p>`;
+          }
+        } catch (e) {
+          if (e.message === 'Unauthorized') {
+            logoutBtn.click();
+          } else {
+            console.error('loadStatus error:', e);
+          }
         }
+      }
 
-        async function loadRetrieverStatus() {
-            try {
-                const data = await api('/retriever/status');
-                const job = data.current_job;
+      async function loadRetrieverStatus() {
+        try {
+          const data = await api('/retriever/status');
+          const job = data.current_job;
 
-                if (job && (job.status === 'pending' || job.status === 'processing')) {
-                    currentJobDiv.classList.remove('hidden');
-                    startRetrievalBtn.disabled = true;
-                    startRetrievalBtn.textContent = t('bot.export.in_progress');
-                    jobUser.textContent = job.user_name || `ID: ${job.user_id}`;
-                    jobStatus.textContent = job.status;
-                    jobMessages.textContent = `${job.fetched_messages || 0} / ${job.total_messages || '?'}`;
-                    jobProgressText.textContent = `${job.progress || 0}%`;
-                    jobProgressBar.style.width = `${job.progress || 0}%`;
+          if (job && (job.status === 'pending' || job.status === 'processing')) {
+            currentJobDiv.classList.remove('hidden');
+            startRetrievalBtn.disabled = true;
+            startRetrievalBtn.textContent = t('bot.export.in_progress');
+            jobUser.textContent = job.user_name || `ID: ${job.user_id}`;
+            jobStatus.textContent = job.status;
+            jobMessages.textContent = `${job.fetched_messages || 0} / ${job.total_messages || '?'}`;
+            jobProgressText.textContent = `${job.progress || 0}%`;
+            jobProgressBar.style.width = `${job.progress || 0}%`;
 
-                    if (!retrieverInterval) {
-                        retrieverInterval = setInterval(loadRetrieverStatus, 2000);
-                    }
-                } else {
-                    currentJobDiv.classList.add('hidden');
-                    startRetrievalBtn.disabled = false;
-                    startRetrievalBtn.textContent = t('bot.export.start_btn');
-                    if (retrieverInterval) {
-                        clearInterval(retrieverInterval);
-                        retrieverInterval = null;
-                    }
-                }
+            if (!retrieverInterval) {
+              retrieverInterval = setInterval(loadRetrieverStatus, 2000);
+            }
+          } else {
+            currentJobDiv.classList.add('hidden');
+            startRetrievalBtn.disabled = false;
+            startRetrievalBtn.textContent = t('bot.export.start_btn');
+            if (retrieverInterval) {
+              clearInterval(retrieverInterval);
+              retrieverInterval = null;
+            }
+          }
 
-                if (data.history && data.history.length > 0) {
-                    jobHistory.innerHTML = data.history.map(j => {
-                        const statusColor = j.status === 'completed' ? 'text-green-400' :
-                                           j.status === 'failed' ? 'text-red-400' : 'text-stone-400';
-                        const downloadBtn = j.status === 'completed' && j.pdf_path
-                            ? `<a href="${API}/retriever/download/${j.id}" class="text-blue-400 hover:text-blue-300 ml-2">${t('bot.history.download')}</a>`
-                            : '';
-                        return `<div class="bg-stone-800/50 rounded-lg px-3 py-2 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
+          if (data.history && data.history.length > 0) {
+            jobHistory.innerHTML = data.history
+              .map((j) => {
+                const statusColor =
+                  j.status === 'completed'
+                    ? 'text-green-400'
+                    : j.status === 'failed'
+                      ? 'text-red-400'
+                      : 'text-stone-400';
+                const downloadBtn =
+                  j.status === 'completed' && j.pdf_path
+                    ? `<a href="${API}/retriever/download/${j.id}" class="text-blue-400 hover:text-blue-300 ml-2">${t('bot.history.download')}</a>`
+                    : '';
+                return `<div class="bg-stone-800/50 rounded-lg px-3 py-2 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
                             <div class="min-w-0">
                                 <span class="font-medium truncate block sm:inline">${escapeHtml(j.user_name || 'ID: ' + j.user_id)}</span>
                                 <span class="${statusColor} ml-0 sm:ml-2">${j.status}</span>
@@ -580,31 +940,34 @@
                             </div>
                             <div class="flex-shrink-0">${downloadBtn}</div>
                         </div>`;
-                    }).join('');
-                } else {
-                    jobHistory.innerHTML = `<p class="text-stone-500">${t('bot.history.empty')}</p>`;
-                }
-            } catch (e) {
-                console.error('Error loading retriever status:', e);
-            }
+              })
+              .join('');
+          } else {
+            jobHistory.innerHTML = `<p class="text-stone-500">${t('bot.history.empty')}</p>`;
+          }
+        } catch (e) {
+          console.error('Error loading retriever status:', e);
         }
+      }
 
-        function escapeHtml(text) {
-            if (!text) return '';
-            return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-        }
+      function escapeHtml(text) {
+        if (!text) return '';
+        return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      }
 
-        function showPanel() {
-            loginScreen.classList.add('hidden');
-            panelScreen.classList.remove('hidden');
-            loadStatus();
-            setInterval(loadStatus, 30000);
-        }
+      function showPanel() {
+        loginScreen.classList.add('hidden');
+        panelScreen.classList.remove('hidden');
+        loadStatus();
+        setInterval(loadStatus, 30000);
+      }
 
-        api('/status').then(data => {
-            if (!data.error) showPanel();
-        }).catch(() => {});
+      api('/status')
+        .then((data) => {
+          if (!data.error) showPanel();
+        })
+        .catch(() => {});
     </script>
     <script src="i18n.js"></script>
-</body>
+  </body>
 </html>

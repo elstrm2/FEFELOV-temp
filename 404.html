@@ -1,32 +1,51 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, nofollow">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
     <title data-i18n="404.title">FEFELOV — 404.</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script>(function(){var l=localStorage.getItem('lang')||navigator.language.slice(0,2)||'ru';if(!['ru','uk','en','zh'].includes(l))l='ru';document.documentElement.lang=l;})();</script>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      (function () {
+        var l = localStorage.getItem('lang') || navigator.language.slice(0, 2) || 'ru';
+        if (!['ru', 'uk', 'en', 'zh'].includes(l)) l = 'ru';
+        document.documentElement.lang = l;
+      })();
+    </script>
     <script src="antivandal.js"></script>
-</head>
-<body class="bg-stone-50 text-stone-900 antialiased max-w-full overflow-x-hidden i18n-loading">
+  </head>
+  <body class="bg-stone-50 text-stone-900 antialiased max-w-full overflow-x-hidden i18n-loading">
     <div class="min-h-screen flex items-center justify-center px-6">
-        <div class="text-center">
-            <p class="text-8xl font-bold text-stone-200 mb-4" data-i18n="404.code">404</p>
-            <h1 class="text-2xl font-semibold mb-2" data-i18n="404.heading">Страница не найдена</h1>
-            <p class="text-stone-500 mb-8" data-i18n="404.text">Возможно, она была удалена или вы ошиблись адресом</p>
-            <a href="/" class="inline-flex items-center gap-2 bg-stone-900 text-stone-50 px-6 py-3 rounded-full font-medium hover:bg-stone-800 transition-colors">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
-                </svg>
-                <span data-i18n="404.btn">На главную</span>
-            </a>
-        </div>
+      <div class="text-center">
+        <p class="text-8xl font-bold text-stone-200 mb-4" data-i18n="404.code">404</p>
+        <h1 class="text-2xl font-semibold mb-2" data-i18n="404.heading">Страница не найдена</h1>
+        <p class="text-stone-500 mb-8" data-i18n="404.text">
+          Возможно, она была удалена или вы ошиблись адресом
+        </p>
+        <a
+          href="/"
+          class="inline-flex items-center gap-2 btn-gradient-border bg-stone-900 text-stone-50 px-6 py-3 rounded-full font-medium"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M10 19l-7-7m0 0l7-7m-7 7h18"
+            />
+          </svg>
+          <span data-i18n="404.btn">На главную</span>
+        </a>
+      </div>
     </div>
     <script src="i18n.js"></script>
-</body>
+  </body>
 </html>

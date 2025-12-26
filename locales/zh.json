@@ -220,7 +220,7 @@
     "vk": {
       "title": "VKontakte",
       "text": "快速回复和咨询",
-      "link": "vk.com/fefelov_net →"
+      "link": "vk.com/fefelov_net"
     },
     "schedule": {
       "title": "工作时间",
@@ -1179,6 +1179,37 @@
       "p8_3": "<strong>8.3.</strong> 执行方可自行启动全额或部分退款以解决争议。",
       "p8_4": "<strong>8.4.</strong> 在委托方提出无依据申诉、传播虚假信息或威胁时，执行方保留依法维护商业声誉的权利。",
       "p8_5": "<strong>8.5.</strong> 双方确认，电子邮件和即时通讯中的沟通具有法律效力，可作为证据使用。"
+    }
+  },
+  "scenarios": {
+    "terminal": {
+      "init": "🤖 正在初始化项目...",
+      "structure": "结构已创建",
+      "deps": "依赖已安装",
+      "webhook": "Webhook 已配置",
+      "db": "数据库已连接",
+      "running": "机器人已启动运行！",
+      "status": "@fefelov_bot 已激活"
+    },
+    "browser": {
+      "welcome": "欢迎",
+      "subtitle": "为您的企业打造现代化网站"
+    },
+    "chat": {
+      "consultant": "FEFELOV 顾问",
+      "online": "● 在线",
+      "user1": "需要经济学课程作业的帮助",
+      "bot1": "当然！主题是什么？",
+      "user2": "加密货币市场分析",
+      "bot2": "很棒的主题！我会准备好结构和资料来源。2小时后发送材料 📚"
+    },
+    "document": {
+      "filename": "毕业论文.docx",
+      "item1": "引言与研究意义",
+      "item2": "理论研究基础",
+      "item3": "实践部分与计算",
+      "item4": "结论与建议",
+      "done": "完成！"
     }
   }
 }

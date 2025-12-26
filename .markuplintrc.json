@@ -1,0 +1,76 @@
+{
+  "extends": ["markuplint:recommended"],
+  "rules": {
+    "attr-duplication": true,
+    "deprecated-attr": true,
+    "deprecated-element": true,
+    "doctype": true,
+    "id-duplication": true,
+    "required-attr": true,
+    "invalid-attr": {
+      "options": {
+        "allowAttrs": [
+          "x-data",
+          "x-show",
+          "x-bind",
+          "x-on",
+          "x-text",
+          "x-html",
+          "x-model",
+          "x-ref",
+          "x-if",
+          "x-for",
+          "x-transition",
+          "x-effect",
+          "x-ignore",
+          "x-cloak",
+          "x-trap",
+          "@click",
+          "@input",
+          "@change",
+          "@submit",
+          "@keydown",
+          "@keyup",
+          "@focus",
+          "@blur",
+          "@mouseenter",
+          "@mouseleave",
+          ":class",
+          ":style",
+          ":src",
+          ":href",
+          ":disabled",
+          ":value",
+          ":id",
+          "strokeLinecap",
+          "strokeLinejoin",
+          "strokeWidth"
+        ]
+      }
+    },
+    "character-reference": false,
+    "require-accessible-name": false,
+    "wai-aria": "warn",
+    "landmark-roles": false,
+    "heading-levels": false,
+    "required-h1": false,
+    "label-has-control": false,
+    "no-refer-to-non-existent-id": true,
+    "no-orphaned-end-tag": true,
+    "no-empty-palpable-content": false,
+    "class-naming": false,
+    "end-tag": true,
+    "no-hard-code-id": false,
+    "permitted-contents": true,
+    "require-datetime": true
+  },
+  "nodeRules": [
+    {
+      "selector": "script",
+      "rules": {
+        "required-attr": false
+      }
+    }
+  ],
+  "excludeFiles": ["node_modules/**"]
+}

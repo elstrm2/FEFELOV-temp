@@ -5,7 +5,18 @@
   "main": "components.js",
   "scripts": {
     "build": "tailwindcss -i ./src/input.css -o ./styles.css --minify",
-    "watch": "tailwindcss -i ./src/input.css -o ./styles.css --watch"
+    "watch": "tailwindcss -i ./src/input.css -o ./styles.css --watch",
+    "lint": "npm run lint:js && npm run lint:css && npm run lint:html",
+    "lint:js": "biome check .",
+    "lint:css": "stylelint '**/*.css' --ignore-path .prettierignore",
+    "lint:html": "markuplint '**/*.html'",
+    "lint:fix": "npm run lint:js:fix && npm run lint:css:fix && npm run format",
+    "lint:js:fix": "biome check --write .",
+    "lint:css:fix": "stylelint '**/*.css' --fix --ignore-path .prettierignore",
+    "format": "prettier --write '**/*.{html,css,md}'",
+    "format:check": "prettier --check '**/*.{html,css,md}'",
+    "a11y": "axe http://localhost:3000 --exit",
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
@@ -19,8 +30,27 @@
     "url": "https://github.com/elstrm2/FEFELOV-temp/issues"
   },
   "homepage": "https://github.com/elstrm2/FEFELOV-temp#readme",
+  "lint-staged": {
+    "*.{js,mjs,json}": "biome check --write --no-errors-on-unmatched",
+    "*.css": [
+      "stylelint --fix",
+      "prettier --write"
+    ],
+    "*.html": [
+      "markuplint",
+      "prettier --write"
+    ]
+  },
   "devDependencies": {
+    "@axe-core/cli": "^4.11.0",
+    "@biomejs/biome": "^2.3.10",
     "@tailwindcss/cli": "^4.1.18",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
+    "markuplint": "^4.14.0",
+    "prettier": "^3.7.4",
+    "stylelint": "^16.26.1",
+    "stylelint-config-standard": "^39.0.1",
     "tailwindcss": "^4.1.18"
   }
 }

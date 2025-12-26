@@ -125,7 +125,7 @@
     "vk": {
       "title": "VKontakte",
       "text": "Quick responses and consultations",
-      "link": "vk.com/fefelov_net →"
+      "link": "vk.com/fefelov_net"
     },
     "phone": {
       "title": "Phone",
@@ -1179,6 +1179,37 @@
       "empty": "No exports yet",
       "download": "Download",
       "messages_count": "msgs"
+    }
+  },
+  "scenarios": {
+    "terminal": {
+      "init": "🤖 Initializing project...",
+      "structure": "Structure created",
+      "deps": "Dependencies installed",
+      "webhook": "Webhook configured",
+      "db": "Database connected",
+      "running": "Bot is up and running!",
+      "status": "@fefelov_bot active"
+    },
+    "browser": {
+      "welcome": "Welcome",
+      "subtitle": "Modern website for your business"
+    },
+    "chat": {
+      "consultant": "FEFELOV Consultant",
+      "online": "● online",
+      "user1": "Need help with economics coursework",
+      "bot1": "Of course! What's the topic?",
+      "user2": "Cryptocurrency market analysis",
+      "bot2": "Great topic! I'll prepare the structure and sources. Expect materials in 2 hours 📚"
+    },
+    "document": {
+      "filename": "Thesis_Paper.docx",
+      "item1": "Introduction and relevance",
+      "item2": "Theoretical framework",
+      "item3": "Practical part with calculations",
+      "item4": "Conclusions and recommendations",
+      "done": "Done!"
     }
   }
 }

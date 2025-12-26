@@ -1,0 +1,108 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.3.10/schema.json",
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": "on"
+      }
+    }
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "complexity": {
+        "noForEach": "off",
+        "noArguments": "off",
+        "noUselessSwitchCase": "error",
+        "noUselessThisAlias": "error",
+        "noUselessTypeConstraint": "error",
+        "noVoid": "off",
+        "useLiteralKeys": "error",
+        "useSimplifiedLogicExpression": "error"
+      },
+      "style": {
+        "noParameterAssign": "off",
+        "noUnusedTemplateLiteral": "error",
+        "noUselessElse": "error",
+        "useCollapsedElseIf": "error",
+        "useConst": "error",
+        "useExponentiationOperator": "error",
+        "useSelfClosingElements": "error",
+        "useTemplate": "error"
+      },
+      "suspicious": {
+        "noConsole": "off",
+        "noEmptyBlockStatements": "off",
+        "noDoubleEquals": "error",
+        "noSelfCompare": "error",
+        "noConfusingVoidType": "error",
+        "noDuplicateCase": "error",
+        "noDuplicateClassMembers": "error",
+        "noDuplicateObjectKeys": "error",
+        "noEmptyInterface": "error",
+        "noExplicitAny": "warn",
+        "noExtraNonNullAssertion": "error",
+        "noFunctionAssign": "error",
+        "noRedeclare": "error",
+        "noRedundantUseStrict": "error",
+        "noShadowRestrictedNames": "error",
+        "noUnsafeNegation": "error",
+        "noVar": "error",
+        "useGetterReturn": "error",
+        "useIsArray": "error"
+      },
+      "correctness": {
+        "noInnerDeclarations": "off",
+        "noConstAssign": "error",
+        "noConstantCondition": "error",
+        "noEmptyCharacterClassInRegex": "error",
+        "noEmptyPattern": "error",
+        "noPrecisionLoss": "error",
+        "noSelfAssign": "error",
+        "noSetterReturn": "error",
+        "noSwitchDeclarations": "error",
+        "noUnreachable": "error",
+        "noUnreachableSuper": "error",
+        "noUnsafeFinally": "error",
+        "noUnusedImports": "error",
+        "noUnusedPrivateClassMembers": "error",
+        "noUnusedVariables": "error",
+        "useIsNan": "error",
+        "useValidForDirection": "error",
+        "useValidTypeof": "error",
+        "useYield": "error"
+      },
+      "security": {
+        "noDangerouslySetInnerHtml": "warn",
+        "noGlobalEval": "error"
+      },
+      "performance": {
+        "noAccumulatingSpread": "warn",
+        "noDelete": "warn"
+      }
+    }
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineWidth": 100
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single",
+      "semicolons": "always",
+      "trailingCommas": "es5"
+    }
+  },
+  "json": {
+    "formatter": {
+      "indentWidth": 2
+    }
+  },
+  "files": {
+    "includes": ["**/*.js", "**/*.mjs", "**/*.json"],
+    "ignoreUnknown": true
+  }
+}

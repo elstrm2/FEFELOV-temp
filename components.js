@@ -676,9 +676,9 @@ const footerHTML = `
             <p class="text-base text-stone-500 order-2 sm:order-1"><span class="logo-gradient text-lg font-bold">©</span> 2025–<span id="footer-year"></span>. <span data-i18n="common.footer.copyright">ИП Басенко И. К.</span></p>
             <nav class="flex items-center justify-center sm:justify-start gap-3 order-1 sm:order-2">
                 <a href="terms.html" class="text-base text-stone-500 hover:text-stone-900 transition-colors" data-i18n="common.footer.terms">Оферта</a>
-                <span class="logo-gradient text-lg font-bold">·</span>
+                <span class="footer-dot logo-gradient text-lg font-bold">·</span>
                 <a href="privacy.html" class="text-base text-stone-500 hover:text-stone-900 transition-colors" data-i18n="common.footer.privacy">Конфиденциальность</a>
-                <span class="logo-gradient text-lg font-bold">·</span>
+                <span class="footer-dot logo-gradient text-lg font-bold">·</span>
                 <a href="refund.html" class="text-base text-stone-500 hover:text-stone-900 transition-colors" data-i18n="common.footer.refund">Возврат</a>
             </nav>
         </div>
@@ -764,6 +764,33 @@ document.addEventListener('DOMContentLoaded', function() {
         footerPlaceholder.innerHTML = footerHTML;
         const yearEl = document.getElementById('footer-year');
         if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+        // Footer dots animation
+        const footerDots = document.querySelectorAll('.footer-dot');
+        if (footerDots.length > 0) {
+            const spinnerFrames = ['·', '/', '—', '\\', '|', '\\', '—', '/'];
+            let isAnimating = false;
+
+            function animateDots() {
+                if (isAnimating) return;
+                isAnimating = true;
+                let frame = 0;
+                const interval = setInterval(() => {
+                    footerDots.forEach(dot => {
+                        dot.textContent = spinnerFrames[frame % spinnerFrames.length];
+                    });
+                    frame++;
+                    if (frame >= spinnerFrames.length * 4) {
+                        clearInterval(interval);
+                        footerDots.forEach(dot => dot.textContent = '·');
+                        isAnimating = false;
+                    }
+                }, 150);
+            }
+
+            setInterval(animateDots, 30000);
+            setTimeout(animateDots, 5000);
+        }
     }
 
     function initRandomSvgFloating() {

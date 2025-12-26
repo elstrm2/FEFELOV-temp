@@ -101,21 +101,6 @@
         "tag12": "Scripts"
       }
     },
-    "about": {
-      "label": "About",
-      "title": "We Work Officially",
-      "text1": "IE Basenko Ilya Konstantinovich is an officially registered individual entrepreneur in Moscow. We work under oral or written contract, providing all necessary documents. In any case, by contacting us, a person accepts the terms of the public offer.",
-      "text2": "We provide services in education and IT in compliance with Russian Federation legislation. Each order is recorded, all conditions are transparent.",
-      "text3": "Our goal is quality results and long-term cooperation. We value our clients' time and our own.",
-      "requisites_title": "Details",
-      "ip": "IE",
-      "ip_value": "Basenko Ilya Konstantinovich",
-      "ogrnip": "OGRNIP",
-      "inn": "INN",
-      "okpo": "OKPO",
-      "region": "Region",
-      "region_value": "Moscow"
-    },
     "cta": {
       "label": "Contact",
       "title": "Ready to Discuss a Project?",
@@ -151,28 +136,6 @@
       "title": "Working Hours",
       "text": "Response time for messages",
       "value": "Mon-Fri: 10:00-20:00 MSK"
-    },
-    "requisites": {
-      "title": "Details",
-      "ip": "IE",
-      "ogrnip": "OGRNIP",
-      "inn": "INN",
-      "okpo": "OKPO",
-      "region": "Region",
-      "region_value": "Moscow",
-      "tax": "Tax Authority",
-      "tax_value": "IFNS No. 23 in Moscow",
-      "ip_value": "Basenko Ilya Konstantinovich",
-      "ogrnip_value": "325774600531587",
-      "inn_value": "772370980295",
-      "okpo_value": "2044454351"
-    },
-    "notice": {
-      "title": "Before Contacting",
-      "text": "By contacting us, you automatically accept the terms of the public offer, the privacy policy and the refund policy. We work under an oral or written contract — in any case, all documents are accepted upon contact.",
-      "terms_link": "Public Offer →",
-      "privacy_link": "Privacy Policy →",
-      "refund_link": "Refund Policy →"
     }
   },
   "terms": {
@@ -1125,6 +1088,9 @@
   },
   "bot": {
     "title": "FEFELOV — Bot.",
+    "aria": {
+      "select_language": "Select language"
+    },
     "login": {
       "heading": "Bot Panel",
       "subtitle": "Enter password to continue",

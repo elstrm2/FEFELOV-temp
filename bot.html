@@ -18,6 +18,29 @@
         .tab-btn.active { background: rgba(168, 162, 158, 0.2); border-color: rgba(168, 162, 158, 0.3); }
         .period-btn.active { background: #fafaf9; color: #1c1917; }
         .progress-bar { transition: width 0.3s ease; }
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: #292524;
+            border: 1px solid #44403c;
+            border-radius: 12px;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .toast.error { border-color: #7f1d1d; }
+        .toast.success { border-color: #14532d; }
     </style>
 </head>
 <body class="gradient-bg min-h-screen text-stone-100 antialiased overflow-x-hidden i18n-loading">
@@ -54,7 +77,6 @@
                 <button type="submit" class="w-full bg-stone-100 text-stone-900 rounded-xl px-4 py-3 font-medium hover:bg-stone-200 transition-colors" data-i18n="bot.login.btn">
                     Войти
                 </button>
-                <p id="login-error" class="text-red-400 text-sm text-center hidden" data-i18n="bot.login.error">Неверный пароль</p>
             </form>
         </div>
     </div>
@@ -259,14 +281,22 @@
         </main>
     </div>
 
+    <div id="toast" class="toast">
+        <svg id="toast-icon" class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        <span id="toast-text" class="text-sm text-stone-200">Сообщение</span>
+    </div>
+
     <script>
         const API = 'https://api.fefelov.net:8443';
 
         const loginScreen = document.getElementById('login-screen');
         const panelScreen = document.getElementById('panel-screen');
         const loginForm = document.getElementById('login-form');
-        const loginError = document.getElementById('login-error');
         const passwordInput = document.getElementById('password');
+        const toast = document.getElementById('toast');
+        const toastText = document.getElementById('toast-text');
         const logoutBtn = document.getElementById('logout-btn');
         const toggleBtn = document.getElementById('toggle-btn');
         const saveBtn = document.getElementById('save-btn');
@@ -383,18 +413,24 @@
             });
         });
 
+        function showToast(message, type = 'error') {
+            toastText.textContent = message;
+            toast.className = 'toast ' + type;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+
         loginForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            loginError.classList.add('hidden');
             try {
                 const data = await api('/auth', 'POST', { password: passwordInput.value });
                 if (data.success) {
                     showPanel();
                 } else {
-                    loginError.classList.remove('hidden');
+                    showToast(t('bot.login.error'), 'error');
                 }
             } catch {
-                loginError.classList.remove('hidden');
+                showToast(t('bot.login.error'), 'error');
             }
         });
 

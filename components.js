@@ -880,7 +880,7 @@ const commonStyles = `
         to { opacity: 1; transform: translateY(0) scale(1); }
     }
 
-    /* Terminal Scenario */
+    
     .scenario-terminal {
         font-family: 'JetBrains Mono', 'Fira Code', monospace;
         font-size: 12px;
@@ -942,7 +942,7 @@ const commonStyles = `
         51%, 100% { opacity: 0; }
     }
 
-    /* Browser Scenario */
+    
     .scenario-browser {
         background: #fff;
         border-radius: 8px;
@@ -1074,7 +1074,7 @@ const commonStyles = `
         border-radius: 2px;
     }
 
-    /* Chat Scenario */
+    
     .scenario-chat {
         display: flex;
         flex-direction: column;
@@ -1173,7 +1173,7 @@ const commonStyles = `
         30% { transform: translateY(-6px); opacity: 1; }
     }
 
-    /* Document Scenario */
+    
     .scenario-doc {
         background: #fff;
         border-radius: 8px;
@@ -1291,7 +1291,7 @@ const commonStyles = `
         color: #888;
     }
 
-    /* Particles */
+    
     .hero-display-particles {
         position: absolute;
         inset: 0;
@@ -1418,7 +1418,7 @@ const commonStyles = `
         border-radius: 2px;
     }
 
-    /* Mobile scenario adjustments */
+    
     .hero-phone-content .scenario-terminal {
         font-size: 10px;
     }
@@ -1457,7 +1457,7 @@ const commonStyles = `
         padding: 14px;
     }
 
-    /* Status indicator */
+    
     .scenario-status {
         display: flex;
         align-items: center;
@@ -1488,7 +1488,7 @@ const commonStyles = `
         font-weight: 500;
     }
 
-    /* Checkmark animation */
+    
     .check-icon {
         display: inline-flex;
         align-items: center;

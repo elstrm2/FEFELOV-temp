@@ -1132,6 +1132,9 @@
       "btn": "Login",
       "error": "Incorrect password"
     },
+    "toast": {
+      "close": "Click to close"
+    },
     "header": {
       "name": "VK Bot",
       "logout": "Logout"

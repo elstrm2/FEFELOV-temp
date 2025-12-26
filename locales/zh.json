@@ -28,6 +28,9 @@
       "btn": "登录",
       "error": "密码错误"
     },
+    "toast": {
+      "close": "点击关闭"
+    },
     "header": {
       "name": "VK 机器人",
       "logout": "登出"

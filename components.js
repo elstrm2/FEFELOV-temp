@@ -598,8 +598,8 @@ const commonStyles = `
         flex-shrink: 0;
         opacity: 0;
         margin-right: 0;
-        transform: translateX(-10px);
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transform: translateX(-5px) scale(0.8);
+        transition: margin-right 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.2s ease, opacity 0.15s ease;
     }
 
     #lang-menu button:hover {
@@ -610,7 +610,8 @@ const commonStyles = `
     #lang-menu button:hover .lang-icon {
         opacity: 1;
         margin-right: 10px;
-        transform: translateX(0);
+        transform: translateX(0) scale(1);
+        transition: margin-right 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s ease 0.1s, opacity 0.2s ease 0.15s;
     }
 
     #lang-menu button.active {
@@ -621,7 +622,7 @@ const commonStyles = `
     #lang-menu button.active .lang-icon {
         opacity: 1;
         margin-right: 10px;
-        transform: translateX(0);
+        transform: translateX(0) scale(1);
     }
 
     #lang-menu button[data-lang="ru"] .lang-icon { color: #0ea5e9; filter: drop-shadow(0 0 3px rgba(14, 165, 233, 0.4)); }
@@ -855,7 +856,7 @@ const headerHTML = `
                     <div id="lang-menu" class="lang-menu absolute right-0 top-full mt-2 bg-white border border-stone-200 rounded-xl shadow-lg py-2 min-w-[160px] z-50" role="menu">
                         <button data-lang="ru" class="w-full text-left text-base" role="menuitem"><svg class="lang-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/></svg><span>Русский</span></button>
                         <button data-lang="uk" class="w-full text-left text-base" role="menuitem"><svg class="lang-icon" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15,9 22,9 16.5,14 18.5,21 12,17 5.5,21 7.5,14 2,9 9,9"/></svg><span>Українська</span></button>
-                        <button data-lang="en" class="w-full text-left text-base" role="menuitem"><svg class="lang-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg><span>English</span></button>
+                        <button data-lang="en" class="w-full text-left text-base" role="menuitem"><svg class="lang-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg><span>English</span></button>
                         <button data-lang="zh" class="w-full text-left text-base" role="menuitem"><svg class="lang-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M19.35 10.04A7.49 7.49 0 0012 4C9.11 4 6.6 5.64 5.35 8.04A5.994 5.994 0 000 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/></svg><span>中文</span></button>
                     </div>
                 </div>

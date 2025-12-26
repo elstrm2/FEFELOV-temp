@@ -504,25 +504,48 @@ document.addEventListener('DOMContentLoaded', () => {
         `<div class="scenario-container scenario-browser"><div class="browser-bar"><div class="browser-dots"><span class="browser-dot" style="background: #ff5f56"></span><span class="browser-dot" style="background: #ffbd2e"></span><span class="browser-dot" style="background: #27ca40"></span></div><div class="browser-url"><span class="browser-url-lock">🔒</span><span>client-project.fefelov.ru</span></div></div><div class="browser-body"><div class="browser-loader" id="browser-loader"><div class="browser-loader-block" style="width: 60%"></div><div class="browser-loader-block" style="width: 80%"></div><div class="browser-loader-block" style="width: 40%"></div></div><div class="browser-site" id="browser-site" style="display: none"><div class="site-hero"><h3>${I18N.t('scenarios.browser.welcome') || 'Добро пожаловать'}</h3><p>${I18N.t('scenarios.browser.subtitle') || 'Современный сайт для вашего бизнеса'}</p></div><div class="site-cards"><div class="site-card" style="animation-delay: 1.8s"><div class="site-card-icon"></div><div class="site-card-text"></div></div><div class="site-card" style="animation-delay: 2s"><div class="site-card-icon" style="background: linear-gradient(135deg, #10b981, #059669)"></div><div class="site-card-text"></div></div><div class="site-card" style="animation-delay: 2.2s"><div class="site-card-icon" style="background: linear-gradient(135deg, #f59e0b, #d97706)"></div><div class="site-card-text"></div></div></div></div></div></div>`,
       chat: () => {
         const messages = [
-          { type: 'user', text: I18N.t('scenarios.chat.user1'), delay: 0.4 },
-          { type: 'bot', text: I18N.t('scenarios.chat.bot1'), delay: 1.2 },
-          { type: 'user', text: I18N.t('scenarios.chat.user2'), delay: 2.0 },
+          {
+            type: 'user',
+            text: I18N.t('scenarios.chat.user1') || 'Нужна помощь с курсовой по экономике',
+            delay: 0.4,
+          },
           {
             type: 'bot',
-            text: I18N.t('scenarios.chat.bot2'),
+            text: I18N.t('scenarios.chat.bot1') || 'Конечно! Какая тема работы?',
+            delay: 1.2,
+          },
+          {
+            type: 'user',
+            text: I18N.t('scenarios.chat.user2') || 'Анализ рынка криптовалют',
+            delay: 2.0,
+          },
+          {
+            type: 'bot',
+            text:
+              I18N.t('scenarios.chat.bot2') ||
+              'Отличная тема! Подготовлю структуру и источники. Ожидайте материалы через 2 часа 📚',
             delay: 2.8,
           },
         ];
-        return `<div class="scenario-container scenario-chat"><div class="chat-header"><div class="chat-avatar">F</div><div class="chat-info"><h4>${I18N.t('scenarios.chat.consultant')}</h4><span>${I18N.t('scenarios.chat.online')}</span></div></div><div class="chat-messages">${messages.map((msg) => `<div class="chat-msg chat-msg-${msg.type}" style="animation-delay: ${msg.delay}s">${msg.text}</div>`).join('')}<div class="chat-typing" style="animation: msgIn 0.4s ease forwards 3.8s; opacity: 0"><span class="chat-typing-dot"></span><span class="chat-typing-dot"></span><span class="chat-typing-dot"></span></div></div></div>`;
+        return `<div class="scenario-container scenario-chat"><div class="chat-header"><div class="chat-avatar">F</div><div class="chat-info"><h4>${I18N.t('scenarios.chat.consultant') || 'FEFELOV Консультант'}</h4><span>${I18N.t('scenarios.chat.online') || '● онлайн'}</span></div></div><div class="chat-messages">${messages.map((msg) => `<div class="chat-msg chat-msg-${msg.type}" style="animation-delay: ${msg.delay}s">${msg.text}</div>`).join('')}<div class="chat-typing" style="animation: msgIn 0.4s ease forwards 3.8s; opacity: 0"><span class="chat-typing-dot"></span><span class="chat-typing-dot"></span><span class="chat-typing-dot"></span></div></div></div>`;
       },
       document: () => {
         const items = [
-          { text: I18N.t('scenarios.document.item1'), delay: 0.6 },
-          { text: I18N.t('scenarios.document.item2'), delay: 1.0 },
-          { text: I18N.t('scenarios.document.item3'), delay: 1.4 },
-          { text: I18N.t('scenarios.document.item4'), delay: 1.8 },
+          {
+            text: I18N.t('scenarios.document.item1') || 'Введение и актуальность темы',
+            delay: 0.6,
+          },
+          {
+            text: I18N.t('scenarios.document.item2') || 'Теоретическая база исследования',
+            delay: 1.0,
+          },
+          {
+            text: I18N.t('scenarios.document.item3') || 'Практическая часть с расчётами',
+            delay: 1.4,
+          },
+          { text: I18N.t('scenarios.document.item4') || 'Выводы и рекомендации', delay: 1.8 },
         ];
-        return `<div class="scenario-container scenario-doc"><div class="doc-header"><div class="doc-icon">📄</div><span class="doc-title">${I18N.t('scenarios.document.filename')}</span></div><div class="doc-body">${items.map((item) => `<div class="doc-line" style="animation-delay: ${item.delay}s"><span class="doc-bullet"></span><span class="doc-text">${item.text}</span></div>`).join('')}<div class="doc-formula" style="animation-delay: 2.4s">NPV = Σ (CFt / (1+r)^t) − I₀</div><div class="doc-progress" style="animation: scenarioFadeIn 0.4s ease forwards 2.8s; opacity: 0"><div class="doc-progress-bar"><div class="doc-progress-fill" style="animation-delay: 3s"></div></div><span class="doc-progress-text">${I18N.t('scenarios.document.done')}</span></div></div></div>`;
+        return `<div class="scenario-container scenario-doc"><div class="doc-header"><div class="doc-icon">📄</div><span class="doc-title">${I18N.t('scenarios.document.filename') || 'Дипломная_работа.docx'}</span></div><div class="doc-body">${items.map((item) => `<div class="doc-line" style="animation-delay: ${item.delay}s"><span class="doc-bullet"></span><span class="doc-text">${item.text}</span></div>`).join('')}<div class="doc-formula" style="animation-delay: 2.4s">NPV = Σ (CFt / (1+r)^t) − I₀</div><div class="doc-progress" style="animation: scenarioFadeIn 0.4s ease forwards 2.8s; opacity: 0"><div class="doc-progress-bar"><div class="doc-progress-fill" style="animation-delay: 3s"></div></div><span class="doc-progress-text">${I18N.t('scenarios.document.done') || 'Готово!'}</span></div></div></div>`;
       },
     };
 

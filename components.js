@@ -555,17 +555,17 @@ const commonStyles = `
     #lang-menu {
         background: #fff;
         border: 1px solid #e7e5e4;
-        padding: 4px;
+        padding: 6px;
         box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.15);
     }
 
     #lang-menu button {
         position: relative;
         color: #57534e;
-        border-radius: 8px;
+        border-radius: 10px;
         overflow: hidden;
-        transition: all 0.2s ease;
-        padding-left: 1.75rem;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        padding: 10px 16px;
         display: flex;
         align-items: center;
     }
@@ -573,21 +573,23 @@ const commonStyles = `
     #lang-menu button::before {
         content: '';
         position: absolute;
-        left: 10px;
+        left: -20px;
         top: 50%;
         transform: translateY(-50%);
-        width: 14px;
-        height: 14px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 13px;
-        transition: all 0.3s ease;
+        font-size: 14px;
+        opacity: 0;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     #lang-menu button:hover {
         color: #1c1917;
         background: #f5f5f4;
+        padding-left: 36px;
+    }
+
+    #lang-menu button:hover::before {
+        left: 12px;
+        opacity: 1;
     }
 
     #lang-menu button.active {
@@ -595,22 +597,30 @@ const commonStyles = `
         color: #1c1917;
     }
 
-    #lang-menu button[data-lang="ru"]::before { content: '❄'; background: linear-gradient(135deg, #67e8f9, #0ea5e9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: langPulseRu 2s ease-in-out infinite; }
-    #lang-menu button[data-lang="ru"].active::before { font-size: 15px; filter: drop-shadow(0 0 4px rgba(14, 165, 233, 0.5)); }
+    #lang-menu button[data-lang="ru"]::before { content: '❄'; background: linear-gradient(135deg, #67e8f9, #0ea5e9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    #lang-menu button[data-lang="ru"]:hover::before { animation: langIconRu 2s ease-in-out infinite; }
+    #lang-menu button[data-lang="ru"].active { padding-left: 36px; }
+    #lang-menu button[data-lang="ru"].active::before { left: 12px; opacity: 1; font-size: 15px; filter: drop-shadow(0 0 4px rgba(14, 165, 233, 0.5)); animation: langIconRu 2s ease-in-out infinite; }
 
-    #lang-menu button[data-lang="en"]::before { content: '>'; font-family: monospace; font-weight: bold; background: linear-gradient(135deg, #4ade80, #22c55e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: langBounceEn 1.5s ease-in-out infinite; }
-    #lang-menu button[data-lang="en"].active::before { font-size: 15px; filter: drop-shadow(0 0 4px rgba(34, 197, 94, 0.5)); }
+    #lang-menu button[data-lang="en"]::before { content: '>'; font-family: monospace; font-weight: bold; background: linear-gradient(135deg, #4ade80, #22c55e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    #lang-menu button[data-lang="en"]:hover::before { animation: langIconEn 1.2s ease-in-out infinite; }
+    #lang-menu button[data-lang="en"].active { padding-left: 36px; }
+    #lang-menu button[data-lang="en"].active::before { left: 12px; opacity: 1; font-size: 15px; filter: drop-shadow(0 0 4px rgba(34, 197, 94, 0.5)); animation: langIconEn 1.2s ease-in-out infinite; }
 
-    #lang-menu button[data-lang="uk"]::before { content: '✦'; background: linear-gradient(135deg, #fcd34d, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: langSpinUk 3s linear infinite; }
-    #lang-menu button[data-lang="uk"].active::before { font-size: 15px; filter: drop-shadow(0 0 4px rgba(245, 158, 11, 0.5)); }
+    #lang-menu button[data-lang="uk"]::before { content: '✦'; background: linear-gradient(135deg, #fcd34d, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    #lang-menu button[data-lang="uk"]:hover::before { animation: langIconUk 2.5s ease-in-out infinite; }
+    #lang-menu button[data-lang="uk"].active { padding-left: 36px; }
+    #lang-menu button[data-lang="uk"].active::before { left: 12px; opacity: 1; font-size: 15px; filter: drop-shadow(0 0 4px rgba(245, 158, 11, 0.5)); animation: langIconUk 2.5s ease-in-out infinite; }
 
-    #lang-menu button[data-lang="zh"]::before { content: '☁'; font-size: 15px; background: linear-gradient(135deg, #f87171, #dc2626); -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: langFloatZh 2.5s ease-in-out infinite; }
-    #lang-menu button[data-lang="zh"].active::before { font-size: 17px; filter: drop-shadow(0 0 4px rgba(220, 38, 38, 0.5)); }
+    #lang-menu button[data-lang="zh"]::before { content: '☁'; font-size: 15px; background: linear-gradient(135deg, #f87171, #dc2626); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    #lang-menu button[data-lang="zh"]:hover::before { animation: langIconZh 3s ease-in-out infinite; }
+    #lang-menu button[data-lang="zh"].active { padding-left: 36px; }
+    #lang-menu button[data-lang="zh"].active::before { left: 12px; opacity: 1; font-size: 17px; filter: drop-shadow(0 0 4px rgba(220, 38, 38, 0.5)); animation: langIconZh 3s ease-in-out infinite; }
 
-    @keyframes langPulseRu { 0%, 100% { transform: translateY(-50%) scale(1); opacity: 0.8; } 50% { transform: translateY(-50%) scale(1.15); opacity: 1; } }
-    @keyframes langBounceEn { 0%, 100% { transform: translateY(-50%) translateX(0); } 50% { transform: translateY(-50%) translateX(2px); } }
-    @keyframes langSpinUk { 0% { transform: translateY(-50%) rotate(0deg); } 100% { transform: translateY(-50%) rotate(360deg); } }
-    @keyframes langFloatZh { 0%, 100% { transform: translateY(-50%) scale(1); } 50% { transform: translateY(-55%) scale(1.1); } }
+    @keyframes langIconRu { 0%, 100% { transform: translateY(-50%) scale(1) rotate(0deg); } 25% { transform: translateY(-52%) scale(1.1) rotate(-5deg); } 50% { transform: translateY(-48%) scale(0.95) rotate(5deg); } 75% { transform: translateY(-51%) scale(1.05) rotate(-3deg); } }
+    @keyframes langIconEn { 0%, 100% { transform: translateY(-50%) translateX(0); } 25% { transform: translateY(-50%) translateX(3px); } 50% { transform: translateY(-50%) translateX(1px); } 75% { transform: translateY(-50%) translateX(4px); } }
+    @keyframes langIconUk { 0%, 100% { transform: translateY(-50%) scale(1) rotate(0deg); } 33% { transform: translateY(-50%) scale(1.15) rotate(120deg); } 66% { transform: translateY(-50%) scale(0.9) rotate(240deg); } }
+    @keyframes langIconZh { 0%, 100% { transform: translateY(-50%) scale(1) translateX(0); } 25% { transform: translateY(-53%) scale(1.05) translateX(2px); } 50% { transform: translateY(-47%) scale(1.1) translateX(-1px); } 75% { transform: translateY(-52%) scale(0.95) translateX(1px); } }
 `;
 
 const headerHTML = `

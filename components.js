@@ -112,16 +112,18 @@ const commonStyles = `
         margin: -4px;
         overflow: visible;
         display: inline-block;
+        flex-shrink: 0;
     }
     .logo-text, .logo-dot {
         display: inline-block;
+        transform-origin: left center;
     }
     .logo-dot {
         transition: opacity 0.2s ease;
     }
     @keyframes logoPulse {
         0%, 100% { transform: scale(1); }
-        50% { transform: scale(1.15); filter: drop-shadow(0 0 8px rgba(102, 126, 234, 0.6)); }
+        50% { transform: scale(1.1); filter: drop-shadow(0 0 6px rgba(102, 126, 234, 0.5)); }
     }
     @keyframes gradient-shift {
         0% { background-position: 0% 50%; }
@@ -201,7 +203,7 @@ const commonStyles = `
     .lang-menu.active { display: block; }
 
     .lang-btn-expand {
-        transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1), padding 0.35s cubic-bezier(0.4, 0, 0.2, 1), background 0.2s ease;
+        transition: width 0.15s ease-out, padding 0.15s ease-out, background 0.2s ease;
         overflow: hidden;
         width: 44px;
         height: 44px;
@@ -211,25 +213,31 @@ const commonStyles = `
         opacity: 0;
         max-width: 0;
         margin-left: 0;
-        transition: opacity 0.25s ease, max-width 0.35s cubic-bezier(0.4, 0, 0.2, 1), margin 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        transform: translateX(10px);
+        transition: opacity 0.1s ease-out, max-width 0.15s ease-out, margin 0.15s ease-out, transform 0.15s ease-out;
     }
     .lang-btn-expand:hover,
     .lang-btn-expand[aria-expanded="true"] {
         width: auto;
         padding-left: 14px;
         padding-right: 14px;
+        transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.2s ease;
     }
     .lang-btn-expand:hover .lang-text,
     .lang-btn-expand[aria-expanded="true"] .lang-text {
         opacity: 1;
         max-width: 50px;
         margin-left: 8px;
+        transform: translateX(0);
+        transition: opacity 0.2s ease 0.1s, max-width 0.3s cubic-bezier(0.4, 0, 0.2, 1), margin 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s ease;
     }
     .lang-btn-expand:hover .lang-arrow,
     .lang-btn-expand[aria-expanded="true"] .lang-arrow {
         opacity: 1;
         max-width: 20px;
         margin-left: 4px;
+        transform: translateX(0);
+        transition: opacity 0.2s ease 0.15s, max-width 0.3s cubic-bezier(0.4, 0, 0.2, 1), margin 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s ease;
     }
 
     .service-card {

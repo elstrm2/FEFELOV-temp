@@ -133,47 +133,49 @@
                         консультируем по сложным вопросам. Работаем официально, по договору.
                     </p>
 
-                    <div class="hero-pills-container mb-10">
-                        <span class="hero-service-pill hero-service-pill-edu">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-                            <span data-i18n="index.hero.pill_coursework">Курсовые</span>
-                        </span>
-                        <span class="hero-service-pill hero-service-pill-edu">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-                            <span data-i18n="index.hero.pill_thesis">Дипломы</span>
-                        </span>
-                        <span class="hero-service-pill hero-service-pill-edu">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
-                            <span data-i18n="index.hero.pill_essays">Рефераты</span>
-                        </span>
-                        <span class="hero-service-pill hero-service-pill-edu">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
-                            <span data-i18n="index.hero.pill_consult">Консультации</span>
-                        </span>
-                        <span class="hero-service-pill hero-service-pill-it">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-                            <span data-i18n="index.hero.pill_web">Сайты</span>
-                        </span>
-                        <span class="hero-service-pill hero-service-pill-it">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                            <span data-i18n="index.hero.pill_bots">Боты</span>
-                        </span>
-                    </div>
-
                     <a href="contacts.html" class="inline-flex items-center justify-start btn-gradient-border bg-stone-900 text-stone-50 px-10 py-4 sm:px-12 sm:py-5 text-base sm:text-lg font-medium rounded-full">
                         <span data-i18n="index.hero.cta_primary">Обсудить проект</span>
                         <svg class="ml-3 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                     </a>
                 </div>
 
-                <div class="hidden lg:block">
-                    <div class="hero-terminal" id="hero-terminal">
-                        <div class="hero-terminal-header">
-                            <span class="hero-terminal-dot hero-terminal-dot-red"></span>
-                            <span class="hero-terminal-dot hero-terminal-dot-yellow"></span>
-                            <span class="hero-terminal-dot hero-terminal-dot-green"></span>
+                <div class="hero-display-wrapper hidden lg:block">
+                    <div class="hero-display" id="hero-display">
+                        <div class="hero-display-glow"></div>
+                        <div class="hero-display-frame">
+                            <div class="hero-display-bezel">
+                                <div class="hero-display-camera"></div>
+                            </div>
+                            <div class="hero-display-screen">
+                                <div class="hero-display-scanline"></div>
+                                <div class="hero-display-content" id="hero-display-content"></div>
+                                <div class="hero-display-reflection"></div>
+                            </div>
+                            <div class="hero-display-chin">
+                                <div class="hero-display-logo">FEFELOV</div>
+                            </div>
                         </div>
-                        <div class="hero-terminal-body" id="hero-terminal-body"></div>
+                        <div class="hero-display-stand">
+                            <div class="hero-display-stand-neck"></div>
+                            <div class="hero-display-stand-base"></div>
+                        </div>
+                        <div class="hero-display-particles" id="hero-particles"></div>
+                    </div>
+                </div>
+
+                <div class="hero-phone-wrapper block lg:hidden mt-10">
+                    <div class="hero-phone" id="hero-phone">
+                        <div class="hero-phone-glow"></div>
+                        <div class="hero-phone-frame">
+                            <div class="hero-phone-notch">
+                                <div class="hero-phone-speaker"></div>
+                                <div class="hero-phone-camera"></div>
+                            </div>
+                            <div class="hero-phone-screen">
+                                <div class="hero-phone-content" id="hero-phone-content"></div>
+                            </div>
+                            <div class="hero-phone-bar"></div>
+                        </div>
                     </div>
                 </div>
             </div>

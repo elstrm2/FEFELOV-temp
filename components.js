@@ -704,64 +704,816 @@ const commonStyles = `
         80% { transform: translate(-20px, -15px) scale(0.98); }
     }
 
-    .hero-terminal {
-        background: linear-gradient(145deg, #1a1a2e 0%, #0f0f1a 100%);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 16px;
-        overflow: hidden;
-        box-shadow: 0 25px 80px -20px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(10px);
+    :root {
+        --display-accent: #6366f1;
+        --display-accent-rgb: 99, 102, 241;
+        --display-glow: rgba(99, 102, 241, 0.4);
     }
-    .hero-terminal-header {
-        background: rgba(255, 255, 255, 0.03);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        padding: 12px 16px;
+
+    .hero-display-wrapper {
+        perspective: 1200px;
+        perspective-origin: 50% 30%;
+    }
+
+    .hero-display {
+        position: relative;
+        transform-style: preserve-3d;
+        animation: displayFloat 6s ease-in-out infinite;
+    }
+
+    @keyframes displayFloat {
+        0%, 100% { transform: rotateX(2deg) rotateY(-3deg) translateY(0); }
+        50% { transform: rotateX(0deg) rotateY(-1deg) translateY(-8px); }
+    }
+
+    .hero-display-glow {
+        position: absolute;
+        inset: -40px;
+        background: radial-gradient(ellipse at center, var(--display-glow) 0%, transparent 70%);
+        opacity: 0.6;
+        filter: blur(40px);
+        z-index: -1;
+        animation: glowPulse 4s ease-in-out infinite;
+        transition: background 0.8s ease;
+    }
+
+    @keyframes glowPulse {
+        0%, 100% { opacity: 0.5; transform: scale(1); }
+        50% { opacity: 0.8; transform: scale(1.05); }
+    }
+
+    .hero-display-frame {
+        background: linear-gradient(165deg, #1a1a1a 0%, #0a0a0a 100%);
+        border-radius: 24px;
+        padding: 12px 12px 0 12px;
+        box-shadow:
+            0 50px 100px -30px rgba(0, 0, 0, 0.7),
+            0 30px 60px -20px rgba(0, 0, 0, 0.5),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero-display-frame::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, transparent 50%);
+        pointer-events: none;
+        border-radius: 24px;
+    }
+
+    .hero-display-bezel {
+        height: 20px;
         display: flex;
         align-items: center;
-        gap: 8px;
+        justify-content: center;
+        position: relative;
     }
-    .hero-terminal-dot {
-        width: 12px;
+
+    .hero-display-camera {
+        width: 8px;
+        height: 8px;
+        background: radial-gradient(circle, #2a2a2a 40%, #1a1a1a 100%);
+        border-radius: 50%;
+        box-shadow: inset 0 1px 2px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.05);
+    }
+
+    .hero-display-screen {
+        background: linear-gradient(180deg, #0c0c14 0%, #080810 100%);
+        border-radius: 8px;
+        min-height: 280px;
+        position: relative;
+        overflow: hidden;
+        box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.8);
+    }
+
+    .hero-display-scanline {
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(0, 0, 0, 0.15) 2px,
+            rgba(0, 0, 0, 0.15) 4px
+        );
+        pointer-events: none;
+        z-index: 10;
+        opacity: 0.3;
+    }
+
+    .hero-display-reflection {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            165deg,
+            rgba(255, 255, 255, 0.04) 0%,
+            transparent 40%,
+            transparent 60%,
+            rgba(255, 255, 255, 0.02) 100%
+        );
+        pointer-events: none;
+        z-index: 20;
+    }
+
+    .hero-display-content {
+        padding: 24px;
+        min-height: 280px;
+        position: relative;
+        z-index: 5;
+    }
+
+    .hero-display-chin {
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(180deg, #1a1a1a 0%, #0f0f0f 100%);
+        border-radius: 0 0 16px 16px;
+        margin: 0 -12px -12px -12px;
+        padding: 0 12px;
+    }
+
+    .hero-display-logo {
+        font-family: 'Inter', system-ui, sans-serif;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        color: #3a3a3a;
+        text-transform: uppercase;
+    }
+
+    .hero-display-stand {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: -2px;
+    }
+
+    .hero-display-stand-neck {
+        width: 60px;
+        height: 50px;
+        background: linear-gradient(90deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
+        clip-path: polygon(15% 0, 85% 0, 100% 100%, 0% 100%);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+    }
+
+    .hero-display-stand-base {
+        width: 140px;
         height: 12px;
+        background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%);
+        border-radius: 4px 4px 8px 8px;
+        box-shadow:
+            0 8px 20px -5px rgba(0, 0, 0, 0.5),
+            inset 0 1px 0 rgba(255,255,255,0.08);
+    }
+
+    .scenario-container {
+        opacity: 0;
+        animation: scenarioFadeIn 0.6s ease forwards;
+    }
+
+    @keyframes scenarioFadeIn {
+        from { opacity: 0; transform: translateY(10px) scale(0.98); }
+        to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* Terminal Scenario */
+    .scenario-terminal {
+        font-family: 'JetBrains Mono', 'Fira Code', monospace;
+        font-size: 12px;
+        line-height: 1.8;
+    }
+
+    .term-header {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 16px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .term-dot {
+        width: 10px;
+        height: 10px;
         border-radius: 50%;
     }
-    .hero-terminal-dot-red { background: #ff5f56; }
-    .hero-terminal-dot-yellow { background: #ffbd2e; }
-    .hero-terminal-dot-green { background: #27ca40; }
-    .hero-terminal-body {
-        padding: 20px;
-        font-family: 'JetBrains Mono', 'Fira Code', monospace;
-        font-size: 13px;
-        line-height: 1.6;
-        color: #a8b2d1;
-        min-height: 180px;
+    .term-dot-r { background: #ff5f56; box-shadow: 0 0 8px rgba(255, 95, 86, 0.4); }
+    .term-dot-y { background: #ffbd2e; box-shadow: 0 0 8px rgba(255, 189, 46, 0.4); }
+    .term-dot-g { background: #27ca40; box-shadow: 0 0 8px rgba(39, 202, 64, 0.4); }
+
+    .term-title {
+        margin-left: auto;
+        font-size: 10px;
+        color: #4a4a5a;
+        letter-spacing: 0.5px;
     }
-    .hero-terminal-line {
-        margin-bottom: 8px;
+
+    .term-line {
         opacity: 0;
-        transform: translateY(10px);
-        animation: terminalLineAppear 0.4s ease forwards;
+        transform: translateX(-10px);
+        animation: termLineIn 0.4s ease forwards;
     }
-    .hero-terminal-prompt { color: #64ffda; }
-    .hero-terminal-command { color: #e6e6e6; }
-    .hero-terminal-output { color: #8892b0; }
-    .hero-terminal-success { color: #64ffda; }
-    .hero-terminal-warning { color: #ffbd2e; }
-    .hero-terminal-cursor {
+
+    @keyframes termLineIn {
+        to { opacity: 1; transform: translateX(0); }
+    }
+
+    .term-prompt { color: #64ffda; }
+    .term-cmd { color: #e2e8f0; }
+    .term-out { color: #8892b0; }
+    .term-ok { color: #4ade80; }
+    .term-cursor {
         display: inline-block;
         width: 8px;
-        height: 16px;
+        height: 14px;
         background: #64ffda;
         animation: cursorBlink 1s step-end infinite;
         vertical-align: middle;
-        margin-left: 2px;
+        margin-left: 4px;
+        box-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
     }
-    @keyframes terminalLineAppear {
-        to { opacity: 1; transform: translateY(0); }
-    }
+
     @keyframes cursorBlink {
         0%, 50% { opacity: 1; }
         51%, 100% { opacity: 0; }
+    }
+
+    /* Browser Scenario */
+    .scenario-browser {
+        background: #fff;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .browser-bar {
+        background: linear-gradient(180deg, #f8f8f8 0%, #e8e8e8 100%);
+        padding: 10px 12px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .browser-dots {
+        display: flex;
+        gap: 6px;
+    }
+    .browser-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #ddd;
+    }
+
+    .browser-url {
+        flex: 1;
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 6px 10px;
+        font-size: 11px;
+        color: #666;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .browser-url-lock {
+        color: #22c55e;
+    }
+
+    .browser-body {
+        background: #fff;
+        min-height: 180px;
+        padding: 16px;
+    }
+
+    .browser-loader {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .browser-loader-block {
+        height: 16px;
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+        background-size: 200% 100%;
+        border-radius: 4px;
+        animation: shimmer 1.5s infinite;
+    }
+
+    @keyframes shimmer {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+    }
+
+    .browser-site {
+        opacity: 0;
+        animation: browserSiteIn 0.5s ease forwards;
+    }
+
+    @keyframes browserSiteIn {
+        from { opacity: 0; transform: scale(0.95); }
+        to { opacity: 1; transform: scale(1); }
+    }
+
+    .site-hero {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 6px;
+        padding: 20px;
+        margin-bottom: 12px;
+        color: #fff;
+    }
+
+    .site-hero h3 {
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 4px;
+    }
+
+    .site-hero p {
+        font-size: 10px;
+        opacity: 0.8;
+    }
+
+    .site-cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+
+    .site-card {
+        background: #f5f5f5;
+        border-radius: 4px;
+        padding: 10px;
+        opacity: 0;
+        animation: cardPop 0.3s ease forwards;
+    }
+
+    @keyframes cardPop {
+        from { opacity: 0; transform: scale(0.8); }
+        to { opacity: 1; transform: scale(1); }
+    }
+
+    .site-card-icon {
+        width: 20px;
+        height: 20px;
+        background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        border-radius: 4px;
+        margin-bottom: 6px;
+    }
+
+    .site-card-text {
+        height: 6px;
+        background: #ddd;
+        border-radius: 2px;
+    }
+
+    /* Chat Scenario */
+    .scenario-chat {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .chat-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .chat-avatar {
+        width: 36px;
+        height: 36px;
+        background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        color: #fff;
+        font-weight: 600;
+    }
+
+    .chat-info h4 {
+        color: #fff;
+        font-size: 13px;
+        font-weight: 500;
+    }
+
+    .chat-info span {
+        color: #4ade80;
+        font-size: 10px;
+    }
+
+    .chat-messages {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        flex: 1;
+    }
+
+    .chat-msg {
+        max-width: 80%;
+        padding: 10px 14px;
+        border-radius: 16px;
+        font-size: 12px;
+        line-height: 1.4;
+        opacity: 0;
+        animation: msgIn 0.4s ease forwards;
+    }
+
+    @keyframes msgIn {
+        from { opacity: 0; transform: translateY(10px) scale(0.95); }
+        to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .chat-msg-user {
+        background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        color: #fff;
+        align-self: flex-end;
+        border-bottom-right-radius: 4px;
+    }
+
+    .chat-msg-bot {
+        background: rgba(255,255,255,0.1);
+        color: #e2e8f0;
+        align-self: flex-start;
+        border-bottom-left-radius: 4px;
+    }
+
+    .chat-typing {
+        display: flex;
+        gap: 4px;
+        padding: 12px 16px;
+        background: rgba(255,255,255,0.05);
+        border-radius: 16px;
+        align-self: flex-start;
+    }
+
+    .chat-typing-dot {
+        width: 6px;
+        height: 6px;
+        background: #8892b0;
+        border-radius: 50%;
+        animation: typingDot 1.4s infinite;
+    }
+    .chat-typing-dot:nth-child(2) { animation-delay: 0.2s; }
+    .chat-typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes typingDot {
+        0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+        30% { transform: translateY(-6px); opacity: 1; }
+    }
+
+    /* Document Scenario */
+    .scenario-doc {
+        background: #fff;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .doc-header {
+        background: linear-gradient(180deg, #f8f8f8 0%, #efefef 100%);
+        padding: 10px 14px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .doc-icon {
+        width: 24px;
+        height: 24px;
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 12px;
+    }
+
+    .doc-title {
+        font-size: 12px;
+        color: #333;
+        font-weight: 500;
+    }
+
+    .doc-body {
+        padding: 20px;
+        min-height: 180px;
+    }
+
+    .doc-line {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 10px;
+        opacity: 0;
+        animation: docLineIn 0.4s ease forwards;
+    }
+
+    @keyframes docLineIn {
+        from { opacity: 0; transform: translateX(-10px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+
+    .doc-bullet {
+        width: 6px;
+        height: 6px;
+        background: #6366f1;
+        border-radius: 50%;
+    }
+
+    .doc-text {
+        font-size: 11px;
+        color: #444;
+    }
+
+    .doc-formula {
+        background: #f8f8f8;
+        padding: 12px 16px;
+        border-radius: 6px;
+        border-left: 3px solid #6366f1;
+        margin: 14px 0;
+        font-family: 'Times New Roman', serif;
+        font-style: italic;
+        color: #333;
+        opacity: 0;
+        animation: formulaIn 0.5s ease forwards;
+    }
+
+    @keyframes formulaIn {
+        from { opacity: 0; transform: scale(0.95); }
+        to { opacity: 1; transform: scale(1); }
+    }
+
+    .doc-progress {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 16px;
+        padding-top: 12px;
+        border-top: 1px solid #eee;
+    }
+
+    .doc-progress-bar {
+        flex: 1;
+        height: 6px;
+        background: #eee;
+        border-radius: 3px;
+        overflow: hidden;
+    }
+
+    .doc-progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #6366f1, #8b5cf6);
+        border-radius: 3px;
+        width: 0;
+        animation: progressFill 2s ease forwards;
+    }
+
+    @keyframes progressFill {
+        to { width: 100%; }
+    }
+
+    .doc-progress-text {
+        font-size: 10px;
+        color: #888;
+    }
+
+    /* Particles */
+    .hero-display-particles {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        overflow: hidden;
+    }
+
+    .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: var(--display-accent);
+        border-radius: 50%;
+        opacity: 0;
+        animation: particleFloat 3s ease-in-out infinite;
+    }
+
+    @keyframes particleFloat {
+        0% { opacity: 0; transform: translateY(100px) scale(0); }
+        20% { opacity: 0.8; }
+        80% { opacity: 0.4; }
+        100% { opacity: 0; transform: translateY(-100px) scale(1); }
+    }
+
+    .hero-phone-wrapper {
+        display: flex;
+        justify-content: center;
+        perspective: 1000px;
+    }
+
+    .hero-phone {
+        position: relative;
+        animation: phoneFloat 5s ease-in-out infinite;
+    }
+
+    @keyframes phoneFloat {
+        0%, 100% { transform: rotateX(5deg) rotateY(-5deg) translateY(0); }
+        50% { transform: rotateX(0deg) rotateY(0deg) translateY(-10px); }
+    }
+
+    .hero-phone-glow {
+        position: absolute;
+        inset: -30px;
+        background: radial-gradient(ellipse at center, var(--display-glow) 0%, transparent 70%);
+        opacity: 0.5;
+        filter: blur(30px);
+        z-index: -1;
+        animation: glowPulse 4s ease-in-out infinite;
+    }
+
+    .hero-phone-frame {
+        width: 260px;
+        background: linear-gradient(165deg, #1a1a1a 0%, #0a0a0a 100%);
+        border-radius: 36px;
+        padding: 12px;
+        box-shadow:
+            0 40px 80px -20px rgba(0, 0, 0, 0.6),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+        position: relative;
+    }
+
+    .hero-phone-frame::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, transparent 50%);
+        pointer-events: none;
+        border-radius: 36px;
+    }
+
+    .hero-phone-notch {
+        position: absolute;
+        top: 16px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 28px;
+        background: #000;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        z-index: 30;
+    }
+
+    .hero-phone-speaker {
+        width: 40px;
+        height: 4px;
+        background: #1a1a1a;
+        border-radius: 2px;
+    }
+
+    .hero-phone-camera {
+        width: 8px;
+        height: 8px;
+        background: radial-gradient(circle, #1a3a5c 0%, #0a1a2c 100%);
+        border-radius: 50%;
+        box-shadow: 0 0 0 2px #0a0a0a;
+    }
+
+    .hero-phone-screen {
+        background: linear-gradient(180deg, #0c0c14 0%, #080810 100%);
+        border-radius: 28px;
+        min-height: 400px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero-phone-content {
+        padding: 50px 16px 24px 16px;
+        min-height: 400px;
+    }
+
+    .hero-phone-bar {
+        position: absolute;
+        bottom: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 4px;
+        background: rgba(255,255,255,0.2);
+        border-radius: 2px;
+    }
+
+    /* Mobile scenario adjustments */
+    .hero-phone-content .scenario-terminal {
+        font-size: 10px;
+    }
+
+    .hero-phone-content .term-header {
+        padding-bottom: 10px;
+        margin-bottom: 12px;
+    }
+
+    .hero-phone-content .term-dot {
+        width: 8px;
+        height: 8px;
+    }
+
+    .hero-phone-content .scenario-browser {
+        transform: scale(0.95);
+        transform-origin: top center;
+    }
+
+    .hero-phone-content .browser-body {
+        min-height: 140px;
+    }
+
+    .hero-phone-content .scenario-chat .chat-msg {
+        font-size: 11px;
+        padding: 8px 12px;
+    }
+
+    .hero-phone-content .scenario-doc {
+        transform: scale(0.95);
+        transform-origin: top center;
+    }
+
+    .hero-phone-content .doc-body {
+        min-height: 140px;
+        padding: 14px;
+    }
+
+    /* Status indicator */
+    .scenario-status {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 12px;
+        padding: 8px 12px;
+        background: rgba(34, 197, 94, 0.1);
+        border: 1px solid rgba(34, 197, 94, 0.2);
+        border-radius: 8px;
+    }
+
+    .status-dot {
+        width: 8px;
+        height: 8px;
+        background: #22c55e;
+        border-radius: 50%;
+        animation: statusPulse 2s infinite;
+    }
+
+    @keyframes statusPulse {
+        0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+        50% { box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
+    }
+
+    .status-text {
+        font-size: 11px;
+        color: #4ade80;
+        font-weight: 500;
+    }
+
+    /* Checkmark animation */
+    .check-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 18px;
+        height: 18px;
+        background: linear-gradient(135deg, #22c55e, #16a34a);
+        border-radius: 50%;
+        margin-right: 6px;
+        opacity: 0;
+        transform: scale(0);
+        animation: checkPop 0.4s ease forwards;
+    }
+
+    .check-icon svg {
+        width: 10px;
+        height: 10px;
+        stroke: #fff;
+        stroke-width: 3;
+    }
+
+    @keyframes checkPop {
+        0% { opacity: 0; transform: scale(0) rotate(-45deg); }
+        50% { transform: scale(1.2) rotate(10deg); }
+        100% { opacity: 1; transform: scale(1) rotate(0deg); }
     }
 
     .hero-floating-icon {
@@ -790,46 +1542,6 @@ const commonStyles = `
     @keyframes iconFloat5 { 0%, 100% { transform: translate(0, 0) rotate(0deg); } 40% { transform: translate(-25px, 10px) rotate(-10deg); } 80% { transform: translate(15px, -15px) rotate(7deg); } }
     @keyframes iconFloat6 { 0%, 100% { transform: translate(0, 0) rotate(0deg); } 50% { transform: translate(18px, 18px) rotate(15deg); } }
 
-    .hero-service-pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 10px 18px;
-        background: rgba(255, 255, 255, 0.8);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(0, 0, 0, 0.06);
-        border-radius: 50px;
-        font-size: 14px;
-        font-weight: 500;
-        color: #44403c;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        cursor: default;
-        white-space: nowrap;
-    }
-    .hero-service-pill:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.15);
-        background: #fff;
-    }
-    .hero-service-pill svg {
-        width: 18px;
-        height: 18px;
-        flex-shrink: 0;
-    }
-    .hero-service-pill-edu { --pill-color: #6366f1; }
-    .hero-service-pill-edu svg { color: var(--pill-color); }
-    .hero-service-pill-edu:hover { border-color: var(--pill-color); }
-    .hero-service-pill-it { --pill-color: #10b981; }
-    .hero-service-pill-it svg { color: var(--pill-color); }
-    .hero-service-pill-it:hover { border-color: var(--pill-color); }
-
-    .hero-pills-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 2rem;
-    }
-
     @media (max-width: 1024px) {
         .hero-blob { opacity: 0.25; }
         .hero-blob-1 { width: 250px; height: 250px; }
@@ -840,7 +1552,6 @@ const commonStyles = `
     @media (max-width: 640px) {
         .hero-blob { opacity: 0.2; filter: blur(60px); }
         .hero-floating-icon { display: none; }
-        .hero-terminal { display: none; }
     }
 `;
 
@@ -1117,109 +1828,251 @@ document.addEventListener('DOMContentLoaded', function() {
 
     setTimeout(initRandomSvgFloating, 100);
 
-    function initHeroTerminal() {
-        const terminalBody = document.getElementById('hero-terminal-body');
-        if (!terminalBody) return;
+    function initPremiumDisplay() {
+        const desktopContent = document.getElementById('hero-display-content');
+        const mobileContent = document.getElementById('hero-phone-content');
+        const particlesContainer = document.getElementById('hero-particles');
 
-        const scenarios = [
-            [
-                { type: 'prompt', text: '~/fefelov $' },
-                { type: 'command', text: ' npm run build:thesis' },
-                { type: 'output', text: '📚 Компиляция дипломной работы...' },
-                { type: 'output', text: '✓ Введение — готово' },
-                { type: 'output', text: '✓ Глава 1: Теория — готово' },
-                { type: 'output', text: '✓ Глава 2: Практика — готово' },
-                { type: 'output', text: '✓ Заключение — готово' },
-                { type: 'success', text: '✅ Диплом собран успешно!' },
-            ],
-            [
-                { type: 'prompt', text: '~/fefelov $' },
-                { type: 'command', text: ' git commit -m "feat: new bot"' },
-                { type: 'output', text: '🤖 Создание Telegram-бота...' },
-                { type: 'output', text: '✓ Команды настроены' },
-                { type: 'output', text: '✓ Webhook подключён' },
-                { type: 'output', text: '✓ База данных готова' },
-                { type: 'success', text: '✅ Бот развёрнут и работает!' },
-            ],
-            [
-                { type: 'prompt', text: '~/fefelov $' },
-                { type: 'command', text: ' python analyze.py --data' },
-                { type: 'output', text: '📊 Анализ данных...' },
-                { type: 'output', text: '✓ Загрузка датасета: 10000 строк' },
-                { type: 'output', text: '✓ Очистка и нормализация' },
-                { type: 'output', text: '✓ Построение графиков' },
-                { type: 'success', text: '✅ Отчёт сформирован!' },
-            ],
-            [
-                { type: 'prompt', text: '~/fefelov $' },
-                { type: 'command', text: ' ./consult --topic "экономика"' },
-                { type: 'output', text: '💬 Запуск консультации...' },
-                { type: 'output', text: '✓ Анализ темы' },
-                { type: 'output', text: '✓ Подбор материалов' },
-                { type: 'output', text: '✓ Формирование рекомендаций' },
-                { type: 'success', text: '✅ Консультация завершена!' },
-            ],
-            [
-                { type: 'prompt', text: '~/fefelov $' },
-                { type: 'command', text: ' make coursework --topic "IT"' },
-                { type: 'output', text: '📝 Создание курсовой работы...' },
-                { type: 'output', text: '✓ Структура документа' },
-                { type: 'output', text: '✓ Обзор литературы' },
-                { type: 'output', text: '✓ Практическая часть' },
-                { type: 'success', text: '✅ Курсовая готова к сдаче!' },
-            ],
-        ];
+        if (!desktopContent && !mobileContent) return;
 
-        let currentScenario = 0;
+        // Glow color mapping
+        const glowColors = {
+            terminal: { color: '#10b981', rgb: '16, 185, 129' },
+            browser: { color: '#6366f1', rgb: '99, 102, 241' },
+            chat: { color: '#8b5cf6', rgb: '139, 92, 246' },
+            document: { color: '#3b82f6', rgb: '59, 130, 246' }
+        };
 
-        function shuffle(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
+        // Create particles
+        function createParticles() {
+            if (!particlesContainer) return;
+            particlesContainer.innerHTML = '';
+            for (let i = 0; i < 12; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.animationDelay = `${Math.random() * 3}s`;
+                particle.style.animationDuration = `${2 + Math.random() * 2}s`;
+                particlesContainer.appendChild(particle);
             }
-            return array;
         }
 
-        shuffle(scenarios);
+        // Update glow color
+        function updateGlow(type) {
+            const glow = glowColors[type] || glowColors.terminal;
+            document.documentElement.style.setProperty('--display-accent', glow.color);
+            document.documentElement.style.setProperty('--display-accent-rgb', glow.rgb);
+            document.documentElement.style.setProperty('--display-glow', `rgba(${glow.rgb}, 0.4)`);
+        }
+
+        // Scenario generators
+        const scenarios = {
+            // Terminal - Bot Creation
+            terminal: () => {
+                const lines = [
+                    { type: 'prompt', text: '~/fefelov $', delay: 0 },
+                    { type: 'cmd', text: ' npx create-bot telegram', delay: 0.3 },
+                    { type: 'out', text: '🤖 Инициализация проекта...', delay: 0.8 },
+                    { type: 'check', text: 'Структура создана', delay: 1.4 },
+                    { type: 'check', text: 'Зависимости установлены', delay: 2.0 },
+                    { type: 'check', text: 'Webhook настроен', delay: 2.6 },
+                    { type: 'check', text: 'База данных подключена', delay: 3.2 },
+                    { type: 'ok', text: 'Бот запущен и работает!', delay: 3.8 }
+                ];
+
+                return `
+                    <div class="scenario-container scenario-terminal">
+                        <div class="term-header">
+                            <span class="term-dot term-dot-r"></span>
+                            <span class="term-dot term-dot-y"></span>
+                            <span class="term-dot term-dot-g"></span>
+                            <span class="term-title">fefelov — zsh</span>
+                        </div>
+                        ${lines.map((line, i) => {
+                            if (line.type === 'prompt') {
+                                return `<div class="term-line" style="animation-delay: ${line.delay}s"><span class="term-prompt">${line.text}</span></div>`;
+                            } else if (line.type === 'cmd') {
+                                return `<div class="term-line" style="animation-delay: ${line.delay}s; margin-top: -8px; margin-left: 85px"><span class="term-cmd">${line.text}</span>${i === 1 ? '<span class="term-cursor"></span>' : ''}</div>`;
+                            } else if (line.type === 'out') {
+                                return `<div class="term-line" style="animation-delay: ${line.delay}s"><span class="term-out">${line.text}</span></div>`;
+                            } else if (line.type === 'check') {
+                                return `<div class="term-line" style="animation-delay: ${line.delay}s"><span class="check-icon" style="animation-delay: ${line.delay + 0.1}s"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="term-out">${line.text}</span></div>`;
+                            } else if (line.type === 'ok') {
+                                return `<div class="term-line" style="animation-delay: ${line.delay}s"><span class="term-ok">✅ ${line.text}</span></div>`;
+                            }
+                        }).join('')}
+                        <div class="scenario-status" style="animation-delay: 4.2s; opacity: 0; animation: scenarioFadeIn 0.4s ease forwards 4.2s">
+                            <span class="status-dot"></span>
+                            <span class="status-text">@fefelov_bot активен</span>
+                        </div>
+                    </div>
+                `;
+            },
+
+            // Browser - Website Building
+            browser: () => {
+                return `
+                    <div class="scenario-container scenario-browser">
+                        <div class="browser-bar">
+                            <div class="browser-dots">
+                                <span class="browser-dot" style="background: #ff5f56"></span>
+                                <span class="browser-dot" style="background: #ffbd2e"></span>
+                                <span class="browser-dot" style="background: #27ca40"></span>
+                            </div>
+                            <div class="browser-url">
+                                <span class="browser-url-lock">🔒</span>
+                                <span>client-project.fefelov.ru</span>
+                            </div>
+                        </div>
+                        <div class="browser-body">
+                            <div class="browser-loader" id="browser-loader">
+                                <div class="browser-loader-block" style="width: 60%"></div>
+                                <div class="browser-loader-block" style="width: 80%"></div>
+                                <div class="browser-loader-block" style="width: 40%"></div>
+                            </div>
+                            <div class="browser-site" id="browser-site" style="display: none">
+                                <div class="site-hero">
+                                    <h3>Добро пожаловать</h3>
+                                    <p>Современный сайт для вашего бизнеса</p>
+                                </div>
+                                <div class="site-cards">
+                                    <div class="site-card" style="animation-delay: 1.8s">
+                                        <div class="site-card-icon"></div>
+                                        <div class="site-card-text"></div>
+                                    </div>
+                                    <div class="site-card" style="animation-delay: 2s">
+                                        <div class="site-card-icon" style="background: linear-gradient(135deg, #10b981, #059669)"></div>
+                                        <div class="site-card-text"></div>
+                                    </div>
+                                    <div class="site-card" style="animation-delay: 2.2s">
+                                        <div class="site-card-icon" style="background: linear-gradient(135deg, #f59e0b, #d97706)"></div>
+                                        <div class="site-card-text"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            },
+
+            // Chat - Consultation
+            chat: () => {
+                const messages = [
+                    { type: 'user', text: 'Нужна помощь с курсовой по экономике', delay: 0.4 },
+                    { type: 'bot', text: 'Конечно! Какая тема работы?', delay: 1.2 },
+                    { type: 'user', text: 'Анализ рынка криптовалют', delay: 2.0 },
+                    { type: 'bot', text: 'Отличная тема! Подготовлю структуру и источники. Ожидайте материалы через 2 часа 📚', delay: 2.8 }
+                ];
+
+                return `
+                    <div class="scenario-container scenario-chat">
+                        <div class="chat-header">
+                            <div class="chat-avatar">F</div>
+                            <div class="chat-info">
+                                <h4>FEFELOV Консультант</h4>
+                                <span>● онлайн</span>
+                            </div>
+                        </div>
+                        <div class="chat-messages">
+                            ${messages.map(msg => `
+                                <div class="chat-msg chat-msg-${msg.type}" style="animation-delay: ${msg.delay}s">
+                                    ${msg.text}
+                                </div>
+                            `).join('')}
+                            <div class="chat-typing" style="animation: msgIn 0.4s ease forwards 3.8s; opacity: 0">
+                                <span class="chat-typing-dot"></span>
+                                <span class="chat-typing-dot"></span>
+                                <span class="chat-typing-dot"></span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            },
+
+            // Document - Study Help
+            document: () => {
+                const items = [
+                    { text: 'Введение и актуальность темы', delay: 0.6 },
+                    { text: 'Теоретическая база исследования', delay: 1.0 },
+                    { text: 'Практическая часть с расчётами', delay: 1.4 },
+                    { text: 'Выводы и рекомендации', delay: 1.8 }
+                ];
+
+                return `
+                    <div class="scenario-container scenario-doc">
+                        <div class="doc-header">
+                            <div class="doc-icon">📄</div>
+                            <span class="doc-title">Дипломная_работа.docx</span>
+                        </div>
+                        <div class="doc-body">
+                            ${items.map(item => `
+                                <div class="doc-line" style="animation-delay: ${item.delay}s">
+                                    <span class="doc-bullet"></span>
+                                    <span class="doc-text">${item.text}</span>
+                                </div>
+                            `).join('')}
+                            <div class="doc-formula" style="animation-delay: 2.4s">
+                                NPV = Σ (CFt / (1+r)^t) − I₀
+                            </div>
+                            <div class="doc-progress" style="animation: scenarioFadeIn 0.4s ease forwards 2.8s; opacity: 0">
+                                <div class="doc-progress-bar">
+                                    <div class="doc-progress-fill" style="animation-delay: 3s"></div>
+                                </div>
+                                <span class="doc-progress-text">Готово!</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+        };
+
+        const scenarioOrder = ['terminal', 'browser', 'chat', 'document'];
+        let currentIndex = 0;
 
         function runScenario() {
-            const lines = scenarios[currentScenario];
-            terminalBody.innerHTML = '';
+            const type = scenarioOrder[currentIndex];
+            const html = scenarios[type]();
 
-            lines.forEach((line, index) => {
-                const lineEl = document.createElement('div');
-                lineEl.className = 'hero-terminal-line';
-                lineEl.style.animationDelay = `${index * 0.3}s`;
+            updateGlow(type);
 
-                let content = '';
-                if (line.type === 'prompt') {
-                    content = `<span class="hero-terminal-prompt">${line.text}</span>`;
-                } else if (line.type === 'command') {
-                    content = `<span class="hero-terminal-command">${line.text}</span>`;
-                } else if (line.type === 'output') {
-                    content = `<span class="hero-terminal-output">${line.text}</span>`;
-                } else if (line.type === 'success') {
-                    content = `<span class="hero-terminal-success">${line.text}</span>`;
-                } else if (line.type === 'warning') {
-                    content = `<span class="hero-terminal-warning">${line.text}</span>`;
+            if (desktopContent) {
+                desktopContent.innerHTML = html;
+                // Browser scenario special handling
+                if (type === 'browser') {
+                    setTimeout(() => {
+                        const loader = desktopContent.querySelector('#browser-loader');
+                        const site = desktopContent.querySelector('#browser-site');
+                        if (loader && site) {
+                            loader.style.display = 'none';
+                            site.style.display = 'block';
+                        }
+                    }, 1200);
                 }
+            }
 
-                if (index === lines.length - 1) {
-                    content += '<span class="hero-terminal-cursor"></span>';
+            if (mobileContent) {
+                mobileContent.innerHTML = html;
+                if (type === 'browser') {
+                    setTimeout(() => {
+                        const loader = mobileContent.querySelector('#browser-loader');
+                        const site = mobileContent.querySelector('#browser-site');
+                        if (loader && site) {
+                            loader.style.display = 'none';
+                            site.style.display = 'block';
+                        }
+                    }, 1200);
                 }
+            }
 
-                lineEl.innerHTML = content;
-                terminalBody.appendChild(lineEl);
-            });
-
-            currentScenario = (currentScenario + 1) % scenarios.length;
+            currentIndex = (currentIndex + 1) % scenarioOrder.length;
         }
 
+        createParticles();
         runScenario();
-        setInterval(runScenario, 8000);
+        setInterval(runScenario, 7000);
     }
 
-    setTimeout(initHeroTerminal, 500);
+    setTimeout(initPremiumDisplay, 500);
 
     function initHeroFloatingIcons() {
         const icons = document.querySelectorAll('.hero-floating-icon');

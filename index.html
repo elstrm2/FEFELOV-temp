@@ -92,18 +92,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>(function(){var l=localStorage.getItem('lang')||navigator.language.slice(0,2)||'ru';if(!['ru','uk','en','zh'].includes(l))l='ru';document.documentElement.lang=l;})();</script>
     <script src="components.js"></script>
+    <script src="antivandal.js"></script>
 </head>
 <body class="bg-stone-50 text-stone-900 antialiased max-w-full overflow-x-hidden i18n-loading">
     
     <div id="header-placeholder"></div>
 
     <section class="min-h-screen flex items-center pt-24 sm:pt-28 pb-16 sm:pb-20 relative overflow-hidden">
-        <!-- Blob forms -->
         <div class="hero-blob hero-blob-1"></div>
         <div class="hero-blob hero-blob-2"></div>
         <div class="hero-blob hero-blob-3"></div>
 
-        <!-- Floating icons -->
         <div class="hero-floating-icon hero-icon-1">
             <svg viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/><path d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998a12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"/></svg>
         </div>
@@ -134,7 +133,6 @@
                         консультируем по сложным вопросам. Работаем официально, по договору.
                     </p>
 
-                    <!-- Service pills -->
                     <div class="hero-pills-container mb-10">
                         <span class="hero-service-pill hero-service-pill-edu">
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
@@ -168,7 +166,6 @@
                     </a>
                 </div>
 
-                <!-- Terminal -->
                 <div class="hidden lg:block">
                     <div class="hero-terminal" id="hero-terminal">
                         <div class="hero-terminal-header">
@@ -176,9 +173,7 @@
                             <span class="hero-terminal-dot hero-terminal-dot-yellow"></span>
                             <span class="hero-terminal-dot hero-terminal-dot-green"></span>
                         </div>
-                        <div class="hero-terminal-body" id="hero-terminal-body">
-                            <!-- Lines will be added by JS -->
-                        </div>
+                        <div class="hero-terminal-body" id="hero-terminal-body"></div>
                     </div>
                 </div>
             </div>
@@ -377,34 +372,26 @@
                 <div class="division-card division-card-study rounded-[1.75rem] sm:rounded-[2.25rem] p-6 sm:p-10 text-white min-h-[320px] sm:min-h-[380px] relative overflow-hidden">
                     <div class="absolute inset-0 svg-bg-blur">
                         <svg class="w-full h-full svg-bg-redraw" viewBox="0 0 400 300" fill="none" preserveAspectRatio="xMidYMid slice">
-                            <!-- Document -->
                             <rect class="redraw-1" x="15" y="20" width="70" height="90" rx="4" stroke="currentColor" stroke-width="3.5"/>
                             <line class="redraw-2" x1="25" y1="35" x2="75" y2="35" stroke="currentColor" stroke-width="3.5"/>
                             <line class="redraw-3" x1="25" y1="48" x2="70" y2="48" stroke="currentColor" stroke-width="3.5"/>
                             <line class="redraw-4" x1="25" y1="61" x2="65" y2="61" stroke="currentColor" stroke-width="3.5"/>
                             <line class="redraw-5" x1="25" y1="74" x2="72" y2="74" stroke="currentColor" stroke-width="3.5"/>
                             <line class="redraw-6" x1="25" y1="87" x2="60" y2="87" stroke="currentColor" stroke-width="3.5"/>
-                            <!-- Checkmark circle -->
                             <circle class="redraw-2" cx="340" cy="50" r="35" stroke="currentColor" stroke-width="3.5"/>
                             <path class="redraw-7" d="M320 50l12 12 25-25" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            <!-- Book -->
                             <rect class="redraw-3" x="280" y="180" width="55" height="70" rx="4" stroke="currentColor" stroke-width="3.5"/>
                             <line class="redraw-8" x1="307" y1="180" x2="307" y2="250" stroke="currentColor" stroke-width="3.5"/>
                             <line class="redraw-9" x1="290" y1="195" x2="302" y2="195" stroke="currentColor" stroke-width="3.5"/>
                             <line class="redraw-10" x1="290" y1="210" x2="300" y2="210" stroke="currentColor" stroke-width="3.5"/>
-                            <!-- Pencil -->
                             <path class="redraw-4" d="M160 260 L180 240 L190 250 L170 270 Z" stroke="currentColor" stroke-width="3.5" stroke-linejoin="round"/>
                             <line class="redraw-5" x1="180" y1="240" x2="190" y2="250" stroke="currentColor" stroke-width="3.5"/>
-                            <!-- Graduation cap -->
                             <path class="redraw-6" d="M200 60 L160 80 L200 100 L240 80 Z" stroke="currentColor" stroke-width="3.5"/>
                             <path class="redraw-7" d="M170 85 L170 115 Q200 130 230 115 L230 85" stroke="currentColor" stroke-width="3.5"/>
                             <line class="redraw-8" x1="240" y1="80" x2="240" y2="110" stroke="currentColor" stroke-width="3.5"/>
-                            <!-- Star -->
                             <path class="redraw-9" d="M100 200 L105 215 L120 215 L108 225 L113 240 L100 230 L87 240 L92 225 L80 215 L95 215 Z" stroke="currentColor" stroke-width="3.5"/>
-                            <!-- Light bulb -->
                             <circle class="redraw-10" cx="350" cy="150" r="20" stroke="currentColor" stroke-width="3.5"/>
                             <path class="redraw-1" d="M340 175 L360 175 M342 180 L358 180 M345 185 L355 185" stroke="currentColor" stroke-width="3.5"/>
-                            <!-- Calculator -->
                             <rect class="redraw-2" x="30" y="180" width="45" height="60" rx="3" stroke="currentColor" stroke-width="3.5"/>
                             <rect class="redraw-3" x="35" y="185" width="35" height="15" rx="2" stroke="currentColor" stroke-width="3.5"/>
                             <circle class="redraw-4" cx="42" cy="210" r="3" stroke="currentColor" stroke-width="3.5"/>
@@ -439,7 +426,6 @@
                 <div class="division-card division-card-tech rounded-[1.75rem] sm:rounded-[2.25rem] p-6 sm:p-10 text-white min-h-[320px] sm:min-h-[380px] relative overflow-hidden">
                     <div class="absolute inset-0 svg-bg-blur">
                         <svg class="w-full h-full svg-bg-redraw" viewBox="0 0 400 300" fill="none" preserveAspectRatio="xMidYMid slice">
-                            <!-- Browser window -->
                             <rect class="redraw-1" x="20" y="30" width="100" height="70" rx="5" stroke="currentColor" stroke-width="3.5"/>
                             <circle class="redraw-2" cx="32" cy="42" r="3" stroke="currentColor" stroke-width="3.5"/>
                             <circle class="redraw-3" cx="42" cy="42" r="3" stroke="currentColor" stroke-width="3.5"/>
@@ -448,30 +434,23 @@
                             <line class="redraw-6" x1="35" y1="65" x2="100" y2="65" stroke="currentColor" stroke-width="3.5"/>
                             <line class="redraw-7" x1="35" y1="75" x2="80" y2="75" stroke="currentColor" stroke-width="3.5"/>
                             <line class="redraw-8" x1="30" y1="85" x2="70" y2="85" stroke="currentColor" stroke-width="3.5"/>
-                            <!-- Mobile phone -->
                             <rect class="redraw-2" x="300" y="20" width="60" height="100" rx="8" stroke="currentColor" stroke-width="3.5"/>
                             <circle class="redraw-9" cx="330" cy="108" r="6" stroke="currentColor" stroke-width="3.5"/>
                             <rect class="redraw-10" x="310" y="35" width="40" height="55" rx="3" stroke="currentColor" stroke-width="3.5"/>
-                            <!-- Gear/Settings -->
                             <circle class="redraw-3" cx="180" cy="60" r="25" stroke="currentColor" stroke-width="3.5"/>
                             <path class="redraw-4" d="M180 30v10 M180 80v10 M150 60h10 M200 60h10 M158 38l7 7 M195 75l7 7 M158 82l7-7 M195 45l7-7" stroke="currentColor" stroke-width="3.5"/>
-                            <!-- Database -->
                             <ellipse class="redraw-5" cx="70" cy="180" rx="25" ry="8" stroke="currentColor" stroke-width="3.5"/>
                             <path class="redraw-6" d="M45 180 L45 220 M95 180 L95 220" stroke="currentColor" stroke-width="3.5"/>
                             <ellipse class="redraw-7" cx="70" cy="220" rx="25" ry="8" stroke="currentColor" stroke-width="3.5"/>
                             <ellipse class="redraw-8" cx="70" cy="200" rx="25" ry="8" stroke="currentColor" stroke-width="3.5"/>
-                            <!-- API brackets -->
                             <path class="redraw-9" d="M250 180 C235 180 230 195 230 210 C230 225 235 240 250 240" stroke="currentColor" stroke-width="3.5"/>
                             <path class="redraw-10" d="M290 180 C305 180 310 195 310 210 C310 225 305 240 290 240" stroke="currentColor" stroke-width="3.5"/>
                             <circle class="redraw-1" cx="260" cy="210" r="3" stroke="currentColor" stroke-width="3.5"/>
                             <circle class="redraw-2" cx="270" cy="210" r="3" stroke="currentColor" stroke-width="3.5"/>
                             <circle class="redraw-3" cx="280" cy="210" r="3" stroke="currentColor" stroke-width="3.5"/>
-                            <!-- Cloud -->
                             <path class="redraw-4" d="M330 170 Q310 170 310 185 Q295 185 295 200 Q295 215 315 215 L355 215 Q375 215 375 200 Q375 185 360 185 Q360 170 345 170 Q340 160 330 170" stroke="currentColor" stroke-width="3.5"/>
-                            <!-- Telegram bot icon -->
                             <circle class="redraw-5" cx="180" cy="150" r="20" stroke="currentColor" stroke-width="3.5"/>
                             <path class="redraw-6" d="M167 150 L185 143 L193 157 L180 152 Z" stroke="currentColor" stroke-width="3.5"/>
-                            <!-- Chart -->
                             <path class="redraw-7" d="M130 260 L130 220 L170 220" stroke="currentColor" stroke-width="3.5"/>
                             <path class="redraw-8" d="M135 250 L145 240 L155 248 L165 230" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>

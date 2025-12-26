@@ -962,7 +962,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
 
-        // Logo animation
         const logoText = document.querySelector('.logo-text');
         const logoDot = document.querySelector('.logo-dot');
         const logoContainer = document.querySelector('.logo-container');
@@ -978,7 +977,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 let currentLength = fullText.length;
 
-                // Phase 1: Remove letters one by one (including dot first)
                 const removeInterval = setInterval(() => {
                     if (currentLength > 1) {
                         currentLength--;
@@ -988,12 +986,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         }
                     } else {
                         clearInterval(removeInterval);
-                        // Phase 2: F pulses
                         logoText.style.animation = 'logoPulse 0.3s ease-in-out 4';
 
                         setTimeout(() => {
                             logoText.style.animation = '';
-                            // Phase 3: Fast "shot" - write all letters quickly
                             let shotIndex = 1;
                             const shotInterval = setInterval(() => {
                                 if (shotIndex <= fullText.length) {
@@ -1032,7 +1028,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const yearEl = document.getElementById('footer-year');
         if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-        // Footer dots animation
         const footerDots = document.querySelectorAll('.footer-dot');
         if (footerDots.length > 0) {
             const spinnerFrames = ['·', '/', '—', '\\', '|', '\\', '—', '/'];
@@ -1091,7 +1086,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     setTimeout(initRandomSvgFloating, 100);
 
-    // Hero Terminal Animation
     function initHeroTerminal() {
         const terminalBody = document.getElementById('hero-terminal-body');
         if (!terminalBody) return;
@@ -1179,7 +1173,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     content = `<span class="hero-terminal-warning">${line.text}</span>`;
                 }
 
-                // Add cursor to last line
                 if (index === lines.length - 1) {
                     content += '<span class="hero-terminal-cursor"></span>';
                 }
@@ -1197,7 +1190,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     setTimeout(initHeroTerminal, 500);
 
-    // Randomize hero floating icons
     function initHeroFloatingIcons() {
         const icons = document.querySelectorAll('.hero-floating-icon');
         const animations = ['iconFloat1', 'iconFloat2', 'iconFloat3', 'iconFloat4', 'iconFloat5', 'iconFloat6'];
@@ -1215,7 +1207,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     setTimeout(initHeroFloatingIcons, 100);
 
-    // Randomize hero blobs
     function initHeroBlobs() {
         const blobs = document.querySelectorAll('.hero-blob');
         const animations = ['blobFloat1', 'blobFloat2', 'blobFloat3'];

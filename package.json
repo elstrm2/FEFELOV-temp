@@ -16,6 +16,7 @@
     "format": "prettier --write '**/*.{html,css,md}'",
     "format:check": "prettier --check '**/*.{html,css,md}'",
     "a11y": "axe http://localhost:3000 --exit",
+    "audit": "bash scripts/audit.sh",
     "prepare": "husky"
   },
   "repository": {
@@ -41,16 +42,19 @@
       "prettier --write"
     ]
   },
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "devDependencies": {
-    "@axe-core/cli": "^4.11.0",
-    "@biomejs/biome": "^2.3.10",
-    "@tailwindcss/cli": "^4.1.18",
-    "husky": "^9.1.7",
-    "lint-staged": "^16.2.7",
-    "markuplint": "^4.14.0",
-    "prettier": "^3.7.4",
-    "stylelint": "^16.26.1",
-    "stylelint-config-standard": "^39.0.1",
-    "tailwindcss": "^4.1.18"
+    "@axe-core/cli": "4.11.0",
+    "@biomejs/biome": "2.3.10",
+    "@tailwindcss/cli": "4.1.18",
+    "husky": "9.1.7",
+    "lint-staged": "16.2.7",
+    "markuplint": "4.14.0",
+    "prettier": "3.7.4",
+    "stylelint": "16.26.1",
+    "stylelint-config-standard": "39.0.1",
+    "tailwindcss": "4.1.18"
   }
 }

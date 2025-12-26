@@ -84,6 +84,10 @@ const I18N = {
         return key.split('.').reduce((obj, k) => obj?.[k], this.translations);
     },
 
+    translate(key) {
+        return this.getNestedValue(key) || key;
+    },
+
     setLanguage(lang) {
         if (!this.supportedLangs.includes(lang)) return;
         this.currentLang = lang;

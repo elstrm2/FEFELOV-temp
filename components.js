@@ -446,6 +446,14 @@ document.addEventListener('DOMContentLoaded', () => {
         `<div class="device-fold"><div class="device-frame"><div class="device-screen"><div class="device-punch-hole"></div><div class="device-content">${content}</div></div><div class="device-hinge"></div></div></div>`,
     };
 
+    const i18nT = (key, fallback) => {
+      if (typeof I18N !== 'undefined' && typeof I18N.getNestedValue === 'function') {
+        const text = I18N.getNestedValue(key);
+        if (text) return text;
+      }
+      return fallback || key;
+    };
+
     const scenarios = {
       terminal: () => {
         const lines = [
@@ -453,32 +461,32 @@ document.addEventListener('DOMContentLoaded', () => {
           { type: 'cmd', text: ' npx create-bot telegram', delay: 0.3 },
           {
             type: 'out',
-            text: I18N.t('scenarios.terminal.init') || '🤖 Инициализация проекта...',
+            text: i18nT('scenarios.terminal.init', '🤖 Инициализация проекта...'),
             delay: 0.8,
           },
           {
             type: 'check',
-            text: I18N.t('scenarios.terminal.structure') || 'Структура создана',
+            text: i18nT('scenarios.terminal.structure', 'Структура создана'),
             delay: 1.4,
           },
           {
             type: 'check',
-            text: I18N.t('scenarios.terminal.deps') || 'Зависимости установлены',
+            text: i18nT('scenarios.terminal.deps', 'Зависимости установлены'),
             delay: 2.0,
           },
           {
             type: 'check',
-            text: I18N.t('scenarios.terminal.webhook') || 'Webhook настроен',
+            text: i18nT('scenarios.terminal.webhook', 'Webhook настроен'),
             delay: 2.6,
           },
           {
             type: 'check',
-            text: I18N.t('scenarios.terminal.db') || 'База данных подключена',
+            text: i18nT('scenarios.terminal.db', 'База данных подключена'),
             delay: 3.2,
           },
           {
             type: 'ok',
-            text: I18N.t('scenarios.terminal.running') || 'Бот запущен и работает!',
+            text: i18nT('scenarios.terminal.running', 'Бот запущен и работает!'),
             delay: 3.8,
           },
         ];
@@ -498,54 +506,55 @@ document.addEventListener('DOMContentLoaded', () => {
           })
           .join(
             ''
-          )}<div class="scenario-status" style="animation-delay: 4.2s; opacity: 0; animation: scenarioFadeIn 0.4s ease forwards 4.2s"><span class="status-dot"></span><span class="status-text">${I18N.t('scenarios.terminal.status') || '@fefelov_bot активен'}</span></div></div>`;
+          )}<div class="scenario-status" style="animation-delay: 4.2s; opacity: 0; animation: scenarioFadeIn 0.4s ease forwards 4.2s"><span class="status-dot"></span><span class="status-text">${i18nT('scenarios.terminal.status', '@fefelov_bot активен')}</span></div></div>`;
       },
       browser: () =>
-        `<div class="scenario-container scenario-browser"><div class="browser-bar"><div class="browser-dots"><span class="browser-dot" style="background: #ff5f56"></span><span class="browser-dot" style="background: #ffbd2e"></span><span class="browser-dot" style="background: #27ca40"></span></div><div class="browser-url"><span class="browser-url-lock">🔒</span><span>client-project.fefelov.ru</span></div></div><div class="browser-body"><div class="browser-loader" id="browser-loader"><div class="browser-loader-block" style="width: 60%"></div><div class="browser-loader-block" style="width: 80%"></div><div class="browser-loader-block" style="width: 40%"></div></div><div class="browser-site" id="browser-site" style="display: none"><div class="site-hero"><h3>${I18N.t('scenarios.browser.welcome') || 'Добро пожаловать'}</h3><p>${I18N.t('scenarios.browser.subtitle') || 'Современный сайт для вашего бизнеса'}</p></div><div class="site-cards"><div class="site-card" style="animation-delay: 1.8s"><div class="site-card-icon"></div><div class="site-card-text"></div></div><div class="site-card" style="animation-delay: 2s"><div class="site-card-icon" style="background: linear-gradient(135deg, #10b981, #059669)"></div><div class="site-card-text"></div></div><div class="site-card" style="animation-delay: 2.2s"><div class="site-card-icon" style="background: linear-gradient(135deg, #f59e0b, #d97706)"></div><div class="site-card-text"></div></div></div></div></div></div>`,
+        `<div class="scenario-container scenario-browser"><div class="browser-bar"><div class="browser-dots"><span class="browser-dot" style="background: #ff5f56"></span><span class="browser-dot" style="background: #ffbd2e"></span><span class="browser-dot" style="background: #27ca40"></span></div><div class="browser-url"><span class="browser-url-lock">🔒</span><span>client-project.fefelov.ru</span></div></div><div class="browser-body"><div class="browser-loader" id="browser-loader"><div class="browser-loader-block" style="width: 60%"></div><div class="browser-loader-block" style="width: 80%"></div><div class="browser-loader-block" style="width: 40%"></div></div><div class="browser-site" id="browser-site" style="display: none"><div class="site-hero"><h3>${i18nT('scenarios.browser.welcome', 'Добро пожаловать')}</h3><p>${i18nT('scenarios.browser.subtitle', 'Современный сайт для вашего бизнеса')}</p></div><div class="site-cards"><div class="site-card" style="animation-delay: 1.8s"><div class="site-card-icon"></div><div class="site-card-text"></div></div><div class="site-card" style="animation-delay: 2s"><div class="site-card-icon" style="background: linear-gradient(135deg, #10b981, #059669)"></div><div class="site-card-text"></div></div><div class="site-card" style="animation-delay: 2.2s"><div class="site-card-icon" style="background: linear-gradient(135deg, #f59e0b, #d97706)"></div><div class="site-card-text"></div></div></div></div></div></div>`,
       chat: () => {
         const messages = [
           {
             type: 'user',
-            text: I18N.t('scenarios.chat.user1') || 'Нужна помощь с курсовой по экономике',
+            text: i18nT('scenarios.chat.user1', 'Нужна помощь с курсовой по экономике'),
             delay: 0.4,
           },
           {
             type: 'bot',
-            text: I18N.t('scenarios.chat.bot1') || 'Конечно! Какая тема работы?',
+            text: i18nT('scenarios.chat.bot1', 'Конечно! Какая тема работы?'),
             delay: 1.2,
           },
           {
             type: 'user',
-            text: I18N.t('scenarios.chat.user2') || 'Анализ рынка криптовалют',
+            text: i18nT('scenarios.chat.user2', 'Анализ рынка криптовалют'),
             delay: 2.0,
           },
           {
             type: 'bot',
-            text:
-              I18N.t('scenarios.chat.bot2') ||
-              'Отличная тема! Подготовлю структуру и источники. Ожидайте материалы через 2 часа 📚',
+            text: i18nT(
+              'scenarios.chat.bot2',
+              'Отличная тема! Подготовлю структуру и источники. Ожидайте материалы через 2 часа 📚'
+            ),
             delay: 2.8,
           },
         ];
-        return `<div class="scenario-container scenario-chat"><div class="chat-header"><div class="chat-avatar">F</div><div class="chat-info"><h4>${I18N.t('scenarios.chat.consultant') || 'FEFELOV Консультант'}</h4><span>${I18N.t('scenarios.chat.online') || '● онлайн'}</span></div></div><div class="chat-messages">${messages.map((msg) => `<div class="chat-msg chat-msg-${msg.type}" style="animation-delay: ${msg.delay}s">${msg.text}</div>`).join('')}<div class="chat-typing" style="animation: msgIn 0.4s ease forwards 3.8s; opacity: 0"><span class="chat-typing-dot"></span><span class="chat-typing-dot"></span><span class="chat-typing-dot"></span></div></div></div>`;
+        return `<div class="scenario-container scenario-chat"><div class="chat-header"><div class="chat-avatar">F</div><div class="chat-info"><h4>${i18nT('scenarios.chat.consultant', 'FEFELOV Консультант')}</h4><span>${i18nT('scenarios.chat.online', '● онлайн')}</span></div></div><div class="chat-messages">${messages.map((msg) => `<div class="chat-msg chat-msg-${msg.type}" style="animation-delay: ${msg.delay}s">${msg.text}</div>`).join('')}<div class="chat-typing" style="animation: msgIn 0.4s ease forwards 3.8s; opacity: 0"><span class="chat-typing-dot"></span><span class="chat-typing-dot"></span><span class="chat-typing-dot"></span></div></div></div>`;
       },
       document: () => {
         const items = [
           {
-            text: I18N.t('scenarios.document.item1') || 'Введение и актуальность темы',
+            text: i18nT('scenarios.document.item1', 'Введение и актуальность темы'),
             delay: 0.6,
           },
           {
-            text: I18N.t('scenarios.document.item2') || 'Теоретическая база исследования',
+            text: i18nT('scenarios.document.item2', 'Теоретическая база исследования'),
             delay: 1.0,
           },
           {
-            text: I18N.t('scenarios.document.item3') || 'Практическая часть с расчётами',
+            text: i18nT('scenarios.document.item3', 'Практическая часть с расчётами'),
             delay: 1.4,
           },
-          { text: I18N.t('scenarios.document.item4') || 'Выводы и рекомендации', delay: 1.8 },
+          { text: i18nT('scenarios.document.item4', 'Выводы и рекомендации'), delay: 1.8 },
         ];
-        return `<div class="scenario-container scenario-doc"><div class="doc-header"><div class="doc-icon">📄</div><span class="doc-title">${I18N.t('scenarios.document.filename') || 'Дипломная_работа.docx'}</span></div><div class="doc-body">${items.map((item) => `<div class="doc-line" style="animation-delay: ${item.delay}s"><span class="doc-bullet"></span><span class="doc-text">${item.text}</span></div>`).join('')}<div class="doc-formula" style="animation-delay: 2.4s">NPV = Σ (CFt / (1+r)^t) − I₀</div><div class="doc-progress" style="animation: scenarioFadeIn 0.4s ease forwards 2.8s; opacity: 0"><div class="doc-progress-bar"><div class="doc-progress-fill" style="animation-delay: 3s"></div></div><span class="doc-progress-text">${I18N.t('scenarios.document.done') || 'Готово!'}</span></div></div></div>`;
+        return `<div class="scenario-container scenario-doc"><div class="doc-header"><div class="doc-icon">📄</div><span class="doc-title">${i18nT('scenarios.document.filename', 'Дипломная_работа.docx')}</span></div><div class="doc-body">${items.map((item) => `<div class="doc-line" style="animation-delay: ${item.delay}s"><span class="doc-bullet"></span><span class="doc-text">${item.text}</span></div>`).join('')}<div class="doc-formula" style="animation-delay: 2.4s">NPV = Σ (CFt / (1+r)^t) − I₀</div><div class="doc-progress" style="animation: scenarioFadeIn 0.4s ease forwards 2.8s; opacity: 0"><div class="doc-progress-bar"><div class="doc-progress-fill" style="animation-delay: 3s"></div></div><span class="doc-progress-text">${i18nT('scenarios.document.done', 'Готово!')}</span></div></div></div>`;
       },
     };
 

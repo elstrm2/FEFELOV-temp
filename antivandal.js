@@ -374,59 +374,6 @@
     }
 
     var devToolsOpen = false;
-    var threshold = 160;
-    var devToolsCheckCount = 0;
-
-    function checkDevTools() {
-        var widthDiff = window.outerWidth - window.innerWidth > threshold;
-        var heightDiff = window.outerHeight - window.innerHeight > threshold;
-
-        if (widthDiff || heightDiff) {
-            devToolsCheckCount++;
-            if (devToolsCheckCount > 2 && !devToolsOpen) {
-                devToolsOpen = true;
-                document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100vh;font-family:sans-serif;font-size:24px;color:#666;">:(</div>';
-            }
-        } else {
-            devToolsCheckCount = 0;
-        }
-
-        var element = new Image();
-        Object.defineProperty(element, 'id', {
-            get: function() {
-                devToolsOpen = true;
-                document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100vh;font-family:sans-serif;font-size:24px;color:#666;">:(</div>';
-            }
-        });
-    }
-
-    setInterval(checkDevTools, 500);
-
-    (function() {
-        var element = document.createElement('div');
-        Object.defineProperty(element, 'id', {
-            get: function() {
-                devToolsOpen = true;
-                document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100vh;font-family:sans-serif;font-size:24px;color:#666;">:(</div>';
-                throw new Error();
-            }
-        });
-
-        setInterval(function() {
-            devToolsCheckCount++;
-            console.log(element);
-            console.clear();
-        }, 1000);
-    })();
-
-    var lastTime = Date.now();
-    setInterval(function() {
-        var now = Date.now();
-        if (now - lastTime > 200) {
-            devToolsOpen = true;
-        }
-        lastTime = now;
-    }, 50);
 
     var noop = function() {};
     var consoleMethods = ['log', 'debug', 'info', 'warn', 'error', 'table', 'trace', 'dir', 'group', 'groupEnd', 'groupCollapsed', 'time', 'timeEnd', 'timeLog', 'profile', 'profileEnd', 'assert', 'count', 'countReset', 'clear', 'memory'];

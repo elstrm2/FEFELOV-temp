@@ -632,7 +632,6 @@ const commonStyles = `
     @keyframes langIconUk { 0%, 100% { transform: translateY(-50%) scale(1) rotate(0deg); } 33% { transform: translateY(-50%) scale(1.15) rotate(120deg); } 66% { transform: translateY(-50%) scale(0.9) rotate(240deg); } }
     @keyframes langIconZh { 0%, 100% { transform: translateY(-50%) scale(1) translateX(0); } 25% { transform: translateY(-53%) scale(1.05) translateX(2px); } 50% { transform: translateY(-47%) scale(1.1) translateX(-1px); } 75% { transform: translateY(-52%) scale(0.95) translateX(1px); } }
 
-    /* Hero Section */
     .hero-blob {
         position: absolute;
         border-radius: 50%;
@@ -1091,4 +1090,146 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     setTimeout(initRandomSvgFloating, 100);
+
+    // Hero Terminal Animation
+    function initHeroTerminal() {
+        const terminalBody = document.getElementById('hero-terminal-body');
+        if (!terminalBody) return;
+
+        const scenarios = [
+            [
+                { type: 'prompt', text: '~/fefelov $' },
+                { type: 'command', text: ' npm run build:thesis' },
+                { type: 'output', text: '📚 Компиляция дипломной работы...' },
+                { type: 'output', text: '✓ Введение — готово' },
+                { type: 'output', text: '✓ Глава 1: Теория — готово' },
+                { type: 'output', text: '✓ Глава 2: Практика — готово' },
+                { type: 'output', text: '✓ Заключение — готово' },
+                { type: 'success', text: '✅ Диплом собран успешно!' },
+            ],
+            [
+                { type: 'prompt', text: '~/fefelov $' },
+                { type: 'command', text: ' git commit -m "feat: new bot"' },
+                { type: 'output', text: '🤖 Создание Telegram-бота...' },
+                { type: 'output', text: '✓ Команды настроены' },
+                { type: 'output', text: '✓ Webhook подключён' },
+                { type: 'output', text: '✓ База данных готова' },
+                { type: 'success', text: '✅ Бот развёрнут и работает!' },
+            ],
+            [
+                { type: 'prompt', text: '~/fefelov $' },
+                { type: 'command', text: ' python analyze.py --data' },
+                { type: 'output', text: '📊 Анализ данных...' },
+                { type: 'output', text: '✓ Загрузка датасета: 10000 строк' },
+                { type: 'output', text: '✓ Очистка и нормализация' },
+                { type: 'output', text: '✓ Построение графиков' },
+                { type: 'success', text: '✅ Отчёт сформирован!' },
+            ],
+            [
+                { type: 'prompt', text: '~/fefelov $' },
+                { type: 'command', text: ' ./consult --topic "экономика"' },
+                { type: 'output', text: '💬 Запуск консультации...' },
+                { type: 'output', text: '✓ Анализ темы' },
+                { type: 'output', text: '✓ Подбор материалов' },
+                { type: 'output', text: '✓ Формирование рекомендаций' },
+                { type: 'success', text: '✅ Консультация завершена!' },
+            ],
+            [
+                { type: 'prompt', text: '~/fefelov $' },
+                { type: 'command', text: ' make coursework --topic "IT"' },
+                { type: 'output', text: '📝 Создание курсовой работы...' },
+                { type: 'output', text: '✓ Структура документа' },
+                { type: 'output', text: '✓ Обзор литературы' },
+                { type: 'output', text: '✓ Практическая часть' },
+                { type: 'success', text: '✅ Курсовая готова к сдаче!' },
+            ],
+        ];
+
+        let currentScenario = 0;
+
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        shuffle(scenarios);
+
+        function runScenario() {
+            const lines = scenarios[currentScenario];
+            terminalBody.innerHTML = '';
+
+            lines.forEach((line, index) => {
+                const lineEl = document.createElement('div');
+                lineEl.className = 'hero-terminal-line';
+                lineEl.style.animationDelay = `${index * 0.3}s`;
+
+                let content = '';
+                if (line.type === 'prompt') {
+                    content = `<span class="hero-terminal-prompt">${line.text}</span>`;
+                } else if (line.type === 'command') {
+                    content = `<span class="hero-terminal-command">${line.text}</span>`;
+                } else if (line.type === 'output') {
+                    content = `<span class="hero-terminal-output">${line.text}</span>`;
+                } else if (line.type === 'success') {
+                    content = `<span class="hero-terminal-success">${line.text}</span>`;
+                } else if (line.type === 'warning') {
+                    content = `<span class="hero-terminal-warning">${line.text}</span>`;
+                }
+
+                // Add cursor to last line
+                if (index === lines.length - 1) {
+                    content += '<span class="hero-terminal-cursor"></span>';
+                }
+
+                lineEl.innerHTML = content;
+                terminalBody.appendChild(lineEl);
+            });
+
+            currentScenario = (currentScenario + 1) % scenarios.length;
+        }
+
+        runScenario();
+        setInterval(runScenario, 8000);
+    }
+
+    setTimeout(initHeroTerminal, 500);
+
+    // Randomize hero floating icons
+    function initHeroFloatingIcons() {
+        const icons = document.querySelectorAll('.hero-floating-icon');
+        const animations = ['iconFloat1', 'iconFloat2', 'iconFloat3', 'iconFloat4', 'iconFloat5', 'iconFloat6'];
+        const durations = [10, 11, 12, 13, 14, 15, 16];
+
+        icons.forEach(icon => {
+            const anim = animations[Math.floor(Math.random() * animations.length)];
+            const duration = durations[Math.floor(Math.random() * durations.length)];
+            const delay = (Math.random() * 5).toFixed(2);
+            icon.style.animationName = anim;
+            icon.style.animationDuration = `${duration}s`;
+            icon.style.animationDelay = `${delay}s`;
+        });
+    }
+
+    setTimeout(initHeroFloatingIcons, 100);
+
+    // Randomize hero blobs
+    function initHeroBlobs() {
+        const blobs = document.querySelectorAll('.hero-blob');
+        const animations = ['blobFloat1', 'blobFloat2', 'blobFloat3'];
+        const durations = [18, 20, 22, 25, 28];
+
+        blobs.forEach(blob => {
+            const anim = animations[Math.floor(Math.random() * animations.length)];
+            const duration = durations[Math.floor(Math.random() * durations.length)];
+            const delay = (Math.random() * 8).toFixed(2);
+            blob.style.animationName = anim;
+            blob.style.animationDuration = `${duration}s`;
+            blob.style.animationDelay = `${delay}s`;
+        });
+    }
+
+    setTimeout(initHeroBlobs, 100);
 });

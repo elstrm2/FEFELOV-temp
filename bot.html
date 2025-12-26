@@ -487,7 +487,11 @@
                     recentMessages.innerHTML = `<p class="text-stone-500">${t('bot.recent.empty')}</p>`;
                 }
             } catch (e) {
-                logoutBtn.click();
+                if (e.message === 'Unauthorized') {
+                    logoutBtn.click();
+                } else {
+                    console.error('loadStatus error:', e);
+                }
             }
         }
 

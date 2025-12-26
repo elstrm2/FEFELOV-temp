@@ -1805,7 +1805,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const durations = [10, 11, 12, 13, 14, 15, 16];
         const directions = ['normal', 'reverse', 'alternate', 'alternate-reverse'];
 
-        document.querySelectorAll('.service-card .svg-bg-full svg').forEach((svg, index) => {
+        document.querySelectorAll('.service-card .svg-bg-full svg').forEach((svg) => {
             const anim = animations[Math.floor(Math.random() * animations.length)];
             const duration = durations[Math.floor(Math.random() * durations.length)];
             const delay = (Math.random() * 5).toFixed(2);
@@ -1815,7 +1815,7 @@ document.addEventListener('DOMContentLoaded', function() {
             svg.style.animationDelay = `${delay}s`;
         });
 
-        document.querySelectorAll('.svg-bg-blur svg').forEach((svg, index) => {
+        document.querySelectorAll('.svg-bg-blur svg').forEach((svg) => {
             const anim = animations[Math.floor(Math.random() * animations.length)];
             const duration = durations[Math.floor(Math.random() * durations.length)] + 2;
             const delay = (Math.random() * 4).toFixed(2);

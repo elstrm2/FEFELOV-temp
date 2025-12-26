@@ -333,8 +333,6 @@
         let selectedPeriod = '1d';
         let retrieverInterval = null;
 
-        const langLabels = { ru: 'Ру', en: 'En', uk: 'Укр', zh: '中文' };
-
         function t(key) {
             return typeof I18N !== 'undefined' ? I18N.translate(key) : key.split('.').pop();
         }
@@ -350,7 +348,7 @@
                 currentLang = navigator.language.slice(0,2);
                 if (!['ru','uk','en','zh'].includes(currentLang)) currentLang = 'ru';
             }
-            if (label) label.textContent = langLabels[currentLang] || currentLang;
+            if (label) label.textContent = I18N.langLabels[currentLang] || currentLang;
 
             btn.addEventListener('click', (e) => {
                 e.stopPropagation();
@@ -363,7 +361,7 @@
                     const lang = item.dataset.lang;
                     if (typeof I18N !== 'undefined') I18N.setLanguage(lang);
                     document.querySelectorAll('#login-current-lang, #bot-current-lang').forEach(el => {
-                        el.textContent = langLabels[lang] || lang;
+                        el.textContent = I18N.langLabels[lang] || lang;
                     });
                     menu.classList.add('hidden');
                     btn.setAttribute('aria-expanded', 'false');

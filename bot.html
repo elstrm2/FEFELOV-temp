@@ -478,7 +478,7 @@
         startRetrievalBtn.addEventListener('click', async () => {
             const user = retrieverUser.value.trim();
             if (!user) {
-                alert(t('bot.export.enter_user'));
+                showToast(t('bot.export.enter_user'), 'error');
                 return;
             }
             const body = { user, period: selectedPeriod };
@@ -490,7 +490,7 @@
             startRetrievalBtn.textContent = t('bot.export.starting');
             const data = await api('/retriever/start', 'POST', body);
             if (data.error) {
-                alert(data.error);
+                showToast(data.error, 'error');
                 startRetrievalBtn.disabled = false;
                 startRetrievalBtn.textContent = t('bot.export.start_btn');
             } else {

@@ -593,8 +593,8 @@ const commonStyles = `
     }
 
     #lang-menu button .lang-icon {
-        width: 18px;
-        height: 18px;
+        width: 16px;
+        height: 16px;
         flex-shrink: 0;
         opacity: 0;
         margin-right: 0;
@@ -605,6 +605,13 @@ const commonStyles = `
     #lang-menu button:hover {
         color: #1c1917;
         background: #f5f5f4;
+    }
+
+    #lang-menu button[data-lang="ru"] .lang-icon {
+        transform: translateX(-5px) scale(0.7);
+    }
+    #lang-menu button[data-lang="ru"]:hover .lang-icon {
+        transform: translateX(0) scale(0.88);
     }
 
     #lang-menu button:hover .lang-icon {

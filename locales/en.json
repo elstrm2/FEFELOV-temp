@@ -1176,7 +1176,9 @@
     },
     "history": {
       "title": "Export History",
-      "empty": "No exports yet"
+      "empty": "No exports yet",
+      "download": "Download",
+      "messages_count": "msgs"
     }
   }
 }

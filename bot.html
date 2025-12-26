@@ -572,13 +572,13 @@
                         const statusColor = j.status === 'completed' ? 'text-green-400' :
                                            j.status === 'failed' ? 'text-red-400' : 'text-stone-400';
                         const downloadBtn = j.status === 'completed' && j.pdf_path
-                            ? `<a href="${API}/retriever/download/${j.id}" class="text-blue-400 hover:text-blue-300 ml-2">Download</a>`
+                            ? `<a href="${API}/retriever/download/${j.id}" class="text-blue-400 hover:text-blue-300 ml-2">${t('bot.history.download')}</a>`
                             : '';
                         return `<div class="bg-stone-800/50 rounded-lg px-3 py-2 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
                             <div class="min-w-0">
                                 <span class="font-medium truncate block sm:inline">${escapeHtml(j.user_name || 'ID: ' + j.user_id)}</span>
                                 <span class="${statusColor} ml-0 sm:ml-2">${j.status}</span>
-                                <span class="text-stone-500 ml-2">${j.total_messages || 0} msgs</span>
+                                <span class="text-stone-500 ml-2">${j.total_messages || 0} ${t('bot.history.messages_count')}</span>
                             </div>
                             <div class="flex-shrink-0">${downloadBtn}</div>
                         </div>`;

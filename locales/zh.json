@@ -109,7 +109,9 @@
     },
     "history": {
       "title": "导出历史",
-      "empty": "暂无导出记录"
+      "empty": "暂无导出记录",
+      "download": "下载",
+      "messages_count": "条消息"
     }
   },
   "404": {

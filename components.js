@@ -536,33 +536,52 @@ const commonStyles = `
         border-radius: 8px;
         overflow: hidden;
         transition: all 0.2s ease;
-        padding-left: 1.25rem;
+        padding-left: 1.75rem;
+        display: flex;
+        align-items: center;
     }
 
-    #lang-menu button::after {
+    #lang-menu button::before {
+        content: '';
         position: absolute;
-        left: 12px;
+        left: 10px;
         top: 50%;
-        transform: translateY(-50%) scale(0);
-        font-size: 11px;
-        transition: all 0.2s ease;
-        opacity: 0.6;
+        transform: translateY(-50%);
+        width: 14px;
+        height: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+        transition: all 0.3s ease;
     }
 
     #lang-menu button:hover {
         color: #1c1917;
         background: #f5f5f4;
-        padding-left: 2rem;
     }
 
-    #lang-menu button:hover::after {
-        transform: translateY(-50%) scale(1);
+    #lang-menu button.active {
+        font-weight: 600;
+        color: #1c1917;
     }
 
-    #lang-menu button[data-lang="ru"]::after { content: '❄'; color: #78716c; }
-    #lang-menu button[data-lang="en"]::after { content: '>'; color: #78716c; font-family: monospace; font-weight: bold; }
-    #lang-menu button[data-lang="uk"]::after { content: '✦'; color: #78716c; }
-    #lang-menu button[data-lang="zh"]::after { content: '☁'; color: #78716c; font-size: 13px; }
+    #lang-menu button[data-lang="ru"]::before { content: '❄'; background: linear-gradient(135deg, #67e8f9, #0ea5e9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: langPulseRu 2s ease-in-out infinite; }
+    #lang-menu button[data-lang="ru"].active::before { font-size: 15px; filter: drop-shadow(0 0 4px rgba(14, 165, 233, 0.5)); }
+
+    #lang-menu button[data-lang="en"]::before { content: '>'; font-family: monospace; font-weight: bold; background: linear-gradient(135deg, #4ade80, #22c55e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: langBounceEn 1.5s ease-in-out infinite; }
+    #lang-menu button[data-lang="en"].active::before { font-size: 15px; filter: drop-shadow(0 0 4px rgba(34, 197, 94, 0.5)); }
+
+    #lang-menu button[data-lang="uk"]::before { content: '✦'; background: linear-gradient(135deg, #fcd34d, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: langSpinUk 3s linear infinite; }
+    #lang-menu button[data-lang="uk"].active::before { font-size: 15px; filter: drop-shadow(0 0 4px rgba(245, 158, 11, 0.5)); }
+
+    #lang-menu button[data-lang="zh"]::before { content: '☁'; font-size: 15px; background: linear-gradient(135deg, #f87171, #dc2626); -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: langFloatZh 2.5s ease-in-out infinite; }
+    #lang-menu button[data-lang="zh"].active::before { font-size: 17px; filter: drop-shadow(0 0 4px rgba(220, 38, 38, 0.5)); }
+
+    @keyframes langPulseRu { 0%, 100% { transform: translateY(-50%) scale(1); opacity: 0.8; } 50% { transform: translateY(-50%) scale(1.15); opacity: 1; } }
+    @keyframes langBounceEn { 0%, 100% { transform: translateY(-50%) translateX(0); } 50% { transform: translateY(-50%) translateX(2px); } }
+    @keyframes langSpinUk { 0% { transform: translateY(-50%) rotate(0deg); } 100% { transform: translateY(-50%) rotate(360deg); } }
+    @keyframes langFloatZh { 0%, 100% { transform: translateY(-50%) scale(1); } 50% { transform: translateY(-55%) scale(1.1); } }
 `;
 
 const headerHTML = `
@@ -665,6 +684,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
         function updateLangVisuals(lang) {
             if (langBtn) langBtn.setAttribute('data-active-lang', lang);
+            if (langMenu) {
+                langMenu.querySelectorAll('[data-lang]').forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.lang === lang);
+                });
+            }
         }
 
         const storedLang = localStorage.getItem('lang') || 'ru';
